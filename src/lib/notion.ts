@@ -15,10 +15,6 @@ const databaseId = process.env.NOTION_DATABASE_ID!;
 export const notion = new Client({ auth: notionToken });
 export const n2m = new NotionToMarkdown({ notionClient: notion });
 
-function isDevelopment(): boolean {
-	return process.env.NODE_ENV === 'development';
-}
-
 export interface Post {
 	id: string;
 	title: string;
@@ -46,24 +42,6 @@ export function getWordCount(content: string): number {
 		.replace(/\s+/g, ' ')
 		.trim();
 	return cleanText.split(' ').length;
-}
-
-// Live function to fetch all published posts (no caching)
-export async function getPostsLive(): Promise<Post[]> {
-	console.log('Fetching posts from Notion (live)...');
-	const posts = await fetchPublishedPosts();
-
-	const allPosts = [];
-
-	for (const post of posts) {
-		const postDetails = await getPostFromNotion(post.id);
-		if (postDetails) {
-			allPosts.push(postDetails);
-		}
-	}
-
-	console.log(`Successfully fetched ${allPosts.length} posts (live).`);
-	return allPosts;
 }
 
 // Cached function to fetch all published posts
@@ -115,11 +93,8 @@ export async function fetchPublishedPosts() {
 	return posts.results as PageObjectResponse[];
 }
 
-// Get all posts - uses live data in development, cached in production
+// Get all posts - always uses cached data
 export async function getAllPosts(): Promise<Post[]> {
-	if (isDevelopment()) {
-		return await getPostsLive();
-	}
 	return await getPostsFromCache();
 }
 
@@ -192,6 +167,8 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
 			page_id: authorPageId,
 		})) as PageObjectResponse;
 		const authorProps = authorResponse.properties as any;
+		const author = authorProps.Name.title[0].plain_text ?? undefined;
+		const authorAvatar = authorProps.Avatar.files[0].file.url ?? undefined;
 
 		const post: Post = {
 			id: page.id,
@@ -209,8 +186,8 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
 				properties['Published Date']?.date?.start ||
 				new Date().toISOString(),
 			content: contentString,
-			author: authorProps.Name.title[0].plain_text ?? undefined,
-			authorAvatar: authorProps.Avatar.files[0].file.url ?? undefined,
+			author,
+			authorAvatar,
 			tags:
 				properties.Tags?.multi_select?.map((tag: any) => tag.name) ||
 				[],
