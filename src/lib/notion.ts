@@ -3,12 +3,16 @@ import { NotionToMarkdown } from "notion-to-md";
 import { PageObjectResponse } from "@notionhq/client/";
 import fs from "fs";
 import path from "path";
+import dotenv from "dotenv";
+
+if (!process.env.VERCEL && !process.env.NOTION_TOKEN) {
+  dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
+}
 
 const notionToken = process.env.NOTION_TOKEN!;
 const databaseId = process.env.NOTION_DATABASE_ID!;
 
 export const notion = new Client({ auth: notionToken });
-
 export const n2m = new NotionToMarkdown({ notionClient: notion });
 
 export interface Post {
@@ -84,9 +88,13 @@ export async function getPost(slug: string): Promise<Post | null> {
   return post || null;
 }
 
-export async function refreshPostsCache(): Promise<{ success: boolean; message: string; count?: number }> {
+export async function refreshPostsCache(): Promise<{
+  success: boolean;
+  message: string;
+  count?: number;
+}> {
   try {
-    console.log('Fetching posts from Notion...');
+    console.log("Fetching posts from Notion...");
     const posts = await fetchPublishedPosts();
 
     const allPosts = [];
@@ -98,20 +106,21 @@ export async function refreshPostsCache(): Promise<{ success: boolean; message: 
       }
     }
 
-    const cachePath = path.join(process.cwd(), 'posts-cache.json');
+    const cachePath = path.join(process.cwd(), "posts-cache.json");
     fs.writeFileSync(cachePath, JSON.stringify(allPosts, null, 2));
 
     console.log(`Successfully cached ${allPosts.length} posts.`);
     return {
       success: true,
       message: `Successfully refreshed cache with ${allPosts.length} posts`,
-      count: allPosts.length
+      count: allPosts.length,
     };
   } catch (error) {
-    console.error('Error caching posts:', error);
+    console.error("Error caching posts:", error);
     return {
       success: false,
-      message: error instanceof Error ? error.message : 'Unknown error occurred'
+      message:
+        error instanceof Error ? error.message : "Unknown error occurred",
     };
   }
 }
