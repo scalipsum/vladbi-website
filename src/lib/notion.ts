@@ -84,6 +84,38 @@ export async function getPost(slug: string): Promise<Post | null> {
   return post || null;
 }
 
+export async function refreshPostsCache(): Promise<{ success: boolean; message: string; count?: number }> {
+  try {
+    console.log('Fetching posts from Notion...');
+    const posts = await fetchPublishedPosts();
+
+    const allPosts = [];
+
+    for (const post of posts) {
+      const postDetails = await getPostFromNotion(post.id);
+      if (postDetails) {
+        allPosts.push(postDetails);
+      }
+    }
+
+    const cachePath = path.join(process.cwd(), 'posts-cache.json');
+    fs.writeFileSync(cachePath, JSON.stringify(allPosts, null, 2));
+
+    console.log(`Successfully cached ${allPosts.length} posts.`);
+    return {
+      success: true,
+      message: `Successfully refreshed cache with ${allPosts.length} posts`,
+      count: allPosts.length
+    };
+  } catch (error) {
+    console.error('Error caching posts:', error);
+    return {
+      success: false,
+      message: error instanceof Error ? error.message : 'Unknown error occurred'
+    };
+  }
+}
+
 export async function getPostFromNotion(pageId: string): Promise<Post | null> {
   try {
     const page = (await notion.pages.retrieve({
