@@ -1,8 +1,8 @@
 import { getPostsFromCache, Post } from "@/lib/notion";
 import PostCard from "@/components/post-card";
 
-export default function Home() {
-  const posts = getPostsFromCache();
+export default async function Home() {
+  const posts = await getPostsFromCache();
 
   return (
     <div>

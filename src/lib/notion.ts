@@ -1,9 +1,10 @@
 import { Client } from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
 import { PageObjectResponse } from "@notionhq/client/";
-import fs from "fs";
-import path from "path";
+import { unstable_cache } from "next/cache";
+import { revalidateTag } from "next/cache";
 import dotenv from "dotenv";
+import path from "path";
 
 if (!process.env.VERCEL && !process.env.NOTION_TOKEN) {
   dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
@@ -43,22 +44,41 @@ export function getWordCount(content: string): number {
   return cleanText.split(" ").length;
 }
 
-export function getPostsFromCache(): Post[] {
-  const cachePath = path.join(process.cwd(), "posts-cache.json");
-  if (fs.existsSync(cachePath)) {
-    try {
-      const cache = fs.readFileSync(cachePath, "utf-8");
-      return JSON.parse(cache);
-    } catch (error) {
-      console.error("Error reading posts cache:", error);
-      return [];
+// Cached function to fetch all published posts
+const getCachedPosts = unstable_cache(
+  async (): Promise<Post[]> => {
+    console.log("Fetching posts from Notion...");
+    const posts = await fetchPublishedPosts();
+    
+    const allPosts = [];
+    
+    for (const post of posts) {
+      const postDetails = await getPostFromNotion(post.id);
+      if (postDetails) {
+        allPosts.push(postDetails);
+      }
     }
+    
+    console.log(`Successfully fetched ${allPosts.length} posts.`);
+    return allPosts;
+  },
+  ['blog-posts'],
+  {
+    tags: ['blog-posts'],
+    revalidate: false, // Only manual revalidation
   }
-  return [];
+);
+
+export async function getPostsFromCache(): Promise<Post[]> {
+  try {
+    return await getCachedPosts();
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    return [];
+  }
 }
 
 export async function fetchPublishedPosts() {
-  // This function is now intended to be used only by the caching script.
   const posts = await notion.databases.query({
     database_id: databaseId,
     filter: {
@@ -83,7 +103,7 @@ export async function fetchPublishedPosts() {
 }
 
 export async function getPost(slug: string): Promise<Post | null> {
-  const posts = getPostsFromCache();
+  const posts = await getPostsFromCache();
   const post = posts.find((p) => p.slug === slug);
   return post || null;
 }
@@ -94,11 +114,15 @@ export async function refreshPostsCache(): Promise<{
   count?: number;
 }> {
   try {
-    console.log("Fetching posts from Notion...");
+    console.log("Refreshing posts cache...");
+    
+    // Trigger revalidation of the cached posts
+    revalidateTag('blog-posts');
+    
+    // Fetch fresh data to get count
     const posts = await fetchPublishedPosts();
-
     const allPosts = [];
-
+    
     for (const post of posts) {
       const postDetails = await getPostFromNotion(post.id);
       if (postDetails) {
@@ -106,17 +130,14 @@ export async function refreshPostsCache(): Promise<{
       }
     }
 
-    const cachePath = path.join(process.cwd(), "posts-cache.json");
-    fs.writeFileSync(cachePath, JSON.stringify(allPosts, null, 2));
-
-    console.log(`Successfully cached ${allPosts.length} posts.`);
+    console.log(`Successfully refreshed cache with ${allPosts.length} posts.`);
     return {
       success: true,
       message: `Successfully refreshed cache with ${allPosts.length} posts`,
       count: allPosts.length,
     };
   } catch (error) {
-    console.error("Error caching posts:", error);
+    console.error("Error refreshing cache:", error);
     return {
       success: false,
       message:

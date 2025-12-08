@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "bun run cache:posts && next dev --turbopack",
-    "build": "bun run cache:posts && next build",
+    "dev": "next dev --turbopack",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "cache:posts": "tsx scripts/cache-posts.ts"
+    "lint": "next lint"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",

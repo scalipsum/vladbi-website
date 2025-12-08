@@ -15,12 +15,20 @@ interface PostPageProps {
   params: Promise<{ slug: string }>;
 }
 
+export async function generateStaticParams() {
+  const posts = await getPostsFromCache();
+  
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export async function generateMetadata(
   { params }: PostPageProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const { slug } = await params;
-  const posts = getPostsFromCache();
+  const posts = await getPostsFromCache();
   const post = posts.find((p) => p.slug === slug);
 
   if (!post) {
@@ -70,7 +78,7 @@ export async function generateMetadata(
 
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params;
-  const posts = getPostsFromCache();
+  const posts = await getPostsFromCache();
   const post = posts.find((p) => p.slug === slug);
   const wordCount = post?.content ? getWordCount(post.content) : 0;
 
