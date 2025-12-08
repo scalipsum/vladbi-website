@@ -4,8 +4,8 @@ import { PageObjectResponse } from "@notionhq/client/";
 import fs from "fs";
 import path from "path";
 
-const notionToken = process.env.NOTION_TOKEN;
-const databaseId = process.env.NOTION_DATABASE_ID;
+const notionToken = process.env.NOTION_TOKEN!;
+const databaseId = process.env.NOTION_DATABASE_ID!;
 
 export const notion = new Client({ auth: notionToken });
 
