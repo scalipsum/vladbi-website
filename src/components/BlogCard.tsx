@@ -16,7 +16,7 @@ interface PostCardProps {
 	post: Post;
 }
 
-export default function PostCard({ post }: PostCardProps) {
+export default function BlogCard({ post }: PostCardProps) {
 	const wordCount = post.content ? getWordCount(post.content) : 0;
 	const readingTime = calculateReadingTime(wordCount);
 
