@@ -4,7 +4,11 @@ import { PageObjectResponse } from "@notionhq/client/";
 import fs from "fs";
 import path from "path";
 
-export const notion = new Client({ auth: process.env.NOTION_TOKEN });
+const notionToken = process.env.NOTION_TOKEN;
+const databaseId = process.env.NOTION_DATABASE_ID;
+
+export const notion = new Client({ auth: notionToken });
+
 export const n2m = new NotionToMarkdown({ notionClient: notion });
 
 export interface Post {
@@ -22,7 +26,7 @@ export interface Post {
 
 export async function getDatabaseStructure() {
   const database = await notion.databases.retrieve({
-    database_id: process.env.NOTION_DATABASE_ID!,
+    database_id: databaseId,
   });
   return database;
 }
@@ -52,7 +56,7 @@ export function getPostsFromCache(): Post[] {
 export async function fetchPublishedPosts() {
   // This function is now intended to be used only by the caching script.
   const posts = await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID!,
+    database_id: databaseId,
     filter: {
       and: [
         {
@@ -104,8 +108,7 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
         properties.Title.title[0]?.plain_text
           .toLowerCase()
           .replace(/[^a-z0-9]+/g, "-") // Replace any non-alphanumeric chars with dash
-          .replace(/^-+|-+$/g, "") || // Remove leading/trailing dashes
-        "untitled",
+          .replace(/^-+|-+$/g, "") || "untitled", // Remove leading/trailing dashes
       coverImage: properties["Featured Image"]?.url || undefined,
       description,
       date:
