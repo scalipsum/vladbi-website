@@ -26,18 +26,15 @@ export default function ContentUpdatePage() {
     setResult(null);
 
     try {
-      const response = await fetch("/api/cache-refresh", {
+      const response = await fetch("/api/refresh-cache", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
       });
       const data = await response.json();
       setResult(data);
     } catch (error) {
       setResult({
         success: false,
-        message: "Failed to connect to the refresh service",
+        message: "Failed to refresh cache",
       });
     } finally {
       setIsLoading(false);

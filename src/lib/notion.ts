@@ -45,7 +45,7 @@ export function getWordCount(content: string): number {
 }
 
 // Cached function to fetch all published posts
-const getCachedPosts = unstable_cache(
+export const getPostsFromCache = unstable_cache(
   async (): Promise<Post[]> => {
     console.log("Fetching posts from Notion...");
     const posts = await fetchPublishedPosts();
@@ -68,15 +68,6 @@ const getCachedPosts = unstable_cache(
     revalidate: false, // Only manual revalidation
   }
 );
-
-export async function getPostsFromCache(): Promise<Post[]> {
-  try {
-    return await getCachedPosts();
-  } catch (error) {
-    console.error("Error fetching posts:", error);
-    return [];
-  }
-}
 
 export async function fetchPublishedPosts() {
   const posts = await notion.databases.query({
