@@ -48,7 +48,6 @@ export const getPostsFromCache = unstable_cache(
 	async (): Promise<Post[]> => {
 		console.log('Fetching posts from Notion...');
 		const posts = await fetchPublishedPosts();
-		console.log('Posts:', posts);
 
 		const allPosts = [];
 
@@ -167,7 +166,9 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
 					.toLowerCase()
 					.replace(/[^a-z0-9]+/g, '-') // Replace any non-alphanumeric chars with dash
 					.replace(/^-+|-+$/g, '') || 'untitled', // Remove leading/trailing dashes
-			coverImage: properties['Featured Image']?.url || undefined,
+			coverImage:
+				// @ts-expect-error-next-line
+				page?.cover?.file?.url ?? page?.cover?.external?.url ?? null,
 			description,
 			date:
 				properties['Published Date']?.date?.start ||

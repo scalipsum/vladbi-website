@@ -3,6 +3,7 @@ import { getPostsFromCache } from '@/lib/notion';
 
 export default async function Home() {
 	const posts = await getPostsFromCache();
+	console.log('Posts:', posts[0].coverImage);
 
 	return (
 		<div>
