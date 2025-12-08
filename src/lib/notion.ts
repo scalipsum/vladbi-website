@@ -15,6 +15,10 @@ const databaseId = process.env.NOTION_DATABASE_ID!;
 export const notion = new Client({ auth: notionToken });
 export const n2m = new NotionToMarkdown({ notionClient: notion });
 
+function isDevelopment(): boolean {
+	return process.env.NODE_ENV === 'development';
+}
+
 export interface Post {
 	id: string;
 	title: string;
@@ -24,6 +28,7 @@ export interface Post {
 	date: string;
 	content: string;
 	author?: string;
+	authorAvatar?: string;
 	tags?: string[];
 	category?: string;
 }
@@ -41,6 +46,24 @@ export function getWordCount(content: string): number {
 		.replace(/\s+/g, ' ')
 		.trim();
 	return cleanText.split(' ').length;
+}
+
+// Live function to fetch all published posts (no caching)
+export async function getPostsLive(): Promise<Post[]> {
+	console.log('Fetching posts from Notion (live)...');
+	const posts = await fetchPublishedPosts();
+
+	const allPosts = [];
+
+	for (const post of posts) {
+		const postDetails = await getPostFromNotion(post.id);
+		if (postDetails) {
+			allPosts.push(postDetails);
+		}
+	}
+
+	console.log(`Successfully fetched ${allPosts.length} posts (live).`);
+	return allPosts;
 }
 
 // Cached function to fetch all published posts
@@ -92,8 +115,16 @@ export async function fetchPublishedPosts() {
 	return posts.results as PageObjectResponse[];
 }
 
+// Get all posts - uses live data in development, cached in production
+export async function getAllPosts(): Promise<Post[]> {
+	if (isDevelopment()) {
+		return await getPostsLive();
+	}
+	return await getPostsFromCache();
+}
+
 export async function getPost(slug: string): Promise<Post | null> {
-	const posts = await getPostsFromCache();
+	const posts = await getAllPosts();
 	const post = posts.find((p) => p.slug === slug);
 	return post || null;
 }

@@ -1,6 +1,6 @@
 import { components } from '@/components/Mdx';
 import { Badge } from '@/components/ui/badge';
-import { getPostsFromCache, getWordCount } from '@/lib/notion';
+import { getAllPosts, getWordCount } from '@/lib/notion';
 import { calculateReadingTime } from '@/lib/utils';
 import { format } from 'date-fns';
 import { Metadata, ResolvingMetadata } from 'next';
@@ -15,7 +15,7 @@ interface PostPageProps {
 }
 
 export async function generateStaticParams() {
-	const posts = await getPostsFromCache();
+	const posts = await getAllPosts();
 
 	return posts.map((post) => ({
 		slug: post.slug,
@@ -27,7 +27,7 @@ export async function generateMetadata(
 	parent: ResolvingMetadata,
 ): Promise<Metadata> {
 	const { slug } = await params;
-	const posts = await getPostsFromCache();
+	const posts = await getAllPosts();
 	const post = posts.find((p) => p.slug === slug);
 
 	if (!post) {
@@ -77,7 +77,7 @@ export async function generateMetadata(
 
 export default async function PostPage({ params }: PostPageProps) {
 	const { slug } = await params;
-	const posts = await getPostsFromCache();
+	const posts = await getAllPosts();
 	const post = posts.find((p) => p.slug === slug);
 	const wordCount = post?.content ? getWordCount(post.content) : 0;
 

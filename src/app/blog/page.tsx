@@ -1,9 +1,8 @@
 import PostCard from '@/components/BlogCard';
-import { getPostsFromCache } from '@/lib/notion';
+import { getAllPosts } from '@/lib/notion';
 
 export default async function Home() {
-	const posts = await getPostsFromCache();
-	console.log('Posts:', posts[0].coverImage);
+	const posts = await getAllPosts();
 
 	return (
 		<div>
