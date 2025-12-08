@@ -123,12 +123,6 @@ export async function getAllPosts(): Promise<Post[]> {
 	return await getPostsFromCache();
 }
 
-export async function getPost(slug: string): Promise<Post | null> {
-	const posts = await getAllPosts();
-	const post = posts.find((p) => p.slug === slug);
-	return post || null;
-}
-
 export async function refreshPostsCache(): Promise<{
 	success: boolean;
 	message: string;
@@ -176,6 +170,9 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
 		const page = (await notion.pages.retrieve({
 			page_id: pageId,
 		})) as PageObjectResponse;
+
+		console.log('Page', page);
+
 		const mdBlocks = await n2m.pageToMarkdown(pageId);
 		const { parent: contentString } = n2m.toMarkdownString(mdBlocks);
 
@@ -189,6 +186,13 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
 			(firstParagraph.length > 160 ? '...' : '');
 
 		const properties = page.properties as any;
+
+		const authorPageId = properties.Author.relation[0].id;
+		const authorResponse = (await notion.pages.retrieve({
+			page_id: authorPageId,
+		})) as PageObjectResponse;
+		const authorProps = authorResponse.properties as any;
+
 		const post: Post = {
 			id: page.id,
 			title: properties.Title.title[0]?.plain_text || 'Untitled',
@@ -205,7 +209,8 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
 				properties['Published Date']?.date?.start ||
 				new Date().toISOString(),
 			content: contentString,
-			author: properties.Author?.people[0]?.name,
+			author: authorProps.Name.title[0].plain_text ?? undefined,
+			authorAvatar: authorProps.Avatar.files[0].file.url ?? undefined,
 			tags:
 				properties.Tags?.multi_select?.map((tag: any) => tag.name) ||
 				[],
