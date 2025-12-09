@@ -14,8 +14,8 @@ interface StripesProps {
 }
 export default function Stripes({
 	className,
-	height = 'h-[340px] lg:h-[422px]',
-	width = 'w-[260px] lg:w-[340px]',
+	height = 'h-[300px] lg:h-[422px]',
+	width = 'w-[225px] lg:w-[340px]',
 }: StripesProps) {
 	return (
 		<div className={cn(className, height, width)}>
