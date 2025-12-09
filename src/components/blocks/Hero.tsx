@@ -50,7 +50,7 @@ export default function Hero() {
 
 			<div className="relative">
 				<RotatingGlobe
-					className="absolute right-0 md:right-12 lg:right-12 xl:right-12 opacity-100 z-0"
+					className="absolute -right-12 md:right-12 lg:right-12 xl:right-12 opacity-100 z-0"
 					size={globeSize}
 				/>
 				<Image
@@ -60,7 +60,7 @@ export default function Hero() {
 					height={813}
 					className="relative w-[300px] lg:w-[350px] xl:w-[430px] lg:mr-12 z-20 mt-10 md:mt-20"
 				/>
-				<Stripes className="absolute md:top-0 md:right-0 z-0 -right-28 top-24 opacity-100" />
+				<Stripes className="absolute md:top-0 z-0 right-0 top-35 opacity-100 rotate-[6deg]" />
 			</div>
 		</section>
 	);
