@@ -1,3 +1,4 @@
+import Person from '@/assets/img/person.webp';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -29,7 +30,7 @@ export default async function Hero() {
 				/>
 
 				<Image
-					src="/img/person.png"
+					src={Person}
 					alt="Vladbi Silhouette"
 					width={573}
 					height={813}

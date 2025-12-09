@@ -1,3 +1,6 @@
+import BabyStripe from '@/assets/img/baby-stripe.svg';
+import BlueStripe from '@/assets/img/blue-stripe.svg';
+import RedStripe from '@/assets/img/red-stripe.svg';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 
@@ -16,7 +19,7 @@ export default function Stripes({
 			<div className={cn('relative', height, width)}>
 				<div className="absolute left-0 w-[200px] h-full">
 					<Image
-						src="/img/red-stripe.svg"
+						src={RedStripe}
 						alt="Red Stripe"
 						fill
 						className="object-cover object-left"
@@ -24,7 +27,7 @@ export default function Stripes({
 				</div>
 				<div className="absolute left-[75px] w-[200px] h-full">
 					<Image
-						src="/img/baby-stripe.svg"
+						src={BabyStripe}
 						alt="Baby Stripe"
 						fill
 						className="object-cover object-left"
@@ -32,7 +35,7 @@ export default function Stripes({
 				</div>
 				<div className="absolute left-[135px] w-[200px] h-full">
 					<Image
-						src="/img/blue-stripe.svg"
+						src={BlueStripe}
 						alt="Blue Stripe"
 						fill
 						className="object-cover object-left"
