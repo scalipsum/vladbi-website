@@ -36,9 +36,10 @@ export default function Hero() {
 					<Link href="/blog">Get Started</Link>
 				</Button>
 			</motion.div>
+
 			<div className="relative">
 				<RotatingGlobe
-					className="absolute top-0 right-10 opacity-100 z-0"
+					className="absolute top-0 right-12 opacity-100 z-0"
 					size={700}
 				/>
 
@@ -47,7 +48,7 @@ export default function Hero() {
 					alt="Vladbi Silhouette"
 					width={573}
 					height={813}
-					className="relative w-[430px] mr-20 z-20 mt-20"
+					className="relative w-[430px] mr-14 z-20 mt-20"
 				/>
 
 				<Stripes className="absolute top-0 right-0 z-0" />

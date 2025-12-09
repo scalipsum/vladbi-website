@@ -1,3 +1,5 @@
+'use client';
+
 import BabyStripe from '@/assets/img/baby-stripe.svg';
 import BlueStripe from '@/assets/img/blue-stripe.svg';
 import RedStripe from '@/assets/img/red-stripe.svg';
