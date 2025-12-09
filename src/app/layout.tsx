@@ -1,10 +1,20 @@
 import MainLayout from '@/components/layout/MainLayout';
+import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import { Nunito, Nunito_Sans } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const nunitoSans = Nunito_Sans({
+	weight: ['500', '600'], // medium, semibold
+	subsets: ['latin'],
+	variable: '--font-nunito-sans',
+});
+const nunito = Nunito({
+	weight: ['700', '800'], // bold, extrabold
+	subsets: ['latin'],
+	variable: '--font-nunito',
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://your-site.com';
 
@@ -70,7 +80,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={inter.className}>
+			<body className={cn(nunitoSans.className, nunito.className)}>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
