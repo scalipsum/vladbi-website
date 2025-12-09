@@ -13,13 +13,13 @@ interface StripesProps {
 }
 export default function Stripes({
 	className,
-	height = 'h-[322px] lg:h-[422px]',
-	width = 'w-[100px] lg:w-[340px]',
+	height = 'h-[322px] md:h-[422px]',
+	width = 'w-[100px] md:w-[340px]',
 }: StripesProps) {
 	return (
 		<div className={className}>
 			<div className={cn('relative', height, width)}>
-				<div className="absolute left-0 w-[100px] lg:w-[200px] h-full">
+				<div className="absolute left-0 w-[100px] md:w-[200px] h-full">
 					<Image
 						src={RedStripe}
 						alt="Red Stripe"
@@ -27,7 +27,7 @@ export default function Stripes({
 						className="object-cover object-left"
 					/>
 				</div>
-				<div className="absolute left-[40px] w-[100px] lg:w-[200px] h-full">
+				<div className="absolute left-[40px] md:left-[75px] w-[100px] md:w-[200px] h-full">
 					<Image
 						src={BabyStripe}
 						alt="Baby Stripe"
@@ -35,7 +35,7 @@ export default function Stripes({
 						className="object-cover object-left"
 					/>
 				</div>
-				<div className="absolute left-[55px] w-[100px] lg:w-[200px] h-full">
+				<div className="absolute left-[55px] md:left-[135px] w-[100px] md:w-[200px] h-full">
 					<Image
 						src={BlueStripe}
 						alt="Blue Stripe"
