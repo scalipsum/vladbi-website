@@ -18,7 +18,7 @@ export default async function Hero() {
 					processes to maximize your revenue.
 				</p>
 				<Button asChild className="mt-8">
-					<Link href="#get-started">Get Started</Link>
+					<Link href="/blog">Get Started</Link>
 				</Button>
 			</div>
 			<div className="relative">
@@ -27,7 +27,7 @@ export default async function Hero() {
 					alt="Vladbi Silhouette"
 					width={573}
 					height={813}
-					className="relative w-[350px] mr-20 z-20 mt-20"
+					className="relative w-[430px] mr-20 z-20 mt-20"
 				/>
 				<Stripes className="absolute top-0 right-0 z-0" />
 			</div>
