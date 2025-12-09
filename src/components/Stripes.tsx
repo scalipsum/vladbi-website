@@ -14,7 +14,7 @@ interface StripesProps {
 export default function Stripes({
 	className,
 	height = 'h-[322px] md:h-[422px]',
-	width = 'w-[100px] md:w-[340px]',
+	width = 'w-[300px] md:w-[340px]',
 }: StripesProps) {
 	return (
 		<div className={className}>
@@ -27,7 +27,7 @@ export default function Stripes({
 						className="object-cover object-left"
 					/>
 				</div>
-				<div className="absolute left-[40px] md:left-[75px] w-[100px] md:w-[200px] h-full">
+				<div className="absolute left-[40px] md:left-[75px] w-[120px] md:w-[200px] h-full">
 					<Image
 						src={BabyStripe}
 						alt="Baby Stripe"
@@ -35,7 +35,7 @@ export default function Stripes({
 						className="object-cover object-left"
 					/>
 				</div>
-				<div className="absolute left-[55px] md:left-[135px] w-[100px] md:w-[200px] h-full">
+				<div className="absolute left-[60px] md:left-[135px] w-[160px] md:w-[200px] h-full">
 					<Image
 						src={BlueStripe}
 						alt="Blue Stripe"
