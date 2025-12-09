@@ -34,7 +34,7 @@ export default function Hero() {
 			<motion.div
 				initial={{ opacity: 0, y: 40 }}
 				animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
-				className="w-full md:max-w-1/2 z-10 pt-10 md:pt-0 flex flex-col items-center md:items-start"
+				className="w-full md:max-w-1/2 z-10 pt-16 md:pt-0 flex flex-col items-center md:items-start"
 			>
 				<h1 className="text-4xl lg:text-5xl xl:text-6xl font-main font-extrabold tracking-tight text-brand text-center md:text-left">
 					We build SaaS ideas <br /> that Scale globally
@@ -50,7 +50,7 @@ export default function Hero() {
 
 			<div className="relative">
 				<RotatingGlobe
-					className="absolute -right-12 md:right-12 lg:right-12 xl:right-12 opacity-100 z-0"
+					className="absolute right-0 lg:right-12 xl:right-12 opacity-100 z-0"
 					size={globeSize}
 				/>
 				<Image
@@ -60,7 +60,7 @@ export default function Hero() {
 					height={813}
 					className="relative w-[300px] lg:w-[350px] xl:w-[430px] lg:mr-12 z-20 mt-10 md:mt-20"
 				/>
-				<Stripes className="absolute md:top-0 z-0 right-0 left-56 md:left-24 lg:left-auto top-35" />
+				<Stripes className="absolute md:top-0 z-0 right-0 left-32 md:left-24 lg:left-auto top-24" />
 			</div>
 		</section>
 	);
