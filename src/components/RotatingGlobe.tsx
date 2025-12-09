@@ -1,8 +1,10 @@
 'use client';
 
+import darkGlobeLottie from '@/assets/lottie/dark-globe.json';
 import globeLottie from '@/assets/lottie/globe.json';
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
+import { useTheme } from 'next-themes';
 import { useEffect, useRef } from 'react';
 
 interface RotatingGlobeProps {
@@ -15,6 +17,7 @@ export default function RotatingGlobe({
 	size = 500,
 }: RotatingGlobeProps) {
 	const lottieRef = useRef(null);
+	const theme = useTheme();
 
 	useEffect(() => {
 		// @ts-expect-error-next-line
@@ -25,18 +28,23 @@ export default function RotatingGlobe({
 		<motion.div
 			className={className}
 			initial={{ opacity: 0, scale: 0.9 }}
-			animate={{
-				opacity: 1,
-				scale: 1,
-				transition: { duration: 1 },
-			}}
+			animate={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
 		>
-			<Lottie
-				lottieRef={lottieRef}
-				animationData={globeLottie}
-				loop={true}
-				style={{ height: size, width: size, rotate: '15deg' }}
-			/>
+			{theme.theme === 'dark' ? (
+				<Lottie
+					lottieRef={lottieRef}
+					animationData={darkGlobeLottie}
+					loop={true}
+					style={{ height: size, width: size, rotate: '15deg' }}
+				/>
+			) : (
+				<Lottie
+					lottieRef={lottieRef}
+					animationData={globeLottie}
+					loop={true}
+					style={{ height: size, width: size, rotate: '15deg' }}
+				/>
+			)}
 		</motion.div>
 	);
 }

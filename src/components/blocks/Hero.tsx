@@ -16,16 +16,10 @@ export default function Hero() {
 		>
 			<motion.div
 				initial={{ opacity: 0, y: 40 }}
-				animate={{
-					opacity: 1,
-					y: 0,
-					transition: {
-						duration: 1,
-					},
-				}}
+				animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
 				className="max-w-1/2 z-10"
 			>
-				<h1 className="text-6xl font-main font-extrabold tracking-tight text-brand-500">
+				<h1 className="text-6xl font-main font-extrabold tracking-tight text-brand">
 					We build AI SaaS <br /> products that Scale
 				</h1>
 				<p className="font-sans tracking-tight text-xl mt-8">
@@ -42,15 +36,13 @@ export default function Hero() {
 					className="absolute top-0 right-12 opacity-100 z-0"
 					size={700}
 				/>
-
 				<Image
 					src={Person}
 					alt="Vladbi Silhouette"
 					width={573}
 					height={813}
-					className="relative w-[430px] mr-14 z-20 mt-20"
+					className="relative w-[430px] mr-15 z-20 mt-20"
 				/>
-
 				<Stripes className="absolute top-0 right-0 z-0" />
 			</div>
 		</section>
