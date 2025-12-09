@@ -5,24 +5,41 @@ import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import RotatingGlobe from '../RotatingGlobe';
 import Stripes from '../Stripes';
 
 export default function Hero() {
+	const [globeSize, setGlobeSize] = useState(700);
+	useEffect(() => {
+		const updateGlobeSize = () => {
+			if (window.innerWidth < 1024) {
+				setGlobeSize(500);
+			} else if (window.innerWidth < 1280) {
+				setGlobeSize(600);
+			} else {
+				setGlobeSize(700);
+			}
+		};
+		updateGlobeSize();
+		window.addEventListener('resize', updateGlobeSize);
+		return () => window.removeEventListener('resize', updateGlobeSize);
+	}, []);
+
 	return (
 		<section
 			id="hero"
-			className="flex flex-row items-center justify-between"
+			className="flex flex-col md:flex-row items-center justify-between"
 		>
 			<motion.div
 				initial={{ opacity: 0, y: 40 }}
 				animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
-				className="max-w-1/2 z-10"
+				className="w-full md:max-w-1/2 z-10 pt-10 md:pt-0 flex flex-col items-center md:items-start"
 			>
-				<h1 className="text-6xl font-main font-extrabold tracking-tight text-brand">
+				<h1 className="text-4xl lg:text-5xl xl:text-6xl font-main font-extrabold tracking-tight text-brand text-center md:text-left">
 					We build SaaS ideas <br /> that Scale globally
 				</h1>
-				<p className="font-sans tracking-tight text-xl mt-8">
+				<p className="font-sans tracking-tight text-xl mt-8 text-center md:text-left">
 					Handling full technical execution. Then <br /> automate
 					processes to maximize your revenue.
 				</p>
@@ -33,17 +50,17 @@ export default function Hero() {
 
 			<div className="relative">
 				<RotatingGlobe
-					className="absolute top-0 right-12 opacity-100 z-0"
-					size={700}
+					className="absolute right-0 md:right-12 lg:right-12 xl:right-12 opacity-100 z-0"
+					size={globeSize}
 				/>
 				<Image
 					src={Person}
 					alt="Vladbi Silhouette"
 					width={573}
 					height={813}
-					className="relative w-[430px] mr-15 z-20 mt-20"
+					className="relative w-[300px] lg:w-[350px] xl:w-[430px] lg:mr-12 z-20 mt-10 md:mt-20"
 				/>
-				<Stripes className="absolute top-0 right-0 z-0" />
+				<Stripes className="absolute top-0 right-0 z-0 md:block hidden" />
 			</div>
 		</section>
 	);
