@@ -1,19 +1,32 @@
+'use client';
+
 import Person from '@/assets/img/person.webp';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import RotatingGlobe from '../RotatingGlobe';
 import Stripes from '../Stripes';
 
-export default async function Hero() {
+export default function Hero() {
 	return (
 		<section
 			id="hero"
 			className="flex flex-row items-center justify-between"
 		>
-			<div className="max-w-1/2 z-10">
+			<motion.div
+				initial={{ opacity: 0, y: 40 }}
+				animate={{
+					opacity: 1,
+					y: 0,
+					transition: {
+						duration: 1,
+					},
+				}}
+				className="max-w-1/2 z-10"
+			>
 				<h1 className="text-6xl font-main font-extrabold tracking-tight text-brand-500">
-					I build AI SaaS <br /> products that Scale
+					We build AI SaaS <br /> products that Scale
 				</h1>
 				<p className="font-sans tracking-tight text-xl mt-8">
 					Handling full technical execution. Then <br /> automate
@@ -22,7 +35,7 @@ export default async function Hero() {
 				<Button asChild className="mt-8">
 					<Link href="/blog">Get Started</Link>
 				</Button>
-			</div>
+			</motion.div>
 			<div className="relative">
 				<RotatingGlobe
 					className="absolute top-0 right-10 opacity-100 z-0"
