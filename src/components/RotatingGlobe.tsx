@@ -24,13 +24,15 @@ export default function RotatingGlobe({
 		lottieRef.current?.setSpeed(0.5);
 	}, []);
 
+	console.log(theme);
+
 	return (
 		<motion.div
 			className={className}
 			initial={{ opacity: 0, scale: 0.9 }}
 			animate={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
 		>
-			{theme.theme === 'dark' ? (
+			{theme.resolvedTheme === 'dark' || theme.theme === 'dark' ? (
 				<Lottie
 					lottieRef={lottieRef}
 					animationData={darkGlobeLottie}
