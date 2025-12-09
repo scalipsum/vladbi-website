@@ -60,7 +60,7 @@ export default function Hero() {
 					height={813}
 					className="relative w-[300px] lg:w-[350px] xl:w-[430px] lg:mr-12 z-20 mt-10 md:mt-20"
 				/>
-				<Stripes className="absolute md:top-0 md:right-0 z-0 -right-32 top-24 opacity-100" />
+				<Stripes className="absolute md:top-0 md:right-0 z-0 -right-28 top-24 opacity-100 hidden md:block" />
 			</div>
 		</section>
 	);
