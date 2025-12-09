@@ -13,8 +13,8 @@ interface StripesProps {
 }
 export default function Stripes({
 	className,
-	height = 'h-[422px]',
-	width = 'w-[340px]',
+	height = 'h-[370px] lg:h-[422px]',
+	width = 'w-[300px] lg:w-[340px]',
 }: StripesProps) {
 	return (
 		<div className={className}>

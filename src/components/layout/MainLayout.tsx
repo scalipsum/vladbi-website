@@ -27,7 +27,7 @@ export default function MainLayout({ children }: LayoutProps) {
 				</nav>
 			</header>
 
-			<main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+			<main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 overflow-x-hidden">
 				{children}
 			</main>
 
