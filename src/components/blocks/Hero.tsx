@@ -20,7 +20,7 @@ export default function Hero() {
 				className="max-w-1/2 z-10"
 			>
 				<h1 className="text-6xl font-main font-extrabold tracking-tight text-brand">
-					We build AI SaaS <br /> products that Scale
+					We build SaaS ideas <br /> that Scale globally
 				</h1>
 				<p className="font-sans tracking-tight text-xl mt-8">
 					Handling full technical execution. Then <br /> automate
