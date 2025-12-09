@@ -1,5 +1,4 @@
 import MainLayout from '@/components/layout/MainLayout';
-import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import type { Metadata, Viewport } from 'next';
 import { Nunito, Nunito_Sans } from 'next/font/google';
@@ -80,7 +79,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={cn(nunitoSans.className, nunito.className)}>
+			<body className={`${nunito.variable} ${nunitoSans.variable}`}>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
