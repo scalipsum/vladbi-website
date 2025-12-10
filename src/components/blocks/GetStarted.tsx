@@ -18,7 +18,7 @@ export default function GetStarted() {
 
 			{/*  Timeline */}
 			<TimelineItem className="mt-16" active>
-				<div className="flex flex-row justify-between  gap-24">
+				<div className="flex flex-row justify-between gap-24">
 					<div className="flex-1">
 						<Text type="h3">1. Take the project quiz</Text>
 						<Text className="mt-4">
