@@ -15,7 +15,7 @@ export default function CallToAction({
 	className,
 }: CallToActionProps) {
 	return (
-		<PatternSection className="bg-brand-500 dark:bg-brand-200 mt-10">
+		<PatternSection className="bg-brand-500 mt-10">
 			<div className="relative z-10">
 				<Text type="h2" className="text-center text-white">
 					{title}
