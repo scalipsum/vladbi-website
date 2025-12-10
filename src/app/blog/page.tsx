@@ -1,4 +1,4 @@
-import PostCard from '@/components/BlogCard';
+import PostCard from '@/components/elements/BlogCard';
 import { getAllPosts } from '@/lib/notion';
 
 export default async function Home() {

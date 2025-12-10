@@ -1,7 +1,7 @@
-import CallToAction from '@/components/blocks/CallToAction';
-import GetStarted from '@/components/blocks/GetStarted';
-import Hero from '@/components/blocks/Hero';
 import ContentLayout from '@/components/layout/ContentLayout';
+import CallToAction from '@/components/sections/CallToAction';
+import GetStarted from '@/components/sections/GetStarted';
+import Hero from '@/components/sections/Hero';
 
 export default async function Home() {
 	return (

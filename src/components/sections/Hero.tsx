@@ -7,8 +7,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import RotatingGlobe from '../RotatingGlobe';
-import Stripes from '../Stripes';
+import BrandStripes from '../elements/BrandStripes';
+import RotatingGlobe from '../elements/RotatingGlobe';
 
 export default function Hero() {
 	const [globeSize, setGlobeSize] = useState(700);
@@ -61,7 +61,7 @@ export default function Hero() {
 					height={813}
 					className="relative w-[300px] lg:w-[350px] xl:w-[430px] lg:mr-12 z-20 mt-10 md:mt-20"
 				/>
-				<Stripes className="absolute md:top-0 z-0 right-0 left-42 md:left-24 lg:left-auto top-24" />
+				<BrandStripes className="absolute md:top-0 z-0 right-0 left-42 md:left-24 lg:left-auto top-24" />
 			</div>
 		</section>
 	);

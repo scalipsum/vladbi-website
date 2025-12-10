@@ -1,4 +1,4 @@
-import { components } from '@/components/Mdx';
+import { components } from '@/components/elements/Mdx';
 import { Badge } from '@/components/ui/badge';
 import { getAllPosts, getWordCount } from '@/lib/notion';
 import { calculateReadingTime } from '@/lib/utils';

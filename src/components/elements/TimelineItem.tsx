@@ -19,14 +19,6 @@ export default function TimelineItem({
 					<FaLockOpen className="text-brand -ml-1" size="20" />
 				) : (
 					<FaLock className="text-brand-200 -ml-1" size="20" />
-					// <div
-					// 	className={cn(
-					// 		'w-3 h-3 bg-brand rounded-full border-2 border-brand',
-					// 		active
-					// 			? 'bg-brand border-brand'
-					// 			: 'bg-background border-brand-200',
-					// 	)}
-					// />
 				)}
 				<div
 					className={cn(

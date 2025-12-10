@@ -1,8 +1,7 @@
-import XPattern from '@/assets/img/x-pattern.svg';
 import Text from '@/components/ui/text';
-import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { Button } from '../ui/button';
+import PatternSection from './PatternSection';
 
 interface CallToActionProps {
 	title?: string;
@@ -16,16 +15,7 @@ export default function CallToAction({
 	className,
 }: CallToActionProps) {
 	return (
-		<div
-			className={cn(
-				'bg-brand-500 dark:bg-brand-200 relative py-10',
-				className,
-			)}
-		>
-			<div
-				className="w-full h-full absolute top-0 right-0 bottom-0 left-0 z-0 opacity-50"
-				style={{ backgroundImage: `url(${XPattern.src || XPattern})` }}
-			/>
+		<PatternSection className="bg-brand-500 dark:bg-brand-200">
 			<div className="relative z-10">
 				<Text type="h2" className="text-center text-white">
 					{title}
@@ -37,6 +27,6 @@ export default function CallToAction({
 					</Button>
 				</div>
 			</div>
-		</div>
+		</PatternSection>
 	);
 }

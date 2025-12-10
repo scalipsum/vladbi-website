@@ -2,7 +2,7 @@
 
 import Text from '@/components/ui/text';
 import Link from 'next/link';
-import TimelineItem from '../TimelineItem';
+import TimelineItem from '../elements/TimelineItem';
 import { Button } from '../ui/button';
 
 export default function GetStarted() {
