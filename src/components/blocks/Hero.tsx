@@ -1,6 +1,7 @@
 'use client';
 
 import Person from '@/assets/img/person.webp';
+import Text from '@/components/Text';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -36,13 +37,13 @@ export default function Hero() {
 				animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
 				className="w-full md:max-w-1/2 z-10 pt-16 md:pt-0 flex flex-col items-center md:items-start"
 			>
-				<h1 className="text-4xl lg:text-5xl xl:text-6xl font-main font-extrabold tracking-tight text-brand text-center md:text-left">
+				<Text type="h1" className="text-center md:text-left">
 					We build SaaS ideas <br /> that Scale globally
-				</h1>
-				<p className="font-sans tracking-tight text-xl mt-8 text-center md:text-left">
+				</Text>
+				<Text className="text-center md:text-left mt-8">
 					Handling full technical execution. Then <br /> automate
 					processes to maximize your revenue.
-				</p>
+				</Text>
 				<Button asChild className="mt-8">
 					<Link href="/blog">Get Started</Link>
 				</Button>

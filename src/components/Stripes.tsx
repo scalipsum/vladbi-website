@@ -1,8 +1,3 @@
-'use client';
-
-// import BabyStripe from '@/assets/img/baby-stripe.svg';
-// import BlueStripe from '@/assets/img/blue-stripe.svg';
-// import RedStripe from '@/assets/img/red-stripe.svg';
 import stripes from '@/assets/img/stripes.svg';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -21,7 +16,7 @@ export default function Stripes({
 		<div className={cn(className, height, width)}>
 			<Image
 				src={stripes}
-				alt="Vladbi Stripes"
+				alt="Vladbi Color Stripes"
 				fill
 				className="object-cover object-left"
 			/>
