@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 
 interface TextProps {
-	type?: 'h1' | 'h2' | 'p';
+	type?: 'h1' | 'h2' | 'h3' | 'p';
 	className?: string;
 	children?: React.ReactNode;
 }
@@ -30,11 +30,23 @@ export default function Text({ type, children, className }: TextProps) {
 					{children}
 				</h2>
 			);
+		case 'h3':
+			return (
+				<h3
+					className={cn(
+						'text-xl lg:text-2xl font-main font-extrabold tracking-tight text-brand',
+						className,
+					)}
+				>
+					{children}
+				</h3>
+			);
+
 		default:
 			return (
 				<p
 					className={cn(
-						'font-sans tracking-tight text-xl',
+						'font-sans tracking-tight text-lg xl:text-xl',
 						className,
 					)}
 				>

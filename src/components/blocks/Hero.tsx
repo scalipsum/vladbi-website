@@ -1,8 +1,8 @@
 'use client';
 
 import Person from '@/assets/img/person.webp';
-import Text from '@/components/Text';
 import { Button } from '@/components/ui/button';
+import Text from '@/components/ui/text';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -45,7 +45,7 @@ export default function Hero() {
 					processes to maximize your revenue.
 				</Text>
 				<Button asChild className="mt-8">
-					<Link href="/blog">Get Started</Link>
+					<Link href="#get-started">Get Started</Link>
 				</Button>
 			</motion.div>
 
