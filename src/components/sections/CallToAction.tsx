@@ -1,4 +1,5 @@
 import Text from '@/components/ui/text';
+import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import PatternSection from './PatternSection';
@@ -15,7 +16,7 @@ export default function CallToAction({
 	className,
 }: CallToActionProps) {
 	return (
-		<PatternSection className="bg-brand-500 mt-10">
+		<PatternSection className={cn('bg-brand-500', className)}>
 			<div className="relative z-10">
 				<Text type="h2" className="text-center text-white">
 					{title}
