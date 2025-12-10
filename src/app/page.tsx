@@ -7,7 +7,11 @@ export default async function Home() {
 		<div>
 			<Hero />
 			<GetStarted />
-			<CallToAction />
+			<CallToAction
+				title="Our journey begins"
+				subtitle="Right here. Right now."
+				className="mt-16"
+			/>
 		</div>
 	);
 }
