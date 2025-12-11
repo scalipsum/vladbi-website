@@ -3,7 +3,7 @@ import AutomationPreviewCard from '../elements/AutomationPreviewCard';
 
 export default async function LatestAutomation() {
 	return (
-		<section className="mt-14 pb-14">
+		<section className="mt-28">
 			<Text type="h2">Latest automation</Text>
 
 			<AutomationPreviewCard

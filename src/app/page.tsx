@@ -25,6 +25,11 @@ export default async function Home() {
 				<LatestSaas />
 				<MyStory />
 			</ContentLayout>
+			<CallToAction
+				title="Let's get started"
+				subtitle="Bring your idea to life."
+				className="mt-32"
+			/>
 		</>
 	);
 }
