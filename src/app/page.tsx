@@ -2,6 +2,7 @@ import ContentLayout from '@/components/layout/ContentLayout';
 import CallToAction from '@/components/sections/CallToAction';
 import GetStarted from '@/components/sections/GetStarted';
 import Hero from '@/components/sections/Hero';
+import Youtube from '@/components/sections/Youtube';
 
 export default async function Home() {
 	return (
@@ -15,6 +16,7 @@ export default async function Home() {
 				subtitle="Right here. Right now."
 				className="mt-10"
 			/>
+			<Youtube />
 		</>
 	);
 }
