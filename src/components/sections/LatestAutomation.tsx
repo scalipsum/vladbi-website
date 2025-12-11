@@ -1,7 +1,7 @@
 import Text from '@/components/ui/text';
 import AutomationPreviewCard from '../elements/AutomationPreviewCard';
 
-export default function LatestAutomation() {
+export default async function LatestAutomation() {
 	return (
 		<section className="mt-14 pb-14">
 			<Text type="h2">Latest automation</Text>

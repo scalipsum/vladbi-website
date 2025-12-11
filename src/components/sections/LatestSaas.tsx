@@ -1,7 +1,7 @@
 import Text from '@/components/ui/text';
 import SaasPreviewCard from '../elements/SaasPreviewCard';
 
-export default function LatestSaas() {
+export default async function LatestSaas() {
 	return (
 		<section className="mt-14 pb-14">
 			<Text type="h2">Latest SaaS</Text>

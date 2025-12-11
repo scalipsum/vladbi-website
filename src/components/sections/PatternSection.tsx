@@ -7,7 +7,7 @@ interface PatternSectionProps {
 	patternClassName?: string;
 }
 
-export default function PatternSection({
+export default async function PatternSection({
 	children,
 	className,
 	patternClassName,

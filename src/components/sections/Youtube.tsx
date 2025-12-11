@@ -1,4 +1,5 @@
 'use client';
+
 import Text from '@/components/ui/text';
 import { FaYoutube } from 'react-icons/fa';
 import YouTube from 'react-youtube';

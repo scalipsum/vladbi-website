@@ -10,7 +10,7 @@ interface CallToActionProps {
 	className?: string;
 }
 
-export default function CallToAction({
+export default async function CallToAction({
 	title = 'Hello',
 	subtitle = 'How are you?',
 	className,

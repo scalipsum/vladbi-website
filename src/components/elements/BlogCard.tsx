@@ -6,7 +6,7 @@ import {
 	CardHeader,
 } from '@/components/ui/card';
 import { Post, getWordCount } from '@/lib/notion';
-import { calculateReadingTime } from '@/lib/utils';
+import { calculateReadingTime, cn } from '@/lib/utils';
 import { format } from 'date-fns';
 import { ArrowUpRight, Calendar, Clock } from 'lucide-react';
 import Image from 'next/image';
@@ -14,14 +14,20 @@ import Link from 'next/link';
 
 interface PostCardProps {
 	post: Post;
+	className?: string;
 }
 
-export default function BlogCard({ post }: PostCardProps) {
+export default function BlogCard({ post, className }: PostCardProps) {
 	const wordCount = post.content ? getWordCount(post.content) : 0;
 	const readingTime = calculateReadingTime(wordCount);
 
 	return (
-		<Card className="group relative pt-0 overflow-hidden hover:shadow-xl transition-all duration-300 bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+		<Card
+			className={cn(
+				'group relative pt-0 overflow-hidden hover:shadow-xl transition-all duration-300 bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-background/60',
+				className,
+			)}
+		>
 			<Link
 				href={`/blog/${post.slug}`}
 				className="absolute inset-0 z-10"
