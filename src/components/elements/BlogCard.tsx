@@ -1,10 +1,5 @@
 import { Badge } from '@/components/ui/badge';
-import {
-	Card,
-	CardContent,
-	CardFooter,
-	CardHeader,
-} from '@/components/ui/card';
+import { Card, CardFooter, CardHeader } from '@/components/ui/card';
 import { Post, getWordCount } from '@/lib/notion';
 import { calculateReadingTime, cn } from '@/lib/utils';
 import { format } from 'date-fns';
@@ -24,7 +19,7 @@ export default function BlogCard({ post, className }: PostCardProps) {
 	return (
 		<Card
 			className={cn(
-				'group relative pt-0 overflow-hidden hover:shadow-xl transition-all duration-300 bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-background/60',
+				'group relative pt-0 overflow-hidden hover:shadow-xl transition-all duration-300 bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-background/60 text-left pb-2',
 				className,
 			)}
 		>
@@ -55,7 +50,7 @@ export default function BlogCard({ post, className }: PostCardProps) {
 					</div>
 				)}
 			</div>
-			<CardHeader className="space-y-2">
+			<CardHeader className="space-y-2 mt-4">
 				<div className="flex items-center gap-4 text-sm text-muted-foreground">
 					<div className="flex items-center gap-1.5">
 						<Calendar className="h-4 w-4" />
@@ -67,6 +62,11 @@ export default function BlogCard({ post, className }: PostCardProps) {
 						<Clock className="h-4 w-4" />
 						<span>{readingTime}</span>
 					</div>
+					{post.author && (
+						<p className="text-sm text-muted-foreground">
+							Written by {post.author}
+						</p>
+					)}
 				</div>
 				<div className="group-hover:pr-8 transition-all duration-300">
 					<h2 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -78,16 +78,9 @@ export default function BlogCard({ post, className }: PostCardProps) {
 					{post.description}
 				</p>
 			</CardHeader>
-			<CardContent>
-				{post.author && (
-					<p className="text-sm text-muted-foreground">
-						By {post.author}
-					</p>
-				)}
-			</CardContent>
 			{post.tags && post.tags.length > 0 && (
-				<CardFooter>
-					<div className="flex gap-2 flex-wrap">
+				<CardFooter className="mt-4">
+					<div className="-ml-2 flex gap-2 flex-wrap">
 						{post.tags.map((tag) => (
 							<Badge
 								key={tag}

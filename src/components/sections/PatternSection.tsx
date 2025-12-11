@@ -1,3 +1,5 @@
+'use client';
+
 import XPattern from '@/assets/img/x-pattern.svg';
 import { cn } from '@/lib/utils';
 
@@ -7,7 +9,7 @@ interface PatternSectionProps {
 	patternClassName?: string;
 }
 
-export default async function PatternSection({
+export default function PatternSection({
 	children,
 	className,
 	patternClassName,

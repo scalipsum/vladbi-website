@@ -1,4 +1,6 @@
 import PostCard from '@/components/elements/BlogCard';
+import ContentLayout from '@/components/layout/ContentLayout';
+import Text from '@/components/ui/text';
 import { getAllPosts } from '@/lib/notion';
 
 export default async function Home() {
@@ -6,16 +8,20 @@ export default async function Home() {
 
 	return (
 		<div>
-			<div className="max-w-2xl mx-auto text-center mb-12">
-				<h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl mb-4">
-					Blog
-				</h1>
-			</div>
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-				{posts.map((post) => (
-					<PostCard key={post.id} post={post} />
-				))}
-			</div>
+			<Text type="h1" className="text-center mb-8 mt-16">
+				Blog
+			</Text>
+			<ContentLayout>
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+					{posts.map((post) => (
+						<PostCard
+							key={post.id}
+							post={post}
+							className="min-w-[400px]"
+						/>
+					))}
+				</div>
+			</ContentLayout>
 		</div>
 	);
 }

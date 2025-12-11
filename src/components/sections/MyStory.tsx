@@ -1,6 +1,6 @@
-import PostCard from '@/components/elements/BlogCard';
 import Text from '@/components/ui/text';
 import { getAllPosts } from '@/lib/notion';
+import LandingBlogCard from '../elements/LandingBlogCard';
 
 export default async function MyStory() {
 	const blogPosts = await getAllPosts();
@@ -11,7 +11,7 @@ export default async function MyStory() {
 			<Text type="h2" className="text-center">
 				My story
 			</Text>
-			<PostCard post={latestBlog} className="mt-12 w-full" />
+			<LandingBlogCard post={latestBlog} className="mt-12" />
 		</section>
 	);
 }
