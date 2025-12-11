@@ -174,6 +174,7 @@ export default function Navbar() {
 										className="block px-3 py-2 text-sm hover:bg-accent rounded-md transition-colors"
 									>
 										<Text>Blog</Text>
+										kj{' '}
 									</Link>
 									<Link
 										href="/my-story"
