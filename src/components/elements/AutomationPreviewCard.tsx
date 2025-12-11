@@ -27,7 +27,7 @@ export default function AutomationPreviewCard({
 				<div className="flex flex-row items-center">
 					<div className="w-1/3 flex flex-col items-start">
 						<Text type="h3">{title}</Text>
-						<Text className="mt-2">{subtitle}</Text>
+						<Text className="mt-2 text-brand">{subtitle}</Text>
 					</div>
 					<div className="w-1/3 flex justify-center ml-4">
 						<Text>{description}</Text>
