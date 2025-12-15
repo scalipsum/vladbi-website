@@ -14,15 +14,15 @@ export default async function Services() {
 					subtitle="Web and Mobile Apps"
 					description="The products I build are online businesses that include a recurring revenue model."
 					ctaText="View the process"
-					href="#get-started"
+					href="/services/saas-products"
 				/>
 				<AutomationPreviewCard
 					title="AI Automation"
 					subtitle="Workflows and Tools"
 					description="Simple systems that make repetitive work run on autopilot and save countless hours."
 					ctaText="View the process"
-					href="#get-started"
 					className="mt-12"
+					href="/services/ai-automation"
 				/>
 			</ContentLayout>
 			<CallToAction

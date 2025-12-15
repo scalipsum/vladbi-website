@@ -31,7 +31,7 @@ export default function Header({ title, subTitle }: HeaderProps) {
 			<RotatingGlobe
 				className="absolute -left-48 -top-64 opacity-100 z-0"
 				size={globeSize}
-				rotate="10deg"
+				rotate="0deg"
 			/>
 			<BrandStripes className="absolute !-top-24 z-0 right-0 top-0" />
 			<div className="inline-block mt-32">
