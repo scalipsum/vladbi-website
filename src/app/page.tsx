@@ -9,7 +9,7 @@ import Youtube from '@/components/sections/Youtube';
 
 export default async function Home() {
 	return (
-		<>
+		<div className="pt-20">
 			<ContentLayout>
 				<Hero />
 				<GetStarted />
@@ -30,6 +30,6 @@ export default async function Home() {
 				subtitle="Bring your idea to life."
 				className="mt-32"
 			/>
-		</>
+		</div>
 	);
 }

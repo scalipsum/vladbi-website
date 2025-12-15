@@ -10,11 +10,13 @@ import { useEffect, useRef } from 'react';
 interface RotatingGlobeProps {
 	className?: string;
 	size?: number;
+	rotate?: string;
 }
 
 export default function RotatingGlobe({
 	className,
 	size = 500,
+	rotate = '15deg',
 }: RotatingGlobeProps) {
 	const lottieRef = useRef(null);
 	const theme = useTheme();
@@ -37,14 +39,14 @@ export default function RotatingGlobe({
 					lottieRef={lottieRef}
 					animationData={darkGlobeLottie}
 					loop={true}
-					style={{ height: size, width: size, rotate: '15deg' }}
+					style={{ height: size, width: size, rotate }}
 				/>
 			) : (
 				<Lottie
 					lottieRef={lottieRef}
 					animationData={globeLottie}
 					loop={true}
-					style={{ height: size, width: size, rotate: '15deg' }}
+					style={{ height: size, width: size, rotate }}
 				/>
 			)}
 		</motion.div>
