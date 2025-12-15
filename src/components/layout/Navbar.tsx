@@ -34,7 +34,7 @@ export default function Navbar() {
 					className={cn(
 						'flex items-center justify-between rounded-full pl-8 pr-4 py-2 transition-all duration-300 bg-background',
 						isScrolled &&
-							'shadow-xl shadow-gray-900/10 dark:shadow-gray-900/30 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border border-gray-200/20 dark:border-gray-700/20 shadow-lg shadow-gray-900/5 dark:shadow-gray-900/20',
+							'shadow-xl shadow-gray-900/10 dark:shadow-gray-900/30 backdrop-blur-md bg-background/90 dark:bg-gray-900/80 border border-gray-200/20 dark:border-gray-700/20 shadow-lg shadow-gray-900/5 dark:shadow-gray-900/20 border border-slate-200',
 					)}
 				>
 					{/* Logo */}
