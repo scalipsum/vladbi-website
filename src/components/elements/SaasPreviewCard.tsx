@@ -43,7 +43,7 @@ export default function SaasPreviewCard({
 						className="self-end mt-6"
 						variant="secondary"
 					>
-						<Link href={href}>View project</Link>
+						<Link href={href}>View case study</Link>
 					</Button>
 				</div>
 				<div

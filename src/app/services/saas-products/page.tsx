@@ -46,7 +46,7 @@ export default async function SaasProducts() {
 					</Text>
 				</Card>
 				<Button asChild className="mt-10 mb-0 mx-auto !px-6">
-					<Link href="/projects">
+					<Link href="/case-studies">
 						View Case Studies
 						<FaChevronRight />
 					</Link>

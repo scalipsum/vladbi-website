@@ -19,7 +19,7 @@ export default function AutomationPreviewCard({
 	description,
 	href,
 	className,
-	ctaText = 'View project',
+	ctaText = 'View case study',
 }: AutomationPreviewCardProps) {
 	return (
 		<Card className={cn('px-8 py-6 mt-8 w-full', className)}>

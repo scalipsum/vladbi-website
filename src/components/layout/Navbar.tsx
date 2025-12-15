@@ -59,9 +59,9 @@ export default function Navbar() {
 							</NavigationMenuItem>
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
-									<Link href="/projects">
+									<Link href="/case-studies">
 										<Text className="font-main !text-lg">
-											Projects
+											Case studies
 										</Text>
 									</Link>
 								</NavigationMenuLink>
@@ -142,10 +142,10 @@ export default function Navbar() {
 									</div>
 
 									<Link
-										href="/projects"
+										href="/case-studies"
 										className="block px-3 py-2 text-sm hover:bg-accent rounded-md transition-colors"
 									>
-										<Text>Projects</Text>
+										<Text>Case studies</Text>
 									</Link>
 									<Link
 										href="/blog"

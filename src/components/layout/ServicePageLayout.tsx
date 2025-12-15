@@ -2,6 +2,7 @@ import SquarePattern from '@/assets/img/square-pattern.svg';
 import ContentLayout from '@/components/layout/ContentLayout';
 import SecondaryHeader from '@/components/layout/SecondaryHeader';
 import CallToAction from '@/components/sections/CallToAction';
+import { cn } from '@/lib/utils';
 
 interface ServicePageLayoutProps {
 	children: React.ReactNode;
@@ -11,6 +12,9 @@ interface ServicePageLayoutProps {
 	ctaSubtitle?: string;
 	ctaButtonText?: string;
 	ctaHref?: string;
+	hiddenPattern?: boolean;
+	hiddenCta?: boolean;
+	layoutClassName?: string;
 }
 
 export default function ServicePageLayout({
@@ -21,31 +25,40 @@ export default function ServicePageLayout({
 	ctaSubtitle,
 	ctaButtonText = 'Take the project quiz',
 	ctaHref = '/',
+	hiddenPattern,
+	hiddenCta,
+	layoutClassName,
 }: ServicePageLayoutProps) {
 	return (
 		<div className="relative">
 			<div className="relative z-10">
 				<SecondaryHeader title={title} subTitle={subTitle} />
-				<ContentLayout className="max-w-2xl mt-12">
+				<ContentLayout
+					className={cn('max-w-2xl mt-12', layoutClassName)}
+				>
 					{children}
 				</ContentLayout>
 			</div>
 			{/* Pattern */}
-			<div
-				className="w-full h-full absolute top-0 right-0 bottom-0 left-0 z-0 opacity-5"
-				style={{
-					backgroundImage: `url(${
-						SquarePattern.src || SquarePattern
-					})`,
-				}}
-			/>
-			<CallToAction
-				title={ctaTitle}
-				subtitle={ctaSubtitle}
-				href={ctaHref}
-				buttonText={ctaButtonText}
-				className="mt-20"
-			/>
+			{!hiddenPattern && (
+				<div
+					className="w-full h-full absolute top-0 right-0 bottom-0 left-0 z-0 opacity-5"
+					style={{
+						backgroundImage: `url(${
+							SquarePattern.src || SquarePattern
+						})`,
+					}}
+				/>
+			)}
+			{!hiddenCta && (
+				<CallToAction
+					title={ctaTitle}
+					subtitle={ctaSubtitle}
+					href={ctaHref}
+					buttonText={ctaButtonText}
+					className="mt-20"
+				/>
+			)}
 		</div>
 	);
 }
