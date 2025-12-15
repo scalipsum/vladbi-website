@@ -1,4 +1,5 @@
 import Text from '@/components/ui/text';
+import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -8,6 +9,8 @@ interface AutomationPreviewCardProps {
 	subtitle: string;
 	description: string;
 	href: string;
+	className?: string;
+	ctaText?: string;
 }
 
 export default function AutomationPreviewCard({
@@ -15,9 +18,11 @@ export default function AutomationPreviewCard({
 	subtitle,
 	description,
 	href,
+	className,
+	ctaText = 'View project',
 }: AutomationPreviewCardProps) {
 	return (
-		<Card className="px-8 py-6 mt-8">
+		<Card className={cn('px-8 py-6 mt-8 w-full', className)}>
 			<div>
 				<Link
 					href={href}
@@ -34,7 +39,7 @@ export default function AutomationPreviewCard({
 					</div>
 					<div className="w-1/3 flex justify-end">
 						<Button asChild className="self-end">
-							<Link href={href}>View project</Link>
+							<Link href={href}>{ctaText}</Link>
 						</Button>
 					</div>
 				</div>
