@@ -1,6 +1,7 @@
 import PostCard from '@/components/elements/BlogCard';
 import ContentLayout from '@/components/layout/ContentLayout';
-import Text from '@/components/ui/text';
+import Header from '@/components/layout/Header';
+import CallToAction from '@/components/sections/CallToAction';
 import { getAllPosts } from '@/lib/notion';
 
 export default async function Home() {
@@ -8,10 +9,8 @@ export default async function Home() {
 
 	return (
 		<div>
-			<Text type="h1" className="text-center mb-8 mt-16">
-				Blog
-			</Text>
-			<ContentLayout>
+			<Header title="Blog" subTitle="My oppinions. No AI." />
+			<ContentLayout className="mt-8">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 					{posts.map((post) => (
 						<PostCard
@@ -22,6 +21,11 @@ export default async function Home() {
 					))}
 				</div>
 			</ContentLayout>
+			<CallToAction
+				title="Let's get started"
+				subtitle="Bring your idea to life."
+				className="mt-24"
+			/>
 		</div>
 	);
 }
