@@ -1,13 +1,12 @@
 'use client';
 
-import Logo from '@/assets/img/logo.svg';
 import { cn } from '@/lib/utils';
 import { Menu } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { ThemeToggle } from '../elements/ThemeToggle';
 import { Button } from '../ui/button';
+import Logo from '../ui/Logo';
 import {
 	NavigationMenu,
 	NavigationMenuItem,
@@ -40,13 +39,7 @@ export default function Navbar() {
 				>
 					{/* Logo */}
 					<Link href="/" className="flex items-center space-x-2">
-						<Image
-							src={Logo}
-							alt="VB Logo"
-							width={25}
-							height={25}
-							className="invert dark:invert-0"
-						/>
+						<Logo width={25} height={29} className="text-brand" />
 						<Text className="font-extrabold font-main text-brand">
 							Vladbi
 						</Text>
@@ -131,15 +124,12 @@ export default function Navbar() {
 										href="/"
 										className="flex items-center space-x-2 mb-6"
 									>
-										<div className="w-8 h-8 relative">
-											<Image
-												src="/assets/img/logo.svg"
-												alt="VB Logo"
-												width={32}
-												height={32}
-												className="w-full h-full"
-											/>
-										</div>
+										<Logo
+											color="currentColor"
+											width={32}
+											height={38}
+											className="text-black dark:text-white"
+										/>
 										<Text className="text-lg font-bold text-foreground">
 											Vladbi
 										</Text>
