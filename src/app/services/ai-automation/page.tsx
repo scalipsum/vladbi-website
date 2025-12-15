@@ -15,7 +15,7 @@ export default async function AiAutomationProducts() {
 			ctaButtonText="View our process"
 			ctaHref="/services/saas-products"
 		>
-			<div className="flex flex-col items-center gap-4">
+			<div className="flex flex-col items-center gap-8">
 				<Card className="w-full p-8 text-left mt-1">
 					<Text type="h3">1. Discovery</Text>
 					<Text className="text-gray-600 mt-1">
@@ -38,7 +38,7 @@ export default async function AiAutomationProducts() {
 						This is a text inside a card.
 					</Text>
 				</Card>
-				<Button asChild className="mt-8 mb-0 mx-auto !px-6">
+				<Button asChild className="mt-10 mb-0 mx-auto !px-6">
 					<Link href="/projects">
 						View Case Studies
 						<FaChevronRight />

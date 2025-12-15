@@ -22,8 +22,8 @@ export default function SecondaryHeader({
 		>
 			<div className="max-w-[1920px] relative mx-auto">
 				<BrandStripes className="absolute !-top-24 z-0 right-0 top-0" />
-				<ContentLayout>
-					<div className="inline-block mt-36">
+				<ContentLayout className="flex items-center justify-center">
+					<div className="inline-block mt-36 text-center">
 						<Text type="h2">{title}</Text>
 						<Text className="mt-4 text-brand">{subTitle}</Text>
 						<div className="h-1.5 bg-brand rounded-full w-full self-center mt-2.5" />

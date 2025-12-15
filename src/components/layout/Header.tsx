@@ -34,7 +34,7 @@ export default function Header({ title, subTitle }: HeaderProps) {
 				rotate="0deg"
 			/>
 			<BrandStripes className="absolute !-top-24 z-0 right-0 top-0" />
-			<div className="inline-block mt-32">
+			<div className="inline-block mt-26">
 				<Text type="h2">{title}</Text>
 				<div className="h-1.5 bg-brand rounded-full w-full self-center mt-2.5" />
 			</div>
