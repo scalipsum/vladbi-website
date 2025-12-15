@@ -30,8 +30,8 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 					className={cn(
 						'flex justify-center items-center w-6 h-6 rounded-full transition-transform duration-300',
 						isDark
-							? 'transform translate-x-0 bg-zinc-800'
-							: 'transform translate-x-8 bg-gray-200',
+							? 'transform translate-x-0 bg-slate-800'
+							: 'transform translate-x-8 bg-slate-200',
 					)}
 				>
 					{isDark ? (

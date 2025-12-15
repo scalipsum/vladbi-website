@@ -50,10 +50,7 @@ export default function Navbar() {
 						<NavigationMenuList>
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
-									<Link
-										href="/services"
-										className="bg-transparent hover:bg-gray-100/50 dark:hover:bg-gray-800/50 px-4 py-2 rounded-full text-brand transition-colors"
-									>
+									<Link href="/services">
 										<Text className="font-main !text-lg">
 											Services
 										</Text>
@@ -62,10 +59,7 @@ export default function Navbar() {
 							</NavigationMenuItem>
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
-									<Link
-										href="/projects"
-										className="bg-transparent hover:bg-gray-100/50 dark:hover:bg-gray-800/50 px-4 py-2 rounded-full text-brand transition-colors"
-									>
+									<Link href="/projects">
 										<Text className="font-main !text-lg">
 											Projects
 										</Text>
@@ -74,10 +68,7 @@ export default function Navbar() {
 							</NavigationMenuItem>
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
-									<Link
-										href="/blog"
-										className="bg-transparent hover:bg-gray-100/50 dark:hover:bg-gray-800/50 px-4 py-2 rounded-full text-brand transition-colors"
-									>
+									<Link href="/blog">
 										<Text className="font-main !text-lg">
 											Blog
 										</Text>
@@ -86,10 +77,7 @@ export default function Navbar() {
 							</NavigationMenuItem>
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
-									<Link
-										href="/my-story"
-										className="bg-transparent hover:bg-gray-100/50 dark:hover:bg-gray-800/50 px-4 py-2 rounded-full text-brand transition-colors"
-									>
+									<Link href="/my-story">
 										<Text className="font-main !text-lg">
 											My story
 										</Text>
