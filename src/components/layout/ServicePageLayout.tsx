@@ -7,18 +7,28 @@ interface ServicePageLayoutProps {
 	children: React.ReactNode;
 	title: string;
 	subTitle: string;
+	ctaTitle?: string;
+	ctaSubtitle?: string;
+	ctaButtonText?: string;
+	ctaHref?: string;
 }
 
 export default function ServicePageLayout({
 	children,
 	title,
 	subTitle,
+	ctaTitle = "Let's get started",
+	ctaSubtitle,
+	ctaButtonText = 'Take the project quiz',
+	ctaHref = '/',
 }: ServicePageLayoutProps) {
 	return (
 		<div className="relative">
 			<div className="relative z-10">
 				<SecondaryHeader title={title} subTitle={subTitle} />
-				<ContentLayout>{children}</ContentLayout>
+				<ContentLayout className="max-w-2xl mt-12">
+					{children}
+				</ContentLayout>
 			</div>
 			{/* Pattern */}
 			<div
@@ -30,9 +40,11 @@ export default function ServicePageLayout({
 				}}
 			/>
 			<CallToAction
-				title="Let's get started"
-				subtitle="Bring your idea to life."
-				className="mt-32"
+				title={ctaTitle}
+				subtitle={ctaSubtitle}
+				href={ctaHref}
+				buttonText={ctaButtonText}
+				className="mt-14"
 			/>
 		</div>
 	);

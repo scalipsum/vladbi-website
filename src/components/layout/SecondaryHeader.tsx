@@ -16,7 +16,7 @@ export default function SecondaryHeader({
 	return (
 		<div
 			className={cn(
-				'relative max-w-[1920px] relative mx-auto h-82 w-full shadow-lg rounded-bl-[280px] rounded-br-[300px] shadow-slate-200/60 dark:shadow-slate-800/60 mb-24 bg-background',
+				'relative max-w-[1920px] relative mx-auto h-82 w-full shadow-lg rounded-bl-[280px] rounded-br-[300px] shadow-slate-200/60 dark:shadow-slate-800/60 bg-background',
 				className,
 			)}
 		>

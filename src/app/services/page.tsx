@@ -6,7 +6,7 @@ import CallToAction from '@/components/sections/CallToAction';
 export default async function Services() {
 	return (
 		<div>
-			<Header title="Services" subTitle="Expert in building" />
+			<Header title="Services" subTitle="Experts in building" />
 			<ContentLayout>
 				<AutomationPreviewCard
 					title="SaaS Products"
