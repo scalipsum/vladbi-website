@@ -18,7 +18,7 @@ export default function PatternSection({
 		<section className={cn('relative py-10', className)}>
 			<div
 				className={cn(
-					'w-full h-full absolute top-0 right-0 bottom-0 left-0 z-0 opacity-50',
+					'w-full h-full absolute top-0 right-0 bottom-0 left-0 z-0 opacity-40',
 					patternClassName,
 				)}
 				style={{ backgroundImage: `url(${XPattern.src || XPattern})` }}
