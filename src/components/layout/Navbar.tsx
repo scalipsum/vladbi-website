@@ -29,12 +29,12 @@ export default function Navbar() {
 
 	return (
 		<header className="fixed top-0 left-0 right-0 z-50 w-full">
-			<div className={cn('mx-auto max-w-7xl pt-3 transition')}>
+			<div className={cn('mx-auto max-w-7xl pt-2 transition')}>
 				<nav
 					className={cn(
 						'flex items-center justify-between rounded-full pl-8 pr-4 py-2 transition-all duration-300 bg-background',
 						isScrolled &&
-							'shadow-xl shadow-gray-900/10 dark:shadow-gray-900/30 backdrop-blur-md bg-background/90 dark:bg-gray-900/80 border border-gray-200/20 dark:border-gray-700/20 shadow-lg shadow-gray-900/5 dark:shadow-gray-900/20 border border-slate-200',
+							'shadow-xl shadow-gray-900/10 dark:shadow-gray-900/30 backdrop-blur-md bg-background/70 dark:bg-gray-900/80 border border-gray-200/20 dark:border-gray-700/20 shadow-lg shadow-gray-900/5 dark:shadow-gray-900/20 border border-slate-200',
 					)}
 				>
 					{/* Logo */}

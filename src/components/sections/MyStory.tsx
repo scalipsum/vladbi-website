@@ -7,7 +7,7 @@ export default async function MyStory() {
 	const latestBlog = blogPosts[1];
 
 	return (
-		<section className="mt-32 flex flex-col items-center">
+		<section className="mt-34 flex flex-col items-center">
 			<Text type="h2" className="text-center">
 				My story
 			</Text>

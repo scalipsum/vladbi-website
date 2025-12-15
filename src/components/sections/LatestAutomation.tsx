@@ -3,8 +3,8 @@ import AutomationPreviewCard from '../elements/AutomationPreviewCard';
 
 export default async function LatestAutomation() {
 	return (
-		<section className="mt-28">
-			<Text type="h2">Latest automation</Text>
+		<section className="mt-32">
+			<Text type="h2">Latest automation project</Text>
 
 			<AutomationPreviewCard
 				title="Blog Posting AI Agent"
