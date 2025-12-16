@@ -17,7 +17,7 @@ export default async function CallToAction({
 	subtitle,
 	className,
 	buttonText = 'Take the product quiz',
-	href = '/blog',
+	href,
 }: CallToActionProps) {
 	return (
 		<PatternSection className={cn('bg-brand-500', className)}>
@@ -29,7 +29,7 @@ export default async function CallToAction({
 			)}
 			<div className="flex justify-center">
 				<Button variant="secondary" asChild className="mt-8">
-					<Link href={href}>{buttonText}</Link>
+					<Link href={href ?? '/blog'}>{buttonText}</Link>
 				</Button>
 			</div>
 		</PatternSection>

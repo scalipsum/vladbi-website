@@ -29,6 +29,8 @@ export default async function Home() {
 				title="Let's get started"
 				subtitle="Bring your idea to life."
 				className="mt-32"
+				buttonText="View our services"
+				href="/services"
 			/>
 		</div>
 	);
