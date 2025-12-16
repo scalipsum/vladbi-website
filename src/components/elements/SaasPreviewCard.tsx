@@ -25,7 +25,7 @@ export default function SaasPreviewCard({
 			className="px-12 py-12 mt-8 bg-cover bg-center bg-no-repeat w-full"
 			style={{ backgroundImage: `url(${backgroundImageUrl})` }}
 		>
-			<div className="absolute z-0 inset-0 bg-gray-800 opacity-85 rounded-lg" />
+			<div className="absolute z-0 inset-0 bg-gray-800 opacity-75 rounded-lg" />
 			<Link
 				href={href}
 				className="absolute inset-0 z-20"
@@ -47,7 +47,7 @@ export default function SaasPreviewCard({
 					</Button>
 				</div>
 				<div
-					className="w-70 h-88 bg-gray-400 absolute -top-24 right-8 rounded-lg bg-center bg-no-repeat bg-cover"
+					className="w-90 h-140 absolute -top-30 right-8 rounded-lg bg-center bg-no-repeat bg-cover"
 					style={{ backgroundImage: `url(${previewImageUrl})` }}
 				/>
 			</div>
