@@ -15,7 +15,7 @@ const databaseId = process.env.NOTION_DATABASE_ID!;
 export const notion = new Client({ auth: notionToken });
 export const n2m = new NotionToMarkdown({ notionClient: notion });
 
-export interface Post {
+export interface BlogPost {
 	id: string;
 	title: string;
 	slug: string;
@@ -26,6 +26,18 @@ export interface Post {
 	author?: string;
 	authorAvatar?: string;
 	tags?: string[];
+	category?: string;
+}
+
+export interface Product {
+	id: string;
+	title: string;
+	slug: string;
+	coverImage?: string;
+	verticalImage?: string;
+	subTitle: string;
+	description: string;
+	date: string;
 	category?: string;
 }
 
@@ -46,7 +58,7 @@ export function getWordCount(content: string): number {
 
 // Cached function to fetch all published posts
 export const getPostsFromCache = unstable_cache(
-	async (): Promise<Post[]> => {
+	async (): Promise<BlogPost[]> => {
 		console.log('Fetching posts from Notion...');
 		const posts = await fetchPublishedPosts();
 
@@ -140,13 +152,13 @@ export async function refreshPostsCache(): Promise<{
 	}
 }
 
-export async function getPostFromNotion(pageId: string): Promise<Post | null> {
+export async function getPostFromNotion(
+	pageId: string,
+): Promise<BlogPost | null> {
 	try {
 		const page = (await notion.pages.retrieve({
 			page_id: pageId,
 		})) as PageObjectResponse;
-
-		console.log('Page', page);
 
 		const mdBlocks = await n2m.pageToMarkdown(pageId);
 		const { parent: contentString } = n2m.toMarkdownString(mdBlocks);
@@ -170,7 +182,7 @@ export async function getPostFromNotion(pageId: string): Promise<Post | null> {
 		const author = authorProps.Name.title[0].plain_text ?? undefined;
 		const authorAvatar = authorProps.Avatar.files[0].file.url ?? undefined;
 
-		const post: Post = {
+		const post: BlogPost = {
 			id: page.id,
 			title: properties.Title.title[0]?.plain_text || 'Untitled',
 			slug:
