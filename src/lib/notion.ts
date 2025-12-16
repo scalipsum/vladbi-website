@@ -10,7 +10,8 @@ if (!process.env.VERCEL && !process.env.NOTION_TOKEN) {
 }
 
 const notionToken = process.env.NOTION_TOKEN!;
-const databaseId = process.env.NOTION_DATABASE_ID!;
+const blogDatabaseId = process.env.NOTION_BLOG_DATABASE_ID!;
+const productsDatabaseId = process.env.NOTION_PRODUCTS_DATABASE_ID!;
 
 export const notion = new Client({ auth: notionToken });
 export const n2m = new NotionToMarkdown({ notionClient: notion });
@@ -43,7 +44,7 @@ export interface Product {
 
 export async function getDatabaseStructure() {
 	const database = await notion.databases.retrieve({
-		database_id: databaseId,
+		database_id: blogDatabaseId,
 	});
 	return database;
 }
@@ -57,15 +58,15 @@ export function getWordCount(content: string): number {
 }
 
 // Cached function to fetch all published posts
-export const getPostsFromCache = unstable_cache(
+export const getBlogPostsFromCache = unstable_cache(
 	async (): Promise<BlogPost[]> => {
 		console.log('Fetching posts from Notion...');
-		const posts = await fetchPublishedPosts();
+		const posts = await fetchPublishedItems(blogDatabaseId);
 
 		const allPosts = [];
 
 		for (const post of posts) {
-			const postDetails = await getPostFromNotion(post.id);
+			const postDetails = await getBlogPostFromNotion(post.id);
 			if (postDetails) {
 				allPosts.push(postDetails);
 			}
@@ -81,8 +82,34 @@ export const getPostsFromCache = unstable_cache(
 	},
 );
 
-export async function fetchPublishedPosts() {
-	const posts = await notion.databases.query({
+// Cached function to fetch all published products
+export const getProductsFromCache = unstable_cache(
+	async (): Promise<Product[]> => {
+		console.log('Fetching products from Notion...');
+		const products = await fetchPublishedItems(productsDatabaseId);
+
+		const allProducts = [];
+
+		for (const product of products) {
+			const productDetails = await getProductFromNotion(product.id);
+			if (productDetails) {
+				allProducts.push(productDetails);
+			}
+		}
+
+		console.log(`Successfully fetched ${allProducts.length} products.`);
+		return allProducts;
+	},
+	['products'],
+	{
+		tags: ['products'],
+		revalidate: false, // Only manual revalidation
+	},
+);
+
+// Generic function to fetch published items from any database
+export async function fetchPublishedItems(databaseId: string) {
+	const response = await notion.databases.query({
 		database_id: databaseId,
 		filter: {
 			and: [
@@ -102,43 +129,47 @@ export async function fetchPublishedPosts() {
 		],
 	});
 
-	return posts.results as PageObjectResponse[];
+	return response.results as PageObjectResponse[];
 }
 
-// Get all posts - always uses cached data
-export async function getAllPosts(): Promise<Post[]> {
-	return await getPostsFromCache();
-}
+type CacheType = 'blog-posts' | 'products';
 
-export async function refreshPostsCache(): Promise<{
+export async function refreshCacheData(type: CacheType): Promise<{
 	success: boolean;
 	message: string;
 	count?: number;
 }> {
 	try {
-		console.log('Refreshing posts cache...');
+		const isBlogPosts = type === 'blog-posts';
+		const itemName = isBlogPosts ? 'posts' : 'products';
+		const databaseId = isBlogPosts ? blogDatabaseId : productsDatabaseId;
+		const getItemFunction = isBlogPosts
+			? getBlogPostFromNotion
+			: getProductFromNotion;
 
-		// Trigger revalidation of the cached posts
-		revalidateTag('blog-posts');
+		console.log(`Refreshing ${itemName} cache...`);
+
+		// Trigger revalidation of the cached data
+		revalidateTag(type);
 
 		// Fetch fresh data to get count
-		const posts = await fetchPublishedPosts();
-		const allPosts = [];
+		const items = await fetchPublishedItems(databaseId);
+		const allItems = [];
 
-		for (const post of posts) {
-			const postDetails = await getPostFromNotion(post.id);
-			if (postDetails) {
-				allPosts.push(postDetails);
+		for (const item of items) {
+			const itemDetails = await getItemFunction(item.id);
+			if (itemDetails) {
+				allItems.push(itemDetails);
 			}
 		}
 
 		console.log(
-			`Successfully refreshed cache with ${allPosts.length} posts.`,
+			`Successfully refreshed cache with ${allItems.length} ${itemName}.`,
 		);
 		return {
 			success: true,
-			message: `Successfully refreshed cache with ${allPosts.length} posts`,
-			count: allPosts.length,
+			message: `Successfully refreshed cache with ${allItems.length} ${itemName}`,
+			count: allItems.length,
 		};
 	} catch (error) {
 		console.error('Error refreshing cache:', error);
@@ -152,7 +183,7 @@ export async function refreshPostsCache(): Promise<{
 	}
 }
 
-export async function getPostFromNotion(
+export async function getBlogPostFromNotion(
 	pageId: string,
 ): Promise<BlogPost | null> {
 	try {
@@ -209,6 +240,44 @@ export async function getPostFromNotion(
 		return post;
 	} catch (error) {
 		console.error('Error getting post:', error);
+		return null;
+	}
+}
+
+export async function getProductFromNotion(
+	pageId: string,
+): Promise<Product | null> {
+	try {
+		const page = (await notion.pages.retrieve({
+			page_id: pageId,
+		})) as PageObjectResponse;
+
+		const properties = page.properties as any;
+
+		const product: Product = {
+			id: page.id,
+			title: properties.Title.title[0]?.plain_text || 'Untitled',
+			slug:
+				properties.Title.title[0]?.plain_text
+					.toLowerCase()
+					.replace(/[^a-z0-9]+/g, '-') // Replace any non-alphanumeric chars with dash
+					.replace(/^-+|-+$/g, '') || 'untitled', // Remove leading/trailing dashes
+			coverImage:
+				// @ts-expect-error-next-line
+				page?.cover?.file?.url ?? page?.cover?.external?.url ?? null,
+			verticalImage:
+				properties['Vertical Image']?.files?.[0]?.file?.url ?? null,
+			subTitle: properties.Subtitle?.rich_text?.[0]?.plain_text || '',
+			description: properties.Description?.rich_text?.[0]?.plain_text || '',
+			date:
+				properties['Published Date']?.date?.start ||
+				new Date().toISOString(),
+			category: properties.Category?.select?.name,
+		};
+
+		return product;
+	} catch (error) {
+		console.error('Error getting product:', error);
 		return null;
 	}
 }

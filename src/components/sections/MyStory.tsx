@@ -1,9 +1,9 @@
 import Text from '@/components/ui/text';
-import { getAllPosts } from '@/lib/notion';
+import { getBlogPostsFromCache } from '@/lib/notion';
 import LandingBlogCard from '../elements/LandingBlogCard';
 
 export default async function MyStory() {
-	const blogPosts = await getAllPosts();
+	const blogPosts = await getBlogPostsFromCache();
 	const latestBlog = blogPosts[1];
 
 	return (

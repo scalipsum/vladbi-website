@@ -6,13 +6,21 @@ interface TextProps {
 	children?: React.ReactNode;
 }
 
+export const textSize = {
+	h1: 'text-4xl lg:text-5xl xl:text-6xl',
+	h2: 'text-3xl lg:text-4xl',
+	h3: 'text-xl lg:text-2xl ',
+	p: 'text-lg xl:text-xl',
+};
+
 export default function Text({ type, children, className }: TextProps) {
 	switch (type) {
 		case 'h1':
 			return (
 				<h1
 					className={cn(
-						'text-4xl lg:text-5xl xl:text-6xl font-main font-extrabold tracking-tight text-brand',
+						'font-main font-extrabold tracking-tight text-brand',
+						textSize['h1'],
 						className,
 					)}
 				>
@@ -23,7 +31,8 @@ export default function Text({ type, children, className }: TextProps) {
 			return (
 				<h2
 					className={cn(
-						'text-3xl lg:text-4xl font-main font-extrabold tracking-tight text-brand',
+						'font-main font-extrabold tracking-tight text-brand',
+						textSize['h2'],
 						className,
 					)}
 				>
@@ -34,7 +43,8 @@ export default function Text({ type, children, className }: TextProps) {
 			return (
 				<h3
 					className={cn(
-						'text-xl lg:text-2xl font-main font-extrabold tracking-tight text-brand',
+						'font-main font-extrabold tracking-tight text-brand',
+						textSize['h3'],
 						className,
 					)}
 				>
@@ -46,7 +56,8 @@ export default function Text({ type, children, className }: TextProps) {
 			return (
 				<p
 					className={cn(
-						'font-sans tracking-tight text-lg xl:text-xl',
+						'font-sans tracking-tight',
+						textSize['p'],
 						className,
 					)}
 				>

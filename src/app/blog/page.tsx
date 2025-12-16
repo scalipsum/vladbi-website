@@ -2,10 +2,10 @@ import PostCard from '@/components/elements/BlogCard';
 import ContentLayout from '@/components/layout/ContentLayout';
 import Header from '@/components/layout/Header';
 import CallToAction from '@/components/sections/CallToAction';
-import { getAllPosts } from '@/lib/notion';
+import { getBlogPostsFromCache } from '@/lib/notion';
 
 export default async function Home() {
-	const posts = await getAllPosts();
+	const posts = await getBlogPostsFromCache();
 
 	return (
 		<div>
