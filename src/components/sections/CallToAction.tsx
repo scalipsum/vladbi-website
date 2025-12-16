@@ -16,7 +16,7 @@ export default async function CallToAction({
 	title = 'Hello',
 	subtitle,
 	className,
-	buttonText = 'Take the project quiz',
+	buttonText = 'Take the product quiz',
 	href = '/blog',
 }: CallToActionProps) {
 	return (

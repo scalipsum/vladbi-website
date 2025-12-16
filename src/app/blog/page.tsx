@@ -9,7 +9,7 @@ export default async function Home() {
 
 	return (
 		<div>
-			<Header title="Blog" subTitle="My oppinions. No AI." />
+			<Header title="Blog" subTitle="Real thoughts. No AI." />
 			<ContentLayout className="mt-8">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 					{posts.map((post) => (

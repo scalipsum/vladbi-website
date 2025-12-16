@@ -38,7 +38,7 @@ export default function Hero() {
 				className="w-full md:max-w-1/2 z-10 pt-16 md:pt-0 flex flex-col items-center md:items-start"
 			>
 				<Text type="h1" className="text-center md:text-left">
-					We build SaaS ideas <br /> that Scale globally
+					We build SaaS products that scale globally
 				</Text>
 				<Text className="text-center md:text-left mt-8">
 					Handling full technical execution. Then <br /> automate

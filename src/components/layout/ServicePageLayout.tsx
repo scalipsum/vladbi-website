@@ -23,7 +23,7 @@ export default function ServicePageLayout({
 	subTitle,
 	ctaTitle = "Let's get started",
 	ctaSubtitle,
-	ctaButtonText = 'Take the project quiz',
+	ctaButtonText = 'Take the product quiz',
 	ctaHref = '/',
 	hiddenPattern,
 	hiddenCta,

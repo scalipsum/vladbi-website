@@ -6,7 +6,7 @@ import Header from '@/components/layout/Header';
 export default function Projects() {
 	return (
 		<div>
-			<Header title="Case studies" subTitle="Vision turned reality" />
+			<Header title="Products" subTitle="Vision turned reality" />
 			<ContentLayout className="pb-40">
 				<div className="flex flex-col gap-14 pt-4 mt-8">
 					<SaasPreviewCard

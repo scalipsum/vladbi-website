@@ -4,7 +4,7 @@ import SaasPreviewCard from '../elements/SaasPreviewCard';
 export default async function LatestSaas() {
 	return (
 		<section className="mt-48">
-			<Text type="h2">Latest SaaS project</Text>
+			<Text type="h2">Latest SaaS product</Text>
 
 			<SaasPreviewCard
 				title="IQMeals"

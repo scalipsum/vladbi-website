@@ -39,8 +39,8 @@ export default async function AiAutomationProducts() {
 					</Text>
 				</Card>
 				<Button asChild className="mt-10 mb-0 mx-auto !px-6">
-					<Link href="/case-studies">
-						View Case Studies
+					<Link href="/products">
+						View Products
 						<FaChevronRight />
 					</Link>
 				</Button>

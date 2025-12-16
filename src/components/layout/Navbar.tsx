@@ -59,9 +59,9 @@ export default function Navbar() {
 							</NavigationMenuItem>
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
-									<Link href="/case-studies">
+									<Link href="/products">
 										<Text className="font-main !text-lg">
-											Case studies
+											Products
 										</Text>
 									</Link>
 								</NavigationMenuLink>
@@ -87,10 +87,10 @@ export default function Navbar() {
 						</NavigationMenuList>
 					</NavigationMenu>
 
-					{/* Right side - Project Quiz Button and Theme Toggle */}
+					{/* Right side - Product Quiz Button and Theme Toggle */}
 					<div className="flex items-center space-x-4">
 						<Button asChild className="-mt-1">
-							<Link href="/quiz">Project Quiz</Link>
+							<Link href="/quiz">Product Quiz</Link>
 						</Button>
 						<ThemeToggle />
 
@@ -142,10 +142,10 @@ export default function Navbar() {
 									</div>
 
 									<Link
-										href="/case-studies"
+										href="/products"
 										className="block px-3 py-2 text-sm hover:bg-accent rounded-md transition-colors"
 									>
-										<Text>Case studies</Text>
+										<Text>Products</Text>
 									</Link>
 									<Link
 										href="/blog"
@@ -162,7 +162,7 @@ export default function Navbar() {
 									</Link>
 
 									<Button asChild>
-										<Link href="/quiz">Project Quiz</Link>
+										<Link href="/quiz">Product Quiz</Link>
 									</Button>
 								</div>
 							</SheetContent>
