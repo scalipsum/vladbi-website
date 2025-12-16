@@ -107,6 +107,63 @@ export const getProductsFromCache = unstable_cache(
 	},
 );
 
+// Optimized function to fetch latest product by category
+export const getLatestProductByCategory = unstable_cache(
+	async (category: string): Promise<Product | null> => {
+		console.log(`Fetching latest ${category} product from Notion...`);
+
+		const response = await notion.databases.query({
+			database_id: productsDatabaseId,
+			filter: {
+				and: [
+					{
+						property: 'Status',
+						status: {
+							equals: 'Published',
+						},
+					},
+					{
+						property: 'Category',
+						select: {
+							equals: category,
+						},
+					},
+				],
+			},
+			sorts: [
+				{
+					property: 'Published Date',
+					direction: 'descending',
+				},
+			],
+			page_size: 1,
+		});
+
+		if (response.results.length === 0) {
+			console.log(`No published ${category} products found.`);
+			return null;
+		}
+
+		const product = response.results[0] as PageObjectResponse;
+		const productDetails = await getProductFromNotion(product.id);
+
+		if (productDetails) {
+			console.log(`Successfully fetched latest ${category} product: ${productDetails.title}`);
+		}
+
+		return productDetails;
+	},
+	(category: string) => [`latest-${category.toLowerCase()}-product`],
+	{
+		tags: (category: string) => [`latest-${category.toLowerCase()}-product`],
+		revalidate: false, // Only manual revalidation
+	},
+);
+
+// Convenience functions for specific categories
+export const getLatestSaasProduct = () => getLatestProductByCategory('SaaS');
+export const getLatestAutomationProduct = () => getLatestProductByCategory('Automation');
+
 // Generic function to fetch published items from any database
 export async function fetchPublishedItems(databaseId: string) {
 	const response = await notion.databases.query({

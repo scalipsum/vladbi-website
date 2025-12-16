@@ -22,7 +22,7 @@ export default function AutomationPreviewCard({
 	ctaText = 'View case study',
 }: AutomationPreviewCardProps) {
 	return (
-		<Card className={cn('px-8 py-6 mt-8 w-full min-h-40', className)}>
+		<Card className={cn('px-8 py-6 mt-8 w-full min-h-36', className)}>
 			<div>
 				<Link
 					href={href}
