@@ -1,6 +1,6 @@
 import { Card, CardHeader } from '@/components/ui/card';
 import Text from '@/components/ui/text';
-import { Post, getWordCount } from '@/lib/notion';
+import { BlogPost, getWordCount } from '@/lib/notion';
 import { calculateReadingTime, cn } from '@/lib/utils';
 import { format } from 'date-fns';
 import { Calendar, Clock } from 'lucide-react';
@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { Button } from '../ui/button';
 
 interface LandingBlogCardProps {
-	post: Post;
+	post: BlogPost;
 	className?: string;
 }
 

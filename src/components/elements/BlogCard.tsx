@@ -1,6 +1,6 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardFooter, CardHeader } from '@/components/ui/card';
-import { Post, getWordCount } from '@/lib/notion';
+import { BlogPost, getWordCount } from '@/lib/notion';
 import { calculateReadingTime, cn } from '@/lib/utils';
 import { format } from 'date-fns';
 import { ArrowUpRight, Calendar, Clock } from 'lucide-react';
@@ -8,7 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 interface PostCardProps {
-	post: Post;
+	post: BlogPost;
 	className?: string;
 }
 
