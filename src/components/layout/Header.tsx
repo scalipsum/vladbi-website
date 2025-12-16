@@ -1,6 +1,7 @@
 'use client';
 
 import Text from '@/components/ui/text';
+import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 import BrandStripes from '../elements/BrandStripes';
 import RotatingGlobe from '../elements/RotatingGlobe';
@@ -8,8 +9,9 @@ import RotatingGlobe from '../elements/RotatingGlobe';
 interface HeaderProps {
 	title: string;
 	subTitle: string;
+	className?: string;
 }
-export default function Header({ title, subTitle }: HeaderProps) {
+export default function Header({ title, subTitle, className }: HeaderProps) {
 	const [globeSize, setGlobeSize] = useState(700);
 	useEffect(() => {
 		const updateGlobeSize = () => {
@@ -27,7 +29,12 @@ export default function Header({ title, subTitle }: HeaderProps) {
 	}, []);
 
 	return (
-		<div className="relative h-82 w-full flex flex-col items-center justify-center max-w-[1920px] mx-auto">
+		<div
+			className={cn(
+				'relative h-82 w-full flex flex-col items-center justify-center max-w-[1920px] mx-auto',
+				className,
+			)}
+		>
 			<RotatingGlobe
 				className="absolute -left-48 -top-64 opacity-100 z-0"
 				size={globeSize}

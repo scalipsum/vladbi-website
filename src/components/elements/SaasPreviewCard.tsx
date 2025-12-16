@@ -1,4 +1,6 @@
 import Text from '@/components/ui/text';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -10,6 +12,7 @@ interface AutomationPreviewCardProps {
 	backgroundImageUrl: string;
 	previewImageUrl: string;
 	href: string;
+	className?: string;
 }
 
 export default function SaasPreviewCard({
@@ -19,13 +22,19 @@ export default function SaasPreviewCard({
 	backgroundImageUrl,
 	previewImageUrl,
 	href,
+	className,
 }: AutomationPreviewCardProps) {
+	const gastonWidth = 360;
+	const gastonHeight = 470;
 	return (
 		<Card
-			className="px-12 py-12 mt-8 bg-cover bg-center bg-no-repeat w-full"
+			className={cn(
+				'px-12 py-12 mt-8 bg-cover bg-center bg-no-repeat w-full overflow-visible min-h-[350px]',
+				className,
+			)}
 			style={{ backgroundImage: `url(${backgroundImageUrl})` }}
 		>
-			<div className="absolute z-0 inset-0 bg-gray-800 opacity-75 rounded-lg" />
+			<div className="absolute z-0 inset-0 bg-slate-800 opacity-60 rounded-lg" />
 			<Link
 				href={href}
 				className="absolute inset-0 z-20"
@@ -40,15 +49,25 @@ export default function SaasPreviewCard({
 					<Text className="mt-6 w-1/3 text-white">{description}</Text>
 					<Button
 						asChild
-						className="self-end mt-6"
+						className="self-end mt-10"
 						variant="secondary"
 					>
 						<Link href={href}>View case study</Link>
 					</Button>
 				</div>
-				<div
-					className="w-90 h-140 absolute -top-30 right-8 rounded-lg bg-center bg-no-repeat bg-cover"
-					style={{ backgroundImage: `url(${previewImageUrl})` }}
+				<Image
+					src={previewImageUrl}
+					alt={`${title} preview`}
+					width={title === 'Gaston' ? gastonWidth : gastonWidth / 1.7}
+					height={
+						title === 'Gaston' ? gastonHeight : gastonHeight / 1.7
+					}
+					className={cn(
+						'absolute rounded-lg object-fill',
+						title === 'Gaston'
+							? 'right-32 -bottom-24'
+							: 'right-56 -bottom-8',
+					)}
 				/>
 			</div>
 		</Card>

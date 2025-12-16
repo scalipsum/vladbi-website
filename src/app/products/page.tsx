@@ -8,11 +8,11 @@ export default async function Projects() {
 	const products = await getProductsFromCache();
 
 	return (
-		<div>
+		<div className="pb-32">
 			<Header title="Products" subTitle="Vision turned reality" />
-			<ContentLayout className="pb-40">
-				<div className="flex flex-col gap-14 pt-4 mt-8">
-					{products.map((product) => {
+			<ContentLayout>
+				<div className="flex flex-col mt-24">
+					{products.map((product, index) => {
 						if (product.category === 'Automation') {
 							return (
 								<AutomationPreviewCard
@@ -21,6 +21,7 @@ export default async function Projects() {
 									subtitle={product.subTitle}
 									description={product.description}
 									href={`/products/${product.slug}`}
+									className={index !== 0 ? 'mt-28' : ''}
 								/>
 							);
 						}
@@ -33,6 +34,7 @@ export default async function Projects() {
 								href={`/products/${product.slug}`}
 								backgroundImageUrl={product.coverImage ?? ''}
 								previewImageUrl={product.verticalImage ?? ''}
+								className={index !== 0 ? 'mt-54' : ''}
 							/>
 						);
 					})}

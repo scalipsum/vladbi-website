@@ -22,7 +22,7 @@ export default function AutomationPreviewCard({
 	ctaText = 'View case study',
 }: AutomationPreviewCardProps) {
 	return (
-		<Card className={cn('px-8 py-6 mt-8 w-full', className)}>
+		<Card className={cn('px-8 py-6 mt-8 w-full min-h-40', className)}>
 			<div>
 				<Link
 					href={href}
@@ -32,7 +32,7 @@ export default function AutomationPreviewCard({
 				<div className="flex flex-row items-center">
 					<div className="w-1/3 flex flex-col items-start">
 						<Text type="h3">{title}</Text>
-						<Text className="mt-2 text-brand">{subtitle}</Text>
+						<Text className="mt-1 text-brand">{subtitle}</Text>
 					</div>
 					<div className="w-1/3 flex justify-center ml-4">
 						<Text>{description}</Text>
