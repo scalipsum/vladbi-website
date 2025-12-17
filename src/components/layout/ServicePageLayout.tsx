@@ -27,7 +27,7 @@ export default function ServicePageLayout({
 	ctaTitle = "Let's get started",
 	ctaSubtitle,
 	ctaButtonText = 'Take the product quiz',
-	ctaHref = '/',
+	ctaHref = '/quiz',
 	hiddenPattern,
 	hiddenCta,
 	layoutClassName,
