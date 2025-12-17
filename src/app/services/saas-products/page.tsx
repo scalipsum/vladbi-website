@@ -14,6 +14,7 @@ export default async function SaasProducts() {
 			ctaTitle="Looking for AI Automation?"
 			ctaButtonText="View our process"
 			ctaHref="/services/ai-automation"
+			layoutClassName="max-w-2xl"
 		>
 			<div className="flex flex-col items-center gap-8">
 				<Card className="w-full p-8 text-left mt-1">

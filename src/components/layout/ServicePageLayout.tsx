@@ -17,6 +17,7 @@ interface ServicePageLayoutProps {
 	layoutClassName?: string;
 	headerBackgroundUrl?: string;
 	headerTextColor?: string;
+	additionalHeaderContent?: React.ReactNode;
 }
 
 export default function ServicePageLayout({
@@ -32,6 +33,7 @@ export default function ServicePageLayout({
 	layoutClassName,
 	headerBackgroundUrl,
 	headerTextColor,
+	additionalHeaderContent,
 }: ServicePageLayoutProps) {
 	return (
 		<div className="relative">
@@ -41,10 +43,9 @@ export default function ServicePageLayout({
 					subTitle={subTitle}
 					backgroundUrl={headerBackgroundUrl}
 					textColor={headerTextColor}
+					additionalContent={additionalHeaderContent}
 				/>
-				<ContentLayout
-					className={cn('max-w-2xl mt-12', layoutClassName)}
-				>
+				<ContentLayout className={cn('mt-12', layoutClassName)}>
 					{children}
 				</ContentLayout>
 			</div>

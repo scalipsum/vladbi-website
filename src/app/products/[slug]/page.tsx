@@ -96,17 +96,24 @@ export default async function ProductPage({ params }: ProductPageProps) {
 				<ServicePageLayout
 					title={product.title}
 					subTitle={product.subTitle}
+					ctaSubtitle="Turn your vision into reality"
 					hiddenPattern
 					headerBackgroundUrl={product.coverImage}
 					headerTextColor="white"
+					additionalHeaderContent={
+						<>
+							{product.category && (
+								<Badge
+									variant="secondary"
+									className="mt-4 bg-white text-black"
+								>
+									{product.category}
+								</Badge>
+							)}
+						</>
+					}
 				>
-					<div className="flex gap-4 mb-4">
-						{product.category && (
-							<Badge variant="secondary">
-								{product.category}
-							</Badge>
-						)}
-					</div>
+					<div className="flex gap-4 mb-4"></div>
 
 					{product.verticalImage && (
 						<div className="relative w-full max-w-md mx-auto mb-8">
