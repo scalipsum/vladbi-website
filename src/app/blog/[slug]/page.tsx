@@ -114,7 +114,7 @@ export default async function PostPage({ params }: PostPageProps) {
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
-			<article className="max-w-3xl mx-auto prose dark:prose-invert">
+			<article>
 				{post.coverImage && (
 					<div className="relative aspect-video w-full mb-8 rounded-lg overflow-hidden">
 						<Image

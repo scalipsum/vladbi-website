@@ -1,8 +1,8 @@
 import SquarePattern from '@/assets/img/square-pattern.svg';
 import ContentLayout from '@/components/layout/ContentLayout';
-import SecondaryHeader from '@/components/layout/SecondaryHeader';
 import CallToAction from '@/components/sections/CallToAction';
 import { cn } from '@/lib/utils';
+import SecondaryHeader from './SecondaryHeader';
 
 interface ServicePageLayoutProps {
 	children: React.ReactNode;
@@ -15,6 +15,8 @@ interface ServicePageLayoutProps {
 	hiddenPattern?: boolean;
 	hiddenCta?: boolean;
 	layoutClassName?: string;
+	headerBackgroundUrl?: string;
+	headerTextColor?: string;
 }
 
 export default function ServicePageLayout({
@@ -28,11 +30,18 @@ export default function ServicePageLayout({
 	hiddenPattern,
 	hiddenCta,
 	layoutClassName,
+	headerBackgroundUrl,
+	headerTextColor,
 }: ServicePageLayoutProps) {
 	return (
 		<div className="relative">
 			<div className="relative z-10">
-				<SecondaryHeader title={title} subTitle={subTitle} />
+				<SecondaryHeader
+					title={title}
+					subTitle={subTitle}
+					backgroundUrl={headerBackgroundUrl}
+					textColor={headerTextColor}
+				/>
 				<ContentLayout
 					className={cn('max-w-2xl mt-12', layoutClassName)}
 				>
@@ -42,7 +51,7 @@ export default function ServicePageLayout({
 			{/* Pattern */}
 			{!hiddenPattern && (
 				<div
-					className="w-full h-full absolute top-0 right-0 bottom-0 left-0 z-0 opacity-5"
+					className="w-full h-full absolute top-0 right-0 bottom-0 left-0 z-0 opacity-5 dark:invert"
 					style={{
 						backgroundImage: `url(${
 							SquarePattern.src || SquarePattern

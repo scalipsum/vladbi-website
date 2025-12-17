@@ -7,26 +7,47 @@ interface SecondaryHeaderProps {
 	title: string;
 	subTitle: string;
 	className?: string;
+	backgroundUrl?: string;
+	textColor?: string;
 }
 export default function SecondaryHeader({
 	title,
 	subTitle,
 	className,
+	backgroundUrl,
+	textColor = 'brand',
 }: SecondaryHeaderProps) {
 	return (
 		<div
 			className={cn(
-				'relative max-w-[1920px] relative mx-auto h-82 w-full shadow-lg rounded-bl-[280px] rounded-br-[300px] shadow-slate-200/60 dark:shadow-slate-800/60 bg-background',
+				'relative max-w-[1920px] relative mx-auto h-82 w-full rounded-bl-[280px] rounded-br-[330px] ',
+				backgroundUrl
+					? 'bg-cover bg-center bg-no-repeat'
+					: 'bg-background shadow-lg dark:shadow-gray-900/60 shadow-slate-200/60',
 				className,
 			)}
+			style={
+				backgroundUrl
+					? { backgroundImage: `url(${backgroundUrl})` }
+					: undefined
+			}
 		>
-			<div className="max-w-[1920px] relative mx-auto">
+			{backgroundUrl && (
+				<div className="absolute z-0 inset-0 bg-slate-900 opacity-60 rounded-lg rounded-bl-[280px] rounded-br-[330px]" />
+			)}
+			<div className="max-w-[1920px] relative mx-auto h-full relative z-10">
 				<BrandStripes className="absolute !-top-24 z-0 right-0 top-0" />
 				<ContentLayout className="flex items-center justify-center">
 					<div className="inline-block mt-36 text-center">
-						<Text type="h2">{title}</Text>
-						<Text className="mt-4 text-brand">{subTitle}</Text>
-						<div className="h-1.5 bg-brand rounded-full w-full self-center mt-2.5" />
+						<Text type="h2" className={`text-${textColor}`}>
+							{title}
+						</Text>
+						<Text className={`mt-4 text-${textColor}`}>
+							{subTitle}
+						</Text>
+						<div
+							className={`h-1.5 bg-${textColor} rounded-full w-full self-center mt-2.5`}
+						/>
 					</div>
 				</ContentLayout>
 			</div>

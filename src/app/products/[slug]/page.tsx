@@ -1,7 +1,7 @@
 import { BlockRender } from '@/components/elements/BlockRender';
+import ServicePageLayout from '@/components/layout/ServicePageLayout';
 import { Badge } from '@/components/ui/badge';
 import { getProductsFromCache } from '@/lib/notion';
-import { format } from 'date-fns';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -92,36 +92,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
-			<article className="max-w-3xl mx-auto prose dark:prose-invert">
-				{product.coverImage && (
-					<div className="relative aspect-video w-full mb-8 rounded-lg overflow-hidden">
-						<Image
-							src={product.coverImage}
-							alt={product.title}
-							fill
-							className="object-cover"
-							priority
-						/>
-					</div>
-				)}
-
-				<header className="mb-8">
-					<div className="flex items-center gap-4 text-muted-foreground mb-4">
-						<time>
-							{format(new Date(product.date), 'MMMM d, yyyy')}
-						</time>
-					</div>
-
-					<h1 className="text-4xl font-bold mb-4 text-foreground">
-						{product.title}
-					</h1>
-
-					{product.subTitle && (
-						<p className="text-xl text-muted-foreground mb-4">
-							{product.subTitle}
-						</p>
-					)}
-
+			<article>
+				<ServicePageLayout
+					title={product.title}
+					subTitle={product.subTitle}
+					hiddenPattern
+					headerBackgroundUrl={product.coverImage}
+					headerTextColor="white"
+				>
 					<div className="flex gap-4 mb-4">
 						{product.category && (
 							<Badge variant="secondary">
@@ -129,46 +107,46 @@ export default async function ProductPage({ params }: ProductPageProps) {
 							</Badge>
 						)}
 					</div>
-				</header>
 
-				{product.verticalImage && (
-					<div className="relative w-full max-w-md mx-auto mb-8">
-						<Image
-							src={product.verticalImage}
-							alt={`${product.title} - Vertical View`}
-							width={400}
-							height={600}
-							className="rounded-lg object-cover"
-						/>
-					</div>
-				)}
-
-				<div className="max-w-none">
-					<div className="mb-8">
-						<p className="text-lg leading-relaxed">
-							{product.description}
-						</p>
-					</div>
-
-					{/* Render Notion blocks if available */}
-					{product.blocks && product.blocks.length > 0 && (
-						<BlockRender
-							blocks={product.blocks}
-							config={{
-								className: {
-									h1: 'text-4xl font-bold mb-4 text-foreground',
-									h2: 'text-2xl font-bold mb-3 text-foreground',
-									h3: 'text-xl font-semibold mb-2 text-foreground',
-									paragraph:
-										'text-base leading-relaxed mb-4 text-foreground',
-									quote: 'border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic my-6 text-muted-foreground',
-									columnList: 'my-8',
-									image: 'rounded-lg my-6',
-								},
-							}}
-						/>
+					{product.verticalImage && (
+						<div className="relative w-full max-w-md mx-auto mb-8">
+							<Image
+								src={product.verticalImage}
+								alt={`${product.title} - Vertical View`}
+								width={400}
+								height={600}
+								className="rounded-lg object-cover"
+							/>
+						</div>
 					)}
-				</div>
+
+					<div className="max-w-none">
+						<div className="mb-8">
+							<p className="text-lg leading-relaxed">
+								{product.description}
+							</p>
+						</div>
+
+						{/* Render Notion blocks if available */}
+						{product.blocks && product.blocks.length > 0 && (
+							<BlockRender
+								blocks={product.blocks}
+								config={{
+									className: {
+										h1: 'text-4xl font-bold mb-4 text-foreground',
+										h2: 'text-2xl font-bold mb-3 text-foreground',
+										h3: 'text-xl font-semibold mb-2 text-foreground',
+										paragraph:
+											'text-base leading-relaxed mb-4 text-foreground',
+										quote: 'border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic my-6 text-muted-foreground',
+										columnList: 'my-8',
+										image: 'rounded-lg my-6',
+									},
+								}}
+							/>
+						)}
+					</div>
+				</ServicePageLayout>
 			</article>
 		</>
 	);
