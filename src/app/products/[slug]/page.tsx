@@ -3,7 +3,6 @@ import ServicePageLayout from '@/components/layout/ServicePageLayout';
 import { Badge } from '@/components/ui/badge';
 import { getProductsFromCache } from '@/lib/notion';
 import { Metadata } from 'next';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 interface ProductPageProps {
@@ -113,9 +112,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 						</>
 					}
 				>
-					<div className="flex gap-4 mb-4"></div>
-
-					{product.verticalImage && (
+					{/* {product.verticalImage && (
 						<div className="relative w-full max-w-md mx-auto mb-8">
 							<Image
 								src={product.verticalImage}
@@ -126,14 +123,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
 							/>
 						</div>
 					)}
+					<div className="mb-8">
+						<p className="text-lg leading-relaxed">
+							{product.description}
+						</p>
+					</div> */}
 
 					<div className="max-w-none">
-						<div className="mb-8">
-							<p className="text-lg leading-relaxed">
-								{product.description}
-							</p>
-						</div>
-
 						{/* Render Notion blocks if available */}
 						{product.blocks && product.blocks.length > 0 && (
 							<BlockRender
