@@ -4,14 +4,17 @@ import LandingBlogCard from '../elements/LandingBlogCard';
 
 export default async function MyStory() {
 	const blogPosts = await getBlogPostsFromCache();
-	const latestBlog = blogPosts[1];
-
+	const latestBlog = blogPosts[0];
 	return (
 		<section className="mt-34 flex flex-col items-center">
 			<Text type="h2" className="text-center">
 				My story
 			</Text>
-			<LandingBlogCard post={latestBlog} className="mt-12" />
+			{!latestBlog ? (
+				<Text className="mt-8">No blog post available.</Text>
+			) : (
+				<LandingBlogCard post={latestBlog} className="mt-12" />
+			)}
 		</section>
 	);
 }
