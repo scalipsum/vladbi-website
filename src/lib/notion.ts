@@ -253,11 +253,6 @@ export async function refreshCacheData(type: CacheType): Promise<{
 
 		revalidateTag(type);
 
-		if (type === 'products') {
-			revalidateTag('latest-saas-product');
-			revalidateTag('latest-automation-product');
-		}
-
 		const items = await fetchPublishedItems(databaseId);
 		const allItems = [];
 

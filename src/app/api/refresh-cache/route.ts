@@ -1,4 +1,5 @@
 import { refreshCacheData } from "@/lib/notion";
+import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function POST() {
@@ -8,6 +9,10 @@ export async function POST() {
       refreshCacheData('blog-posts'),
       refreshCacheData('products')
     ]);
+
+    // Also revalidate category-specific product caches
+    revalidateTag('latest-saas-product');
+    revalidateTag('latest-automation-product');
 
     if (blogResult.success && productsResult.success) {
       return NextResponse.json({
