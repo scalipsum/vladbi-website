@@ -65,9 +65,9 @@ export interface BlockRenderConfig {
 }
 
 // Extended block type with children for nested structures
-export interface BlockWithChildren extends BlockObjectResponse {
+export type BlockWithChildren = BlockObjectResponse & {
 	children?: BlockObjectResponse[];
-}
+};
 
 /**
  * Groups consecutive list items into arrays for proper rendering

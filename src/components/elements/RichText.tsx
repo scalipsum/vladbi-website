@@ -1,6 +1,6 @@
-import React from 'react';
-import type { RichTextItemResponse } from '@/lib/notion-blocks';
 import { Badge } from '@/components/ui/badge';
+import type { RichTextItemResponse } from '@/lib/notion-blocks';
+import React from 'react';
 
 interface RichTextProps {
 	richText: RichTextItemResponse[];
@@ -77,9 +77,7 @@ function RichTextSegment({ item }: { item: RichTextItemResponse }) {
 
 	// Handle mentions
 	if (item.type === 'mention') {
-		return (
-			<span className="text-muted-foreground">{item.plain_text}</span>
-		);
+		return <span className="text-muted-foreground">{item.plain_text}</span>;
 	}
 
 	// Handle equations
@@ -88,5 +86,5 @@ function RichTextSegment({ item }: { item: RichTextItemResponse }) {
 	}
 
 	// Fallback for unsupported types
-	return <>{item.plain_text}</>;
+	return <>{(item as any).plain_text || ''}</>;
 }
