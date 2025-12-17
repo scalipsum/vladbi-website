@@ -1,8 +1,8 @@
-import { getBlogPostsFromCache, BlogPost } from '@/lib/notion';
+import { BlogPost, getBlogPostsFromCache } from '@/lib/notion';
 import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://your-site.com';
+	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
 
 	const posts = await getBlogPostsFromCache();
 	const postUrls = posts.map((post: BlogPost) => ({

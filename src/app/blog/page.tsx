@@ -3,6 +3,27 @@ import ContentLayout from '@/components/layout/ContentLayout';
 import Header from '@/components/layout/Header';
 import CallToAction from '@/components/sections/CallToAction';
 import { getBlogPostsFromCache } from '@/lib/notion';
+import { Metadata } from 'next';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
+
+export const metadata: Metadata = {
+	title: 'Blog | Vlad Bibire',
+	description: 'Real thoughts. No AI. Browse all blog posts and articles.',
+	openGraph: {
+		title: 'Blog | Vlad Bibire',
+		description:
+			'Real thoughts. No AI. Browse all blog posts and articles.',
+		type: 'website',
+		url: `${siteUrl}/blog`,
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Blog | Vlad Bibire',
+		description:
+			'Real thoughts. No AI. Browse all blog posts and articles.',
+	},
+};
 
 export default async function Home() {
 	const posts = await getBlogPostsFromCache();

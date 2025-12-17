@@ -31,14 +31,11 @@ export async function generateMetadata({
 		};
 	}
 
-	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://your-site.com';
+	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
 
 	return {
 		title: product.title,
 		description: product.description,
-		alternates: {
-			canonical: `${siteUrl}/products/${product.slug}`,
-		},
 		openGraph: {
 			title: product.title,
 			description: product.description,
@@ -76,7 +73,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 		notFound();
 	}
 
-	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://your-site.com';
+	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
 
 	const jsonLd = {
 		'@context': 'https://schema.org',

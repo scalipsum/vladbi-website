@@ -33,14 +33,11 @@ export async function generateMetadata({
 		};
 	}
 
-	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://your-site.com';
+	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
 
 	return {
 		title: post.title,
 		description: post.description,
-		alternates: {
-			canonical: `${siteUrl}/posts/${post.slug}`,
-		},
 		openGraph: {
 			title: post.title,
 			description: post.description,
@@ -84,7 +81,7 @@ export default async function PostPage({ params }: PostPageProps) {
 		notFound();
 	}
 
-	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://your-site.com';
+	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
 
 	const jsonLd = {
 		'@context': 'https://schema.org',
@@ -136,19 +133,19 @@ export default async function PostPage({ params }: PostPageProps) {
 							{format(new Date(post.date), 'MMMM d, yyyy')}
 						</time>
 						{post.author && (
-						<div className="flex items-center gap-2">
-							{post.authorAvatar && (
-								<Image
-									src={post.authorAvatar}
-									alt={post.author}
-									width={24}
-									height={24}
-									className="rounded-full"
-								/>
-							)}
-							<span>By {post.author}</span>
-						</div>
-					)}
+							<div className="flex items-center gap-2">
+								{post.authorAvatar && (
+									<Image
+										src={post.authorAvatar}
+										alt={post.author}
+										width={24}
+										height={24}
+										className="rounded-full"
+									/>
+								)}
+								<span>By {post.author}</span>
+							</div>
+						)}
 						<span>{calculateReadingTime(wordCount)}</span>
 						<span>{wordCount} words</span>
 					</div>
@@ -181,8 +178,7 @@ export default async function PostPage({ params }: PostPageProps) {
 									h3: 'text-xl font-semibold mb-2 text-foreground',
 									paragraph:
 										'text-base leading-relaxed mb-4 text-foreground',
-									quote:
-										'border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic my-6 text-muted-foreground',
+									quote: 'border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic my-6 text-muted-foreground',
 									columnList: 'my-8',
 									image: 'rounded-lg my-6',
 								},
