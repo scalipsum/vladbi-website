@@ -26,7 +26,7 @@ export default function Youtube() {
 				<YouTube
 					className="mt-10"
 					iframeClassName="rounded-lg w-full aspect-video"
-					videoId="mkt0qoyb-gg"
+					videoId="hjKga8CPHMc"
 					opts={{ playerVars: { autoplay: 0 } }}
 				/>
 			</TightContentLayout>
