@@ -26,8 +26,6 @@ export default function RotatingGlobe({
 		lottieRef.current?.setSpeed(0.5);
 	}, []);
 
-	console.log(theme);
-
 	return (
 		<motion.div
 			className={className}

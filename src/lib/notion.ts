@@ -1,5 +1,8 @@
 import { Client } from '@notionhq/client';
-import { BlockObjectResponse, PageObjectResponse } from '@notionhq/client/';
+import {
+	BlockObjectResponse,
+	PageObjectResponse,
+} from '@notionhq/client/';
 import dotenv from 'dotenv';
 import { revalidateTag, unstable_cache } from 'next/cache';
 import { NotionToMarkdown } from 'notion-to-md';
@@ -251,8 +254,12 @@ export async function refreshCacheData(type: CacheType): Promise<{
 			? getBlogPostFromNotion
 			: getProductFromNotion;
 
+		console.log(`Refreshing ${itemName} cache...`);
+
+		// Trigger revalidation of the cached data
 		revalidateTag(type);
 
+		// Fetch fresh data to get count
 		const items = await fetchPublishedItems(databaseId);
 		const allItems = [];
 
@@ -262,6 +269,10 @@ export async function refreshCacheData(type: CacheType): Promise<{
 				allItems.push(itemDetails);
 			}
 		}
+
+		console.log(
+			`Successfully refreshed cache with ${allItems.length} ${itemName}.`,
+		);
 		return {
 			success: true,
 			message: `Successfully refreshed cache with ${allItems.length} ${itemName}`,
@@ -372,8 +383,7 @@ export async function getProductFromNotion(
 			verticalImage:
 				properties['Vertical Image']?.files?.[0]?.file?.url ?? null,
 			subTitle: properties.Subtitle?.rich_text?.[0]?.plain_text || '',
-			description:
-				properties.Description?.rich_text?.[0]?.plain_text || '',
+			description: properties.Description?.rich_text?.[0]?.plain_text || '',
 			date:
 				properties['Published Date']?.date?.start ||
 				new Date().toISOString(),

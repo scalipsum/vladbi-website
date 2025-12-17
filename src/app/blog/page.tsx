@@ -43,7 +43,7 @@ export default async function Home() {
 				</div>
 			</ContentLayout>
 			<CallToAction
-				title="Let's get started."
+				title="Let's get started"
 				subtitle="Bring your idea to life."
 				className="mt-24"
 			/>
