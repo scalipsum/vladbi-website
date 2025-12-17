@@ -1,14 +1,12 @@
-import { components } from '@/components/elements/Mdx';
+import { BlockRender } from '@/components/elements/BlockRender';
 import { Badge } from '@/components/ui/badge';
-import { getBlogPostsFromCache, getWordCount } from '@/lib/notion';
+import { getBlogPostsFromCache } from '@/lib/notion';
+import { getWordCountFromBlocks } from '@/lib/notion-blocks';
 import { calculateReadingTime } from '@/lib/utils';
 import { format } from 'date-fns';
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import ReactMarkdown from 'react-markdown';
-import rehypeRaw from 'rehype-raw';
-import remarkGfm from 'remark-gfm';
 
 interface PostPageProps {
 	params: Promise<{ slug: string }>;
@@ -22,10 +20,9 @@ export async function generateStaticParams() {
 	}));
 }
 
-export async function generateMetadata(
-	{ params }: PostPageProps,
-	parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata({
+	params,
+}: PostPageProps): Promise<Metadata> {
 	const { slug } = await params;
 	const posts = await getBlogPostsFromCache();
 	const post = posts.find((p) => p.slug === slug);
@@ -79,7 +76,9 @@ export default async function PostPage({ params }: PostPageProps) {
 	const { slug } = await params;
 	const posts = await getBlogPostsFromCache();
 	const post = posts.find((p) => p.slug === slug);
-	const wordCount = post?.content ? getWordCount(post.content) : 0;
+
+	// Calculate word count from blocks
+	const wordCount = post?.blocks ? getWordCountFromBlocks(post.blocks) : 0;
 
 	if (!post) {
 		notFound();
@@ -136,7 +135,20 @@ export default async function PostPage({ params }: PostPageProps) {
 						<time>
 							{format(new Date(post.date), 'MMMM d, yyyy')}
 						</time>
-						{post.author && <span>By {post.author}</span>}
+						{post.author && (
+						<div className="flex items-center gap-2">
+							{post.authorAvatar && (
+								<Image
+									src={post.authorAvatar}
+									alt={post.author}
+									width={24}
+									height={24}
+									className="rounded-full"
+								/>
+							)}
+							<span>By {post.author}</span>
+						</div>
+					)}
 						<span>{calculateReadingTime(wordCount)}</span>
 						<span>{wordCount} words</span>
 					</div>
@@ -159,13 +171,24 @@ export default async function PostPage({ params }: PostPageProps) {
 				</header>
 
 				<div className="max-w-none">
-					<ReactMarkdown
-						components={components}
-						remarkPlugins={[remarkGfm]}
-						rehypePlugins={[rehypeRaw]}
-					>
-						{post.content}
-					</ReactMarkdown>
+					{post.blocks && post.blocks.length > 0 && (
+						<BlockRender
+							blocks={post.blocks}
+							config={{
+								className: {
+									h1: 'text-4xl font-bold mb-4 text-foreground',
+									h2: 'text-2xl font-bold mb-3 text-foreground',
+									h3: 'text-xl font-semibold mb-2 text-foreground',
+									paragraph:
+										'text-base leading-relaxed mb-4 text-foreground',
+									quote:
+										'border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic my-6 text-muted-foreground',
+									columnList: 'my-8',
+									image: 'rounded-lg my-6',
+								},
+							}}
+						/>
+					)}
 				</div>
 			</article>
 		</>

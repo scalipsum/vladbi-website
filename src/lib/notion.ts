@@ -1,5 +1,8 @@
 import { Client } from '@notionhq/client';
-import { PageObjectResponse } from '@notionhq/client/';
+import {
+	BlockObjectResponse,
+	PageObjectResponse,
+} from '@notionhq/client/';
 import dotenv from 'dotenv';
 import { revalidateTag, unstable_cache } from 'next/cache';
 import { NotionToMarkdown } from 'notion-to-md';
@@ -28,6 +31,7 @@ export interface BlogPost {
 	authorAvatar?: string;
 	tags?: string[];
 	category?: string;
+	blocks?: BlockObjectResponse[];
 }
 
 export interface Product {
@@ -40,6 +44,7 @@ export interface Product {
 	description: string;
 	date: string;
 	category?: string;
+	blocks?: BlockObjectResponse[];
 }
 
 export async function getDatabaseStructure() {
@@ -55,6 +60,39 @@ export function getWordCount(content: string): number {
 		.replace(/\s+/g, ' ')
 		.trim();
 	return cleanText.split(' ').length;
+}
+
+/**
+ * Recursively fetches all blocks and their children from a Notion page
+ * @param blockId The page or block ID to fetch blocks from
+ * @returns Array of blocks with nested children
+ */
+async function fetchBlocksRecursively(
+	blockId: string,
+): Promise<BlockObjectResponse[]> {
+	const blocks: BlockObjectResponse[] = [];
+
+	try {
+		const response = await notion.blocks.children.list({
+			block_id: blockId,
+			page_size: 100,
+		});
+
+		for (const block of response.results as BlockObjectResponse[]) {
+			// Recursively fetch children for nested blocks (columns, toggles, etc.)
+			if (block.has_children) {
+				const children = await fetchBlocksRecursively(block.id);
+				// Store children in the block object
+				(block as any).children = children;
+			}
+
+			blocks.push(block);
+		}
+	} catch (error) {
+		console.error('Error fetching blocks:', error);
+	}
+
+	return blocks;
 }
 
 // Cached function to fetch all published posts
@@ -107,62 +145,74 @@ export const getProductsFromCache = unstable_cache(
 	},
 );
 
-// Optimized function to fetch latest product by category
-export const getLatestProductByCategory = unstable_cache(
-	async (category: string): Promise<Product | null> => {
-		console.log(`Fetching latest ${category} product from Notion...`);
+// Helper function to fetch latest product by category (not cached directly)
+async function fetchLatestProductByCategory(
+	category: string,
+): Promise<Product | null> {
+	console.log(`Fetching latest ${category} product from Notion...`);
 
-		const response = await notion.databases.query({
-			database_id: productsDatabaseId,
-			filter: {
-				and: [
-					{
-						property: 'Status',
-						status: {
-							equals: 'Published',
-						},
-					},
-					{
-						property: 'Category',
-						select: {
-							equals: category,
-						},
-					},
-				],
-			},
-			sorts: [
+	const response = await notion.databases.query({
+		database_id: productsDatabaseId,
+		filter: {
+			and: [
 				{
-					property: 'Published Date',
-					direction: 'descending',
+					property: 'Status',
+					status: {
+						equals: 'Published',
+					},
+				},
+				{
+					property: 'Category',
+					select: {
+						equals: category,
+					},
 				},
 			],
-			page_size: 1,
-		});
+		},
+		sorts: [
+			{
+				property: 'Published Date',
+				direction: 'descending',
+			},
+		],
+		page_size: 1,
+	});
 
-		if (response.results.length === 0) {
-			console.log(`No published ${category} products found.`);
-			return null;
-		}
+	if (response.results.length === 0) {
+		console.log(`No published ${category} products found.`);
+		return null;
+	}
 
-		const product = response.results[0] as PageObjectResponse;
-		const productDetails = await getProductFromNotion(product.id);
+	const product = response.results[0] as PageObjectResponse;
+	const productDetails = await getProductFromNotion(product.id);
 
-		if (productDetails) {
-			console.log(`Successfully fetched latest ${category} product: ${productDetails.title}`);
-		}
+	if (productDetails) {
+		console.log(
+			`Successfully fetched latest ${category} product: ${productDetails.title}`,
+		);
+	}
 
-		return productDetails;
-	},
-	(category: string) => [`latest-${category.toLowerCase()}-product`],
+	return productDetails;
+}
+
+// Cached functions for specific categories
+export const getLatestSaasProduct = unstable_cache(
+	async () => fetchLatestProductByCategory('SaaS'),
+	['latest-saas-product'],
 	{
-		tags: (category: string) => [`latest-${category.toLowerCase()}-product`],
-		revalidate: false, // Only manual revalidation
+		tags: ['latest-saas-product'],
+		revalidate: false,
 	},
 );
 
-// Convenience functions for specific categories
-export const getLatestSaasProduct = () => getLatestProductByCategory('SaaS');
-export const getLatestAutomationProduct = () => getLatestProductByCategory('Automation');
+export const getLatestAutomationProduct = unstable_cache(
+	async () => fetchLatestProductByCategory('Automation'),
+	['latest-automation-product'],
+	{
+		tags: ['latest-automation-product'],
+		revalidate: false,
+	},
+);
 
 // Generic function to fetch published items from any database
 export async function fetchPublishedItems(databaseId: string) {
@@ -248,6 +298,10 @@ export async function getBlogPostFromNotion(
 			page_id: pageId,
 		})) as PageObjectResponse;
 
+		// Fetch blocks for direct rendering
+		const blocks = await fetchBlocksRecursively(pageId);
+
+		// Keep markdown conversion for backward compatibility (can be removed later)
 		const mdBlocks = await n2m.pageToMarkdown(pageId);
 		const { parent: contentString } = n2m.toMarkdownString(mdBlocks);
 
@@ -292,6 +346,7 @@ export async function getBlogPostFromNotion(
 				properties.Tags?.multi_select?.map((tag: any) => tag.name) ||
 				[],
 			category: properties.Category?.select?.name,
+			blocks,
 		};
 
 		return post;
@@ -310,6 +365,9 @@ export async function getProductFromNotion(
 		})) as PageObjectResponse;
 
 		const properties = page.properties as any;
+
+		// Fetch blocks for the product page
+		const blocks = await fetchBlocksRecursively(pageId);
 
 		const product: Product = {
 			id: page.id,
@@ -330,6 +388,7 @@ export async function getProductFromNotion(
 				properties['Published Date']?.date?.start ||
 				new Date().toISOString(),
 			category: properties.Category?.select?.name,
+			blocks,
 		};
 
 		return product;

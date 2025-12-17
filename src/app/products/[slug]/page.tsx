@@ -1,7 +1,8 @@
+import { BlockRender } from '@/components/elements/BlockRender';
 import { Badge } from '@/components/ui/badge';
 import { getProductsFromCache } from '@/lib/notion';
 import { format } from 'date-fns';
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
@@ -17,10 +18,9 @@ export async function generateStaticParams() {
 	}));
 }
 
-export async function generateMetadata(
-	{ params }: ProductPageProps,
-	parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata({
+	params,
+}: ProductPageProps): Promise<Metadata> {
 	const { slug } = await params;
 	const products = await getProductsFromCache();
 	const product = products.find((p) => p.slug === slug);
@@ -44,7 +44,6 @@ export async function generateMetadata(
 			description: product.description,
 			type: 'website',
 			url: `${siteUrl}/products/${product.slug}`,
-			publishedTime: new Date(product.date).toISOString(),
 			images: [
 				{
 					url: product.coverImage || `${siteUrl}/opengraph-image.png`,
@@ -135,6 +134,18 @@ export default async function ProductPage({ params }: ProductPageProps) {
 					</div>
 				</header>
 
+				{product.verticalImage && (
+					<div className="relative w-full max-w-md mx-auto mb-8">
+						<Image
+							src={product.verticalImage}
+							alt={`${product.title} - Vertical View`}
+							width={400}
+							height={600}
+							className="rounded-lg object-cover"
+						/>
+					</div>
+				)}
+
 				<div className="max-w-none">
 					<div className="mb-8">
 						<p className="text-lg leading-relaxed">
@@ -142,16 +153,23 @@ export default async function ProductPage({ params }: ProductPageProps) {
 						</p>
 					</div>
 
-					{product.verticalImage && (
-						<div className="relative w-full max-w-md mx-auto mb-8">
-							<Image
-								src={product.verticalImage}
-								alt={`${product.title} - Vertical View`}
-								width={400}
-								height={600}
-								className="rounded-lg object-cover"
-							/>
-						</div>
+					{/* Render Notion blocks if available */}
+					{product.blocks && product.blocks.length > 0 && (
+						<BlockRender
+							blocks={product.blocks}
+							config={{
+								className: {
+									h1: 'text-4xl font-bold mb-4 text-foreground',
+									h2: 'text-2xl font-bold mb-3 text-foreground',
+									h3: 'text-xl font-semibold mb-2 text-foreground',
+									paragraph:
+										'text-base leading-relaxed mb-4 text-foreground',
+									quote: 'border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic my-6 text-muted-foreground',
+									columnList: 'my-8',
+									image: 'rounded-lg my-6',
+								},
+							}}
+						/>
 					)}
 				</div>
 			</article>
