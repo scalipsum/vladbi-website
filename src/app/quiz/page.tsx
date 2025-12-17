@@ -1,24 +1,19 @@
+import NotionIframeCard from '@/components/elements/NotionIframeCard';
 import Header from '@/components/layout/Header';
 import TightContentLayout from '@/components/layout/TightContentLayout';
-import { Card } from '@/components/ui/card';
 
 export default function Quiz() {
 	return (
-		<div className="pb-32">
+		<div className="pb-16">
 			<Header
-				title="Product quiz"
-				subTitle="Tell us what would you like to build."
+				title="Your Product Quiz"
+				subTitle="Some details and we'll get in touch."
 			/>
-			<TightContentLayout className="lg:w-3xl">
-				<Card className="w-full overflow-hidden">
-					<iframe
-						src="https://untk.notion.site/ebd//2cc816a1b40880c99a97ebf1fb235a57"
-						width="100%"
-						height="800px"
-						allowFullScreen={false}
-						className="rounded-2xl -mt-24"
-					/>
-				</Card>
+			<TightContentLayout className="lg:w-3xl mt-8">
+				<NotionIframeCard
+					src="https://untk.notion.site/ebd//2cc816a1b40880ba9dabd28100f1cb73"
+					height="850px"
+				/>
 			</TightContentLayout>
 		</div>
 	);
