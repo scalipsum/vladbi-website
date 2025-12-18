@@ -51,7 +51,7 @@ export default function BlogCard({ post, className }: PostCardProps) {
 					</div>
 				)}
 			</div>
-			<CardHeader className="py-5">
+			<CardHeader className="py-5 pb-4">
 				<div className="group-hover:pr-8 transition-all duration-300">
 					<Text type="h3">{post.title}</Text>
 					<ArrowUpRight className="absolute top-[7.5rem] right-6 h-6 w-6 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-white dark:text-black" />

@@ -52,26 +52,21 @@ export default function LandingBlogCard({
 				<div className="text-left w-1/2 self-end relative">
 					<Text type="h2">{post.title}</Text>
 
-					{post.author && (
-						<div className="flex items-center justify-start gap-2 mt-10">
-							{post.authorAvatar && (
-								<Image
-									src={post.authorAvatar}
-									alt={post.author}
-									width={24}
-									height={24}
-									className="rounded-full"
-								/>
-							)}
-							<span>{post.author}</span>
-						</div>
-					)}
-
-					<div className="flex items-center gap-4 mt-2">
-						<div className="flex items-center gap-1.5">
-							<Clock className="h-4 w-4" />
-							<span>{readingTime}</span>
-						</div>
+					<div className="flex items-center gap-4 mt-10">
+						{post.author && (
+							<div className="flex items-center justify-start gap-2">
+								{post.authorAvatar && (
+									<Image
+										src={post.authorAvatar}
+										alt={post.author}
+										width={24}
+										height={24}
+										className="rounded-full"
+									/>
+								)}
+								<span>{post.author}</span>
+							</div>
+						)}
 
 						<div className="flex items-center gap-1.5">
 							<Calendar className="h-4 w-4" />
@@ -79,6 +74,11 @@ export default function LandingBlogCard({
 								{format(new Date(post.date), 'MMM d, yyyy')}
 							</span>
 						</div>
+					</div>
+
+					<div className="flex items-center gap-1.5 mt-1.5">
+						<Clock className="h-4 w-4" />
+						<span>{readingTime}</span>
 					</div>
 
 					<div className="flex justify-end mt-10">
