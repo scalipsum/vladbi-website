@@ -10,7 +10,7 @@ export default function Youtube() {
 	return (
 		<PatternSection
 			className="flex flex-col items-center py-20"
-			patternClassName="opacity-5"
+			patternClassName="opacity-5 dark:invert"
 		>
 			<TightContentLayout>
 				<Text
@@ -25,7 +25,7 @@ export default function Youtube() {
 				</Text>
 				<YouTube
 					className="mt-10"
-					iframeClassName="rounded-lg w-full aspect-video"
+					iframeClassName="rounded-lg w-full aspect-[16/10]"
 					videoId="hjKga8CPHMc"
 					opts={{ playerVars: { autoplay: 0 } }}
 				/>
