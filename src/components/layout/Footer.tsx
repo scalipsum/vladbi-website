@@ -1,5 +1,7 @@
 import Text from '@/components/ui/text';
 import Link from 'next/link';
+import { FaYoutube } from 'react-icons/fa6';
+import Logo from '../ui/Logo';
 import ContentLayout from './ContentLayout';
 
 export default function Footer() {
@@ -10,7 +12,7 @@ export default function Footer() {
 		'My story': '/blog/my-story',
 	};
 	const column2Links = {
-		'How I build SaaS': '/services/saas-products',
+		'How I build Web and Mobile Apps': '/services/saas-products',
 		'How I build AI Automation': '/services/ai-automation',
 	};
 	const column3Links = {
@@ -18,13 +20,35 @@ export default function Footer() {
 	};
 	return (
 		<footer className="bg-brand-600 text-white">
-			<ContentLayout className="pb-0 pt-0 py-16 grid grid-cols-1 md:grid-cols-4 gap-8">
-				<div></div>
+			<ContentLayout className="pb-0 pt-0 pt-16 pb-24 flex items-start justify-between">
 				<div>
+					<Link href="/" className="flex items-center space-x-2">
+						<Logo width={25} height={29} className="text-white" />
+						<Text className="font-extrabold font-main text-white">
+							Vladbi
+						</Text>
+					</Link>
+					<Link
+						href="youtube.com/@vladbi"
+						className="transition duration-150 ease-in-out text-slate-400 hover:text-white"
+					>
+						<Text className="flex items-center gap-1 mt-4 font-sans !text-sm">
+							As seen on
+							<span className="flex gap-1 items-center">
+								<FaYoutube />
+								YouTube
+							</span>
+						</Text>
+					</Link>
+					<Text className="!text-sm mt-18 font-sans text-slate-400">
+						© 2025 Vlad Bibire
+					</Text>
+				</div>
+				<div className="grid grid-col-1 md:grid-col-3">
 					<Text className="!text-sm ml-0.25 mb-4">Resources</Text>
 					<ul className="flex flex-col gap-4">
 						{Object.entries(column1Links).map(([label, href]) => (
-							<li key={href} className="leading-none">
+							<li key={href}>
 								<Link
 									href={href}
 									className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
