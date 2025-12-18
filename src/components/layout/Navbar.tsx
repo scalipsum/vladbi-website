@@ -86,16 +86,18 @@ export default function Navbar() {
 									size="sm"
 									className="md:hidden"
 								>
-									<Menu className="h-10 w-10" />
-									<p>menu</p>
+									<Menu className="size-6" />
+									<Text className="text-base font-medium font-main">
+										menu
+									</Text>
 									<span className="sr-only">Toggle menu</span>
 								</Button>
 							</SheetTrigger>
 							<SheetContent side="right" className="w-80 px-2">
-								<div className="flex flex-col space-y-4 mt-4">
+								<div className="flex flex-col space-y-4 mt-3">
 									<Link
 										href="/"
-										className="flex items-center justify-center space-x-2 mb-10"
+										className="flex items-center justify-center space-x-2 mb-8"
 									>
 										<Logo
 											color="currentColor"
