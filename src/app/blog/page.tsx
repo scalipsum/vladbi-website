@@ -31,14 +31,10 @@ export default async function Home() {
 	return (
 		<div>
 			<Header title="Blog" subTitle="Real thoughts. No AI." />
-			<ContentLayout className="mt-8">
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+			<ContentLayout>
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
 					{posts.map((post) => (
-						<PostCard
-							key={post.id}
-							post={post}
-							className="min-w-[400px]"
-						/>
+						<PostCard key={post.id} post={post} />
 					))}
 				</div>
 			</ContentLayout>

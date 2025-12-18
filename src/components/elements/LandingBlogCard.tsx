@@ -36,18 +36,6 @@ export default function LandingBlogCard({
 				{/* Left side */}
 				<div className="w-1/2" />
 
-				<div className="absolute bottom-4 left-4 z-20 flex items-center gap-4">
-					<div className="flex items-center gap-1.5">
-						<Clock className="h-4 w-4" />
-						<span>{readingTime}</span>
-					</div>
-					<div className="flex items-center gap-1.5">
-						<Calendar className="h-4 w-4" />
-						<span>
-							{format(new Date(post.date), 'MMM d, yyyy')}
-						</span>
-					</div>
-				</div>
 				<div className="max-w-1/2 aspect-[16/10] w-full overflow-hidden rounded-lg absolute -left-20">
 					{post.coverImage ? (
 						<Image
@@ -63,59 +51,43 @@ export default function LandingBlogCard({
 				{/* Right side */}
 				<div className="text-left w-1/2 self-end relative">
 					<Text type="h2">{post.title}</Text>
-					<Text className="line-clamp-3 mt-7 !text-lg">
-						{post.description}
-					</Text>
-					<div className="flex justify-end mt-16">
+
+					{post.author && (
+						<div className="flex items-center justify-start gap-2 mt-10">
+							{post.authorAvatar && (
+								<Image
+									src={post.authorAvatar}
+									alt={post.author}
+									width={24}
+									height={24}
+									className="rounded-full"
+								/>
+							)}
+							<span>{post.author}</span>
+						</div>
+					)}
+
+					<div className="flex items-center gap-4 mt-2">
+						<div className="flex items-center gap-1.5">
+							<Clock className="h-4 w-4" />
+							<span>{readingTime}</span>
+						</div>
+
+						<div className="flex items-center gap-1.5">
+							<Calendar className="h-4 w-4" />
+							<span>
+								{format(new Date(post.date), 'MMM d, yyyy')}
+							</span>
+						</div>
+					</div>
+
+					<div className="flex justify-end mt-10">
 						<Button asChild className="mt-8">
 							<Link href="#get-started">Read more</Link>
 						</Button>
 					</div>
 				</div>
 			</CardHeader>
-
-			{/* <Badge
-								variant="secondary"
-								className="backdrop-blur-sm bg-background/80 shadow-sm"
-							>
-								{post.category}
-							</Badge> */}
-
-			{/* <div className="flex items-center gap-4 text-sm text-muted-foreground"> */}
-			{/* <div className="flex items-center gap-1.5">
-						<Calendar className="h-4 w-4" />
-						<span>
-							{format(new Date(post.date), 'MMM d, yyyy')}
-						</span>
-					</div>
-					<div className="flex items-center gap-1.5">
-						<Clock className="h-4 w-4" />
-						<span>{readingTime}</span>
-					</div> */}
-			{/* </div> */}
-
-			{/* <CardContent>
-				{post.author && (
-					<p className="text-sm text-muted-foreground">
-						By {post.author}
-					</p>
-				)}
-			</CardContent> */}
-			{/* {post.tags && post.tags.length > 0 && (
-				<CardFooter>
-					<div className="flex gap-2 flex-wrap">
-						{post.tags.map((tag) => (
-							<Badge
-								key={tag}
-								variant="outline"
-								className="bg-background/80"
-							>
-								{tag}
-							</Badge>
-						))}
-					</div>
-				</CardFooter>
-			)} */}
 		</Card>
 	);
 }

@@ -1,5 +1,6 @@
 import { Badge } from '@/components/ui/badge';
-import { Card, CardFooter, CardHeader } from '@/components/ui/card';
+import { Card, CardHeader } from '@/components/ui/card';
+import Text from '@/components/ui/text';
 import { BlogPost, getWordCount } from '@/lib/notion';
 import { calculateReadingTime, cn } from '@/lib/utils';
 import { format } from 'date-fns';
@@ -19,7 +20,7 @@ export default function BlogCard({ post, className }: PostCardProps) {
 	return (
 		<Card
 			className={cn(
-				'group relative pt-0 overflow-hidden hover:shadow-xl transition-all duration-300 bg-card/50 backdrop-blur supports-[backdrop-filter]:bg-background/60 text-left pb-2',
+				'group relative overflow-hidden transition-all bg-card/50 text-left pb-2 border-0',
 				className,
 			)}
 		>
@@ -28,13 +29,13 @@ export default function BlogCard({ post, className }: PostCardProps) {
 				className="absolute inset-0 z-10"
 				aria-label={post.title}
 			/>
-			<div className="relative aspect-[16/9] w-full overflow-hidden rounded-t-lg">
+			<div className="relative aspect-[16/9] h-[300px] w-full overflow-hidden rounded-t-lg">
 				{post.coverImage ? (
 					<Image
 						src={post.coverImage}
 						alt={post.title}
 						fill
-						className="object-cover transition-transform duration-300 group-hover:scale-105"
+						className="object-cover"
 					/>
 				) : (
 					<div className="absolute inset-0 bg-muted/80" />
@@ -50,8 +51,28 @@ export default function BlogCard({ post, className }: PostCardProps) {
 					</div>
 				)}
 			</div>
-			<CardHeader className="space-y-2 mt-4">
-				<div className="flex items-center gap-4 text-sm text-muted-foreground">
+			<CardHeader className="py-5">
+				<div className="group-hover:pr-8 transition-all duration-300">
+					<Text type="h3">{post.title}</Text>
+					<ArrowUpRight className="absolute top-[7.5rem] right-6 h-6 w-6 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-white dark:text-black" />
+				</div>
+
+				<div className="flex items-center gap-4 text-sm text-muted-foreground mt-2">
+					{post.author && (
+						<div className="flex items-center gap-2">
+							{post.authorAvatar && (
+								<Image
+									src={post.authorAvatar}
+									alt={post.author}
+									width={24}
+									height={24}
+									className="rounded-full"
+								/>
+							)}
+							<span>{post.author}</span>
+						</div>
+					)}
+
 					<div className="flex items-center gap-1.5">
 						<Calendar className="h-4 w-4" />
 						<span>
@@ -62,24 +83,10 @@ export default function BlogCard({ post, className }: PostCardProps) {
 						<Clock className="h-4 w-4" />
 						<span>{readingTime}</span>
 					</div>
-					{post.author && (
-						<p className="text-sm text-muted-foreground">
-							Written by {post.author}
-						</p>
-					)}
 				</div>
-				<div className="group-hover:pr-8 transition-all duration-300">
-					<h2 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-						{post.title}
-					</h2>
-					<ArrowUpRight className="absolute top-[7.5rem] right-6 h-6 w-6 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-primary" />
-				</div>
-				<p className="text-muted-foreground line-clamp-2">
-					{post.description}
-				</p>
 			</CardHeader>
-			{post.tags && post.tags.length > 0 && (
-				<CardFooter className="mt-4">
+			{/* {post.tags && post.tags.length > 0 && (
+				<CardFooter className="mt-4 mb-4">
 					<div className="-ml-2 flex gap-2 flex-wrap">
 						{post.tags.map((tag) => (
 							<Badge
@@ -92,7 +99,7 @@ export default function BlogCard({ post, className }: PostCardProps) {
 						))}
 					</div>
 				</CardFooter>
-			)}
+			)} */}
 		</Card>
 	);
 }

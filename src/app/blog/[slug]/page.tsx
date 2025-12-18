@@ -143,7 +143,7 @@ export default async function PostPage({ params }: PostPageProps) {
 										className="rounded-full"
 									/>
 								)}
-								<span>By {post.author}</span>
+								<span>{post.author}</span>
 							</div>
 						)}
 						<span>{calculateReadingTime(wordCount)}</span>
