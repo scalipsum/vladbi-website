@@ -19,6 +19,13 @@ import Text from '../ui/text';
 export default function Navbar() {
 	const [isScrolled, setIsScrolled] = useState(false);
 
+	const mainNavLinks = {
+		Services: '/services',
+		Products: '/products',
+		Blog: '/blog',
+		'My story': '/my-story',
+	};
+
 	useEffect(() => {
 		const handleScroll = () => {
 			setIsScrolled(window.scrollY > 10);
@@ -48,48 +55,25 @@ export default function Navbar() {
 					{/* Navigation Items */}
 					<NavigationMenu className="hidden md:flex self-center ">
 						<NavigationMenuList>
-							<NavigationMenuItem>
-								<NavigationMenuLink asChild>
-									<Link href="/services">
-										<Text className="font-main !text-lg">
-											Services
-										</Text>
-									</Link>
-								</NavigationMenuLink>
-							</NavigationMenuItem>
-							<NavigationMenuItem>
-								<NavigationMenuLink asChild>
-									<Link href="/products">
-										<Text className="font-main !text-lg">
-											Products
-										</Text>
-									</Link>
-								</NavigationMenuLink>
-							</NavigationMenuItem>
-							<NavigationMenuItem>
-								<NavigationMenuLink asChild>
-									<Link href="/blog">
-										<Text className="font-main !text-lg">
-											Blog
-										</Text>
-									</Link>
-								</NavigationMenuLink>
-							</NavigationMenuItem>
-							<NavigationMenuItem>
-								<NavigationMenuLink asChild>
-									<Link href="/my-story">
-										<Text className="font-main !text-lg">
-											My story
-										</Text>
-									</Link>
-								</NavigationMenuLink>
-							</NavigationMenuItem>
+							{Object.entries(mainNavLinks).map(
+								([label, href]) => (
+									<NavigationMenuItem key={href}>
+										<NavigationMenuLink asChild>
+											<Link href={href}>
+												<Text className="font-main !text-lg">
+													{label}
+												</Text>
+											</Link>
+										</NavigationMenuLink>
+									</NavigationMenuItem>
+								),
+							)}
 						</NavigationMenuList>
 					</NavigationMenu>
 
 					{/* Right side - Product Quiz Button and Theme Toggle */}
 					<div className="flex items-center space-x-4">
-						<Button asChild className="-mt-1">
+						<Button asChild className="-mt-1 pt-1" size="sm">
 							<Link href="/quiz">Product Quiz</Link>
 						</Button>
 						<ThemeToggle />
@@ -102,68 +86,50 @@ export default function Navbar() {
 									size="sm"
 									className="md:hidden"
 								>
-									<Menu className="h-5 w-5" />
+									<Menu className="h-10 w-10" />
+									<p>menu</p>
 									<span className="sr-only">Toggle menu</span>
 								</Button>
 							</SheetTrigger>
-							<SheetContent side="right" className="w-80">
-								<div className="flex flex-col space-y-4 mt-6">
+							<SheetContent side="right" className="w-80 px-2">
+								<div className="flex flex-col space-y-4 mt-4">
 									<Link
 										href="/"
-										className="flex items-center space-x-2 mb-6"
+										className="flex items-center justify-center space-x-2 mb-10"
 									>
 										<Logo
 											color="currentColor"
 											width={32}
 											height={38}
-											className="text-black dark:text-white"
+											className="text-brand"
 										/>
-										<Text className="text-lg font-bold text-foreground">
+										<Text className="text-lg font-main font-bold text-brand">
 											Vladbi
 										</Text>
 									</Link>
 
-									<div>
-										<Text className="text-sm font-medium text-muted-foreground px-3 py-2">
-											Services
-										</Text>
-										<Link
-											href="/services/web-development"
-											className="block px-3 py-2 text-sm hover:bg-accent rounded-md transition-colors"
-										>
-											<Text>Web Development</Text>
-										</Link>
-										<Link
-											href="/services/consulting"
-											className="block px-3 py-2 text-sm hover:bg-accent rounded-md transition-colors"
-										>
-											<Text>Consulting</Text>
-										</Link>
-									</div>
-
-									<Link
-										href="/products"
-										className="block px-3 py-2 text-sm hover:bg-accent rounded-md transition-colors"
-									>
-										<Text>Products</Text>
-									</Link>
-									<Link
-										href="/blog"
-										className="block px-3 py-2 text-sm hover:bg-accent rounded-md transition-colors"
-									>
-										<Text>Blog</Text>
-										kj{' '}
-									</Link>
-									<Link
-										href="/my-story"
-										className="block px-3 py-2 text-sm hover:bg-accent rounded-md transition-colors"
-									>
-										<Text>My story</Text>
-									</Link>
+									{Object.entries(mainNavLinks).map(
+										([label, href]) => (
+											<Link
+												key={href}
+												href={href}
+												className="block px-3 py-2 text-sm hover:bg-accent rounded-md transition-colors text-center"
+											>
+												<Text className="font-main font-bold text-brand">
+													{label}
+												</Text>
+											</Link>
+										),
+									)}
 
 									<Button asChild>
-										<Link href="/quiz">Product Quiz</Link>
+										<Link href="/quiz">
+											Start Product Quiz
+										</Link>
 									</Button>
+									<div className="flex justify-center py-2">
+										<ThemeToggle />
+									</div>
 								</div>
 							</SheetContent>
 						</Sheet>

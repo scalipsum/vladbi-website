@@ -32,15 +32,16 @@ export default function Footer() {
 						href="youtube.com/@vladbi"
 						className="transition duration-150 ease-in-out text-slate-400 hover:text-white"
 					>
-						<Text className="flex items-center gap-1 mt-4 font-sans !text-sm">
-							As seen on
+						<Text className="flex items-center gap-1.5 mt-4 font-sans !text-sm">
+							Subscribe on
 							<span className="flex gap-1 items-center">
 								<FaYoutube />
 								YouTube
 							</span>
 						</Text>
 					</Link>
-					<Text className="!text-sm mt-18 font-sans text-slate-400">
+
+					<Text className="!text-sm mt-20 font-sans text-slate-400">
 						© 2025 Vlad Bibire
 					</Text>
 				</div>
