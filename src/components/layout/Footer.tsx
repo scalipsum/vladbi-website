@@ -33,7 +33,7 @@ export default function Footer() {
 						className="transition duration-150 ease-in-out text-slate-400 hover:text-white"
 					>
 						<Text className="flex items-center gap-1.5 mt-4 font-sans !text-sm">
-							Subscribe on
+							As seen on
 							<span className="flex gap-1 items-center">
 								<FaYoutube />
 								YouTube

@@ -1,8 +1,10 @@
 import { BlockRender } from '@/components/elements/BlockRender';
 import ServicePageLayout from '@/components/layout/ServicePageLayout';
+import TightContentLayout from '@/components/layout/TightContentLayout';
 import { Badge } from '@/components/ui/badge';
 import { getProductsFromCache } from '@/lib/notion';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 interface ProductPageProps {
@@ -112,7 +114,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 						</>
 					}
 				>
-					{/* {product.verticalImage && (
+					{product.verticalImage && (
 						<div className="relative w-full max-w-md mx-auto mb-8">
 							<Image
 								src={product.verticalImage}
@@ -123,6 +125,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 							/>
 						</div>
 					)}
+					{/*}
 					<div className="mb-8">
 						<p className="text-lg leading-relaxed">
 							{product.description}
@@ -130,24 +133,25 @@ export default async function ProductPage({ params }: ProductPageProps) {
 					</div> */}
 
 					<div className="max-w-none">
-						{/* Render Notion blocks if available */}
-						{product.blocks && product.blocks.length > 0 && (
-							<BlockRender
-								blocks={product.blocks}
-								config={{
-									className: {
-										h1: 'text-4xl font-bold mb-4 text-foreground',
-										h2: 'text-2xl font-bold mb-3 text-foreground',
-										h3: 'text-xl font-semibold mb-2 text-foreground',
-										paragraph:
-											'text-base leading-relaxed mb-4 text-foreground',
-										quote: 'border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic my-6 text-muted-foreground',
-										columnList: 'my-8',
-										image: 'rounded-lg my-6',
-									},
-								}}
-							/>
-						)}
+						<TightContentLayout>
+							{product.blocks && product.blocks.length > 0 && (
+								<BlockRender
+									blocks={product.blocks}
+									config={{
+										className: {
+											h1: 'text-4xl font-main font-extrabold mb-8 text-brand text-center',
+											h2: 'text-3xl font-main  mb-3 text-extrabold text-brand',
+											h3: 'text-2xl font-main  mb-3 text-bold text-brand',
+											paragraph:
+												'text-lg leading-relaxed mb-3.5 text-foreground font-sans',
+											quote: 'border-b-4 font-sans font-bold border-l-0 border-brand-100 dark:border-brand-500 my-6 text-brand text-2xl bg-slate-100 dark:bg-slate-900 dark:text-white py-5 text-center rounded-md',
+											columnList: 'my-8',
+											image: 'rounded-lg my-6',
+										},
+									}}
+								/>
+							)}
+						</TightContentLayout>
 					</div>
 				</ServicePageLayout>
 			</article>
