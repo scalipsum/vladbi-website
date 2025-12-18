@@ -42,14 +42,14 @@ export default function Footer() {
 					</Link>
 
 					<Text className="!text-sm mt-20 font-sans text-slate-400">
-						© 2025 Vlad Bibire
+						© {new Date().getFullYear()} Vlad Bibire
 					</Text>
 				</div>
 				<div className="grid grid-col-1 md:grid-col-3">
 					<Text className="!text-sm ml-0.25 mb-4">Resources</Text>
 					<ul className="flex flex-col gap-4">
 						{Object.entries(column1Links).map(([label, href]) => (
-							<li key={href}>
+							<li key={href} className="leading-[0px]">
 								<Link
 									href={href}
 									className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
@@ -64,7 +64,7 @@ export default function Footer() {
 					<Text className="!text-sm ml-0.25 mb-4">My Process</Text>
 					<ul className="flex flex-col gap-4">
 						{Object.entries(column2Links).map(([label, href]) => (
-							<li key={href}>
+							<li key={href} className="leading-[0px]">
 								<Link
 									href={href}
 									className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
@@ -81,7 +81,7 @@ export default function Footer() {
 					</Text>
 					<ul className="flex flex-col gap-4">
 						{Object.entries(column3Links).map(([label, href]) => (
-							<li key={href}>
+							<li key={href} className="leading-[0px]">
 								<Link
 									href={href}
 									className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"

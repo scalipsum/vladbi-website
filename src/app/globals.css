@@ -132,7 +132,3 @@
 		@apply bg-background text-foreground;
 	}
 }
-
-li {
-	line-height: 0;
-}
