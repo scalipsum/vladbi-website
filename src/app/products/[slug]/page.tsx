@@ -98,9 +98,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
 					title={product.title}
 					subTitle={product.subTitle}
 					ctaSubtitle="Turn your vision into reality"
-					hiddenPattern
 					headerBackgroundUrl={product.coverImage}
 					headerTextColor="white"
+					layoutClassName="relative overflow-visible mt-0 mb-0 pb-0"
 					additionalHeaderContent={
 						<>
 							{product.category && (
@@ -115,44 +115,36 @@ export default async function ProductPage({ params }: ProductPageProps) {
 					}
 				>
 					{product.verticalImage && (
-						<div className="relative w-full max-w-md mx-auto mb-8">
+						<div className="absolute -top-40 -right-22 overflow-visible z-20">
 							<Image
 								src={product.verticalImage}
 								alt={`${product.title} - Vertical View`}
-								width={400}
-								height={600}
+								width={280}
+								height={380}
 								className="rounded-lg object-cover"
 							/>
 						</div>
 					)}
-					{/*}
-					<div className="mb-8">
-						<p className="text-lg leading-relaxed">
-							{product.description}
-						</p>
-					</div> */}
 
-					<div className="max-w-none">
-						<TightContentLayout>
-							{product.blocks && product.blocks.length > 0 && (
-								<BlockRender
-									blocks={product.blocks}
-									config={{
-										className: {
-											h1: 'text-4xl font-main font-extrabold mb-8 text-brand text-center',
-											h2: 'text-3xl font-main  mb-3 text-extrabold text-brand',
-											h3: 'text-2xl font-main  mb-3 text-bold text-brand',
-											paragraph:
-												'text-lg leading-relaxed mb-3.5 text-foreground font-sans',
-											quote: 'border-b-4 font-sans font-bold border-l-0 border-brand-100 dark:border-brand-500 my-6 text-brand text-2xl bg-slate-100 dark:bg-slate-900 dark:text-white py-5 text-center rounded-md',
-											columnList: 'my-8',
-											image: 'rounded-lg my-6',
-										},
-									}}
-								/>
-							)}
-						</TightContentLayout>
-					</div>
+					<TightContentLayout className="relative !overflow-visible bg-background px-8 py-12 pb-20 rounded-md">
+						{product.blocks && product.blocks.length > 0 && (
+							<BlockRender
+								blocks={product.blocks}
+								config={{
+									className: {
+										h1: 'text-4xl font-main font-extrabold mb-8 text-brand text-center',
+										h2: 'text-3xl font-main  mb-3 text-extrabold text-brand',
+										h3: 'text-2xl font-main  mb-3 text-bold text-brand',
+										paragraph:
+											'text-lg leading-relaxed mb-3.5 text-foreground font-sans',
+										quote: 'border-b-4 font-sans font-bold border-l-0 border-brand-100 dark:border-brand-500 my-6 text-brand text-2xl bg-slate-100 dark:bg-slate-900 dark:text-white py-5 text-center rounded-md',
+										columnList: 'my-8',
+										image: 'rounded-lg my-6',
+									},
+								}}
+							/>
+						)}
+					</TightContentLayout>
 				</ServicePageLayout>
 			</article>
 		</>

@@ -45,14 +45,14 @@ export default function ServicePageLayout({
 					textColor={headerTextColor}
 					additionalContent={additionalHeaderContent}
 				/>
-				<ContentLayout className={cn('mt-12', layoutClassName)}>
+				<ContentLayout className={cn('mt-12 mb-20', layoutClassName)}>
 					{children}
 				</ContentLayout>
 			</div>
 			{/* Pattern */}
 			{!hiddenPattern && (
 				<div
-					className="w-full h-full absolute top-0 right-0 bottom-0 left-0 z-0 opacity-5 dark:invert"
+					className="w-full h-full absolute top-0 right-0 bottom-0 left-0 z-0 opacity-[4%] dark:invert"
 					style={{
 						backgroundImage: `url(${
 							SquarePattern.src || SquarePattern
@@ -66,7 +66,6 @@ export default function ServicePageLayout({
 					subtitle={ctaSubtitle}
 					href={ctaHref}
 					buttonText={ctaButtonText}
-					className="mt-20"
 				/>
 			)}
 		</div>

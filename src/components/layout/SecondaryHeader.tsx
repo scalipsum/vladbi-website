@@ -22,7 +22,7 @@ export default function SecondaryHeader({
 	return (
 		<div
 			className={cn(
-				'relative max-w-[1920px] relative mx-auto h-82 w-full rounded-bl-[280px] rounded-br-[330px]',
+				'relative max-w-[1920px] relative mx-auto h-90 w-full rounded-bl-[280px] rounded-br-[330px]',
 				backgroundUrl
 					? 'bg-cover bg-center bg-no-repeat'
 					: 'bg-background shadow-lg dark:shadow-gray-900/60 shadow-slate-200/60',
@@ -38,7 +38,7 @@ export default function SecondaryHeader({
 				<div className="absolute z-0 inset-0 bg-slate-900 opacity-60 rounded-lg rounded-bl-[280px] rounded-br-[330px] rounded-t-lg" />
 			)}
 			<div className="max-w-[1920px] relative mx-auto h-full relative z-10">
-				<BrandStripes className="absolute !-top-24 z-0 right-0 top-0" />
+				<BrandStripes className="absolute !-top-16 z-0 right-0 top-0" />
 				<ContentLayout className="flex items-center justify-center">
 					<div className="inline-block mt-36 text-center">
 						<Text type="h2" className={`text-${textColor}`}>
