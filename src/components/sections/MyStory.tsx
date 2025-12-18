@@ -13,7 +13,7 @@ export default async function MyStory() {
 			{!latestBlog ? (
 				<Text className="mt-8">No blog post available.</Text>
 			) : (
-				<LandingBlogCard post={latestBlog} className="mt-12" />
+				<LandingBlogCard post={latestBlog} className="mt-10" />
 			)}
 		</section>
 	);
