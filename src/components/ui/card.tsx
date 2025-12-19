@@ -2,12 +2,18 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-function Card({ className, ...props }: React.ComponentProps<'button'>) {
+interface CardProps extends React.ComponentProps<'button'> {
+	noHover?: boolean;
+}
+
+function Card({ className, noHover, ...props }: CardProps) {
 	return (
 		<button
 			data-slot="card"
 			className={cn(
-				'relative bg-card text-card-foreground border border-brand-100 dark:border-brand-500 rounded-lg shadow-[0_6px_0_0_#deebf8] dark:shadow-[0_6px_0_0_#043e6d] hover:shadow-[0_8px_0_0_#deebf8] dark:hover:shadow-[0_8px_0_0_#043e6d] active:shadow-[0_0px_0_0_#deebf8] dark:active:shadow-[0_0px_0_0_#043e6d]  hover:translate-y-[-4px] dark:hover:translate-y-[-4px]  active:translate-y-[6px] dark:active:translate-y-[6px] transition-all duration-150',
+				'relative bg-card text-card-foreground border border-brand-100 dark:border-brand-500 rounded-lg shadow-[0_6px_0_0_#deebf8] dark:shadow-[0_6px_0_0_#043e6d]  transition-all duration-150',
+				!noHover &&
+					'hover:translate-y-[-4px] dark:hover:translate-y-[-4px] active:translate-y-[6px] dark:active:translate-y-[6px] active:shadow-[0_0px_0_0_#deebf8] dark:active:shadow-[0_0px_0_0_#043e6d] hover:shadow-[0_8px_0_0_#deebf8] dark:hover:shadow-[0_8px_0_0_#043e6d]',
 				className,
 			)}
 			{...props}

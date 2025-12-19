@@ -7,7 +7,7 @@ import SecondaryHeader from './SecondaryHeader';
 interface ServicePageLayoutProps {
 	children: React.ReactNode;
 	title: string;
-	subTitle: string;
+	subTitle?: string;
 	ctaTitle?: string;
 	ctaSubtitle?: string;
 	ctaButtonText?: string;

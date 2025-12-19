@@ -29,7 +29,7 @@ export default function GetStarted() {
 								build.
 							</Text>
 							<Button asChild className="mt-6">
-								<Link href="/blog">Take the quiz</Link>
+								<Link href="/quiz">Take the quiz</Link>
 							</Button>
 						</div>
 						<div className="h-48 w-72 rounded-md bg-gray-300 flex-1" />

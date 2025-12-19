@@ -5,7 +5,7 @@ import ContentLayout from './ContentLayout';
 
 interface SecondaryHeaderProps {
 	title: string;
-	subTitle: string;
+	subTitle?: string;
 	className?: string;
 	backgroundUrl?: string;
 	textColor?: string;
@@ -44,9 +44,11 @@ export default function SecondaryHeader({
 						<Text type="h2" className={`text-${textColor}`}>
 							{title}
 						</Text>
-						<Text className={`mt-4 text-${textColor}`}>
-							{subTitle}
-						</Text>
+						{subTitle && (
+							<Text className={`mt-4 text-${textColor}`}>
+								{subTitle}
+							</Text>
+						)}
 						<div
 							className={`h-1.5 bg-${textColor} rounded-full w-full self-center mt-2.5`}
 						/>

@@ -1,9 +1,11 @@
 import { BlockRender } from '@/components/elements/BlockRender';
-import { Badge } from '@/components/ui/badge';
+import ServicePageLayout from '@/components/layout/ServicePageLayout';
+import TightContentLayout from '@/components/layout/TightContentLayout';
 import { getBlogPostsFromCache } from '@/lib/notion';
 import { getWordCountFromBlocks } from '@/lib/notion-blocks';
 import { calculateReadingTime } from '@/lib/utils';
 import { format } from 'date-fns';
+import { Calendar, Clock } from 'lucide-react';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -76,6 +78,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
 	// Calculate word count from blocks
 	const wordCount = post?.blocks ? getWordCountFromBlocks(post.blocks) : 0;
+	const readingTime = calculateReadingTime(wordCount);
 
 	if (!post) {
 		notFound();
@@ -115,19 +118,82 @@ export default async function PostPage({ params }: PostPageProps) {
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
 			<article>
-				{post.coverImage && (
-					<div className="relative aspect-video w-full mb-8 rounded-lg overflow-hidden">
-						<Image
-							src={post.coverImage}
-							alt={post.title}
-							fill
-							className="object-cover"
-							priority
-						/>
-					</div>
-				)}
+				<ServicePageLayout
+					title={post.title}
+					ctaSubtitle="Turn your vision into reality"
+					headerBackgroundUrl={post.coverImage}
+					headerTextColor="white"
+					layoutClassName="relative overflow-visible mt-0 mb-0 pb-0"
+					hiddenPattern
+					additionalHeaderContent={
+						<div className="mt-4">
+							<div className="flex items-center gap-4 text-sm text-white mt-2">
+								{post.author && (
+									<div className="flex items-center gap-2">
+										{post.authorAvatar && (
+											<Image
+												src={post.authorAvatar}
+												alt={post.author}
+												width={24}
+												height={24}
+												className="rounded-full"
+											/>
+										)}
+										<span>{post.author}</span>
+									</div>
+								)}
+								<div className="flex items-center gap-1.5">
+									<Calendar className="h-4 w-4" />
+									<span>
+										{format(
+											new Date(post.date),
+											'MMM d, yyyy',
+										)}
+									</span>
+								</div>
+								<div className="flex items-center gap-1.5">
+									<Clock className="h-4 w-4" />
+									<span>{readingTime}</span>
+								</div>
+							</div>
+							{/* <div className="flex items-center gap-2 justify-center mt-4">
+								{post.category && (
+									<Badge variant="secondary">
+										{post.category}
+									</Badge>
+								)}
+								{post.tags &&
+									post.tags.map((tag) => (
+										<Badge key={tag} variant="secondary">
+											{tag}
+										</Badge>
+									))}
+							</div> */}
+						</div>
+					}
+				>
+					<TightContentLayout className="relative !overflow-visible bg-background px-8 py-12 pb-20 rounded-md">
+						{post.blocks && post.blocks.length > 0 && (
+							<BlockRender
+								blocks={post.blocks}
+								config={{
+									className: {
+										h1: 'text-4xl font-main font-extrabold mb-8 text-brand text-center',
+										h2: 'text-3xl font-main  mb-3 text-extrabold text-brand',
+										h3: 'text-2xl font-main  mb-3 text-bold text-brand',
+										paragraph:
+											'text-lg leading-relaxed mb-3.5 text-foreground font-sans',
+										quote: 'border-b-4 font-sans font-bold border-l-0 border-brand-100 dark:border-brand-500 my-6 text-brand text-2xl bg-slate-100 dark:bg-slate-900 dark:text-white py-5 text-center rounded-md',
+										columnList: 'my-8',
+										image: 'rounded-lg my-6',
+									},
+								}}
+							/>
+						)}
+					</TightContentLayout>
+				</ServicePageLayout>
 
-				<header className="mb-8">
+				{/* <header className="mb-8">
 					<div className="flex items-center gap-4 text-muted-foreground mb-4">
 						<time>
 							{format(new Date(post.date), 'MMMM d, yyyy')}
@@ -149,43 +215,7 @@ export default async function PostPage({ params }: PostPageProps) {
 						<span>{calculateReadingTime(wordCount)}</span>
 						<span>{wordCount} words</span>
 					</div>
-
-					<h1 className="text-4xl font-bold mb-4 text-foreground">
-						{post.title}
-					</h1>
-
-					<div className="flex gap-4 mb-4">
-						{post.category && (
-							<Badge variant="secondary">{post.category}</Badge>
-						)}
-						{post.tags &&
-							post.tags.map((tag) => (
-								<Badge key={tag} variant="outline">
-									{tag}
-								</Badge>
-							))}
-					</div>
-				</header>
-
-				<div className="max-w-none">
-					{post.blocks && post.blocks.length > 0 && (
-						<BlockRender
-							blocks={post.blocks}
-							config={{
-								className: {
-									h1: 'text-4xl font-bold mb-4 text-foreground',
-									h2: 'text-2xl font-bold mb-3 text-foreground',
-									h3: 'text-xl font-semibold mb-2 text-foreground',
-									paragraph:
-										'text-base leading-relaxed mb-4 text-foreground',
-									quote: 'border-l-4 border-blue-500 dark:border-blue-400 pl-4 italic my-6 text-muted-foreground',
-									columnList: 'my-8',
-									image: 'rounded-lg my-6',
-								},
-							}}
-						/>
-					)}
-				</div>
+				</header> */}
 			</article>
 		</>
 	);

@@ -17,7 +17,7 @@ export default async function SaasProducts() {
 			layoutClassName="max-w-2xl"
 		>
 			<div className="flex flex-col items-center gap-8">
-				<Card className="w-full p-8 text-left mt-1">
+				<Card className="w-full p-8 text-left mt-1" noHover>
 					<Text type="h3">1. Discovery</Text>
 					<Text className="text-gray-600 mt-1">
 						This is a text inside a card.
@@ -26,21 +26,21 @@ export default async function SaasProducts() {
 
 				<WaveLine height={70} width={70} className="text-brand" />
 
-				<Card className="w-full p-8 text-left">
+				<Card className="w-full p-8 text-left" noHover>
 					<Text type="h3">2. Design</Text>
 					<Text className="text-gray-600 mt-1">
 						This is a text inside a card.
 					</Text>
 				</Card>
 
-				<Card className="w-full p-8 text-left">
+				<Card className="w-full p-8 text-left" noHover>
 					<Text type="h3">3. Development</Text>
 					<Text className="text-gray-600 mt-1">
 						This is a text inside a card.
 					</Text>
 				</Card>
 
-				<Card className="w-full p-8 text-left">
+				<Card className="w-full p-8 text-left" noHover>
 					<Text type="h3">4. Testing & Launching</Text>
 					<Text className="text-gray-600 mt-1">
 						This is a text inside a card.
