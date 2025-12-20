@@ -122,7 +122,7 @@ export default function Navbar() {
 													setIsSheetOpen(false)
 												}
 											>
-												<Text className="font-main font-bold text-brand">
+												<Text className="font-main font-extrabold text-brand">
 													{label}
 												</Text>
 											</Link>
