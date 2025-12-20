@@ -91,7 +91,7 @@ export default function Navbar() {
 									size="sm"
 									className="md:hidden bg-slate-200 dark:bg-gray-800 h-9"
 								>
-									<Menu className="size-8" />
+									<Menu className="size-8 text-brand-500 dark:text-white" />
 									<span className="sr-only">Toggle menu</span>
 								</Button>
 							</SheetTrigger>

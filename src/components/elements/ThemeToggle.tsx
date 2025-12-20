@@ -38,7 +38,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 						<Moon className="w-5 h-5 text-white" strokeWidth={2} />
 					) : (
 						<Sun
-							className="w-5 h-5 text-gray-700"
+							className="w-5 h-5 text-brand-500"
 							strokeWidth={2}
 						/>
 					)}
@@ -58,7 +58,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 						/>
 					) : (
 						<Moon
-							className="w-5 h-5 text-black"
+							className="w-5 h-5 text-brand-500"
 							strokeWidth={1.5}
 						/>
 					)}
