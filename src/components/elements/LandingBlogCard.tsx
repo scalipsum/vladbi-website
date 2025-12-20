@@ -23,7 +23,7 @@ export default function LandingBlogCard({
 	return (
 		<Card
 			className={cn(
-				'pt-16 pb-8 pr-6 min-w-[700px] max-w-[900px] ml-20',
+				'md:pt-16 pt-34 pb-8 md:pr-6 md:min-w-[700px] md:max-w-[900px] w-full md:w-auto md:ml-20',
 				className,
 			)}
 		>
@@ -34,9 +34,9 @@ export default function LandingBlogCard({
 			/>
 			<CardHeader className="flex">
 				{/* Left side */}
-				<div className="w-1/2" />
+				<div className="md:w-1/2 w-0" />
 
-				<div className="max-w-1/2 aspect-[16/10] w-full overflow-hidden rounded-lg absolute -left-20">
+				<div className="md:max-w-1/2 md:aspect-[16/10] md:w-auto md:h-auto w-[320px] h-[180px] md:w-full overflow-hidden rounded-lg absolute left-1/2 md:-left-20 -translate-x-1/2 md:translate-x-0 -top-16 md:top-auto">
 					{post.coverImage ? (
 						<Image
 							src={post.coverImage}
@@ -49,10 +49,10 @@ export default function LandingBlogCard({
 					)}
 				</div>
 				{/* Right side */}
-				<div className="text-left w-1/2 self-end relative">
+				<div className="md:text-left md:w-1/2 text-center w-full md:self-end relative">
 					<Text type="h2">{post.title}</Text>
 
-					<div className="flex items-center gap-4 mt-10">
+					<div className="flex items-center flex-row justify-center md:justify-start gap-4 md:mt-10 mt-6">
 						{post.author && (
 							<div className="flex items-center justify-start gap-2">
 								{post.authorAvatar && (
@@ -64,24 +64,24 @@ export default function LandingBlogCard({
 										className="rounded-full"
 									/>
 								)}
-								<span>{post.author}</span>
+								<Text type="span">{post.author}</Text>
 							</div>
 						)}
 
-						<div className="flex items-center gap-1.5">
+						<div className="items-center gap-1.5 flex">
 							<Calendar className="h-4 w-4" />
-							<span>
+							<Text type="span">
 								{format(new Date(post.date), 'MMM d, yyyy')}
-							</span>
+							</Text>
 						</div>
 					</div>
 
-					<div className="flex items-center gap-1.5 mt-1.5">
+					<div className="flex items-center justify-center md:justify-start gap-1.5 md:mt-1.5 mt-3">
 						<Clock className="h-4 w-4" />
-						<span>{readingTime}</span>
+						<Text type="span">{readingTime}</Text>
 					</div>
 
-					<div className="flex justify-end mt-10">
+					<div className="flex md:justify-end justify-center md:mt-10 mt-0">
 						<Button asChild className="mt-8">
 							<Link href="#get-started">Read more</Link>
 						</Button>

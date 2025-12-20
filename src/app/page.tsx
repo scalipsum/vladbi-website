@@ -6,6 +6,8 @@ import LatestAutomation from '@/components/sections/LatestAutomation';
 import LatestSaas from '@/components/sections/LatestSaas';
 import MyStory from '@/components/sections/MyStory';
 import Youtube from '@/components/sections/Youtube';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default async function Home() {
 	return (
@@ -23,12 +25,17 @@ export default async function Home() {
 			<ContentLayout>
 				<LatestAutomation />
 				<LatestSaas />
+				<div className="w-full flex justify-center mt-10 md:mt-14">
+					<Button asChild>
+						<Link href="/products">View all projects</Link>
+					</Button>
+				</div>
 				<MyStory />
 			</ContentLayout>
 			<CallToAction
 				title="Let's get started"
 				subtitle="Bring your idea to life."
-				className="mt-32"
+				className="mt-16 md:mt-32"
 				buttonText="View our services"
 				href="/services"
 			/>

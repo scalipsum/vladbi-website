@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 
 interface TextProps {
-	type?: 'h1' | 'h2' | 'h3' | 'p';
+	type?: 'h1' | 'h2' | 'h3' | 'p' | 'span';
 	className?: string;
 	children?: React.ReactNode;
 }
@@ -11,6 +11,7 @@ export const textSize = {
 	h2: 'text-3xl lg:text-4xl',
 	h3: 'text-2xl',
 	p: 'text-lg xl:text-xl',
+	span: 'text-base',
 };
 
 export default function Text({ type, children, className }: TextProps) {
@@ -50,6 +51,18 @@ export default function Text({ type, children, className }: TextProps) {
 				>
 					{children}
 				</h3>
+			);
+		case 'span':
+			return (
+				<span
+					className={cn(
+						'font-sans tracking-tight',
+						textSize['span'],
+						className,
+					)}
+				>
+					{children}
+				</span>
 			);
 
 		default:

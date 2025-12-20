@@ -6,14 +6,12 @@ export default async function MyStory() {
 	const blogPosts = await getBlogPostsFromCache();
 	const latestBlog = blogPosts[0];
 	return (
-		<section className="mt-34 flex flex-col items-center">
-			<Text type="h2" className="text-center">
-				My story
-			</Text>
+		<section className="mt-24 flex flex-col items-center md:items-start">
+			<Text type="h2">My story</Text>
 			{!latestBlog ? (
 				<Text className="mt-8">No blog post available.</Text>
 			) : (
-				<LandingBlogCard post={latestBlog} className="mt-10" />
+				<LandingBlogCard post={latestBlog} className="md:mt-8 mt-24" />
 			)}
 		</section>
 	);
