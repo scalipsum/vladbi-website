@@ -30,10 +30,10 @@ export default async function Projects() {
 	const products = await getProductsFromCache();
 
 	return (
-		<div className="pb-32">
+		<div className="lg:pb-32 pb-24">
 			<Header title="Products" subTitle="Vision turned reality" />
 			<ContentLayout>
-				<div className="flex flex-col mt-24">
+				<div className="flex flex-col lg:mt-24 mt-6">
 					{products.map((product, index) => {
 						if (product.category === 'Automation') {
 							return (
@@ -43,7 +43,9 @@ export default async function Projects() {
 									subtitle={product.subTitle}
 									description={product.description}
 									href={`/products/${product.slug}`}
-									className={index !== 0 ? 'mt-28' : ''}
+									className={
+										index !== 0 ? 'lg:mt-28 mt-24' : ''
+									}
 								/>
 							);
 						}
@@ -56,7 +58,7 @@ export default async function Projects() {
 								href={`/products/${product.slug}`}
 								backgroundImageUrl={product.coverImage ?? ''}
 								previewImageUrl={product.verticalImage ?? ''}
-								className={index !== 0 ? 'mt-54' : ''}
+								className={index !== 0 ? 'lg:mt-54 mt-24' : ''}
 							/>
 						);
 					})}
