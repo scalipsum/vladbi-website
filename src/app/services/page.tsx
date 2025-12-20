@@ -14,6 +14,7 @@ export default async function Services() {
 					description="The products I build are online businesses that include a recurring revenue model."
 					ctaText="View the process"
 					href="/services/saas-products"
+					className="mt-6"
 				/>
 				<AutomationPreviewCard
 					title="AI Automation"
@@ -27,7 +28,7 @@ export default async function Services() {
 			<CallToAction
 				title="Let's get started"
 				subtitle="Bring your idea to life."
-				className="mt-32"
+				className="md:mt-32 mt-20"
 			/>
 		</div>
 	);

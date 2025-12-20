@@ -36,16 +36,18 @@ export default function Header({ title, subTitle, className }: HeaderProps) {
 			)}
 		>
 			<RotatingGlobe
-				className="absolute -left-48 -top-64 opacity-100 z-0"
+				className="absolute -left-36 -top-40 opacity-100 z-0"
 				size={globeSize}
 				rotate="0deg"
 			/>
-			<BrandStripes className="absolute !-top-24 z-0 right-0 top-0" />
-			<div className="inline-block mt-26">
-				<Text type="h2">{title}</Text>
-				<div className="h-1.5 bg-brand rounded-full w-full self-center mt-2.5" />
+			<BrandStripes className="absolute z-0 -right-8 -top-10" />
+			<div className="bg-background mt-26 flex flex-col items-center z-20 px-16 rounded-t-3xl border md:border-0 border-brand-100 border-b-0 pt-4">
+				<div className="inline-block">
+					<Text type="h2">{title}</Text>
+					<div className="h-1.5 bg-brand rounded-full w-full self-center mt-2.5" />
+				</div>
+				<Text className="mt-4">{subTitle}</Text>
 			</div>
-			<Text className="mt-4">{subTitle}</Text>
 		</div>
 	);
 }
