@@ -18,7 +18,7 @@ export default function NotionIframeCard({
 	const { theme } = useTheme();
 	return (
 		<Card
-			className="w-full overflow-hidden shadow-blue-400 dark:shadow-brand-500"
+			className="w-full overflow-hidden shadow-blue-400 dark:shadow-brand-600"
 			noHover
 		>
 			<iframe

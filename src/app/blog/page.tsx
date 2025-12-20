@@ -8,10 +8,10 @@ import { Metadata } from 'next';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
 
 export const metadata: Metadata = {
-	title: 'Blog | Vlad Bibire',
+	title: 'Blog',
 	description: 'Real thoughts. No AI. Browse all blog posts and articles.',
 	openGraph: {
-		title: 'Blog | Vlad Bibire',
+		title: 'Blog | Vladbi',
 		description:
 			'Real thoughts. No AI. Browse all blog posts and articles.',
 		type: 'website',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Blog | Vlad Bibire',
+		title: 'Blog | Vladbi',
 		description:
 			'Real thoughts. No AI. Browse all blog posts and articles.',
 	},
@@ -32,7 +32,7 @@ export default async function Home() {
 		<div>
 			<Header title="Blog" subTitle="Real thoughts. No AI." />
 			<ContentLayout>
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 lg:mt-8">
 					{posts.map((post) => (
 						<PostCard key={post.id} post={post} />
 					))}
