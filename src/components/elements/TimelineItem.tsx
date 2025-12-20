@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { FaDotCircle } from 'react-icons/fa';
+import { FaChevronCircleDown } from 'react-icons/fa';
 import { FaCircle } from 'react-icons/fa6';
 
 interface TimelineItemProps {
@@ -24,7 +24,10 @@ export default function TimelineItem({
 				{active ? (
 					<FaCircle className="text-brand -ml-1" size="20" />
 				) : (
-					<FaDotCircle className="text-gray-500 -ml-1" size="20" />
+					<FaChevronCircleDown
+						className="text-gray-500 -ml-1"
+						size="20"
+					/>
 				)}
 				<div
 					className={cn(
