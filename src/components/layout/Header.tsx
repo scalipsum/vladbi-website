@@ -41,12 +41,14 @@ export default function Header({ title, subTitle, className }: HeaderProps) {
 				rotate="0deg"
 			/>
 			<BrandStripes className="absolute z-0 -right-8 -top-20  lg:-top-36" />
-			<div className="bg-background mt-26 flex flex-col items-center z-20 px-20 rounded-t-3xl border border-t-4 md:border-0 border-brand-100 dark:border-brand-600 border-b-0 pt-5">
+			<div className="bg-background mt-26 flex flex-col items-center z-20 px-18 rounded-t-3xl border border-t-4 md:border-0 border-brand-100 dark:border-brand-600 border-b-0 pt-5">
 				<div className="inline-block">
-					<Text type="h2">{title}</Text>
+					<Text type="h2" className="text-center">
+						{title}
+					</Text>
 					<div className="h-1.5 bg-brand rounded-full w-full self-center mt-2.5" />
 				</div>
-				<Text className="mt-4">{subTitle}</Text>
+				<Text className="mt-4 text-center">{subTitle}</Text>
 			</div>
 		</div>
 	);

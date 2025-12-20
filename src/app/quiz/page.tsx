@@ -12,7 +12,7 @@ export default function Quiz() {
 			<TightContentLayout className="lg:w-3xl mt-8 px-4">
 				<NotionIframeCard
 					src="https://untk.notion.site/ebd//2cc816a1b40880ba9dabd28100f1cb73"
-					height="850px"
+					height="930px"
 				/>
 			</TightContentLayout>
 		</div>
