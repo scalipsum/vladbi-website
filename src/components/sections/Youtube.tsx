@@ -9,7 +9,7 @@ import PatternSection from './PatternSection';
 export default function Youtube() {
 	return (
 		<PatternSection
-			className="flex flex-col items-center md:py-20 py-12"
+			className="flex flex-col items-center md:py-20 py-14"
 			patternClassName="opacity-5 dark:invert"
 		>
 			<TightContentLayout>
@@ -24,7 +24,7 @@ export default function Youtube() {
 					</span>
 				</Text>
 				<YouTube
-					className="mt-10"
+					className="md:mt-10 mt-8"
 					iframeClassName="rounded-lg w-full h-[550px]"
 					videoId="hjKga8CPHMc"
 					opts={{ playerVars: { autoplay: 0 } }}
