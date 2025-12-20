@@ -41,12 +41,31 @@ export default function SaasPreviewCard({
 				aria-label={title}
 			/>
 			<div className="relative z-10">
-				<div className="text-left">
+				<div className="md:text-left text-center">
 					<Text type="h3" className="text-white">
 						{title}
 					</Text>
 					<Text className="mt-1 text-white">{subtitle}</Text>
-					<Text className="mt-6 w-1/3 text-white">{description}</Text>
+					<Image
+						src={previewImageUrl}
+						alt={`${title} preview`}
+						width={
+							title === 'Gaston' ? gastonWidth : gastonWidth / 1.5
+						}
+						height={
+							title === 'Gaston'
+								? gastonHeight
+								: gastonHeight / 1.5
+						}
+						className={cn(
+							'md:hidden block mx-auto mt-5',
+							title === 'Gaston' ? '' : '',
+						)}
+					/>
+
+					<Text className="mt-6 md:w-1/3 w-full text-white">
+						{description}
+					</Text>
 					<Button
 						asChild
 						className="self-end mt-10"
@@ -63,7 +82,7 @@ export default function SaasPreviewCard({
 						title === 'Gaston' ? gastonHeight : gastonHeight / 1.7
 					}
 					className={cn(
-						'absolute rounded-lg object-fill',
+						'absolute rounded-lg object-fill hidden md:block',
 						title === 'Gaston'
 							? 'right-32 -bottom-24'
 							: 'right-56 -bottom-8',

@@ -30,7 +30,7 @@ export default function AutomationPreviewCard({
 					aria-label={title}
 				/>
 				<div className="flex md:flex-row flex-col items-center">
-					<div className="md:w-1/3 w-full flex flex-col md:items-start items-center">
+					<div className="md:w-1/3 w-full flex flex-col md:items-start items-center !text-black">
 						<Text type="h3">{title}</Text>
 						<Text className="mt-1 text-brand">{subtitle}</Text>
 					</div>
