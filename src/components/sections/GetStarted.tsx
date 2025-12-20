@@ -8,7 +8,7 @@ import { Button } from '../ui/button';
 
 export default function GetStarted() {
 	return (
-		<section id="get-started" className="mt-10">
+		<section id="get-started" className="mt-14">
 			<TightContentLayout>
 				{/* Section title */}
 				<div className="flex justify-center">
@@ -19,7 +19,7 @@ export default function GetStarted() {
 				</div>
 
 				{/*  Timeline */}
-				<TimelineItem className="md:mt-16 mt-14" active>
+				<TimelineItem className="md:mt-16 mt-10" active>
 					<div className="flex-1">
 						<Text type="h3">1. Take the product quiz</Text>
 						<Text className="mt-4">
@@ -35,7 +35,12 @@ export default function GetStarted() {
 
 				<TimelineItem className="mt-14">
 					<div className="flex-1">
-						<Text type="h3">2. Discovery call</Text>
+						<Text
+							type="h3"
+							className="text-gray-600 dark:text-gray-500"
+						>
+							2. Discovery call
+						</Text>
 						<Text className="mt-6">
 							To clarify in a more meaningful way what the project
 							is about and to define what success looks like.
@@ -46,7 +51,12 @@ export default function GetStarted() {
 
 				<TimelineItem className="mt-14">
 					<div className="flex-1">
-						<Text type="h3">3. We agree & start working</Text>
+						<Text
+							type="h3"
+							className="text-gray-600 dark:text-gray-500"
+						>
+							3. We agree & start working
+						</Text>
 						<Text className="mt-6">
 							After the call, we'll send you a doc. that outlines
 							what we’ve talked, time estimates and cost. Once
