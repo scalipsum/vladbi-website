@@ -20,7 +20,7 @@ export default function Footer() {
 	};
 	return (
 		<footer className="bg-brand-600 text-white">
-			<ContentLayout className="pb-0 pt-0 pt-16 md:pb-24 pb-14 flex md:flex-row flex-col items-start justify-between">
+			<ContentLayout className="pb-0 pt-0 pt-16 md:pb-24 pb-12 flex md:flex-row flex-col items-start justify-between">
 				<div>
 					<Link href="/" className="flex items-center space-x-2">
 						<Logo width={25} height={29} className="text-white" />
@@ -108,7 +108,7 @@ export default function Footer() {
 						</ul>
 					</div>
 				</div>
-				<Text className="!text-sm mt-14 font-sans text-slate-400 md:hidden">
+				<Text className="!text-sm mt-16 font-sans text-slate-400 md:hidden">
 					© {new Date().getFullYear()} Vlad Bibire
 				</Text>
 			</ContentLayout>
