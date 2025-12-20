@@ -76,7 +76,7 @@ export default function Navbar() {
 					<div className="flex items-center space-x-4">
 						<Button
 							asChild
-							className="-mt-1 pt-1.5 hidden sm:block"
+							className="-mt-1 pt-2 h-9 hidden sm:block"
 							size="sm"
 						>
 							<Link href="/quiz">Product Quiz</Link>
@@ -139,9 +139,6 @@ export default function Navbar() {
 											Start Product Quiz
 										</Link>
 									</Button>
-									{/* <div className="flex justify-center py-2">
-										<ThemeToggle />
-									</div> */}
 								</div>
 							</SheetContent>
 						</Sheet>
