@@ -15,8 +15,10 @@ export default async function LatestSaas() {
 	}
 
 	return (
-		<section className="mt-48">
-			<Text type="h2">Latest SaaS product</Text>
+		<section className="md:mt-48 mt-24">
+			<Text type="h3" className="text-center md:text-left">
+				Latest SaaS product
+			</Text>
 
 			<SaasPreviewCard
 				title={latestSaasProduct.title}

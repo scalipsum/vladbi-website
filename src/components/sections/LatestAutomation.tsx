@@ -7,16 +7,20 @@ export default async function LatestAutomation() {
 
 	if (!latestAutomationProduct) {
 		return (
-			<section className="mt-32">
+			<section className="md:mt-32">
 				<Text type="h2">Latest automation product</Text>
-				<Text className="mt-8">No automation products available yet.</Text>
+				<Text className="mt-8">
+					No automation products available yet.
+				</Text>
 			</section>
 		);
 	}
 
 	return (
-		<section className="mt-32">
-			<Text type="h2">Latest automation product</Text>
+		<section className="md:mt-32 mt-16">
+			<Text type="h3" className="text-center md:text-left">
+				Latest automation product
+			</Text>
 
 			<AutomationPreviewCard
 				title={latestAutomationProduct.title}

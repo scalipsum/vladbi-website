@@ -29,16 +29,16 @@ export default function AutomationPreviewCard({
 					className="absolute inset-0 z-10"
 					aria-label={title}
 				/>
-				<div className="flex flex-row items-center">
-					<div className="w-1/3 flex flex-col items-start">
+				<div className="flex md:flex-row flex-col items-center">
+					<div className="md:w-1/3 w-full flex flex-col md:items-start items-center">
 						<Text type="h3">{title}</Text>
 						<Text className="mt-1 text-brand">{subtitle}</Text>
 					</div>
-					<div className="w-1/3 flex justify-center ml-4">
+					<div className="md:w-1/3 w-full flex justify-center ml-4 mt-4 md:mt-0">
 						<Text>{description}</Text>
 					</div>
-					<div className="w-1/3 flex justify-end">
-						<Button asChild className="self-end">
+					<div className="md:w-1/3 w-full flex md:justify-end justify-center mt-6 md:mt-0">
+						<Button asChild className="h-10 px-4">
 							<Link href={href}>{ctaText}</Link>
 						</Button>
 					</div>

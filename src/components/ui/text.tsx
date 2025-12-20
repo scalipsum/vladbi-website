@@ -9,7 +9,7 @@ interface TextProps {
 export const textSize = {
 	h1: 'text-4xl lg:text-5xl xl:text-6xl',
 	h2: 'text-3xl lg:text-4xl',
-	h3: 'text-xl lg:text-2xl ',
+	h3: 'text-2xl',
 	p: 'text-lg xl:text-xl',
 };
 
