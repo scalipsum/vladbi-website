@@ -31,7 +31,7 @@ export default function Header({ title, subTitle, className }: HeaderProps) {
 	return (
 		<div
 			className={cn(
-				'relative h-82 w-full flex flex-col items-center justify-center max-w-[1920px] mx-auto',
+				'relative h-82 w-full flex flex-col items-center justify-center max-w-[1920px] mx-auto overflow-hidden',
 				className,
 			)}
 		>
@@ -40,8 +40,8 @@ export default function Header({ title, subTitle, className }: HeaderProps) {
 				size={globeSize}
 				rotate="0deg"
 			/>
-			<BrandStripes className="absolute z-0 -right-8 -top-20  lg:-top-36" />
-			<div className="bg-background mt-26 flex flex-col items-center z-20 px-18 rounded-t-3xl border border-t-4 md:border-0 border-brand-100 dark:border-brand-600 border-b-0 pt-5">
+			<BrandStripes className="absolute z-0 -right-8 -top-20 lg:-top-36" />
+			<div className="bg-background mt-26 flex flex-col items-center z-20 w-8/9 md:w-auto rounded-t-3xl border border-t-4 md:border-0 border-brand-100 dark:border-brand-600 border-b-0 pt-5">
 				<div className="inline-block">
 					<Text type="h2" className="text-center">
 						{title}
