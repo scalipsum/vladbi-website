@@ -20,11 +20,15 @@ export default function Navbar() {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isSheetOpen, setIsSheetOpen] = useState(false);
 
-	const mainNavLinks = {
+	const desktopLinks = {
 		Services: '/services',
 		Products: '/products',
 		Blog: '/blog',
 		'My story': '/my-story',
+	};
+	const mobileLinks = {
+		Home: '/',
+		...desktopLinks,
 	};
 
 	useEffect(() => {
@@ -56,7 +60,7 @@ export default function Navbar() {
 					{/* Navigation Items */}
 					<NavigationMenu className="hidden md:flex self-center ">
 						<NavigationMenuList>
-							{Object.entries(mainNavLinks).map(
+							{Object.entries(desktopLinks).map(
 								([label, href]) => (
 									<NavigationMenuItem key={href}>
 										<NavigationMenuLink asChild>
@@ -112,7 +116,7 @@ export default function Navbar() {
 										</Text>
 									</Link>
 
-									{Object.entries(mainNavLinks).map(
+									{Object.entries(mobileLinks).map(
 										([label, href]) => (
 											<Link
 												key={href}
