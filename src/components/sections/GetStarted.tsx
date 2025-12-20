@@ -35,9 +35,7 @@ export default function GetStarted() {
 
 				<TimelineItem className="mt-14">
 					<div className="flex-1">
-						<Text type="h3" className="text-brand-200">
-							2. Discovery call
-						</Text>
+						<Text type="h3">2. Discovery call</Text>
 						<Text className="mt-6">
 							To clarify in a more meaningful way what the project
 							is about and to define what success looks like.
@@ -48,9 +46,7 @@ export default function GetStarted() {
 
 				<TimelineItem className="mt-14">
 					<div className="flex-1">
-						<Text type="h3" className="text-brand-200">
-							3. We agree & start working
-						</Text>
+						<Text type="h3">3. We agree & start working</Text>
 						<Text className="mt-6">
 							After the call, we'll send you a doc. that outlines
 							what we’ve talked, time estimates and cost. Once
