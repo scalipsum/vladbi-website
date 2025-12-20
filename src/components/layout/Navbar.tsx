@@ -73,7 +73,11 @@ export default function Navbar() {
 
 					{/* Right side - Product Quiz Button and Theme Toggle */}
 					<div className="flex items-center space-x-4">
-						<Button asChild className="-mt-1 pt-1" size="sm">
+						<Button
+							asChild
+							className="-mt-1 pt-1.5 hidden sm:block"
+							size="sm"
+						>
 							<Link href="/quiz">Product Quiz</Link>
 						</Button>
 						<ThemeToggle />
@@ -84,16 +88,13 @@ export default function Navbar() {
 								<Button
 									variant="ghost"
 									size="sm"
-									className="md:hidden"
+									className="md:hidden bg-slate-200 h-9"
 								>
-									<Menu className="size-6" />
-									<Text className="text-base font-medium font-main">
-										menu
-									</Text>
+									<Menu className="size-8" />
 									<span className="sr-only">Toggle menu</span>
 								</Button>
 							</SheetTrigger>
-							<SheetContent side="right" className="w-80 px-2">
+							<SheetContent side="right" className="w-92 px-2">
 								<div className="flex flex-col space-y-4 mt-3">
 									<Link
 										href="/"
@@ -129,9 +130,9 @@ export default function Navbar() {
 											Start Product Quiz
 										</Link>
 									</Button>
-									<div className="flex justify-center py-2">
+									{/* <div className="flex justify-center py-2">
 										<ThemeToggle />
-									</div>
+									</div> */}
 								</div>
 							</SheetContent>
 						</Sheet>
