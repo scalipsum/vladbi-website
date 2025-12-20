@@ -20,7 +20,7 @@ export default function Header({ title, subTitle, className }: HeaderProps) {
 			} else if (window.innerWidth < 1280) {
 				setGlobeSize(600);
 			} else {
-				setGlobeSize(700);
+				setGlobeSize(600);
 			}
 		};
 		updateGlobeSize();
@@ -36,11 +36,11 @@ export default function Header({ title, subTitle, className }: HeaderProps) {
 			)}
 		>
 			<RotatingGlobe
-				className="absolute -left-36 -top-40 opacity-100 z-0"
+				className="absolute -left-36 -top-44 sm:-top-44 md:!-top-44 lg:!-top-54 opacity-100 z-0"
 				size={globeSize}
 				rotate="0deg"
 			/>
-			<BrandStripes className="absolute z-0 -right-8 -top-10" />
+			<BrandStripes className="absolute z-0 -right-8 -top-20  lg:-top-36" />
 			<div className="bg-background mt-26 flex flex-col items-center z-20 px-16 rounded-t-3xl border border-t-4 md:border-0 border-brand-100 border-b-0 pt-5">
 				<div className="inline-block">
 					<Text type="h2">{title}</Text>
