@@ -37,7 +37,7 @@ export default function GetStarted() {
 					<div className="flex-1">
 						<Text
 							type="h3"
-							className="text-gray-600 dark:text-gray-500"
+							className="text-gray-600 dark:text-gray-200"
 						>
 							2. Free Discovery call
 						</Text>
@@ -53,7 +53,7 @@ export default function GetStarted() {
 					<div className="flex-1">
 						<Text
 							type="h3"
-							className="text-gray-600 dark:text-gray-500"
+							className="text-gray-600 dark:text-gray-200"
 						>
 							3. We agree & start working
 						</Text>
