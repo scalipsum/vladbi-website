@@ -36,11 +36,11 @@ export default function Navbar() {
 	}, []);
 
 	return (
-		<header className="fixed top-0 left-0 right-0 z-50 w-full">
-			<div className={cn('mx-auto max-w-7xl pt-2 transition')}>
+		<header className="fixed top-0 left-0 right-0 z-50 w-full px-2">
+			<div className={cn('mx-auto max-w-7xl pt-1 sm:pt-2 transition')}>
 				<nav
 					className={cn(
-						'flex items-center justify-between rounded-full pl-8 pr-4 py-2 transition-all duration-300 bg-background',
+						'flex items-center justify-between rounded-full pl-8 pr-4 py-1 sm:py-2 transition-all duration-300 bg-background',
 						isScrolled &&
 							'shadow-xl shadow-gray-900/10 dark:shadow-gray-900/30 backdrop-blur-md bg-background/70 dark:bg-gray-900/80 border border-gray-200/20 dark:border-gray-700/20 shadow-lg shadow-gray-900/5 dark:shadow-gray-900/20 border border-slate-200',
 					)}
@@ -89,26 +89,25 @@ export default function Navbar() {
 								<Button
 									variant="ghost"
 									size="sm"
-									className="md:hidden bg-slate-200 h-9"
+									className="md:hidden bg-slate-200 dark:bg-gray-800 h-9"
 								>
 									<Menu className="size-8" />
 									<span className="sr-only">Toggle menu</span>
 								</Button>
 							</SheetTrigger>
-							<SheetContent side="right" className="w-92 px-2">
-								<div className="flex flex-col space-y-4 mt-3">
+							<SheetContent side="right" className="w-90 px-4">
+								<div className="flex flex-col space-y-4 mt-2">
 									<Link
 										href="/"
-										className="flex items-center justify-center space-x-2 mb-8"
+										className="flex items-center gap-2 mt-2"
 										onClick={() => setIsSheetOpen(false)}
 									>
 										<Logo
-											color="currentColor"
-											width={32}
-											height={38}
+											width={25}
+											height={29}
 											className="text-brand"
 										/>
-										<Text className="text-lg font-main font-bold text-brand">
+										<Text className="font-extrabold font-main text-brand">
 											Vladbi
 										</Text>
 									</Link>
@@ -119,7 +118,9 @@ export default function Navbar() {
 												key={href}
 												href={href}
 												className="block px-3 py-2 text-sm hover:bg-accent rounded-md transition-colors text-center"
-												onClick={() => setIsSheetOpen(false)}
+												onClick={() =>
+													setIsSheetOpen(false)
+												}
 											>
 												<Text className="font-main font-bold text-brand">
 													{label}
@@ -129,7 +130,12 @@ export default function Navbar() {
 									)}
 
 									<Button asChild>
-										<Link href="/quiz" onClick={() => setIsSheetOpen(false)}>
+										<Link
+											href="/quiz"
+											onClick={() =>
+												setIsSheetOpen(false)
+											}
+										>
 											Start Product Quiz
 										</Link>
 									</Button>
