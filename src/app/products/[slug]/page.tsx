@@ -115,7 +115,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 					}
 				>
 					{product.verticalImage && (
-						<div className="pt-4 bg-background lg:mt-0 lg:absolute lg:-top-40 lg:-right-22 overflow-visible z-20">
+						<div className="pt-4 bg-background lg:bg-transparent lg:mt-0 lg:absolute lg:-top-40 lg:-right-22 overflow-visible z-20">
 							<Image
 								src={product.verticalImage}
 								alt={`${product.title} - Vertical View`}
