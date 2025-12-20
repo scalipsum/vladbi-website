@@ -99,7 +99,10 @@ export default function Navbar() {
 									<span className="sr-only">Toggle menu</span>
 								</Button>
 							</SheetTrigger>
-							<SheetContent side="right" className="w-90 px-4">
+							<SheetContent
+								side="right"
+								className="w-90 px-4 rounded-l-lg"
+							>
 								<div className="flex flex-col space-y-4 mt-2">
 									<Link
 										href="/"
