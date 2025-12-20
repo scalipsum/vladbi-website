@@ -20,11 +20,11 @@ export default function TimelineItem({
 				className,
 			)}
 		>
-			<div className="mt-2 mb-6">
+			<div className="md:mt-1.5 mb-6">
 				{active ? (
-					<FaDotCircle className="text-brand -ml-1" size="20" />
+					<FaCircle className="text-brand -ml-1" size="20" />
 				) : (
-					<FaCircle className="text-gray-500 -ml-1" size="20" />
+					<FaDotCircle className="text-gray-500 -ml-1" size="20" />
 				)}
 				<div
 					className={cn(

@@ -39,7 +39,7 @@ export default function GetStarted() {
 							type="h3"
 							className="text-gray-600 dark:text-gray-500"
 						>
-							2. Discovery call
+							2. Free Discovery call
 						</Text>
 						<Text className="mt-6">
 							To clarify in a more meaningful way what the project
