@@ -9,7 +9,7 @@ import PatternSection from './PatternSection';
 export default function Youtube() {
 	return (
 		<PatternSection
-			className="flex flex-col items-center py-20"
+			className="flex flex-col items-center md:py-20 md:pb-20 py-16 pb-8"
 			patternClassName="opacity-5 dark:invert"
 		>
 			<TightContentLayout>
