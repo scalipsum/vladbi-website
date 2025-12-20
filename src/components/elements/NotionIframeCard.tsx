@@ -27,7 +27,7 @@ export default function NotionIframeCard({
 				width="100%"
 				height={height}
 				allowFullScreen={false}
-				className={cn('-mt-32', className)}
+				className={cn('-mt-32 overflow-hidden', className)}
 			/>
 		</Card>
 	);
