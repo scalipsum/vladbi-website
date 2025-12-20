@@ -76,7 +76,6 @@ export default async function PostPage({ params }: PostPageProps) {
 	const posts = await getBlogPostsFromCache();
 	const post = posts.find((p) => p.slug === slug);
 
-	// Calculate word count from blocks
 	const wordCount = post?.blocks ? getWordCountFromBlocks(post.blocks) : 0;
 	const readingTime = calculateReadingTime(wordCount);
 
@@ -156,23 +155,10 @@ export default async function PostPage({ params }: PostPageProps) {
 									<span>{readingTime}</span>
 								</div>
 							</div>
-							{/* <div className="flex items-center gap-2 justify-center mt-4">
-								{post.category && (
-									<Badge variant="secondary">
-										{post.category}
-									</Badge>
-								)}
-								{post.tags &&
-									post.tags.map((tag) => (
-										<Badge key={tag} variant="secondary">
-											{tag}
-										</Badge>
-									))}
-							</div> */}
 						</div>
 					}
 				>
-					<TightContentLayout className="relative !overflow-visible bg-background px-2 lg:px-8 py-12 pb-20 rounded-md">
+					<TightContentLayout className="relative !overflow-visible bg-background px-1 lg:px-8 py-12 pb-20 rounded-md">
 						{post.blocks && post.blocks.length > 0 && (
 							<BlockRender
 								blocks={post.blocks}
@@ -192,30 +178,6 @@ export default async function PostPage({ params }: PostPageProps) {
 						)}
 					</TightContentLayout>
 				</ServicePageLayout>
-
-				{/* <header className="mb-8">
-					<div className="flex items-center gap-4 text-muted-foreground mb-4">
-						<time>
-							{format(new Date(post.date), 'MMMM d, yyyy')}
-						</time>
-						{post.author && (
-							<div className="flex items-center gap-2">
-								{post.authorAvatar && (
-									<Image
-										src={post.authorAvatar}
-										alt={post.author}
-										width={24}
-										height={24}
-										className="rounded-full"
-									/>
-								)}
-								<span>{post.author}</span>
-							</div>
-						)}
-						<span>{calculateReadingTime(wordCount)}</span>
-						<span>{wordCount} words</span>
-					</div>
-				</header> */}
 			</article>
 		</>
 	);

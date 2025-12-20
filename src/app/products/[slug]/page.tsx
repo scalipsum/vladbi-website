@@ -115,18 +115,18 @@ export default async function ProductPage({ params }: ProductPageProps) {
 					}
 				>
 					{product.verticalImage && (
-						<div className="absolute -top-40 -right-22 overflow-visible z-20">
+						<div className="pt-4 bg-background lg:mt-0 lg:absolute lg:-top-40 lg:-right-22 overflow-visible z-20">
 							<Image
 								src={product.verticalImage}
 								alt={`${product.title} - Vertical View`}
 								width={280}
 								height={380}
-								className="rounded-lg object-cover"
+								className="rounded-lg object-cover mx-auto"
 							/>
 						</div>
 					)}
 
-					<TightContentLayout className="relative !overflow-visible bg-background px-8 py-12 pb-20 rounded-md">
+					<TightContentLayout className="relative !overflow-visible bg-background px-1 lg:px-8 py-12 pb-20 rounded-md">
 						{product.blocks && product.blocks.length > 0 && (
 							<BlockRender
 								blocks={product.blocks}
