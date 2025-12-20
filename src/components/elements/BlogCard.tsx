@@ -29,7 +29,7 @@ export default function BlogCard({ post, className }: PostCardProps) {
 				className="absolute inset-0 z-10"
 				aria-label={post.title}
 			/>
-			<div className="relative aspect-[16/9] h-[300px] w-full overflow-hidden rounded-t-lg">
+			<div className="relative aspect-[16/9] lg:h-[300px] h-[220px] w-full overflow-hidden rounded-t-lg">
 				{post.coverImage ? (
 					<Image
 						src={post.coverImage}
@@ -57,7 +57,7 @@ export default function BlogCard({ post, className }: PostCardProps) {
 					<ArrowUpRight className="absolute top-[7.5rem] right-6 h-6 w-6 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-white dark:text-black" />
 				</div>
 
-				<div className="flex items-center gap-4 text-sm text-muted-foreground mt-2">
+				<div className="flex items-center gap-2.5 md:gap-4 text-sm text-muted-foreground mt-2">
 					{post.author && (
 						<div className="flex items-center gap-2">
 							{post.authorAvatar && (
