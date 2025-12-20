@@ -13,7 +13,12 @@ export default function TimelineItem({
 	className,
 }: TimelineItemProps) {
 	return (
-		<div className={cn('flex flex-row gap-8', className)}>
+		<div
+			className={cn(
+				'flex flex-row gap-6 md:gap-8 mx-auto ml-1 sm:ml-8 md:ml-0',
+				className,
+			)}
+		>
 			<div className="mt-2 mb-6">
 				{active ? (
 					<FaLockOpen className="text-brand -ml-1" size="20" />
@@ -27,7 +32,9 @@ export default function TimelineItem({
 					)}
 				/>
 			</div>
-			{children}
+			<div className="flex flex-col-reverse md:flex-row justify-between md:gap-24 gap-6">
+				{children}
+			</div>
 		</div>
 	);
 }

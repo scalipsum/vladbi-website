@@ -19,53 +19,45 @@ export default function GetStarted() {
 				</div>
 
 				{/*  Timeline */}
-				<TimelineItem className="mt-16" active>
-					<div className="flex flex-row justify-between gap-24">
-						<div className="flex-1">
-							<Text type="h3">1. Take the product quiz</Text>
-							<Text className="mt-4">
-								Simple questions around your project to have
-								basic understanding about what you’re trying to
-								build.
-							</Text>
-							<Button asChild className="mt-6">
-								<Link href="/quiz">Take the quiz</Link>
-							</Button>
-						</div>
-						<div className="h-48 w-72 rounded-md bg-gray-300 flex-1" />
+				<TimelineItem className="md:mt-16 mt-14" active>
+					<div className="flex-1">
+						<Text type="h3">1. Take the product quiz</Text>
+						<Text className="mt-4">
+							Simple questions around your project to have basic
+							understanding about what you’re trying to build.
+						</Text>
+						<Button asChild className="mt-6">
+							<Link href="/quiz">Take the quiz</Link>
+						</Button>
 					</div>
+					<div className="h-48 w-72 rounded-md bg-gray-300 md:flex-1" />
 				</TimelineItem>
 
 				<TimelineItem className="mt-14">
-					<div className="flex flex-row justify-between  gap-24">
-						<div className="flex-1">
-							<Text type="h3" className="text-brand-200">
-								2. Discovery call
-							</Text>
-							<Text className="mt-6">
-								To clarify in a more meaningful way what the
-								project is about and to define what success
-								looks like.
-							</Text>
-						</div>
-						<div className="h-48 w-72 rounded-md bg-gray-300 flex-1" />
+					<div className="flex-1">
+						<Text type="h3" className="text-brand-200">
+							2. Discovery call
+						</Text>
+						<Text className="mt-6">
+							To clarify in a more meaningful way what the project
+							is about and to define what success looks like.
+						</Text>
 					</div>
+					<div className="h-48 w-72 rounded-md bg-gray-300 md:flex-1" />
 				</TimelineItem>
 
 				<TimelineItem className="mt-14">
-					<div className="flex flex-row justify-between  gap-24">
-						<div className="flex-1">
-							<Text type="h3" className="text-brand-200">
-								3. We agree & start working
-							</Text>
-							<Text className="mt-6">
-								After the call, we'll send you a doc. that
-								outlines what we’ve talked, time estimates and
-								cost. Once signed, we begin.
-							</Text>
-						</div>
-						<div className="h-48 w-72 rounded-md bg-gray-300 flex-1" />
+					<div className="flex-1">
+						<Text type="h3" className="text-brand-200">
+							3. We agree & start working
+						</Text>
+						<Text className="mt-6">
+							After the call, we'll send you a doc. that outlines
+							what we’ve talked, time estimates and cost. Once
+							signed, we begin.
+						</Text>
 					</div>
+					<div className="h-48 w-72 rounded-md bg-gray-300 md:flex-1" />
 				</TimelineItem>
 			</TightContentLayout>
 		</section>

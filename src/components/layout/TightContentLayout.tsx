@@ -11,7 +11,12 @@ export default function TightContentLayout({
 	className,
 }: TightContentLayoutProps) {
 	return (
-		<div className={cn('mx-auto w-sm md:w-xl lg:w-4xl', className)}>
+		<div
+			className={cn(
+				'mx-auto w-full sm:w-lg md:w-3xl lg:w-4xl',
+				className,
+			)}
+		>
 			{children}
 		</div>
 	);
