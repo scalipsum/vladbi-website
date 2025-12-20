@@ -172,7 +172,7 @@ export default async function PostPage({ params }: PostPageProps) {
 						</div>
 					}
 				>
-					<TightContentLayout className="relative !overflow-visible bg-background px-8 py-12 pb-20 rounded-md">
+					<TightContentLayout className="relative !overflow-visible bg-background px-2 lg:px-8 py-12 pb-20 rounded-md">
 						{post.blocks && post.blocks.length > 0 && (
 							<BlockRender
 								blocks={post.blocks}
