@@ -22,10 +22,10 @@ export default function SecondaryHeader({
 	return (
 		<div
 			className={cn(
-				'relative max-w-[1920px] relative mx-auto h-90 w-full rounded-bl-[280px] rounded-br-[330px]',
+				'relative max-w-[1920px] relative mx-auto h-70 lg:h-90 border-b border-slate-100 dark:border-slate-700 w-full rounded-b-[36px] lg:rounded-bl-[280px] lg:rounded-br-[330px]',
 				backgroundUrl
 					? 'bg-cover bg-center bg-no-repeat'
-					: 'bg-background shadow-lg dark:shadow-gray-900/60 shadow-slate-200/60',
+					: 'bg-background shadow-lg dark:shadow-gray-900/50 shadow-slate-200/60',
 				className,
 			)}
 			style={
@@ -35,12 +35,12 @@ export default function SecondaryHeader({
 			}
 		>
 			{backgroundUrl && (
-				<div className="absolute z-0 inset-0 bg-slate-900 opacity-60 rounded-lg rounded-bl-[280px] rounded-br-[330px] rounded-t-lg" />
+				<div className="absolute z-0 inset-0 bg-slate-900 opacity-60 rounded-b-[36px] lg:rounded-bl-[280px] lg:rounded-br-[330px]" />
 			)}
 			<div className="max-w-[1920px] relative mx-auto h-full relative z-10">
-				<BrandStripes className="absolute !-top-16 z-0 right-0 top-0" />
+				<BrandStripes className="hidden lg:block absolute !-top-16 z-0 right-0 top-0" />
 				<ContentLayout className="flex items-center justify-center">
-					<div className="inline-block mt-36 text-center">
+					<div className="inline-block mt-30 lg:mt-36 text-center">
 						<Text type="h2" className={`text-${textColor}`}>
 							{title}
 						</Text>
