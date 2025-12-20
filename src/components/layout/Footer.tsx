@@ -20,7 +20,7 @@ export default function Footer() {
 	};
 	return (
 		<footer className="bg-brand-600 text-white">
-			<ContentLayout className="pb-0 pt-0 pt-16 pb-24 flex items-start justify-between">
+			<ContentLayout className="pb-0 pt-0 pt-16 pb-24 flex md:flex-row flex-col items-start justify-between">
 				<div>
 					<Link href="/" className="flex items-center space-x-2">
 						<Logo width={25} height={29} className="text-white" />
@@ -41,56 +41,72 @@ export default function Footer() {
 						</Text>
 					</Link>
 
-					<Text className="!text-sm mt-20 font-sans text-slate-400">
+					<Text className="!text-sm mt-20 font-sans text-slate-400 hidden md:block">
 						© {new Date().getFullYear()} Vlad Bibire
 					</Text>
 				</div>
-				<div className="grid grid-col-1 md:grid-col-3">
-					<Text className="!text-sm ml-0.25 mb-4">Resources</Text>
-					<ul className="flex flex-col gap-4">
-						{Object.entries(column1Links).map(([label, href]) => (
-							<li key={href} className="leading-[0px]">
-								<Link
-									href={href}
-									className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
-								>
-									<Text className="!text-sm">{label}</Text>
-								</Link>
-							</li>
-						))}
-					</ul>
-				</div>
-				<div>
-					<Text className="!text-sm ml-0.25 mb-4">My Process</Text>
-					<ul className="flex flex-col gap-4">
-						{Object.entries(column2Links).map(([label, href]) => (
-							<li key={href} className="leading-[0px]">
-								<Link
-									href={href}
-									className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
-								>
-									<Text className="!text-sm">{label}</Text>
-								</Link>
-							</li>
-						))}
-					</ul>
-				</div>
-				<div>
-					<Text className="!text-sm ml-0.25 mb-4">
-						Let's work together
-					</Text>
-					<ul className="flex flex-col gap-4">
-						{Object.entries(column3Links).map(([label, href]) => (
-							<li key={href} className="leading-[0px]">
-								<Link
-									href={href}
-									className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
-								>
-									<Text className="!text-sm">{label}</Text>
-								</Link>
-							</li>
-						))}
-					</ul>
+				<div className="grid grid-cols-2 sm:grid-cols-3 justify-between w-full md:max-w-2/3 max-w-full mt-12 md:mt-0 gap-16">
+					<div>
+						<Text className="!text-sm ml-0.25 mb-4">Resources</Text>
+						<ul className="flex flex-col gap-4">
+							{Object.entries(column1Links).map(
+								([label, href]) => (
+									<li key={href} className="leading-[0px]">
+										<Link
+											href={href}
+											className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
+										>
+											<Text className="!text-sm">
+												{label}
+											</Text>
+										</Link>
+									</li>
+								),
+							)}
+						</ul>
+					</div>
+					<div>
+						<Text className="!text-sm ml-0.25 mb-4">
+							My Process
+						</Text>
+						<ul className="flex flex-col gap-4">
+							{Object.entries(column2Links).map(
+								([label, href]) => (
+									<li key={href} className="leading-[0px]">
+										<Link
+											href={href}
+											className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
+										>
+											<Text className="!text-sm">
+												{label}
+											</Text>
+										</Link>
+									</li>
+								),
+							)}
+						</ul>
+					</div>
+					<div>
+						<Text className="!text-sm ml-0.25 mb-4">
+							Let's work together
+						</Text>
+						<ul className="flex flex-col gap-4">
+							{Object.entries(column3Links).map(
+								([label, href]) => (
+									<li key={href} className="leading-[0px]">
+										<Link
+											href={href}
+											className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
+										>
+											<Text className="!text-sm">
+												{label}
+											</Text>
+										</Link>
+									</li>
+								),
+							)}
+						</ul>
+					</div>
 				</div>
 			</ContentLayout>
 		</footer>
