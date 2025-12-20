@@ -18,6 +18,7 @@ import Text from '../ui/text';
 
 export default function Navbar() {
 	const [isScrolled, setIsScrolled] = useState(false);
+	const [isSheetOpen, setIsSheetOpen] = useState(false);
 
 	const mainNavLinks = {
 		Services: '/services',
@@ -83,7 +84,7 @@ export default function Navbar() {
 						<ThemeToggle />
 
 						{/* Mobile Menu */}
-						<Sheet>
+						<Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
 							<SheetTrigger asChild>
 								<Button
 									variant="ghost"
@@ -99,6 +100,7 @@ export default function Navbar() {
 									<Link
 										href="/"
 										className="flex items-center justify-center space-x-2 mb-8"
+										onClick={() => setIsSheetOpen(false)}
 									>
 										<Logo
 											color="currentColor"
@@ -117,6 +119,7 @@ export default function Navbar() {
 												key={href}
 												href={href}
 												className="block px-3 py-2 text-sm hover:bg-accent rounded-md transition-colors text-center"
+												onClick={() => setIsSheetOpen(false)}
 											>
 												<Text className="font-main font-bold text-brand">
 													{label}
@@ -126,7 +129,7 @@ export default function Navbar() {
 									)}
 
 									<Button asChild>
-										<Link href="/quiz">
+										<Link href="/quiz" onClick={() => setIsSheetOpen(false)}>
 											Start Product Quiz
 										</Link>
 									</Button>
