@@ -17,18 +17,15 @@ export default function NotionIframeCard({
 }: NotionIframeCardProps) {
 	const { theme } = useTheme();
 	return (
-		<Card
-			className="w-full overflow-hidden shadow-blue-400 dark:shadow-brand-600"
-			noHover
-		>
+		<Card className="w-full overflow-y-hidden" noHover>
 			<iframe
 				key={theme}
 				src={src}
 				width="100%"
 				height={height}
 				allowFullScreen={false}
-				className={cn('-mt-32 overflow-hidden', className)}
-			/>
+				className={cn('-mt-32', className)}
+			></iframe>
 		</Card>
 	);
 }
