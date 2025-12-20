@@ -33,7 +33,7 @@ export default async function Projects() {
 		<div className="lg:pb-32 pb-24">
 			<Header title="Products" subTitle="Vision turned reality" />
 			<ContentLayout>
-				<div className="flex flex-col lg:mt-24 mt-6">
+				<div className="flex flex-col lg:mt-24 md:mt-16 mt-6">
 					{products.map((product, index) => {
 						if (product.category === 'Automation') {
 							return (
@@ -58,7 +58,9 @@ export default async function Projects() {
 								href={`/products/${product.slug}`}
 								backgroundImageUrl={product.coverImage ?? ''}
 								previewImageUrl={product.verticalImage ?? ''}
-								className={index !== 0 ? 'lg:mt-54 mt-24' : ''}
+								className={
+									index !== 0 ? 'lg:mt-50 md:mt-44 mt-24' : ''
+								}
 							/>
 						);
 					})}
