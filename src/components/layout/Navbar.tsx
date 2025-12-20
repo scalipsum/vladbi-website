@@ -40,13 +40,13 @@ export default function Navbar() {
 			<div className={cn('mx-auto max-w-7xl pt-1 sm:pt-2 transition')}>
 				<nav
 					className={cn(
-						'flex items-center justify-between rounded-full pl-8 pr-4 py-1 sm:py-2 transition-all duration-300 bg-background',
+						'flex items-center justify-between rounded-full pl-6 pr-6 sm:pl-8 sm:pr-4 py-1 sm:py-2 transition-all duration-300 bg-background',
 						isScrolled &&
 							'shadow-xl shadow-gray-900/10 dark:shadow-gray-900/30 backdrop-blur-md bg-background/70 dark:bg-gray-900/80 border border-gray-200/20 dark:border-gray-700/20 shadow-lg shadow-gray-900/5 dark:shadow-gray-900/20 border border-slate-200',
 					)}
 				>
 					{/* Logo */}
-					<Link href="/" className="flex items-center space-x-2">
+					<Link href="/" className="flex items-center gap-2">
 						<Logo width={25} height={29} className="text-brand" />
 						<Text className="font-extrabold font-main text-brand">
 							Vladbi
