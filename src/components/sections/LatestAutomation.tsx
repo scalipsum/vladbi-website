@@ -18,8 +18,8 @@ export default async function LatestAutomation() {
 
 	return (
 		<section className="md:mt-32 mt-16">
-			<Text type="h3" className="text-center md:text-left">
-				Latest automation product
+			<Text type="h2" className="text-center md:text-left">
+				Latest automation
 			</Text>
 
 			<AutomationPreviewCard
