@@ -17,7 +17,7 @@ export default async function Home() {
 			<CallToAction
 				title="Our journey begins"
 				subtitle="Right here. Right now."
-				className="mt-10"
+				className="mt-5 md:mt-10"
 			/>
 			<Youtube />
 			<ContentLayout>
