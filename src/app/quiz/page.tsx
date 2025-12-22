@@ -4,12 +4,12 @@ import TightContentLayout from '@/components/layout/TightContentLayout';
 
 export default function Quiz() {
 	return (
-		<div className="pb-16">
+		<div className="pb-24">
 			<Header
 				title="Your Product Quiz"
 				subTitle="Some details and we'll get in touch."
 			/>
-			<TightContentLayout className="px-4 md:px-0 pb-24 md:pb-8">
+			<TightContentLayout className="px-4 md:px-0">
 				<QuizIframeCard
 					src="https://app.youform.com/forms/rqkp9ydg"
 					className="md:h-[670px] h-[575px]"
