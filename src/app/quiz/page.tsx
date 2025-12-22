@@ -1,4 +1,4 @@
-import NotionIframeCard from '@/components/elements/NotionIframeCard';
+import QuizIframeCard from '@/components/elements/QuizIframeCard';
 import Header from '@/components/layout/Header';
 import TightContentLayout from '@/components/layout/TightContentLayout';
 
@@ -9,10 +9,10 @@ export default function Quiz() {
 				title="Your Product Quiz"
 				subTitle="Some details and we'll get in touch."
 			/>
-			<TightContentLayout className="lg:w-3xl mt-8 px-4">
-				<NotionIframeCard
-					src="https://untk.notion.site/ebd//2cc816a1b40880ba9dabd28100f1cb73"
-					height="950px"
+			<TightContentLayout className="px-4 md:px-0">
+				<QuizIframeCard
+					src="https://app.youform.com/forms/rqkp9ydg"
+					className="h-[670px]"
 				/>
 			</TightContentLayout>
 		</div>

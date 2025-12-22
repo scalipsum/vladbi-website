@@ -101,7 +101,7 @@ export default function Navbar() {
 							</SheetTrigger>
 							<SheetContent
 								side="right"
-								className="w-90 px-4 rounded-l-lg"
+								className="w-80 px-4 rounded-l-lg"
 							>
 								<div className="flex flex-col space-y-4 mt-2">
 									<Link
