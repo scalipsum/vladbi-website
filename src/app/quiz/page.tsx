@@ -12,7 +12,7 @@ export default function Quiz() {
 			<TightContentLayout className="px-4 md:px-0">
 				<QuizIframeCard
 					src="https://app.youform.com/forms/rqkp9ydg"
-					className="md:h-[670px] h-[575px]"
+					className="md:h-[670px] h-[600px]"
 				/>
 			</TightContentLayout>
 		</div>
