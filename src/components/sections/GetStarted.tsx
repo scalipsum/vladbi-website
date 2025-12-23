@@ -13,7 +13,7 @@ export default function GetStarted() {
 				{/* Section title */}
 				<div className="flex justify-center">
 					<div className="inline-block">
-						<Text type="h2">Step by step</Text>
+						<Text type="h2">We start small</Text>
 						<div className="h-1.5 bg-brand rounded-full w-full self-center mt-2.5" />
 					</div>
 				</div>
