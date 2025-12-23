@@ -69,7 +69,7 @@ export default function Tools() {
 			<Text type="h2" className="text-center">
 				Using modern tools to prototype fast
 			</Text>
-			<div className="grid grid-cols-5 w-fit mx-auto gap-3 md:gap-6 mt-8 md:mt-12">
+			<div className="grid md:grid-cols-5 w-fit mx-auto gap-3 md:gap-6 mt-8 md:mt-12 grid-cols-3">
 				{tools.map((tool, index) => (
 					<Tooltip key={tool.name}>
 						<TooltipTrigger asChild>
@@ -81,7 +81,7 @@ export default function Tools() {
 										: { opacity: 0, scale: 0.8 }
 								}
 								transition={{
-									delay: 0.35 + index * 0.04,
+									delay: 0.4 + index * 0.04,
 									duration: 0.5,
 									ease: [0.22, 1, 0.36, 1],
 								}}

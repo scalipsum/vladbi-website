@@ -11,26 +11,26 @@ interface QuoteProps {
 export default function Quote({ quote, name, profession, avatar }: QuoteProps) {
 	return (
 		<section className="mt-16 md:mt-32">
-			<TightContentLayout className="text-center px-2">
+			<TightContentLayout className="text-center px-2 md:px-32">
 				<Text type="h2">Trusted by great people</Text>
 
 				<div className="relative mt-16">
 					{/* Opening quote mark */}
 					<span
-						className="font-sans absolute -top-10 left-0 md:-top-14 md:-left-4 text-[80px] md:text-[120px] leading-none font-main font-extrabold text-brand dark:text-brand-200 select-none pointer-events-none"
+						className="font-sans absolute -top-10 left-0 md:-top-12 md:-left-12 text-[80px] md:text-[100px] leading-none font-main font-extrabold text-brand dark:text-brand-200 select-none pointer-events-none"
 						aria-hidden="true"
 					>
 						&ldquo;
 					</span>
 
 					{/* Quote text */}
-					<blockquote className="font-cormorant italic text-3xl md:text-4xl text-foreground leading-normal">
+					<blockquote className="font-cormorant italic text-3xl text-foreground leading-normal">
 						{quote}
 					</blockquote>
 
 					{/* Closing quote mark */}
 					<span
-						className="font-sans absolute -bottom-20 right-0 md:-bottom-22 -right-2 text-[80px] md:text-[120px] leading-none font-main font-extrabold text-brand dark:text-brand-200 select-none pointer-events-none"
+						className="font-sans absolute -bottom-20 right-0 md:-bottom-22 -right-2 text-[80px] md:text-[100px] leading-none font-main font-extrabold text-brand dark:text-brand-200 select-none pointer-events-none"
 						aria-hidden="true"
 					>
 						&rdquo;
@@ -51,6 +51,7 @@ export default function Quote({ quote, name, profession, avatar }: QuoteProps) {
 						<p className="text-muted-foreground">{profession}</p>
 					</div>
 				</div>
+				{/* </Card> */}
 			</TightContentLayout>
 		</section>
 	);
