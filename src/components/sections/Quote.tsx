@@ -3,6 +3,7 @@
 import TightContentLayout from '@/components/layout/TightContentLayout';
 import Text from '@/components/ui/text';
 import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface QuoteProps {
 	quote: string;
@@ -12,7 +13,7 @@ interface QuoteProps {
 }
 
 export default function Quote({ quote, name, profession, avatar }: QuoteProps) {
-	const startIndex = Math.floor(quote.length / 2);
+	const startIndex = Math.floor(quote.length * 3 / 4);
 	const [displayedText, setDisplayedText] = useState(
 		quote.slice(0, startIndex),
 	);
@@ -47,7 +48,14 @@ export default function Quote({ quote, name, profession, avatar }: QuoteProps) {
 	}, [quote, hasAnimated, startIndex]);
 
 	return (
-		<section ref={sectionRef} className="mt-16 md:mt-40">
+		<motion.section
+			ref={sectionRef}
+			className="mt-16 md:mt-40"
+			initial={{ opacity: 0, y: 50 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, amount: 0.3 }}
+			transition={{ duration: 0.8, ease: 'easeOut' }}
+		>
 			<TightContentLayout className="text-center px-2 md:px-32">
 				<Text type="h2">Trusted by great people</Text>
 
@@ -90,6 +98,6 @@ export default function Quote({ quote, name, profession, avatar }: QuoteProps) {
 				</div>
 				{/* </Card> */}
 			</TightContentLayout>
-		</section>
+		</motion.section>
 	);
 }

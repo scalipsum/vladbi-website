@@ -113,7 +113,7 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
 					<div className="flex-1 flex flex-col gap-2">
 						{isMobile ? (
 							<>
-								<div className="w-full h-20 md:h-28 rounded-xl bg-white/20" />
+								<div className="w-full h-40 md:h-56 rounded-xl bg-white/20" />
 								<div className="w-full h-3 bg-white/30 rounded-full" />
 								<div className="w-3/4 h-3 bg-white/20 rounded-full" />
 								<div className="mt-auto flex gap-2">
