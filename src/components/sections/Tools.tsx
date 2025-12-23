@@ -6,7 +6,8 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 const tools = [
 	// Row 1
@@ -60,8 +61,11 @@ const tools = [
 ];
 
 export default function Tools() {
+	const sectionRef = useRef(null);
+	const isInView = useInView(sectionRef, { once: true });
+
 	return (
-		<section className="mt-16 md:mt-24">
+		<section ref={sectionRef} className="mt-16 md:mt-24">
 			<Text type="h2" className="text-center">
 				Using modern tools to move fast
 			</Text>
@@ -71,11 +75,15 @@ export default function Tools() {
 						<TooltipTrigger asChild>
 							<motion.div
 								initial={{ opacity: 0, scale: 0.8 }}
-								whileInView={{ opacity: 1, scale: 1 }}
-								viewport={{ once: true }}
+								animate={
+									isInView
+										? { opacity: 1, scale: 1 }
+										: { opacity: 0, scale: 0.8 }
+								}
 								transition={{
-									delay: index * 0.05,
+									delay: 0.35 + index * 0.04,
 									duration: 0.5,
+									ease: [0.22, 1, 0.36, 1],
 								}}
 								className="size-24 md:size-32 flex items-center justify-center rounded-2xl bg-brand-100/50 dark:bg-brand-500/20 shadow-md transition-transform duration-200 hover:scale-105 cursor-default"
 							>
