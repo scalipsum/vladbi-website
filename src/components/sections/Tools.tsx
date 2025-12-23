@@ -67,7 +67,7 @@ export default function Tools() {
 	return (
 		<section ref={sectionRef} className="mt-16 md:mt-24">
 			<Text type="h2" className="text-center">
-				Using modern tools to move fast
+				Using modern tools to prototype fast
 			</Text>
 			<div className="grid grid-cols-5 w-fit mx-auto gap-3 md:gap-6 mt-8 md:mt-12">
 				{tools.map((tool, index) => (
@@ -85,7 +85,7 @@ export default function Tools() {
 									duration: 0.5,
 									ease: [0.22, 1, 0.36, 1],
 								}}
-								className="size-24 md:size-32 flex items-center justify-center rounded-2xl bg-brand-100/50 dark:bg-brand-500/20 shadow-md transition-transform duration-200 hover:scale-105 cursor-default"
+								className="size-24 md:size-32 flex items-center justify-center rounded-2xl bg-brand-100/50 dark:bg-brand-500/20 shadow-md transition-transform duration-200 hover:scale-107 cursor-default"
 							>
 								<img
 									src={`https://cdn.simpleicons.org/${tool.icon}/${tool.color}`}
