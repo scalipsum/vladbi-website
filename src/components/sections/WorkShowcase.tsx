@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface WorkItem {
 	id: number;
@@ -70,7 +70,7 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
 			<motion.div
 				initial={{ opacity: 0, scale: 0.8 }}
 				animate={{ opacity: 1, scale: 1 }}
-				transition={{ delay: index * 0.05, duration: 0.3 }}
+				transition={{ delay: index * 0.05, duration: 0.5 }}
 				className={`
 					relative flex-shrink-0 rounded-2xl overflow-hidden
 					bg-gradient-to-br ${item.gradient}
@@ -147,32 +147,52 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
 function MarqueeRow({
 	items,
 	direction = 'left',
-	speed = 30,
 }: {
 	items: WorkItem[];
 	direction?: 'left' | 'right';
-	speed?: number;
 }) {
 	const [duplicatedItems, setDuplicatedItems] = useState<WorkItem[]>([]);
+	const marqueeRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		// Duplicate items enough times to fill the screen and allow seamless loop
 		setDuplicatedItems([...items, ...items, ...items, ...items]);
 	}, [items]);
 
+	const handleMouseEnter = () => {
+		const el = marqueeRef.current;
+		if (!el) return;
+		const animations = el.getAnimations();
+		animations.forEach((anim) => {
+			anim.playbackRate = 0.5;
+		});
+	};
+
+	const handleMouseLeave = () => {
+		const el = marqueeRef.current;
+		if (!el) return;
+		const animations = el.getAnimations();
+		animations.forEach((anim) => {
+			anim.playbackRate = 1;
+		});
+	};
+
 	return (
-		<div className="group relative overflow-hidden py-4">
+		<div
+			className="relative overflow-hidden py-4"
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
+		>
 			{/* Strong gradient shadows for disappearing effect */}
 			<div className="absolute left-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-r from-background from-25% to-transparent z-10 pointer-events-none -ml-4" />
 			<div className="absolute right-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-l from-background from-25% to-transparent z-10 pointer-events-none -mr-4" />
 
 			<div
+				ref={marqueeRef}
 				className={`flex gap-4 md:gap-6 ${
 					direction === 'left'
 						? 'animate-marquee-left'
 						: 'animate-marquee-right'
-				} group-hover:[animation-duration:90s]`}
-				style={{ animationDuration: `${speed}s` }}
+				}`}
 			>
 				{duplicatedItems.map((item, index) => (
 					<WorkCard
@@ -189,7 +209,7 @@ function MarqueeRow({
 export default function WorkShowcase() {
 	return (
 		<section className="mt-16">
-			<MarqueeRow items={workItems} direction="left" speed={30} />
+			<MarqueeRow items={workItems} direction="left" />
 		</section>
 	);
 }

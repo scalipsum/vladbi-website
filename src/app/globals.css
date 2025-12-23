@@ -152,9 +152,18 @@
 }
 
 .animate-marquee-left {
-	animation: marquee-left linear infinite;
+	animation: marquee-left 5s linear infinite;
 }
 
 .animate-marquee-right {
-	animation: marquee-right linear infinite;
+	animation: marquee-right 5s linear infinite;
+}
+
+@media (min-width: 768px) {
+	.animate-marquee-left {
+		animation: marquee-left 30s linear infinite;
+	}
+	.animate-marquee-right {
+		animation: marquee-left 30s linear infinite;
+	}
 }
