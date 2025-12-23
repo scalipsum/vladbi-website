@@ -1,11 +1,13 @@
 import Text from '@/components/ui/text';
-import { getLatestSaasProduct } from '@/lib/notion';
+import { getLatestAutomationProduct, getLatestSaasProduct } from '@/lib/notion';
+import AutomationPreviewCard from '../elements/AutomationPreviewCard';
 import SaasPreviewCard from '../elements/SaasPreviewCard';
 
 export default async function LatestSaas() {
 	const latestSaasProduct = await getLatestSaasProduct();
+	const latestAutomationProduct = await getLatestAutomationProduct();
 
-	if (!latestSaasProduct) {
+	if (!latestSaasProduct || !latestAutomationProduct) {
 		return (
 			<section className="mt-48">
 				<Text type="h2">Latest digital product</Text>
@@ -17,7 +19,7 @@ export default async function LatestSaas() {
 	return (
 		<section className="md:mt-40 mt-24">
 			<Text type="h2" className="text-center md:text-left">
-				Latest product
+				Latest products
 			</Text>
 
 			<SaasPreviewCard
@@ -27,6 +29,13 @@ export default async function LatestSaas() {
 				href={`/products/${latestSaasProduct.slug}`}
 				backgroundImageUrl={latestSaasProduct.coverImage ?? ''}
 				previewImageUrl={latestSaasProduct.verticalImage ?? ''}
+			/>
+
+			<AutomationPreviewCard
+				title={latestAutomationProduct.title}
+				subtitle={latestAutomationProduct.subTitle}
+				description={latestAutomationProduct.description}
+				href={`/products/${latestAutomationProduct.slug}`}
 			/>
 		</section>
 	);

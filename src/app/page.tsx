@@ -3,7 +3,6 @@ import TightContentLayout from '@/components/layout/TightContentLayout';
 import CallToAction from '@/components/sections/CallToAction';
 import GetStarted from '@/components/sections/GetStarted';
 import Hero from '@/components/sections/Hero';
-import LatestAutomation from '@/components/sections/LatestAutomation';
 import LatestSaas from '@/components/sections/LatestSaas';
 import MyStory from '@/components/sections/MyStory';
 import PatternSection from '@/components/sections/PatternSection';
@@ -28,7 +27,6 @@ export default async function Home() {
 			/>
 			<ContentLayout>
 				<LatestSaas />
-				<LatestAutomation />
 			</ContentLayout>
 
 			<PatternSection
