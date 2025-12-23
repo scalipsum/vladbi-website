@@ -38,12 +38,12 @@ function AnimatedStep({ children }: { children: React.ReactNode }) {
 
 export default function GetStarted() {
 	return (
-		<section id="get-started" className="mt-40">
+		<section id="get-started" className="mt-32">
 			<TightContentLayout className="overflow-y-hidden px-1">
 				{/* Section title */}
 				<div className="flex justify-center">
 					<div className="inline-block">
-						<Text type="h2">We start small</Text>
+						<Text type="h2">Our journey begins</Text>
 						<div className="h-1.5 bg-brand rounded-full w-full self-center mt-2.5" />
 					</div>
 				</div>

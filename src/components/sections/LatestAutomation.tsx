@@ -7,7 +7,7 @@ export default async function LatestAutomation() {
 
 	if (!latestAutomationProduct) {
 		return (
-			<section className="md:mt-32">
+			<section className="md:mt-40">
 				<Text type="h2">Latest automation product</Text>
 				<Text className="mt-8">
 					No automation products available yet.
@@ -17,7 +17,7 @@ export default async function LatestAutomation() {
 	}
 
 	return (
-		<section className="md:mt-32 mt-16">
+		<section className="md:mt-40 mt-16">
 			<Text type="h2" className="text-center md:text-left">
 				Latest automation
 			</Text>
