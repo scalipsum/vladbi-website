@@ -9,7 +9,7 @@ export default async function Services() {
 			<Header title="Services" subTitle="Experts in building" />
 			<ContentLayout>
 				<AutomationPreviewCard
-					title="SaaS Products"
+					title="Digital Products"
 					subtitle="Web and Mobile Apps"
 					description="The products I build are online businesses that include a recurring revenue model."
 					ctaText="View the process"

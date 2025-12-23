@@ -38,11 +38,11 @@ export default function Hero() {
 				className="w-full md:max-w-1/2 z-10 pt-14 md:pt-0 flex flex-col items-center md:items-start"
 			>
 				<Text type="h1" className="text-center md:text-left">
-					We build SaaS products that scale globally
+					Product development for mission-driven startups
 				</Text>
 				<Text className="text-center md:text-left mt-8">
-					Handling full technical execution. Then <br /> automate
-					processes to maximize your revenue.
+					Your technical partner to design, build and launch <br />
+					products that scale globally.
 				</Text>
 				<Button asChild className="mt-8">
 					<Link href="#get-started">Get Started</Link>
@@ -51,7 +51,7 @@ export default function Hero() {
 
 			<div className="relative">
 				<RotatingGlobe
-					className="absolute -right-6 lg:right-12 xl:right-12 opacity-100 z-0 -top-4"
+					className="absolute -right-6 lg:right-12 xl:right-8 opacity-100 z-0 -top-4"
 					size={globeSize}
 				/>
 				<Image
