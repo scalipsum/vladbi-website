@@ -65,7 +65,7 @@ export default function Tools() {
 	const isInView = useInView(sectionRef, { once: true });
 
 	return (
-		<section ref={sectionRef} className="mt-16 md:mt-24">
+		<section ref={sectionRef} className="mt-16 md:mt-32">
 			<Text type="h2" className="text-center">
 				Using modern tools to prototype fast
 			</Text>

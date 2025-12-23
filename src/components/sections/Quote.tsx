@@ -1,5 +1,8 @@
+'use client';
+
 import TightContentLayout from '@/components/layout/TightContentLayout';
 import Text from '@/components/ui/text';
+import { useEffect, useRef, useState } from 'react';
 
 interface QuoteProps {
 	quote: string;
@@ -9,8 +12,42 @@ interface QuoteProps {
 }
 
 export default function Quote({ quote, name, profession, avatar }: QuoteProps) {
+	const startIndex = Math.floor(quote.length / 2);
+	const [displayedText, setDisplayedText] = useState(
+		quote.slice(0, startIndex),
+	);
+	const [hasAnimated, setHasAnimated] = useState(false);
+	const sectionRef = useRef<HTMLElement>(null);
+
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const [entry] = entries;
+				if (entry.isIntersecting && !hasAnimated) {
+					setHasAnimated(true);
+					let currentIndex = startIndex;
+					const interval = setInterval(() => {
+						if (currentIndex <= quote.length) {
+							setDisplayedText(quote.slice(0, currentIndex));
+							currentIndex++;
+						} else {
+							clearInterval(interval);
+						}
+					}, 30);
+				}
+			},
+			{ threshold: 0.3 },
+		);
+
+		if (sectionRef.current) {
+			observer.observe(sectionRef.current);
+		}
+
+		return () => observer.disconnect();
+	}, [quote, hasAnimated, startIndex]);
+
 	return (
-		<section className="mt-16 md:mt-32">
+		<section ref={sectionRef} className="mt-16 md:mt-40">
 			<TightContentLayout className="text-center px-2 md:px-32">
 				<Text type="h2">Trusted by great people</Text>
 
@@ -25,7 +62,7 @@ export default function Quote({ quote, name, profession, avatar }: QuoteProps) {
 
 					{/* Quote text */}
 					<blockquote className="font-cormorant italic text-3xl text-foreground leading-normal">
-						{quote}
+						{displayedText}
 					</blockquote>
 
 					{/* Closing quote mark */}
