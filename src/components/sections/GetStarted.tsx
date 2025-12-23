@@ -13,7 +13,7 @@ export default function GetStarted() {
 				{/* Section title */}
 				<div className="flex justify-center">
 					<div className="inline-block">
-						<Text type="h2">Get Started</Text>
+						<Text type="h2">Step by step</Text>
 						<div className="h-1.5 bg-brand rounded-full w-full self-center mt-2.5" />
 					</div>
 				</div>
@@ -39,7 +39,7 @@ export default function GetStarted() {
 							type="h3"
 							className="text-gray-600 dark:text-gray-200"
 						>
-							2. Free Discovery call
+							2. Book a Free Discovery Call
 						</Text>
 						<Text className="mt-6">
 							To clarify in a more meaningful way what the project
