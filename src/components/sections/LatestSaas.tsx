@@ -15,7 +15,7 @@ export default async function LatestSaas() {
 	}
 
 	return (
-		<section className="md:mt-48 mt-24">
+		<section className="md:mt-40 mt-24">
 			<Text type="h2" className="text-center md:text-left">
 				Latest product
 			</Text>
