@@ -8,7 +8,7 @@ import { Button } from '../ui/button';
 
 export default function GetStarted() {
 	return (
-		<section id="get-started" className="mt-14">
+		<section id="get-started" className="mt-24">
 			<TightContentLayout>
 				{/* Section title */}
 				<div className="flex justify-center">
