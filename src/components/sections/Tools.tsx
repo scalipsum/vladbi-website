@@ -56,7 +56,7 @@ const tools = [
 		darkColor: '06B6D4',
 	},
 	// Row 3
-	{ name: 'Bun', icon: 'bun', color: 'CBAB7D', darkColor: 'FBF0DF' },
+	{ name: 'Bun', icon: 'bun', color: 'FF6164', darkColor: 'FBF0DF' },
 	{ name: 'ClickUp', icon: 'clickup', color: '7B68EE', darkColor: '7B68EE' },
 ];
 
@@ -85,7 +85,7 @@ export default function Tools() {
 									duration: 0.5,
 									ease: [0.22, 1, 0.36, 1],
 								}}
-								className="size-24 md:size-32 flex items-center justify-center rounded-2xl bg-brand-100/50 dark:bg-brand-500/20 shadow-md transition-transform duration-200 hover:scale-107 cursor-default"
+								className="size-24 md:size-32 flex items-center justify-center rounded-2xl bg-brand-100/50 dark:bg-brand-600 shadow-md transition-transform duration-200 hover:scale-107 cursor-default"
 							>
 								<img
 									src={`https://cdn.simpleicons.org/${tool.icon}/${tool.color}`}
