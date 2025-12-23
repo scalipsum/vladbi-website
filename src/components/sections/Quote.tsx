@@ -13,7 +13,7 @@ interface QuoteProps {
 }
 
 export default function Quote({ quote, name, profession, avatar }: QuoteProps) {
-	const startIndex = Math.floor(quote.length * 3 / 4);
+	const startIndex = Math.floor(quote.length / 2);
 	const [displayedText, setDisplayedText] = useState(
 		quote.slice(0, startIndex),
 	);
