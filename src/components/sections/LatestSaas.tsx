@@ -8,8 +8,8 @@ export default async function LatestSaas() {
 	if (!latestSaasProduct) {
 		return (
 			<section className="mt-48">
-				<Text type="h2">Latest SaaS product</Text>
-				<Text className="mt-8">No SaaS products available yet.</Text>
+				<Text type="h2">Latest digital product</Text>
+				<Text className="mt-8">No digital products available yet.</Text>
 			</section>
 		);
 	}
@@ -17,7 +17,7 @@ export default async function LatestSaas() {
 	return (
 		<section className="md:mt-48 mt-24">
 			<Text type="h2" className="text-center md:text-left">
-				Latest SaaS product
+				Latest product
 			</Text>
 
 			<SaasPreviewCard
