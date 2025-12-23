@@ -133,15 +133,28 @@
 	}
 }
 
-@keyframes shine {
-	0% {
-		transform: translateX(-100%) skewX(-12deg);
+@keyframes marquee-left {
+	from {
+		transform: translateX(0);
 	}
-	100% {
-		transform: translateX(200%) skewX(-12deg);
+	to {
+		transform: translateX(-50%);
 	}
 }
 
-.animate-shine {
-	animation: shine 1.5s ease-in-out;
+@keyframes marquee-right {
+	from {
+		transform: translateX(-50%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+.animate-marquee-left {
+	animation: marquee-left linear infinite;
+}
+
+.animate-marquee-right {
+	animation: marquee-right linear infinite;
 }
