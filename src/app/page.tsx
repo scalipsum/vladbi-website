@@ -5,13 +5,17 @@ import Hero from '@/components/sections/Hero';
 import LatestAutomation from '@/components/sections/LatestAutomation';
 import LatestSaas from '@/components/sections/LatestSaas';
 import MyStory from '@/components/sections/MyStory';
+import WorkShowcase from '@/components/sections/WorkShowcase';
 import Youtube from '@/components/sections/Youtube';
 
 export default async function Home() {
 	return (
 		<div className="pt-20">
-			<ContentLayout>
+			<ContentLayout className="overflow-y-hidden pb-0">
 				<Hero />
+			</ContentLayout>
+			<WorkShowcase />
+			<ContentLayout>
 				<GetStarted />
 			</ContentLayout>
 			<CallToAction
