@@ -17,9 +17,9 @@ export default async function LatestSaas() {
 	}
 
 	return (
-		<section className="md:mt-40 mt-24">
-			<Text type="h2" className="text-center md:text-left">
-				Latest products
+		<section>
+			<Text type="h2" className="text-center">
+				Building products people love
 			</Text>
 
 			<SaasPreviewCard
@@ -29,6 +29,7 @@ export default async function LatestSaas() {
 				href={`/products/${latestSaasProduct.slug}`}
 				backgroundImageUrl={latestSaasProduct.coverImage ?? ''}
 				previewImageUrl={latestSaasProduct.verticalImage ?? ''}
+				className="mt-8 md:mt-12"
 			/>
 
 			<AutomationPreviewCard

@@ -38,7 +38,7 @@ function AnimatedStep({ children }: { children: React.ReactNode }) {
 
 export default function GetStarted() {
 	return (
-		<section id="get-started" className="mt-32">
+		<section id="get-started" className="my-20">
 			<TightContentLayout className="overflow-y-hidden px-1">
 				{/* Section title */}
 				<div className="flex justify-center">
@@ -51,7 +51,7 @@ export default function GetStarted() {
 				{/*  Timeline */}
 				<div>
 					<AnimatedStep>
-						<TimelineItem className="md:mt-16 mt-10" active>
+						<TimelineItem className="md:mt-20 mt-12" active>
 							<div className="flex-1">
 								<Text type="h3">1. Take the product quiz</Text>
 								<Text className="mt-4">

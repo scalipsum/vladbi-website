@@ -6,8 +6,10 @@ export default async function MyStory() {
 	const blogPosts = await getBlogPostsFromCache();
 	const latestBlog = blogPosts[0];
 	return (
-		<section className="flex flex-col items-center">
-			<Text type="h2">My story</Text>
+		<section className="flex flex-col items-center md:mt-40 mt-24">
+			<Text type="h2" className="ml-8">
+				Trained by industry leaders
+			</Text>
 			{!latestBlog ? (
 				<Text className="mt-8">No blog post available.</Text>
 			) : (

@@ -1,5 +1,4 @@
 import ContentLayout from '@/components/layout/ContentLayout';
-import TightContentLayout from '@/components/layout/TightContentLayout';
 import CallToAction from '@/components/sections/CallToAction';
 import GetStarted from '@/components/sections/GetStarted';
 import Hero from '@/components/sections/Hero';
@@ -9,7 +8,6 @@ import PatternSection from '@/components/sections/PatternSection';
 import Quote from '@/components/sections/Quote';
 import Tools from '@/components/sections/Tools';
 import WorkShowcase from '@/components/sections/WorkShowcase';
-import Youtube from '@/components/sections/Youtube';
 
 export default async function Home() {
 	return (
@@ -26,18 +24,19 @@ export default async function Home() {
 			/>
 			<Tools />
 			<ContentLayout>
-				<LatestSaas />
+				<MyStory />
 			</ContentLayout>
 
 			<PatternSection
-				className="flex flex-col items-center md:py-20 md:pb-20 py-16 pb-8 mt-8"
+				className="flex flex-col items-center py-16 mt-16"
 				patternClassName="opacity-5 dark:invert"
 			>
-				<TightContentLayout>
-					<MyStory />
-					<Youtube />
-				</TightContentLayout>
+				<ContentLayout>
+					<LatestSaas />
+				</ContentLayout>
 			</PatternSection>
+
+			{/* <Youtube />  */}
 
 			<ContentLayout>
 				<GetStarted />

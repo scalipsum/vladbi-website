@@ -23,8 +23,7 @@ const nextConfig: NextConfig = {
 			},
 			{
 				protocol: 'https',
-				hostname:
-					'bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi',
+				hostname: 'bgefmqefmboheirzxqvu.supabase.co',
 				port: '',
 				pathname: '/**',
 			},
