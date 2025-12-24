@@ -17,29 +17,85 @@ const workItems: WorkItem[] = [
 		id: 1,
 		type: 'desktop',
 		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/iqm-desktop-recipes.png',
-		label: 'IQM Desktop',
+			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/gaston-1.png',
+		label: 'Gaston Desktop',
 	},
 	{
 		id: 2,
 		type: 'mobile',
 		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/iqm-phone-recipes.png',
-		label: 'IQM Mobile',
+			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/gaston-1-mobile.png',
+		label: 'Gaston Mobile',
 	},
 	{
 		id: 3,
 		type: 'desktop',
 		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/gaston-desktop-landing.png',
-		label: 'Gaston Desktop',
+			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/iqm-desktop-1.png',
+		label: 'IQM Desktop',
 	},
 	{
 		id: 4,
 		type: 'mobile',
 		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/gaston-phone-landing.png',
+			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/iqm-mobile-1.png',
+		label: 'IQM Mobile',
+	},
+	{
+		id: 5,
+		type: 'desktop',
+		imageUrl:
+			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/gaston-desktop-2.png',
+		label: 'Gaston Desktop',
+	},
+	{
+		id: 6,
+		type: 'mobile',
+		imageUrl:
+			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/gaston-mobile-2.png',
 		label: 'Gaston Mobile',
+	},
+	{
+		id: 7,
+		type: 'desktop',
+		imageUrl:
+			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/iqm-desktop-2.png',
+		label: 'IQM Desktop',
+	},
+	{
+		id: 8,
+		type: 'mobile',
+		imageUrl:
+			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/iqm-mobile-2.png',
+		label: 'IQM Mobile',
+	},
+	{
+		id: 9,
+		type: 'desktop',
+		imageUrl:
+			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/gaston-desktop-3.png',
+		label: 'Gaston Desktop',
+	},
+	{
+		id: 10,
+		type: 'mobile',
+		imageUrl:
+			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/gaston-mobile-3.png',
+		label: 'Gaston Mobile',
+	},
+	{
+		id: 11,
+		type: 'desktop',
+		imageUrl:
+			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/iqm-desktop-3.png',
+		label: 'IQM Desktop',
+	},
+	{
+		id: 12,
+		type: 'mobile',
+		imageUrl:
+			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/iqm-mobile-3.png',
+		label: 'IQM Mobile',
 	},
 ];
 
@@ -143,7 +199,7 @@ function MarqueeRow({
 
 export default function WorkShowcase() {
 	return (
-		<section className="mt-0">
+		<section className="mt-20">
 			<MarqueeRow items={workItems} direction="left" />
 		</section>
 	);

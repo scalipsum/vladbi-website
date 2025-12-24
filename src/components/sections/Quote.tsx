@@ -2,8 +2,8 @@
 
 import TightContentLayout from '@/components/layout/TightContentLayout';
 import Text from '@/components/ui/text';
-import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 
 interface QuoteProps {
 	quote: string;
@@ -50,7 +50,7 @@ export default function Quote({ quote, name, profession, avatar }: QuoteProps) {
 	return (
 		<motion.section
 			ref={sectionRef}
-			className="mt-16 md:mt-40"
+			className="mt-16 md:mt-36"
 			initial={{ opacity: 0, y: 50 }}
 			whileInView={{ opacity: 1, y: 0 }}
 			viewport={{ once: true, amount: 0.3 }}

@@ -65,9 +65,9 @@ export default function Tools() {
 	const isInView = useInView(sectionRef, { once: true });
 
 	return (
-		<section ref={sectionRef} className="mt-16 md:mt-32">
+		<section ref={sectionRef} className="mt-16 md:mt-40">
 			<Text type="h2" className="text-center">
-				Using modern tools to prototype fast
+				Prototyping fast using modern tools
 			</Text>
 			<div className="grid md:grid-cols-5 w-fit mx-auto gap-3 md:gap-6 mt-8 md:mt-12 grid-cols-3">
 				{tools.map((tool, index) => (
