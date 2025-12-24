@@ -38,7 +38,7 @@ export default function Hero() {
 				className="w-full md:max-w-1/2 z-10 pt-14 md:pt-0 flex flex-col items-center md:items-start"
 			>
 				<Text type="h1" className="text-center md:text-left">
-					Building products <br /> for mission-driven startups
+					Building SaaS <br /> for mission-driven startups
 				</Text>
 				<Text className="text-center md:text-left mt-8">
 					Your technical partner to design, build and launch <br />
