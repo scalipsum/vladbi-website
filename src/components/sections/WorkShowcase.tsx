@@ -5,10 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
+const BUCKET_URL =
+	'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi';
+
 interface WorkItem {
 	id: number;
 	type: 'mobile' | 'desktop';
-	imageUrl: string;
+	imagePath: string;
 	label: string;
 }
 
@@ -16,85 +19,73 @@ const workItems: WorkItem[] = [
 	{
 		id: 1,
 		type: 'desktop',
-		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/gaston-1.png',
+		imagePath: '/website/carousel/gaston-1.png',
 		label: 'Gaston Desktop',
 	},
 	{
 		id: 2,
 		type: 'mobile',
-		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/gaston-1-mobile.png',
+		imagePath: '/website/carousel/gaston-1-mobile.png',
 		label: 'Gaston Mobile',
 	},
 	{
 		id: 3,
 		type: 'desktop',
-		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/iqm-desktop-1.png',
+		imagePath: '/website/carousel/iqm-desktop-1.png',
 		label: 'IQM Desktop',
 	},
 	{
 		id: 4,
 		type: 'mobile',
-		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/iqm-mobile-1.png',
+		imagePath: '/website/carousel/iqm-mobile-1.png',
 		label: 'IQM Mobile',
 	},
 	{
 		id: 5,
 		type: 'desktop',
-		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/gaston-desktop-2.png',
+		imagePath: '/website/carousel/gaston-desktop-2.png',
 		label: 'Gaston Desktop',
 	},
 	{
 		id: 6,
 		type: 'mobile',
-		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/gaston-mobile-2.png',
+		imagePath: '/website/carousel/gaston-mobile-2.png',
 		label: 'Gaston Mobile',
 	},
 	{
 		id: 7,
 		type: 'desktop',
-		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/iqm-desktop-2.png',
+		imagePath: '/website/carousel/iqm-desktop-2.png',
 		label: 'IQM Desktop',
 	},
 	{
 		id: 8,
 		type: 'mobile',
-		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/iqm-mobile-2.png',
+		imagePath: '/website/carousel/iqm-mobile-2.png',
 		label: 'IQM Mobile',
 	},
 	{
 		id: 9,
 		type: 'desktop',
-		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/gaston-desktop-3.png',
+		imagePath: '/website/carousel/gaston-desktop-3.png',
 		label: 'Gaston Desktop',
 	},
 	{
 		id: 10,
 		type: 'mobile',
-		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/gaston-mobile-3.png',
+		imagePath: '/website/carousel/gaston-mobile-3.png',
 		label: 'Gaston Mobile',
 	},
 	{
 		id: 11,
 		type: 'desktop',
-		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/iqm-desktop-3.png',
+		imagePath: '/website/carousel/iqm-desktop-3.png',
 		label: 'IQM Desktop',
 	},
 	{
 		id: 12,
 		type: 'mobile',
-		imageUrl:
-			'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/carousel/iqm-mobile-3.png',
+		imagePath: '/website/carousel/iqm-mobile-3.png',
 		label: 'IQM Mobile',
 	},
 ];
@@ -120,7 +111,7 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
 				`}
 			>
 				<Image
-					src={item.imageUrl}
+					src={`${BUCKET_URL}${item.imagePath}`}
 					alt={item.label}
 					fill
 					className="object-contain"
@@ -164,7 +155,7 @@ function MarqueeRow({
 		if (!el) return;
 		const animations = el.getAnimations();
 		animations.forEach((anim) => {
-			anim.playbackRate = 0.75;
+			anim.playbackRate = 0.8;
 		});
 	};
 
@@ -183,10 +174,6 @@ function MarqueeRow({
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
 		>
-			{/* Strong gradient shadows for disappearing effect */}
-			<div className="absolute left-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-r from-background from-25% to-transparent z-10 pointer-events-none -ml-4" />
-			<div className="absolute right-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-l from-background from-25% to-transparent z-10 pointer-events-none -mr-4" />
-
 			<div
 				ref={marqueeRef}
 				className={`flex ${
