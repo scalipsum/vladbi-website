@@ -2,6 +2,7 @@
 
 import TightContentLayout from '@/components/layout/TightContentLayout';
 import Text from '@/components/ui/text';
+import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
@@ -10,9 +11,20 @@ interface QuoteProps {
 	name: string;
 	profession: string;
 	avatar: string;
+	hiddenTitle?: boolean;
+	noAnimation?: boolean;
+	className?: string;
 }
 
-export default function Quote({ quote, name, profession, avatar }: QuoteProps) {
+export default function Quote({
+	quote,
+	name,
+	profession,
+	avatar,
+	hiddenTitle,
+	noAnimation,
+	className,
+}: QuoteProps) {
 	const startIndex = Math.floor(quote.length / 2);
 	const [displayedText, setDisplayedText] = useState(
 		quote.slice(0, startIndex),
@@ -50,14 +62,14 @@ export default function Quote({ quote, name, profession, avatar }: QuoteProps) {
 	return (
 		<motion.section
 			ref={sectionRef}
-			className="mt-16 md:mt-40"
+			className={cn('mt-16 md:mt-40', className)}
 			initial={{ opacity: 0, y: 50 }}
 			whileInView={{ opacity: 1, y: 0 }}
 			viewport={{ once: true, amount: 0.3 }}
 			transition={{ duration: 0.8, ease: 'easeOut' }}
 		>
 			<TightContentLayout className="text-center px-2 md:px-32">
-				<Text type="h2">Trusted by great people</Text>
+				{!hiddenTitle && <Text type="h2">Trusted by great people</Text>}
 
 				<div className="relative mt-16">
 					{/* Opening quote mark */}
@@ -70,7 +82,7 @@ export default function Quote({ quote, name, profession, avatar }: QuoteProps) {
 
 					{/* Quote text */}
 					<blockquote className="font-cormorant italic text-3xl text-foreground leading-normal">
-						{displayedText}
+						{noAnimation ? quote : displayedText}
 					</blockquote>
 
 					{/* Closing quote mark */}
