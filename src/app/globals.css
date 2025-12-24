@@ -139,13 +139,13 @@
 		transform: translateX(0);
 	}
 	to {
-		transform: translateX(-25%);
+		transform: translateX(calc(var(--marquee-distance, 50%) * -1));
 	}
 }
 
 @keyframes marquee-right {
 	from {
-		transform: translateX(-25%);
+		transform: translateX(calc(var(--marquee-distance, 50%) * -1));
 	}
 	to {
 		transform: translateX(0);
@@ -153,20 +153,20 @@
 }
 
 .animate-marquee-left {
-	animation: marquee-left 15s linear infinite;
+	animation: marquee-left 30s linear infinite;
 	will-change: transform;
 }
 
 .animate-marquee-right {
-	animation: marquee-right 15s linear infinite;
+	animation: marquee-right 30s linear infinite;
 	will-change: transform;
 }
 
 @media (min-width: 768px) {
 	.animate-marquee-left {
-		animation: marquee-left 20s linear infinite;
+		animation: marquee-left 45s linear infinite;
 	}
 	.animate-marquee-right {
-		animation: marquee-right 20s linear infinite;
+		animation: marquee-right 45s linear infinite;
 	}
 }

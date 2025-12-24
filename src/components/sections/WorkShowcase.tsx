@@ -112,7 +112,7 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
 					relative flex-shrink-0
 					${
 						isMobile
-							? 'w-[160px] h-[360px] md:w-[200px] md:h-[440px] mr-8 md:mr-32 -mt-8'
+							? 'w-[160px] h-[360px] md:w-[200px] md:h-[440px] mr-12 md:mr-24 -mt-8'
 							: 'w-[450px] h-[300px] md:w-[580px] md:h-[387px]'
 					}
 					cursor-pointer
@@ -142,11 +142,21 @@ function MarqueeRow({
 	items: WorkItem[];
 	direction?: 'left' | 'right';
 }) {
-	const [duplicatedItems, setDuplicatedItems] = useState<WorkItem[]>([]);
 	const marqueeRef = useRef<HTMLDivElement>(null);
+	const firstSetRef = useRef<HTMLDivElement>(null);
+	const [marqueeDistance, setMarqueeDistance] = useState<number | null>(null);
 
 	useEffect(() => {
-		setDuplicatedItems([...items, ...items, ...items, ...items]);
+		const measureWidth = () => {
+			if (firstSetRef.current) {
+				const width = firstSetRef.current.offsetWidth;
+				setMarqueeDistance(width);
+			}
+		};
+
+		measureWidth();
+		window.addEventListener('resize', measureWidth);
+		return () => window.removeEventListener('resize', measureWidth);
 	}, [items]);
 
 	const handleMouseEnter = () => {
@@ -154,7 +164,7 @@ function MarqueeRow({
 		if (!el) return;
 		const animations = el.getAnimations();
 		animations.forEach((anim) => {
-			anim.playbackRate = 0.5;
+			anim.playbackRate = 0.75;
 		});
 	};
 
@@ -179,19 +189,39 @@ function MarqueeRow({
 
 			<div
 				ref={marqueeRef}
-				className={`flex gap-4 md:gap-6 ${
+				className={`flex ${
 					direction === 'left'
 						? 'animate-marquee-left'
 						: 'animate-marquee-right'
 				}`}
+				style={
+					marqueeDistance
+						? ({
+								'--marquee-distance': `${marqueeDistance}px`,
+						  } as React.CSSProperties)
+						: undefined
+				}
 			>
-				{duplicatedItems.map((item, index) => (
-					<WorkCard
-						key={`${item.id}-${index}`}
-						item={item}
-						index={index % items.length}
-					/>
-				))}
+				{/* First set - used for measurement */}
+				<div ref={firstSetRef} className="flex gap-4 md:gap-6 shrink-0">
+					{items.map((item, index) => (
+						<WorkCard
+							key={`first-${item.id}`}
+							item={item}
+							index={index}
+						/>
+					))}
+				</div>
+				{/* Second set - for seamless loop */}
+				<div className="flex gap-4 md:gap-6 shrink-0">
+					{items.map((item, index) => (
+						<WorkCard
+							key={`second-${item.id}`}
+							item={item}
+							index={index}
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	);
