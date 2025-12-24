@@ -38,7 +38,7 @@ function AnimatedStep({ children }: { children: React.ReactNode }) {
 
 export default function GetStarted() {
 	return (
-		<section id="get-started" className="my-20">
+		<section id="get-started" className="mt-16 mb-12">
 			<TightContentLayout className="overflow-y-hidden px-1">
 				{/* Section title */}
 				<div className="flex justify-center">
@@ -68,13 +68,13 @@ export default function GetStarted() {
 					</AnimatedStep>
 
 					<AnimatedStep>
-						<TimelineItem className="mt-14 md:mt-24">
+						<TimelineItem className="mt-14 md:mt-16">
 							<div className="flex-1">
 								<Text
 									type="h3"
 									className="text-gray-600 dark:text-gray-200"
 								>
-									2. Book a Free Discovery Call
+									2. We have a Discovery Call
 								</Text>
 								<Text className="mt-6">
 									To clarify in a more meaningful way what the
@@ -87,13 +87,13 @@ export default function GetStarted() {
 					</AnimatedStep>
 
 					<AnimatedStep>
-						<TimelineItem className="mt-14 md:mt-24">
+						<TimelineItem className="mt-14 md:mt-16">
 							<div className="flex-1">
 								<Text
 									type="h3"
 									className="text-gray-600 dark:text-gray-200"
 								>
-									3. We agree & start working
+									3. We sign & start working
 								</Text>
 								<Text className="mt-8">
 									After the call, we'll send you a doc. that

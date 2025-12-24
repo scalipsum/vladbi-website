@@ -1,7 +1,10 @@
 import Text from '@/components/ui/text';
 import { getLatestAutomationProduct, getLatestSaasProduct } from '@/lib/notion';
+import Link from 'next/link';
+import { FaChevronRight } from 'react-icons/fa6';
 import AutomationPreviewCard from '../elements/AutomationPreviewCard';
 import SaasPreviewCard from '../elements/SaasPreviewCard';
+import { Button } from '../ui/button';
 
 export default async function LatestSaas() {
 	const latestSaasProduct = await getLatestSaasProduct();
@@ -38,6 +41,15 @@ export default async function LatestSaas() {
 				description={latestAutomationProduct.description}
 				href={`/products/${latestAutomationProduct.slug}`}
 			/>
+
+			<div className="w-full flex justify-center mt-20">
+				<Button asChild className="!px-6">
+					<Link href={'/products'}>
+						View All Products
+						<FaChevronRight />
+					</Link>
+				</Button>
+			</div>
 		</section>
 	);
 }
