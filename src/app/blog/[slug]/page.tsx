@@ -165,8 +165,8 @@ export default async function PostPage({ params }: PostPageProps) {
 								config={{
 									className: {
 										h1: 'text-4xl font-main font-extrabold mb-8 text-brand text-center',
-										h2: 'text-3xl font-main  mb-3 text-extrabold text-brand',
-										h3: 'text-2xl font-main  mb-3 text-bold text-brand',
+										h2: 'text-3xl font-main  mb-3 font-extrabold text-brand',
+										h3: 'text-2xl font-main  mb-3 font-bold text-brand',
 										paragraph:
 											'text-lg leading-relaxed mb-3.5 text-foreground font-sans',
 										quote: 'border-b-4 font-sans font-bold border-l-0 border-brand-100 dark:border-brand-500 my-6 text-brand text-2xl bg-slate-100 dark:bg-slate-900 dark:text-white py-5 text-center rounded-md',
