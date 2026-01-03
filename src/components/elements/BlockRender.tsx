@@ -1,15 +1,14 @@
-import React from 'react';
 import type {
 	BlockObjectResponse,
 	BlockRenderConfig,
 	BlockWithChildren,
 } from '@/lib/notion-blocks';
 import { groupListItems } from '@/lib/notion-blocks';
-import { RichText } from './RichText';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { RichText } from './RichText';
 
 interface BlockRenderProps {
 	blocks: BlockObjectResponse[];
@@ -56,15 +55,14 @@ export function BlockRender({ blocks, config }: BlockRenderProps) {
 								<li
 									key={block.id}
 									className={cn(
-										'mb-2',
+										'mb-2 font-sans text-lg leading-relaxed',
 										config?.className?.listItem,
 									)}
 								>
 									<RichText
 										richText={
-											(
-												block as any
-											).bulleted_list_item.rich_text
+											(block as any).bulleted_list_item
+												.rich_text
 										}
 									/>
 								</li>
@@ -86,15 +84,14 @@ export function BlockRender({ blocks, config }: BlockRenderProps) {
 								<li
 									key={block.id}
 									className={cn(
-										'mb-2',
+										'mb-2 font-sans text-lg leading-relaxed',
 										config?.className?.listItem,
 									)}
 								>
 									<RichText
 										richText={
-											(
-												block as any
-											).numbered_list_item.rich_text
+											(block as any).numbered_list_item
+												.rich_text
 										}
 									/>
 								</li>
@@ -278,9 +275,7 @@ function ImageBlock({
 			: block.image.external.url;
 
 	// Get caption if available
-	const caption = block.image.caption
-		.map((t) => t.plain_text)
-		.join('');
+	const caption = block.image.caption.map((t) => t.plain_text).join('');
 
 	return (
 		<figure className={cn('mb-6', config?.className?.image)}>
@@ -331,8 +326,8 @@ function ColumnList({
 		columns.length === 2
 			? 'grid-cols-1 md:grid-cols-2'
 			: columns.length === 3
-				? 'grid-cols-1 md:grid-cols-3'
-				: `grid-cols-${columns.length}`;
+			? 'grid-cols-1 md:grid-cols-3'
+			: `grid-cols-${columns.length}`;
 
 	return (
 		<div
