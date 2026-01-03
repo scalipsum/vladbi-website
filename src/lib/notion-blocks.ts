@@ -40,6 +40,7 @@ export type SupportedBlockType =
 	| 'bulleted_list_item'
 	| 'numbered_list_item'
 	| 'quote'
+	| 'divider'
 	| 'column_list'
 	| 'column'
 	| 'image'
@@ -53,6 +54,7 @@ export interface BlockRenderConfig {
 		h3?: string;
 		paragraph?: string;
 		quote?: string;
+		divider?: string;
 		bulletedList?: string;
 		numberedList?: string;
 		listItem?: string;

@@ -120,12 +120,18 @@ function BlockItem({
 	config?: BlockRenderConfig;
 }) {
 	switch (block.type) {
-		case 'paragraph':
+		case 'paragraph': {
+			// Handle empty paragraphs as spacing
+			const hasContent = block.paragraph.rich_text.length > 0;
+			if (!hasContent) {
+				return <div className="h-4" aria-hidden="true" />;
+			}
 			return (
 				<p className={cn('mb-4', config?.className?.paragraph)}>
 					<RichText richText={block.paragraph.rich_text} />
 				</p>
 			);
+		}
 
 		case 'heading_1':
 			return (
@@ -173,6 +179,16 @@ function BlockItem({
 				>
 					<RichText richText={block.quote.rich_text} />
 				</blockquote>
+			);
+
+		case 'divider':
+			return (
+				<hr
+					className={cn(
+						'my-6 border-neutral-300 dark:border-neutral-600',
+						config?.className?.divider,
+					)}
+				/>
 			);
 
 		case 'code':
