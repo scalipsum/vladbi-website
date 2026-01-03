@@ -97,6 +97,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 				<ServicePageLayout
 					title={product.title}
 					subTitle={product.subTitle}
+					ctaTitle="Want me to build something like this for you?"
 					ctaSubtitle="Turn your vision into reality"
 					headerBackgroundUrl={product.coverImage}
 					headerTextColor="white"
