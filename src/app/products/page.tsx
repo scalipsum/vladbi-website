@@ -28,6 +28,7 @@ export const metadata: Metadata = {
 
 export default async function Projects() {
 	const products = await getProductsFromCache();
+	console.log(products[0].verticalImage);
 
 	return (
 		<div className="lg:pb-32 pb-24">

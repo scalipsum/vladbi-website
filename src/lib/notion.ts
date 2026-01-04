@@ -1,8 +1,5 @@
 import { Client } from '@notionhq/client';
-import {
-	BlockObjectResponse,
-	PageObjectResponse,
-} from '@notionhq/client/';
+import { BlockObjectResponse, PageObjectResponse } from '@notionhq/client/';
 import dotenv from 'dotenv';
 import { revalidateTag, unstable_cache } from 'next/cache';
 import { NotionToMarkdown } from 'notion-to-md';
@@ -381,9 +378,12 @@ export async function getProductFromNotion(
 				// @ts-expect-error-next-line
 				page?.cover?.file?.url ?? page?.cover?.external?.url ?? null,
 			verticalImage:
-				properties['Vertical Image']?.files?.[0]?.file?.url ?? null,
+				properties['Vertical Image']?.files?.[0]?.file?.url ??
+				properties['Vertical Image']?.files?.[0]?.external?.url ??
+				null,
 			subTitle: properties.Subtitle?.rich_text?.[0]?.plain_text || '',
-			description: properties.Description?.rich_text?.[0]?.plain_text || '',
+			description:
+				properties.Description?.rich_text?.[0]?.plain_text || '',
 			date:
 				properties['Published Date']?.date?.start ||
 				new Date().toISOString(),
