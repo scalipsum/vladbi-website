@@ -85,7 +85,7 @@ export default function Tools() {
 									duration: 0.5,
 									ease: [0.22, 1, 0.36, 1],
 								}}
-								className="size-24 md:size-32 flex items-center justify-center rounded-2xl bg-brand-100/50 dark:bg-brand-600 shadow-md transition-transform duration-200 hover:scale-107 cursor-default"
+								className="size-24 md:size-32 flex flex-col items-center justify-center rounded-2xl bg-brand-100/50 dark:bg-brand-600 shadow-md transition-transform duration-200 hover:scale-107 cursor-default"
 							>
 								<img
 									src={`https://cdn.simpleicons.org/${tool.icon}/${tool.color}`}
@@ -97,6 +97,9 @@ export default function Tools() {
 									alt={tool.name}
 									className="size-8 md:size-11 hidden dark:block"
 								/>
+								<span className="text-xs text-brand-500 dark:text-brand-200 mt-2 md:hidden">
+									{tool.name}
+								</span>
 							</motion.div>
 						</TooltipTrigger>
 						<TooltipContent>{tool.name}</TooltipContent>
