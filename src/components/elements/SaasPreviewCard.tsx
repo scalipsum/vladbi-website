@@ -77,15 +77,11 @@ export default function SaasPreviewCard({
 				<Image
 					src={previewImageUrl}
 					alt={`${title} preview`}
-					width={title === 'Gaston' ? gastonWidth : gastonWidth / 1.7}
-					height={
-						title === 'Gaston' ? gastonHeight : gastonHeight / 1.7
-					}
+					width={gastonWidth / 1.7}
+					height={gastonHeight / 1.7}
 					className={cn(
 						'absolute rounded-lg object-fill hidden md:block',
-						title === 'Gaston'
-							? 'right-32 -bottom-24'
-							: 'right-56 -bottom-8',
+						'right-20 -bottom-10',
 					)}
 				/>
 			</div>

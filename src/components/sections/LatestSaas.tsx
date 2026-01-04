@@ -32,7 +32,7 @@ export default async function LatestSaas() {
 				href={`/products/${latestSaasProduct.slug}`}
 				backgroundImageUrl={latestSaasProduct.coverImage ?? ''}
 				previewImageUrl={latestSaasProduct.verticalImage ?? ''}
-				className="mt-8 md:mt-12"
+				className="mt-8 md:mt-24"
 			/>
 
 			<AutomationPreviewCard
