@@ -24,7 +24,7 @@ export default function Navbar() {
 		Services: '/services',
 		Products: '/products',
 		Blog: '/blog',
-		'My story': '/my-story',
+		'My story': '/blog/my-story',
 	};
 	const mobileLinks = {
 		Home: '/',
