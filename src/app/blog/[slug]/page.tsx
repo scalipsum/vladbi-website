@@ -1,8 +1,7 @@
 import { BlockRender } from '@/components/elements/BlockRender';
 import ServicePageLayout from '@/components/layout/ServicePageLayout';
 import TightContentLayout from '@/components/layout/TightContentLayout';
-import { getBlogPostsFromCache } from '@/lib/notion';
-import { getWordCountFromBlocks } from '@/lib/notion-blocks';
+import { getBlogPostsFromCache, getWordCount } from '@/lib/notion';
 import { calculateReadingTime } from '@/lib/utils';
 import { format } from 'date-fns';
 import { Calendar, Clock } from 'lucide-react';
@@ -76,7 +75,7 @@ export default async function PostPage({ params }: PostPageProps) {
 	const posts = await getBlogPostsFromCache();
 	const post = posts.find((p) => p.slug === slug);
 
-	const wordCount = post?.blocks ? getWordCountFromBlocks(post.blocks) : 0;
+	const wordCount = post?.content ? getWordCount(post.content) : 0;
 	const readingTime = calculateReadingTime(wordCount);
 
 	if (!post) {
