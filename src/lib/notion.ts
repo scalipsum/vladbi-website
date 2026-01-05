@@ -318,8 +318,12 @@ export async function getBlogPostFromNotion(
 			page_id: authorPageId,
 		})) as PageObjectResponse;
 		const authorProps = authorResponse.properties as any;
+		console.log(authorProps);
 		const author = authorProps.Name.title[0].plain_text ?? undefined;
-		const authorAvatar = authorProps.Avatar.files[0].file.url ?? undefined;
+		const authorAvatar =
+			authorProps.Avatar.files[0].file?.url ??
+			authorProps.Avatar.files[0].external?.url ??
+			undefined;
 
 		const post: BlogPost = {
 			id: page.id,
