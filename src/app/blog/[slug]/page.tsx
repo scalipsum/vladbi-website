@@ -119,6 +119,7 @@ export default async function PostPage({ params }: PostPageProps) {
 			<article>
 				<ServicePageLayout
 					title={post.title}
+					ctaTitle="Let's work together"
 					ctaSubtitle="Turn your vision into reality"
 					headerBackgroundUrl={post.coverImage}
 					headerTextColor="white"
