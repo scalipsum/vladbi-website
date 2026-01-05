@@ -81,7 +81,7 @@ export default function Tools() {
 	}, [isInView]);
 
 	return (
-		<section ref={sectionRef} className="mt-16 md:mt-40">
+		<section ref={sectionRef} className="mt-24 md:mt-40">
 			<Text type="h2" className="text-center">
 				Prototyping fast using modern tools
 			</Text>

@@ -21,9 +21,10 @@ export default async function Home() {
 				name="Barnaby Davies"
 				profession="Business Owner of EastGuidesWest Tourism Consultancy"
 				avatar="https://media.licdn.com/dms/image/v2/C4D03AQF1RDe565sjaQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1517043188756?e=1767830400&v=beta&t=rVV7MDrr2G9D42JmfwUQXpCOsQ_lJIBrCongLCl-6O8"
+				className="mt-24 md:mt-40"
 			/>
 			<Tools />
-			<ContentLayout>
+			<ContentLayout className="pb-0 md:pb-12">
 				<MyStory />
 			</ContentLayout>
 

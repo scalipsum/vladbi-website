@@ -7,13 +7,13 @@ export default async function MyStory() {
 	const latestBlog = blogPosts[0];
 	return (
 		<section className="flex flex-col items-center md:mt-40 mt-24">
-			<Text type="h2" className="ml-8">
-				Trained by industry leaders
+			<Text type="h2" className="ml-8 text-center">
+				Trained by Industry Leaders
 			</Text>
 			{!latestBlog ? (
 				<Text className="mt-8">No blog post available.</Text>
 			) : (
-				<LandingBlogCard post={latestBlog} className="md:mt-8 mt-24" />
+				<LandingBlogCard post={latestBlog} className="md:mt-8 mt-28" />
 			)}
 		</section>
 	);
