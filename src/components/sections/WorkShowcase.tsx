@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
-const BUCKET_URL =
+export const BUCKET_URL =
 	'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi';
 
 interface WorkItem {

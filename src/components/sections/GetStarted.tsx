@@ -9,6 +9,9 @@ import TimelineItem from '../elements/TimelineItem';
 import TightContentLayout from '../layout/TightContentLayout';
 import { Button } from '../ui/button';
 
+const BUCKET_URL =
+	'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/landing';
+
 const stepVariants = {
 	hidden: { opacity: 0, y: 50 },
 	visible: {
@@ -64,12 +67,18 @@ export default function GetStarted() {
 									<Link href="/quiz">Take the quiz</Link>
 								</Button>
 							</div>
-							<div className="h-48 w-72 rounded-md bg-gray-300 md:flex-1" />
+							<Image
+								src={`${BUCKET_URL}/project-quiz.webp`}
+								alt="Product quiz illustration"
+								width={288}
+								height={192}
+								className="h-52 w-72 rounded-md object-cover object-top md:flex-1 border border-slate-200"
+							/>
 						</TimelineItem>
 					</AnimatedStep>
 
 					<AnimatedStep>
-						<TimelineItem className="mt-14 md:mt-16">
+						<TimelineItem className="mt-16 md:mt-16">
 							<div className="flex-1">
 								<Text
 									type="h3"
@@ -84,7 +93,7 @@ export default function GetStarted() {
 								</Text>
 							</div>
 							<Image
-								src="https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/landing/OG%202%20copy.webp"
+								src={`${BUCKET_URL}/OG%202%20copy.webp`}
 								alt="Discovery call illustration"
 								width={288}
 								height={192}
@@ -94,7 +103,7 @@ export default function GetStarted() {
 					</AnimatedStep>
 
 					<AnimatedStep>
-						<TimelineItem className="mt-14 md:mt-16">
+						<TimelineItem className="mt-16 md:mt-16">
 							<div className="flex-1">
 								<Text
 									type="h3"
@@ -108,7 +117,13 @@ export default function GetStarted() {
 									and cost. Once signed, we begin.
 								</Text>
 							</div>
-							<div className="h-48 w-72 rounded-md bg-gray-300 md:flex-1" />
+							<Image
+								src={`${BUCKET_URL}/646%20(2).png`}
+								alt="Sign and start working illustration"
+								width={288}
+								height={192}
+								className="h-52 w-72 rounded-md object-cover object-middle md:flex-1"
+							/>
 						</TimelineItem>
 					</AnimatedStep>
 				</div>
