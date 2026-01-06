@@ -64,7 +64,7 @@ export default function Hero() {
 						});
 					}}
 				>
-					Get Started
+					Learn More
 				</Button>
 			</motion.div>
 
