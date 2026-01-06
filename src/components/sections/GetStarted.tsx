@@ -43,7 +43,7 @@ function AnimatedStep({ children }: { children: React.ReactNode }) {
 
 export default function GetStarted() {
 	return (
-		<section id="get-started" className="mt-0 md:mt-16 mb-0 md:mb-12">
+		<section id="get-started" className="mt-6 md:mt-16 mb-0 md:mb-12">
 			<TightContentLayout className="overflow-y-hidden px-1">
 				{/* Section title */}
 				<div className="flex justify-center">
@@ -68,11 +68,15 @@ export default function GetStarted() {
 									<Link
 										href="/quiz"
 										onClick={() =>
-											posthog.capture('quiz_cta_clicked', {
-												button_text: 'Take the quiz',
-												source: 'get_started_timeline',
-												step: 1,
-											})
+											posthog.capture(
+												'quiz_cta_clicked',
+												{
+													button_text:
+														'Take the quiz',
+													source: 'get_started_timeline',
+													step: 1,
+												},
+											)
 										}
 									>
 										Take the quiz

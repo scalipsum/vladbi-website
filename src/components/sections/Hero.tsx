@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import Text from '@/components/ui/text';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import posthog from 'posthog-js';
 import { useEffect, useState } from 'react';
 import BrandStripes from '../elements/BrandStripes';
@@ -28,6 +27,15 @@ export default function Hero() {
 		return () => window.removeEventListener('resize', updateGlobeSize);
 	}, []);
 
+	const scrolltoHash = (element_id: string) => {
+		const element = document.getElementById(element_id);
+		element?.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+			inline: 'nearest',
+		});
+	};
+
 	return (
 		<section
 			id="hero"
@@ -46,19 +54,17 @@ export default function Hero() {
 					<br className="hidden md:block" />
 					products that scale globally.
 				</Text>
-				<Button asChild className="mt-8">
-					<Link
-						href="#showcase"
-						scroll={true}
-						onClick={() =>
-							posthog.capture('hero_cta_clicked', {
-								button_text: 'Get Started',
-								destination: '#showcase',
-							})
-						}
-					>
-						Get Started
-					</Link>
+				<Button
+					className="mt-8"
+					onClick={async () => {
+						scrolltoHash('showcase');
+						await posthog.capture('hero_cta_clicked', {
+							button_text: 'Get Started',
+							destination: '#showcase',
+						});
+					}}
+				>
+					Get Started
 				</Button>
 			</motion.div>
 
