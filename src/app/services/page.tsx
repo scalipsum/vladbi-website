@@ -9,9 +9,9 @@ export default async function Services() {
 			<Header title="Services" subTitle="Experts in building" />
 			<ContentLayout>
 				<AutomationPreviewCard
-					title="Digital Products"
+					title="SaaS Products"
 					subtitle="Web and Mobile Apps"
-					description="The products I build are online businesses that include a recurring revenue model."
+					description="Products built to produce revenue."
 					ctaText="View the process"
 					href="/services/saas-products"
 					className="mt-6 dark:border-brand-600"
@@ -19,7 +19,7 @@ export default async function Services() {
 				<AutomationPreviewCard
 					title="AI Automation"
 					subtitle="Workflows and Tools"
-					description="Simple systems that make repetitive work run on autopilot and save countless hours."
+					description="Repetitive work, fully automated."
 					ctaText="View the process"
 					className="mt-12 dark:border-brand-600"
 					href="/services/ai-automation"

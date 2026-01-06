@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 
 interface TextProps {
-	type?: 'h1' | 'h2' | 'h3' | 'p' | 'span';
+	type?: 'h1' | 'h2' | 'h3' | 'p' | 'span' | 'li';
 	className?: string;
 	children?: React.ReactNode;
 }
@@ -11,6 +11,7 @@ export const textSize = {
 	h2: 'text-3xl lg:text-4xl',
 	h3: 'text-2xl',
 	p: 'text-lg xl:text-xl',
+	li: 'text-lg',
 	span: 'text-base',
 };
 

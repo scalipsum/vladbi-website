@@ -32,7 +32,7 @@ export default async function Projects() {
 
 	return (
 		<div className="lg:pb-32 pb-24">
-			<Header title="Products" subTitle="Vision turned reality" />
+			<Header title="Products" subTitle="Case Studies of my work" />
 			<ContentLayout>
 				<div className="flex flex-col lg:mt-24 md:mt-16 mt-6">
 					{products.map((product, index) => {
