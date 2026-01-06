@@ -118,11 +118,11 @@ export default function GetStarted() {
 								</Text>
 							</div>
 							<Image
-								src={`${BUCKET_URL}/646%20(2).png`}
+								src={`${BUCKET_URL}/646%20(3).png`}
 								alt="Sign and start working illustration"
 								width={288}
 								height={192}
-								className="h-52 w-72 rounded-md object-cover object-middle md:flex-1"
+								className="h-52 w-72 rounded-md object-cover object-middle md:flex-1 border border-slate-200 bg-white"
 							/>
 						</TimelineItem>
 					</AnimatedStep>
