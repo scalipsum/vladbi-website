@@ -65,6 +65,13 @@ export default function Text({ type, children, className }: TextProps) {
 					{children}
 				</span>
 			);
+		case 'li':
+			return (
+				<li className={cn('font-sans', textSize['li'], className)}>
+					<span className="px-2">·</span>
+					{children}
+				</li>
+			);
 
 		default:
 			return (

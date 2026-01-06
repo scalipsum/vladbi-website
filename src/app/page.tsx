@@ -55,7 +55,7 @@ export default async function Home() {
 				title="Find out more"
 				subtitle="See how we build products for clients."
 				className="mt-20 md:mt-0"
-				buttonText="Explore my Services"
+				buttonText="View Services"
 				href="/services"
 			/>
 		</div>

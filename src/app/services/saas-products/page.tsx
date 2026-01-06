@@ -8,9 +8,9 @@ export default async function SaasProducts() {
 		<ServicePageLayout
 			title="SaaS Products"
 			subTitle="The process of building one."
-			layoutClassName="max-w-2xl"
-			ctaTitle="See what's possible"
-			ctaSubtitle="Ideas like yours turned to Real Products"
+			layoutClassName="max-w-2xl pb-0"
+			ctaTitle="See what's possible!"
+			ctaSubtitle="Ideas like yours turned into Real Products"
 			ctaButtonText="View Products"
 			ctaHref="/products"
 		>
@@ -21,9 +21,9 @@ export default async function SaasProducts() {
 					</Text>
 					<Text>Brainstorm session where we do:</Text>
 					<ul className="mt-2">
-						<Text type="li">· In-depth project understanding</Text>
-						<Text type="li">· Product Market Fit</Text>
-						<Text type="li">· Competitor Analysis</Text>
+						<Text type="li">In-depth project understanding</Text>
+						<Text type="li">Product Market Fit</Text>
+						<Text type="li">Competitor Analysis</Text>
 					</ul>
 				</Card>
 
@@ -46,9 +46,9 @@ export default async function SaasProducts() {
 					</Text>
 					<Text>The chunck of work. You can expect to see :</Text>
 					<ul className="mt-2">
-						<Text type="li">· Working functionality</Text>
-						<Text type="li">· Live Demos</Text>
-						<Text type="li">· Decision making</Text>
+						<Text type="li">Working functionality</Text>
+						<Text type="li">Live Demos</Text>
+						<Text type="li">Decision making</Text>
 					</ul>
 				</Card>
 
@@ -61,10 +61,10 @@ export default async function SaasProducts() {
 					<Text>Final phase where you can:</Text>
 					<ul className="mt-2">
 						<Text type="li">
-							· Install the product on your device
+							Install the product on your device
 						</Text>
-						<Text type="li">· Report findings</Text>
-						<Text type="li">· Launch it to the world</Text>
+						<Text type="li">Report findings</Text>
+						<Text type="li">Launch it to the world</Text>
 					</ul>
 				</Card>
 				{/* <Button asChild className="mt-10 mb-0 mx-auto !px-6">

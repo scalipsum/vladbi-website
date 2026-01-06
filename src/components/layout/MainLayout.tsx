@@ -10,7 +10,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
 	return (
 		<div className="h-screen bg-background min-h-screen flex flex-col">
 			<Navbar />
-			<main className="flex-1">{children}</main>
+			<main className="flex-1 overflow-x-hidden">{children}</main>
 			<Footer />
 		</div>
 	);

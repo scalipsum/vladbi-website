@@ -1,19 +1,16 @@
 import ServicePageLayout from '@/components/layout/ServicePageLayout';
-import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Text from '@/components/ui/text';
 import WaveLine from '@/components/ui/wave-line';
-import Link from 'next/link';
-import { FaChevronRight } from 'react-icons/fa6';
 
 export default async function AiAutomationProducts() {
 	return (
 		<ServicePageLayout
 			title="AI Automation"
 			subTitle="The process of building one."
-			layoutClassName="max-w-2xl"
-			ctaTitle="See What's Possible"
-			ctaSubtitle="See Ideas turned to Real Products"
+			layoutClassName="max-w-2xl pb-0"
+			ctaTitle="See what's possible!"
+			ctaSubtitle="Ideas like yours turned into Real Products"
 			ctaButtonText="View Products"
 			ctaHref="/products"
 		>
@@ -24,11 +21,11 @@ export default async function AiAutomationProducts() {
 					</Text>
 					<Text>Brainstorm session where we:</Text>
 					<ul className="mt-2">
-						<Text type="li">· Understand the repetitive work</Text>
+						<Text type="li">Understand the repetitive work</Text>
 						<Text type="li">
-							· Decide the steps to execute the work
+							Decide the steps to execute the work
 						</Text>
-						<Text type="li">· Choose success metrics</Text>
+						<Text type="li">Choose success metrics</Text>
 					</ul>
 				</Card>
 
@@ -40,11 +37,9 @@ export default async function AiAutomationProducts() {
 					</Text>
 					<Text>The chunck of work where we:</Text>
 					<ul className="mt-2">
-						<Text type="li">· Build the automation</Text>
-						<Text type="li">· Live Demo it to you</Text>
-						<Text type="li">
-							· Tweak the direction, if necessary
-						</Text>
+						<Text type="li">Build the automation</Text>
+						<Text type="li">Live Demo it to you</Text>
+						<Text type="li">Tweak the direction, if necessary</Text>
 					</ul>
 				</Card>
 
@@ -56,18 +51,18 @@ export default async function AiAutomationProducts() {
 					</Text>
 					<Text>Final phase where you can:</Text>
 					<ul className="mt-2">
-						<Text type="li">· Test the automation yourself</Text>
+						<Text type="li">Test the automation yourself</Text>
 						<Text type="li">
-							· Watch the work be done automatically
+							Watch the work be done automatically
 						</Text>
 					</ul>
 				</Card>
-				<Button asChild className="mt-10 mb-0 mx-auto !px-6">
+				{/* <Button asChild className="mt-10 mb-0 mx-auto !px-6">
 					<Link href="/services/saas-products">
 						Looking for SaaS Products?
 						<FaChevronRight />
 					</Link>
-				</Button>
+				</Button> */}
 			</div>
 		</ServicePageLayout>
 	);
