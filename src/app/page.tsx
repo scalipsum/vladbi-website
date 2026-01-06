@@ -52,8 +52,8 @@ export default async function Home() {
 				<GetStarted />
 			</ContentLayout>
 			<CallToAction
-				title="Let's get started"
-				subtitle="Turn your vision into a real product."
+				title="Find out more"
+				subtitle="See how we build products for clients."
 				className="mt-20 md:mt-0"
 				buttonText="Explore my Services"
 				href="/services"

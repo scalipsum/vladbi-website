@@ -118,8 +118,8 @@ export default async function PostPage({ params }: PostPageProps) {
 			<article>
 				<ServicePageLayout
 					title={post.title}
-					ctaTitle="Let's work together"
-					ctaSubtitle="Turn your vision into reality"
+					ctaTitle="View My Work"
+					ctaSubtitle="See ideas turned to Real Products"
 					ctaButtonText="View Case Studies"
 					ctaHref="/products"
 					headerBackgroundUrl={post.coverImage}

@@ -14,7 +14,7 @@ export default async function AiAutomationProducts() {
 			layoutClassName="max-w-2xl"
 			ctaTitle="See What's Possible"
 			ctaSubtitle="See Ideas turned to Real Products"
-			ctaButtonText="View Case Studies"
+			ctaButtonText="View Products"
 			ctaHref="/products"
 		>
 			<div className="flex flex-col items-center gap-8">

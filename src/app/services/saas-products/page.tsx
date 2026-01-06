@@ -11,7 +11,7 @@ export default async function SaasProducts() {
 			layoutClassName="max-w-2xl"
 			ctaTitle="See what's possible"
 			ctaSubtitle="Ideas like yours turned to Real Products"
-			ctaButtonText="View Case Studies"
+			ctaButtonText="View Products"
 			ctaHref="/products"
 		>
 			<div className="flex flex-col items-center gap-8">
