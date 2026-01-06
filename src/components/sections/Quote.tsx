@@ -81,7 +81,7 @@ export default function Quote({
 					</span>
 
 					{/* Quote text */}
-					<blockquote className="font-cormorant italic text-[28px] md:text-3xl text-foreground leading-normal">
+					<blockquote className="font-cormorant italic text-[28px] md:text-3xl text-black dark:text-foreground leading-normal">
 						{noAnimation ? quote : displayedText}
 					</blockquote>
 
