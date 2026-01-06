@@ -9,14 +9,14 @@ export const metadata: Metadata = {
 	title: 'Services',
 	description: 'Case Studies of my work.',
 	openGraph: {
-		title: 'Products | VladBi',
+		title: 'Services | VladBi',
 		description: 'Experts in building SaaS Products & AI Automation',
 		type: 'website',
 		url: `${siteUrl}/products`,
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Products | VladBi',
+		title: 'Services | VladBi',
 		description: 'Experts in building SaaS Products & AI Automation',
 	},
 };

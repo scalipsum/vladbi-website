@@ -48,13 +48,6 @@ export const metadata: Metadata = {
 		locale: 'en_US',
 		type: 'website',
 	},
-	// twitter: {
-	// 	card: 'summary_large_image',
-	// 	title: 'VladBi - Building SaaS for mission-driven startups',
-	// 	description:
-	// 		'Your technical partner to design, build and launch products that scale globally.',
-	// 	images: [`${siteUrl}/opengraph-image.png`],
-	// },
 	robots: {
 		index: true,
 		follow: true,
