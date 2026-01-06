@@ -1,8 +1,10 @@
 import { BRAND_COLORS, OG_HEIGHT, OG_WIDTH, SITE_NAME } from './constants';
 
+const TEXT_COLOR = '#053E6D';
+
 export function OGLogo({
 	size = 60,
-	color = BRAND_COLORS.white,
+	color = TEXT_COLOR,
 }: {
 	size?: number;
 	color?: string;
@@ -22,7 +24,7 @@ export function OGLogo({
 	);
 }
 
-export function OGStripes({ opacity = 0.3 }: { opacity?: number }) {
+export function OGStripes({ opacity = 1 }: { opacity?: number }) {
 	return (
 		<div
 			style={{
@@ -62,7 +64,7 @@ export function OGStripes({ opacity = 0.3 }: { opacity?: number }) {
 export function OGBaseLayout({
 	children,
 	showStripes = true,
-	backgroundColor = BRAND_COLORS.primary,
+	backgroundColor = BRAND_COLORS.background,
 }: {
 	children: React.ReactNode;
 	showStripes?: boolean;
@@ -107,11 +109,10 @@ export function OGContentCard({
 				justifyContent: 'space-between',
 				height: '100%',
 				padding: 60,
-				zIndex: 1,
 			}}
 		>
 			<div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-				{showLogo && <OGLogo size={50} />}
+				{showLogo && <OGLogo size={50} color={BRAND_COLORS.white} />}
 				<span
 					style={{
 						color: BRAND_COLORS.white,
@@ -133,9 +134,10 @@ export function OGContentCard({
 				{subtitle && (
 					<span
 						style={{
-							color: BRAND_COLORS.lightBlue,
+							color: BRAND_COLORS.white,
 							fontSize: 24,
 							fontWeight: 600,
+							opacity: 0.7,
 						}}
 					>
 						{subtitle}
@@ -156,11 +158,12 @@ export function OGContentCard({
 				{description && (
 					<p
 						style={{
-							color: BRAND_COLORS.backgroundAlt,
+							color: BRAND_COLORS.white,
 							fontSize: 24,
 							lineHeight: 1.4,
 							maxWidth: 700,
 							margin: 0,
+							opacity: 0.8,
 						}}
 					>
 						{description.length > 120
@@ -171,7 +174,13 @@ export function OGContentCard({
 			</div>
 
 			<div style={{ display: 'flex', alignItems: 'center' }}>
-				<span style={{ color: BRAND_COLORS.lightBlue, fontSize: 20 }}>
+				<span
+					style={{
+						color: BRAND_COLORS.white,
+						fontSize: 20,
+						opacity: 0.7,
+					}}
+				>
 					vladbi.com
 				</span>
 			</div>

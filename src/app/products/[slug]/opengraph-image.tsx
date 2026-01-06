@@ -1,5 +1,5 @@
-import { generateOGImage, generateOGImageWithCover } from '@/lib/og';
 import { getProductsFromCache } from '@/lib/notion';
+import { generateOGImage, generateOGImageWithCover } from '@/lib/og';
 
 export const alt = 'Product | VladBi';
 export const size = { width: 1200, height: 630 };
