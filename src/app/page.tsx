@@ -52,10 +52,11 @@ export default async function Home() {
 				<GetStarted />
 			</ContentLayout>
 			<CallToAction
-				title="Let's get started"
+				title="Our journey begins"
 				subtitle="Bring your idea to life."
 				className="mt-20 md:mt-0"
-				href="/quiz"
+				buttonText="View my Services"
+				href="/services"
 			/>
 		</div>
 	);

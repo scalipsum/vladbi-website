@@ -1,7 +1,6 @@
 import AutomationPreviewCard from '@/components/elements/AutomationPreviewCard';
 import ContentLayout from '@/components/layout/ContentLayout';
 import Header from '@/components/layout/Header';
-import CallToAction from '@/components/sections/CallToAction';
 
 export default async function Services() {
 	return (
@@ -25,11 +24,13 @@ export default async function Services() {
 					href="/services/ai-automation"
 				/>
 			</ContentLayout>
-			<CallToAction
-				title="Let's get started"
-				subtitle="Bring your idea to life."
+			{/* <CallToAction
+				title="Curious to see my work?"
+				subtitle="I've written about it."
+				buttonText="View Case Studies"
+				href="/products"
 				className="md:mt-32 mt-20"
-			/>
+			/> */}
 		</div>
 	);
 }

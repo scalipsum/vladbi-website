@@ -19,7 +19,7 @@ export default function Footer() {
 		'Take the project quiz': '/quiz',
 	};
 	return (
-		<footer className="bg-brand-600 text-white">
+		<footer className="bg-brand-600 text-white flex-0.5">
 			<ContentLayout className="pb-0 pt-0 pt-16 md:pb-24 pb-12 flex md:flex-row flex-col items-start justify-between">
 				<div>
 					<Link href="/" className="flex items-center space-x-2">

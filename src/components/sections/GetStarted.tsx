@@ -47,7 +47,7 @@ export default function GetStarted() {
 				{/* Section title */}
 				<div className="flex justify-center">
 					<div className="inline-block">
-						<Text type="h2">Our journey begins</Text>
+						<Text type="h2">How we work together</Text>
 						<div className="h-1.5 bg-brand rounded-full w-full self-center mt-2.5" />
 					</div>
 				</div>

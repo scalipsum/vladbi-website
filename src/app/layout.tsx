@@ -85,7 +85,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={`${nunito.variable} ${nunitoSans.variable} ${cormorantGaramond.variable}`}>
+			<body
+				className={`${nunito.variable} ${nunitoSans.variable} ${cormorantGaramond.variable}`}
+			>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
