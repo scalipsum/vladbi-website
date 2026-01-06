@@ -45,7 +45,7 @@ export default function Hero() {
 					products that scale globally.
 				</Text>
 				<Button asChild className="mt-8">
-					<Link href="#get-started">Get Started</Link>
+					<Link href="#get-started">Learn More</Link>
 				</Button>
 			</motion.div>
 

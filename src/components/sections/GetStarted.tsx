@@ -109,7 +109,7 @@ export default function GetStarted() {
 									type="h3"
 									className="text-gray-600 dark:text-gray-200"
 								>
-									3. We sign & start working
+									3. We agree & Start working
 								</Text>
 								<Text className="mt-8">
 									After the call, we'll send you a proposal
