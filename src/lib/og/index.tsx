@@ -156,7 +156,7 @@ export async function generateStaticOGImage(
 						<h1
 							style={{
 								color: TEXT_COLOR,
-								fontSize: props.title.length > 30 ? 44 : 52,
+								fontSize: props.title.length > 30 ? 64 : 100,
 								fontWeight: 800,
 								lineHeight: 1.1,
 								maxWidth: 600,

@@ -1,7 +1,10 @@
+'use client';
+
 import Text from '@/components/ui/text';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
+import posthog from 'posthog-js';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 
@@ -26,6 +29,15 @@ export default function SaasPreviewCard({
 }: AutomationPreviewCardProps) {
 	const gastonWidth = 360;
 	const gastonHeight = 470;
+
+	const handleCardClick = () => {
+		posthog.capture('product_card_clicked', {
+			product_title: title,
+			product_subtitle: subtitle,
+			destination: href,
+		});
+	};
+
 	return (
 		<Card
 			className={cn(
@@ -39,6 +51,7 @@ export default function SaasPreviewCard({
 				href={href}
 				className="absolute inset-0 z-20"
 				aria-label={title}
+				onClick={handleCardClick}
 			/>
 			<div className="relative z-10">
 				<div className="md:text-left text-center">
@@ -71,7 +84,9 @@ export default function SaasPreviewCard({
 						className="self-end mt-10"
 						variant="secondary"
 					>
-						<Link href={href}>View case study</Link>
+						<Link href={href} onClick={handleCardClick}>
+							View case study
+						</Link>
 					</Button>
 				</div>
 				<Image

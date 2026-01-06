@@ -3,6 +3,7 @@
 import { cn } from '@/lib/utils';
 import { Menu } from 'lucide-react';
 import Link from 'next/link';
+import posthog from 'posthog-js';
 import { useEffect, useState } from 'react';
 import { ThemeToggle } from '../elements/ThemeToggle';
 import { Button } from '../ui/button';
@@ -83,7 +84,17 @@ export default function Navbar() {
 							className="-mt-1 pt-2 h-9 hidden sm:block"
 							size="sm"
 						>
-							<Link href="/quiz">Your Product Quiz</Link>
+							<Link
+								href="/quiz"
+								onClick={() =>
+									posthog.capture('navbar_quiz_clicked', {
+										button_text: 'Your Product Quiz',
+										source: 'navbar_desktop',
+									})
+								}
+							>
+								Your Product Quiz
+							</Link>
 						</Button>
 						<ThemeToggle />
 
@@ -139,9 +150,17 @@ export default function Navbar() {
 									<Button asChild>
 										<Link
 											href="/quiz"
-											onClick={() =>
-												setIsSheetOpen(false)
-											}
+											onClick={() => {
+												setIsSheetOpen(false);
+												posthog.capture(
+													'navbar_quiz_clicked',
+													{
+														button_text:
+															'Your Product Quiz',
+														source: 'navbar_mobile',
+													},
+												);
+											}}
 										>
 											Your Product Quiz
 										</Link>

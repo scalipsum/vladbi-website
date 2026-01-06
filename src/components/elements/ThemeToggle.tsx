@@ -3,6 +3,7 @@
 import { cn } from '@/lib/utils';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import posthog from 'posthog-js';
 
 interface ThemeToggleProps {
 	className?: string;
@@ -11,6 +12,15 @@ interface ThemeToggleProps {
 export function ThemeToggle({ className }: ThemeToggleProps) {
 	const { setTheme, resolvedTheme } = useTheme();
 	const isDark = resolvedTheme === 'dark';
+
+	const handleThemeToggle = () => {
+		const newTheme = isDark ? 'light' : 'dark';
+		setTheme(newTheme);
+		posthog.capture('theme_toggled', {
+			from_theme: resolvedTheme,
+			to_theme: newTheme,
+		});
+	};
 
 	return (
 		<div
@@ -21,7 +31,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 					: 'bg-white border border-zinc-200',
 				className,
 			)}
-			onClick={() => setTheme(isDark ? 'light' : 'dark')}
+			onClick={handleThemeToggle}
 			role="button"
 			tabIndex={0}
 		>

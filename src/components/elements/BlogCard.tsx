@@ -1,12 +1,15 @@
+'use client';
+
 import { Badge } from '@/components/ui/badge';
 import { Card, CardHeader } from '@/components/ui/card';
 import Text from '@/components/ui/text';
-import { BlogPost, getWordCount } from '@/lib/notion';
+import { BlogPost, getWordCount } from '@/lib/notion-types';
 import { calculateReadingTime, cn } from '@/lib/utils';
 import { format } from 'date-fns';
 import { ArrowUpRight, Calendar, Clock } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import posthog from 'posthog-js';
 
 interface PostCardProps {
 	post: BlogPost;
@@ -16,6 +19,15 @@ interface PostCardProps {
 export default function BlogCard({ post, className }: PostCardProps) {
 	const wordCount = post.content ? getWordCount(post.content) : 0;
 	const readingTime = calculateReadingTime(wordCount);
+
+	const handleCardClick = () => {
+		posthog.capture('blog_card_clicked', {
+			post_title: post.title,
+			post_slug: post.slug,
+			post_category: post.category,
+			post_author: post.author,
+		});
+	};
 
 	return (
 		<Card
@@ -28,6 +40,7 @@ export default function BlogCard({ post, className }: PostCardProps) {
 				href={`/blog/${post.slug}`}
 				className="absolute inset-0 z-10"
 				aria-label={post.title}
+				onClick={handleCardClick}
 			/>
 			<div className="relative aspect-[16/9] lg:h-[300px] h-[220px] w-full overflow-hidden rounded-t-lg">
 				{post.coverImage ? (

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import posthog from 'posthog-js';
 import { useEffect, useRef, useState } from 'react';
 
 export const BUCKET_URL =
@@ -93,8 +94,16 @@ const workItems: WorkItem[] = [
 function WorkCard({ item, index }: { item: WorkItem; index: number }) {
 	const isMobile = item.type === 'mobile';
 
+	const handleClick = () => {
+		posthog.capture('work_showcase_clicked', {
+			item_label: item.label,
+			item_type: item.type,
+			destination: '/products',
+		});
+	};
+
 	return (
-		<Link href="/products">
+		<Link href="/products" onClick={handleClick}>
 			<motion.div
 				initial={{ opacity: 0, scale: 0.8 }}
 				animate={{ opacity: 1, scale: 1 }}
@@ -216,7 +225,7 @@ function MarqueeRow({
 
 export default function WorkShowcase() {
 	return (
-		<section className="mt-8 md:mt-20">
+		<section className="mt-8 md:mt-20" id="showcase">
 			<MarqueeRow items={workItems} direction="left" />
 		</section>
 	);

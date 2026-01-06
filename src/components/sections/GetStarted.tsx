@@ -4,6 +4,7 @@ import Text from '@/components/ui/text';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import posthog from 'posthog-js';
 import { useRef } from 'react';
 import TimelineItem from '../elements/TimelineItem';
 import TightContentLayout from '../layout/TightContentLayout';
@@ -64,7 +65,18 @@ export default function GetStarted() {
 									to build.
 								</Text>
 								<Button asChild className="mt-6">
-									<Link href="/quiz">Take the quiz</Link>
+									<Link
+										href="/quiz"
+										onClick={() =>
+											posthog.capture('quiz_cta_clicked', {
+												button_text: 'Take the quiz',
+												source: 'get_started_timeline',
+												step: 1,
+											})
+										}
+									>
+										Take the quiz
+									</Link>
 								</Button>
 							</div>
 							<Image

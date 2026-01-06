@@ -1,5 +1,8 @@
+'use client';
+
 import Text from '@/components/ui/text';
 import Link from 'next/link';
+import posthog from 'posthog-js';
 import { FaYoutube } from 'react-icons/fa6';
 import Logo from '../ui/Logo';
 import ContentLayout from './ContentLayout';
@@ -18,6 +21,26 @@ export default function Footer() {
 	const column3Links = {
 		'Take the project quiz': '/quiz',
 	};
+
+	const handleFooterLinkClick = (
+		label: string,
+		href: string,
+		section: string,
+	) => {
+		posthog.capture('footer_link_clicked', {
+			link_label: label,
+			destination: href,
+			footer_section: section,
+		});
+	};
+
+	const handleYoutubeClick = () => {
+		posthog.capture('youtube_link_clicked', {
+			source: 'footer',
+			destination: 'youtube.com/@vladbi',
+		});
+	};
+
 	return (
 		<footer className="bg-brand-600 text-white flex-0.5">
 			<ContentLayout className="pb-0 pt-0 pt-16 md:pb-24 pb-12 flex md:flex-row flex-col items-start justify-between">
@@ -31,6 +54,7 @@ export default function Footer() {
 					<Link
 						href="youtube.com/@vladbi"
 						className="transition duration-150 ease-in-out text-slate-400 hover:text-white"
+						onClick={handleYoutubeClick}
 					>
 						<Text className="flex items-center gap-1.5 mt-4 font-sans !text-sm">
 							As seen on
@@ -52,14 +76,23 @@ export default function Footer() {
 							{Object.entries(column1Links).map(
 								([label, href]) => (
 									<li key={href} className="leading-[0px]">
-										<Link
-											href={href}
+										<a
 											className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
+											target="_blank"
+											href="https://youtube.com/@vladbi/"
+											rel="noopener noreferrer"
+											onClick={() =>
+												handleFooterLinkClick(
+													label,
+													href,
+													'resources',
+												)
+											}
 										>
 											<Text className="!text-sm">
 												{label}
 											</Text>
-										</Link>
+										</a>
 									</li>
 								),
 							)}
@@ -76,6 +109,13 @@ export default function Footer() {
 										<Link
 											href={href}
 											className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
+											onClick={() =>
+												handleFooterLinkClick(
+													label,
+													href,
+													'my_process',
+												)
+											}
 										>
 											<Text className="!text-sm">
 												{label}
@@ -97,6 +137,13 @@ export default function Footer() {
 										<Link
 											href={href}
 											className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
+											onClick={() =>
+												handleFooterLinkClick(
+													label,
+													href,
+													'work_together',
+												)
+											}
 										>
 											<Text className="!text-sm">
 												{label}

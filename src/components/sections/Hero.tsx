@@ -6,6 +6,7 @@ import Text from '@/components/ui/text';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import posthog from 'posthog-js';
 import { useEffect, useState } from 'react';
 import BrandStripes from '../elements/BrandStripes';
 import RotatingGlobe from '../elements/RotatingGlobe';
@@ -41,11 +42,23 @@ export default function Hero() {
 					Building SaaS <br /> for mission-driven startups
 				</Text>
 				<Text className="text-center md:text-left mt-8">
-					Your technical partner to design, build and launch <br />
+					Your technical partner to design, build and launch{' '}
+					<br className="hidden md:block" />
 					products that scale globally.
 				</Text>
 				<Button asChild className="mt-8">
-					<Link href="#get-started">Learn More</Link>
+					<Link
+						href="#showcase"
+						scroll={true}
+						onClick={() =>
+							posthog.capture('hero_cta_clicked', {
+								button_text: 'Get Started',
+								destination: '#showcase',
+							})
+						}
+					>
+						Get Started
+					</Link>
 				</Button>
 			</motion.div>
 

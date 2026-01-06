@@ -5,6 +5,13 @@ import { revalidateTag, unstable_cache } from 'next/cache';
 import { NotionToMarkdown } from 'notion-to-md';
 import path from 'path';
 
+// Import types for local use
+import type { BlogPost, Product } from './notion-types';
+
+// Re-export types from notion-types for backward compatibility
+export type { BlogPost, Product } from './notion-types';
+export { getWordCount } from './notion-types';
+
 if (!process.env.VERCEL && !process.env.NOTION_TOKEN) {
 	dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 }
@@ -16,47 +23,11 @@ const productsDatabaseId = process.env.NOTION_PRODUCTS_DATABASE_ID!;
 export const notion = new Client({ auth: notionToken });
 export const n2m = new NotionToMarkdown({ notionClient: notion });
 
-export interface BlogPost {
-	id: string;
-	title: string;
-	slug: string;
-	coverImage?: string;
-	description: string;
-	date: string;
-	content: string;
-	author?: string;
-	authorAvatar?: string;
-	tags?: string[];
-	category?: string;
-	blocks?: BlockObjectResponse[];
-}
-
-export interface Product {
-	id: string;
-	title: string;
-	slug: string;
-	coverImage?: string;
-	verticalImage?: string;
-	subTitle: string;
-	description: string;
-	date: string;
-	category?: string;
-	blocks?: BlockObjectResponse[];
-}
-
 export async function getDatabaseStructure() {
 	const database = await notion.databases.retrieve({
 		database_id: blogDatabaseId,
 	});
 	return database;
-}
-
-export function getWordCount(content: string): number {
-	const cleanText = content
-		.replace(/[^\w\s]/g, ' ')
-		.replace(/\s+/g, ' ')
-		.trim();
-	return cleanText.split(' ').length;
 }
 
 /**

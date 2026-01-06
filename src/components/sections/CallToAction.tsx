@@ -1,6 +1,9 @@
+'use client';
+
 import Text from '@/components/ui/text';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import posthog from 'posthog-js';
 import { Button } from '../ui/button';
 import PatternSection from './PatternSection';
 
@@ -12,13 +15,21 @@ interface CallToActionProps {
 	href?: string;
 }
 
-export default async function CallToAction({
+export default function CallToAction({
 	title = 'Hello',
 	subtitle,
 	className,
 	buttonText = 'Take the product quiz',
 	href,
 }: CallToActionProps) {
+	const handleCtaClick = () => {
+		posthog.capture('cta_button_clicked', {
+			button_text: buttonText,
+			cta_title: title,
+			destination: href ?? '/blog',
+		});
+	};
+
 	return (
 		<PatternSection
 			className={cn('bg-brand-500', !subtitle && 'py-18', className)}
@@ -35,7 +46,9 @@ export default async function CallToAction({
 					asChild
 					className={cn('mt-8', !subtitle && 'mt-9')}
 				>
-					<Link href={href ?? '/blog'}>{buttonText}</Link>
+					<Link href={href ?? '/blog'} onClick={handleCtaClick}>
+						{buttonText}
+					</Link>
 				</Button>
 			</div>
 		</PatternSection>
