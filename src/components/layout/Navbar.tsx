@@ -83,7 +83,7 @@ export default function Navbar() {
 							className="-mt-1 pt-2 h-9 hidden sm:block"
 							size="sm"
 						>
-							<Link href="/quiz">Product Quiz</Link>
+							<Link href="/quiz">Your Product Quiz</Link>
 						</Button>
 						<ThemeToggle />
 
@@ -143,7 +143,7 @@ export default function Navbar() {
 												setIsSheetOpen(false)
 											}
 										>
-											Start Product Quiz
+											Your Product Quiz
 										</Link>
 									</Button>
 								</div>
