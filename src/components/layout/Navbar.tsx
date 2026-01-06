@@ -53,7 +53,7 @@ export default function Navbar() {
 					<Link href="/" className="flex items-center gap-2">
 						<Logo width={25} height={29} className="text-brand" />
 						<Text className="font-extrabold font-main text-brand">
-							Vladbi
+							VladBi
 						</Text>
 					</Link>
 
@@ -115,7 +115,7 @@ export default function Navbar() {
 											className="text-brand"
 										/>
 										<Text className="font-extrabold font-main text-brand">
-											Vladbi
+											VladBi
 										</Text>
 									</Link>
 

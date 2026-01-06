@@ -16,7 +16,7 @@ export default function BrandStripes({
 		<div className={cn(className, height, width)}>
 			<Image
 				src={stripes}
-				alt="Vladbi Color Stripes"
+				alt="VladBi Color Stripes"
 				fill
 				className="object-cover object-left"
 			/>

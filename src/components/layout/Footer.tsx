@@ -25,7 +25,7 @@ export default function Footer() {
 					<Link href="/" className="flex items-center space-x-2">
 						<Logo width={25} height={29} className="text-white" />
 						<Text className="font-extrabold font-main text-white">
-							Vladbi
+							VladBi
 						</Text>
 					</Link>
 					<Link

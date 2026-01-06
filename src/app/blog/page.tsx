@@ -9,19 +9,17 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
 
 export const metadata: Metadata = {
 	title: 'Blog',
-	description: 'Real thoughts. No AI. Browse all blog posts and articles.',
+	description: 'Real thoughts. No AI.',
 	openGraph: {
-		title: 'Blog | Vladbi',
-		description:
-			'Real thoughts. No AI. Browse all blog posts and articles.',
+		title: 'Blog | VladBi',
+		description: 'Real thoughts. No AI.',
 		type: 'website',
 		url: `${siteUrl}/blog`,
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Blog | Vladbi',
-		description:
-			'Real thoughts. No AI. Browse all blog posts and articles.',
+		title: 'Blog | VladBi',
+		description: 'Real thoughts. No AI.',
 	},
 };
 

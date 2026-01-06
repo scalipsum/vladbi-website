@@ -56,7 +56,7 @@ export default function Hero() {
 				/>
 				<Image
 					src={Person}
-					alt="Vladbi Silhouette"
+					alt="Vlad Bibire Silhouette"
 					width={573}
 					height={813}
 					className="relative w-[300px] lg:w-[350px] xl:w-[430px] lg:mr-12 z-20 mt-10 md:mt-20"
