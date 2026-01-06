@@ -42,19 +42,19 @@ export const metadata: Metadata = {
 				url: `${siteUrl}/opengraph-image.png`,
 				width: 1200,
 				height: 630,
-				alt: 'Gesturs - The Notion Blog',
+				alt: 'VladBi - Building SaaS for mission-driven startups',
 			},
 		],
 		locale: 'en_US',
 		type: 'website',
 	},
-	twitter: {
-		card: 'summary_large_image',
-		title: 'VladBi - Building SaaS for mission-driven startups',
-		description:
-			'Your technical partner to design, build and launch products that scale globally.',
-		images: [`${siteUrl}/opengraph-image.png`],
-	},
+	// twitter: {
+	// 	card: 'summary_large_image',
+	// 	title: 'VladBi - Building SaaS for mission-driven startups',
+	// 	description:
+	// 		'Your technical partner to design, build and launch products that scale globally.',
+	// 	images: [`${siteUrl}/opengraph-image.png`],
+	// },
 	robots: {
 		index: true,
 		follow: true,
