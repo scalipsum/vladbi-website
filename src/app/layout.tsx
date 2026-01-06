@@ -26,15 +26,17 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
 export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
 	title: {
-		default: 'Gesturs - The Notion Blog',
-		template: `%s | Gesturs`,
+		default: 'VladBi - Building SaaS for mission-driven startups',
+		template: `%s | VladBi`,
 	},
-	description: 'A blog built with Next.js and Notion',
+	description:
+		'Your technical partner to design, build and launch products that scale globally.',
 	openGraph: {
-		title: 'Gesturs - The Notion Blog',
-		description: 'A blog built with Next.js and Notion',
+		title: 'VladBi - Building SaaS for mission-driven startups',
+		description:
+			'Your technical partner to design, build and launch products that scale globally.',
 		url: siteUrl,
-		siteName: 'Gesturs',
+		siteName: 'VladBi',
 		images: [
 			{
 				url: `${siteUrl}/opengraph-image.png`,
@@ -48,8 +50,9 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Gesturs - The Notion Blog',
-		description: 'A blog built with Next.js and Notion',
+		title: 'VladBi - Building SaaS for mission-driven startups',
+		description:
+			'Your technical partner to design, build and launch products that scale globally.',
 		images: [`${siteUrl}/opengraph-image.png`],
 	},
 	robots: {
@@ -62,11 +65,6 @@ export const metadata: Metadata = {
 			'max-image-preview': 'large',
 			'max-snippet': -1,
 		},
-	},
-	icons: {
-		icon: '/favicon.ico',
-		shortcut: '/favicon-16x16.png',
-		apple: '/apple-touch-icon.png',
 	},
 	manifest: `${siteUrl}/site.webmanifest`,
 };
