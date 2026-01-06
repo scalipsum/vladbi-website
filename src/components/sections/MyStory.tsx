@@ -6,7 +6,7 @@ export default async function MyStory() {
 	const blogPosts = await getBlogPostsFromCache();
 	const latestBlog = blogPosts[0];
 	return (
-		<section className="flex flex-col items-center md:mt-40 mt-24">
+		<section className="flex flex-col items-center md:mt-40 mt-18">
 			<Text type="h2" className="ml-8 text-center">
 				Trained by Industry Leaders
 			</Text>

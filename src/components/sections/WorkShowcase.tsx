@@ -216,7 +216,7 @@ function MarqueeRow({
 
 export default function WorkShowcase() {
 	return (
-		<section className="mt-20">
+		<section className="mt-8 md:mt-20">
 			<MarqueeRow items={workItems} direction="left" />
 		</section>
 	);

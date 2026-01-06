@@ -85,7 +85,7 @@ export default function Tools() {
 			<Text type="h2" className="text-center">
 				Prototyping fast using modern tools
 			</Text>
-			<div className="grid md:grid-cols-5 w-fit mx-auto gap-3 md:gap-6 mt-8 md:mt-12 grid-cols-3">
+			<div className="grid md:grid-cols-5 w-fit mx-auto gap-5 md:gap-6 mt-8 md:mt-12 grid-cols-3">
 				{tools.map((tool, index) => (
 					<motion.div
 						key={tool.name}

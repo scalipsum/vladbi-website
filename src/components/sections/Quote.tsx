@@ -68,26 +68,26 @@ export default function Quote({
 			viewport={{ once: true, amount: 0.3 }}
 			transition={{ duration: 0.8, ease: 'easeOut' }}
 		>
-			<TightContentLayout className="text-center px-2 md:px-32">
+			<TightContentLayout className="text-center px-4 md:px-32">
 				{!hiddenTitle && <Text type="h2">Trusted by great people</Text>}
 
 				<div className="relative mt-16">
 					{/* Opening quote mark */}
 					<span
-						className="font-sans absolute -top-10 left-0 md:-top-12 md:-left-12 text-[80px] md:text-[100px] leading-none font-main font-extrabold text-brand dark:text-brand-200 select-none pointer-events-none"
+						className="font-sans absolute -top-10 -left-2 md:-top-12 md:-left-12 text-[80px] md:text-[100px] leading-none font-main font-extrabold text-brand dark:text-brand-200 select-none pointer-events-none"
 						aria-hidden="true"
 					>
 						&ldquo;
 					</span>
 
 					{/* Quote text */}
-					<blockquote className="font-cormorant italic text-3xl text-foreground leading-normal">
+					<blockquote className="font-cormorant italic text-[28px] md:text-3xl text-foreground leading-normal">
 						{noAnimation ? quote : displayedText}
 					</blockquote>
 
 					{/* Closing quote mark */}
 					<span
-						className="font-sans absolute -bottom-20 right-0 md:-bottom-22 -right-2 text-[80px] md:text-[100px] leading-none font-main font-extrabold text-brand dark:text-brand-200 select-none pointer-events-none"
+						className="font-sans absolute -bottom-20 md:-bottom-22 -right-2 text-[80px] md:text-[100px] leading-none font-main font-extrabold text-brand dark:text-brand-200 select-none pointer-events-none"
 						aria-hidden="true"
 					>
 						&rdquo;
