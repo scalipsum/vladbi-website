@@ -31,7 +31,7 @@ export default function Header({ title, subTitle, className }: HeaderProps) {
 	return (
 		<div
 			className={cn(
-				'relative h-82 w-full flex flex-col items-center justify-center max-w-[2100px] mx-auto',
+				'relative mt-10 md:mt-0 h-82 w-full flex flex-col items-center justify-center max-w-[2100px] mx-auto',
 				className,
 			)}
 		>

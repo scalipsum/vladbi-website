@@ -114,27 +114,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
 						</>
 					}
 				>
-					{product.verticalImage && (
-						<div className="pt-4 bg-background lg:bg-transparent lg:mt-0 lg:absolute lg:-top-40 lg:-right-22 overflow-visible z-20">
-							<Image
-								src={product.verticalImage}
-								alt={`${product.title} - Vertical View`}
-								width={280}
-								height={380}
-								className="rounded-lg object-cover mx-auto"
-							/>
-						</div>
-					)}
-
-					<TightContentLayout className="relative !overflow-visible bg-background px-1 lg:px-8 py-12 pb-20 rounded-md">
+					<TightContentLayout className="relative !overflow-visible bg-background px-2 pt-12 lg:px-8 lg:py-12 lg:pb-20 rounded-md">
 						{product.blocks && product.blocks.length > 0 && (
 							<BlockRender
 								blocks={product.blocks}
 								config={{
 									className: {
-										h1: 'text-4xl font-main font-extrabold mb-8 text-brand text-center',
-										h2: 'text-3xl font-main  mb-3 font-extrabold text-brand',
-										h3: 'text-2xl font-main  mb-3 font-bold text-brand',
+										h1: 'text-3xl md:text-4xl font-main font-extrabold md:mb-8 text-brand text-center',
+										h2: 'text-2xl md:text-3xl font-main md:mb-3 font-extrabold text-brand text-center md:text-left',
+										h3: 'text-2xl font-main mb-3 font-bold text-brand text-center md:text-left',
 										paragraph:
 											'text-lg leading-relaxed mb-3.5 text-foreground font-sans',
 										quote: 'border-b-4 font-sans font-bold border-l-0 border-brand-100 dark:border-brand-500 my-6 text-brand text-2xl bg-slate-100 dark:bg-slate-900 dark:text-white py-5 text-center rounded-md',
@@ -145,6 +133,18 @@ export default async function ProductPage({ params }: ProductPageProps) {
 							/>
 						)}
 					</TightContentLayout>
+
+					{product.verticalImage && (
+						<div className="bg-background lg:bg-transparent pb-12 lg:pb-0 lg:mt-0 lg:absolute lg:-top-40 lg:-right-22 overflow-visible z-20">
+							<Image
+								src={product.verticalImage}
+								alt={`${product.title} - Vertical View`}
+								width={280}
+								height={380}
+								className="rounded-lg object-cover mx-auto"
+							/>
+						</div>
+					)}
 				</ServicePageLayout>
 			</article>
 		</>

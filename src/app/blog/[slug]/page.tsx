@@ -166,9 +166,9 @@ export default async function PostPage({ params }: PostPageProps) {
 								blocks={post.blocks}
 								config={{
 									className: {
-										h1: 'text-4xl font-main font-extrabold mb-8 text-brand text-center',
-										h2: 'text-3xl font-main  mb-3 font-extrabold text-brand',
-										h3: 'text-2xl font-main  mb-3 font-bold text-brand',
+										h1: 'text-3xl md:text-4xl font-main font-extrabold md:mb-8 text-brand text-center',
+										h2: 'text-2xl md:text-3xl font-main md:mb-3 font-extrabold text-brand text-center md:text-left',
+										h3: 'text-2xl font-main mb-3 font-bold text-brand text-center md:text-left',
 										paragraph:
 											'text-lg leading-relaxed mb-3.5 text-foreground font-sans',
 										quote: 'border-b-4 font-sans font-bold border-l-0 border-brand-100 dark:border-brand-500 my-6 text-brand text-2xl bg-slate-100 dark:bg-slate-900 dark:text-white py-5 text-center rounded-md',

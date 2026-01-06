@@ -31,7 +31,7 @@ export default async function Projects() {
 		<div className="lg:pb-32 pb-24">
 			<Header title="Products" subTitle="Case Studies of my work" />
 			<ContentLayout>
-				<div className="flex flex-col lg:mt-24 md:mt-16 mt-6">
+				<div className="flex flex-col lg:mt-24 md:mt-16 mt-0">
 					{products.map((product, index) => {
 						if (product.category === 'Automation') {
 							return (
