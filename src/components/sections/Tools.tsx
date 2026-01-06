@@ -75,7 +75,7 @@ export default function Tools() {
 			setTimeout(() => {
 				setHighlightedIndex(null);
 			}, 500);
-		}, 1200);
+		}, 1000);
 
 		return () => clearInterval(interval);
 	}, [isInView]);
