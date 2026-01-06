@@ -78,7 +78,7 @@ export default function GetStarted() {
 					</AnimatedStep>
 
 					<AnimatedStep>
-						<TimelineItem className="mt-16 md:mt-16">
+						<TimelineItem className="mt-16 md:mt-20">
 							<div className="flex-1">
 								<Text
 									type="h3"
@@ -88,8 +88,8 @@ export default function GetStarted() {
 								</Text>
 								<Text className="mt-6">
 									To clarify in a more meaningful way what the
-									project is about and to define what success
-									looks like.
+									project is about. Then we define what
+									success looks like in our collaboration.
 								</Text>
 							</div>
 							<Image
@@ -103,7 +103,7 @@ export default function GetStarted() {
 					</AnimatedStep>
 
 					<AnimatedStep>
-						<TimelineItem className="mt-16 md:mt-16">
+						<TimelineItem className="mt-16 md:mt-20">
 							<div className="flex-1">
 								<Text
 									type="h3"
@@ -112,8 +112,8 @@ export default function GetStarted() {
 									3. We sign & start working
 								</Text>
 								<Text className="mt-8">
-									After the call, we'll send you a doc. that
-									outlines what we've talked, time estimates
+									After the call, we'll send you a proposal
+									which outlines the project, time estimates
 									and cost. Once signed, we begin.
 								</Text>
 							</div>
