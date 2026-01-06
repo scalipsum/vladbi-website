@@ -8,21 +8,18 @@ import { Metadata } from 'next';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
 
 export const metadata: Metadata = {
-	title: 'Products | Vlad Bibire',
-	description:
-		'Vision turned reality. Browse all products including automation and SaaS solutions.',
+	title: 'Products',
+	description: 'Case Studies of my work.',
 	openGraph: {
-		title: 'Products | Vlad Bibire',
-		description:
-			'Vision turned reality. Browse all products including automation and SaaS solutions.',
+		title: 'Products | VladBi',
+		description: 'Case Studies of my work.',
 		type: 'website',
 		url: `${siteUrl}/products`,
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Products | Vlad Bibire',
-		description:
-			'Vision turned reality. Browse all products including automation and SaaS solutions.',
+		title: 'Products | VladBi',
+		description: 'Case Studies of my work.',
 	},
 };
 

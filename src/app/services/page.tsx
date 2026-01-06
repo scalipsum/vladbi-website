@@ -1,6 +1,25 @@
 import AutomationPreviewCard from '@/components/elements/AutomationPreviewCard';
 import ContentLayout from '@/components/layout/ContentLayout';
 import Header from '@/components/layout/Header';
+import { Metadata } from 'next';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
+
+export const metadata: Metadata = {
+	title: 'Services',
+	description: 'Case Studies of my work.',
+	openGraph: {
+		title: 'Products | VladBi',
+		description: 'Experts in building SaaS Products & AI Automation',
+		type: 'website',
+		url: `${siteUrl}/products`,
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Products | VladBi',
+		description: 'Experts in building SaaS Products & AI Automation',
+	},
+};
 
 export default async function Services() {
 	return (
