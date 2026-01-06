@@ -98,7 +98,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
 					title={product.title}
 					subTitle={product.subTitle}
 					ctaTitle="Want me to build something like this for you?"
-					ctaSubtitle="Let's work together."
 					headerBackgroundUrl={product.coverImage}
 					headerTextColor="white"
 					layoutClassName="relative overflow-visible mt-0 mb-0 pb-0"

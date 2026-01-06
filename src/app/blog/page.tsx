@@ -41,6 +41,8 @@ export default async function Home() {
 			<CallToAction
 				title="Let's get started"
 				subtitle="Bring your idea to life."
+				buttonText="View Case Studies"
+				href="/products"
 				className="mt-24"
 			/>
 		</div>

@@ -1,20 +1,18 @@
 import ServicePageLayout from '@/components/layout/ServicePageLayout';
-import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Text from '@/components/ui/text';
 import WaveLine from '@/components/ui/wave-line';
-import Link from 'next/link';
-import { FaChevronRight } from 'react-icons/fa6';
 
 export default async function SaasProducts() {
 	return (
 		<ServicePageLayout
 			title="SaaS Products"
-			subTitle="Products built to produce revenue."
-			ctaTitle="Looking for AI Automation?"
-			ctaButtonText="View our process"
-			ctaHref="/services/ai-automation"
+			subTitle="The process of building one."
 			layoutClassName="max-w-2xl"
+			ctaTitle="See what's possible"
+			ctaSubtitle="Ideas like yours turned to Real Products"
+			ctaButtonText="View Case Studies"
+			ctaHref="/products"
 		>
 			<div className="flex flex-col items-center gap-8">
 				<Card className="w-full p-8 text-left mt-1" noHover>
@@ -46,11 +44,11 @@ export default async function SaasProducts() {
 					<Text type="h3" className="mb-2">
 						3. Development
 					</Text>
-					<Text>The big chunck of work. You can expect to see :</Text>
+					<Text>The chunck of work. You can expect to see :</Text>
 					<ul className="mt-2">
 						<Text type="li">· Working functionality</Text>
-						<Text type="li">· Direction decisions</Text>
-						<Text type="li">· Live Demo calls</Text>
+						<Text type="li">· Live Demos</Text>
+						<Text type="li">· Decision making</Text>
 					</ul>
 				</Card>
 
@@ -69,12 +67,12 @@ export default async function SaasProducts() {
 						<Text type="li">· Launch it to the world</Text>
 					</ul>
 				</Card>
-				<Button asChild className="mt-10 mb-0 mx-auto !px-6">
-					<Link href="/products">
-						View Case Studies
+				{/* <Button asChild className="mt-10 mb-0 mx-auto !px-6">
+					<Link href="/services/ai-automation">
+						Looking for AI Automation?
 						<FaChevronRight />
 					</Link>
-				</Button>
+				</Button> */}
 			</div>
 		</ServicePageLayout>
 	);

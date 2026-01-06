@@ -52,10 +52,10 @@ export default async function Home() {
 				<GetStarted />
 			</ContentLayout>
 			<CallToAction
-				title="Our journey begins"
-				subtitle="Bring your idea to life."
+				title="Let's get started"
+				subtitle="Turn your vision into a real product."
 				className="mt-20 md:mt-0"
-				buttonText="View my Services"
+				buttonText="Explore my Services"
 				href="/services"
 			/>
 		</div>

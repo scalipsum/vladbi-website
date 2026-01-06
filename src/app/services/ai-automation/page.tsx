@@ -10,11 +10,12 @@ export default async function AiAutomationProducts() {
 	return (
 		<ServicePageLayout
 			title="AI Automation"
-			subTitle="Repetitive work, fully automated."
-			ctaTitle="Looking for SaaS Products?"
-			ctaButtonText="View our process"
-			ctaHref="/services/saas-products"
+			subTitle="The process of building one."
 			layoutClassName="max-w-2xl"
+			ctaTitle="See What's Possible"
+			ctaSubtitle="See Ideas turned to Real Products"
+			ctaButtonText="View Case Studies"
+			ctaHref="/products"
 		>
 			<div className="flex flex-col items-center gap-8">
 				<Card className="w-full p-8 text-left mt-1" noHover>
@@ -62,8 +63,8 @@ export default async function AiAutomationProducts() {
 					</ul>
 				</Card>
 				<Button asChild className="mt-10 mb-0 mx-auto !px-6">
-					<Link href="/products">
-						View Case Studies
+					<Link href="/services/saas-products">
+						Looking for SaaS Products?
 						<FaChevronRight />
 					</Link>
 				</Button>

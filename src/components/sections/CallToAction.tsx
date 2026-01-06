@@ -20,7 +20,9 @@ export default async function CallToAction({
 	href,
 }: CallToActionProps) {
 	return (
-		<PatternSection className={cn('bg-brand-500', className)}>
+		<PatternSection
+			className={cn('bg-brand-500', !subtitle && 'py-18', className)}
+		>
 			<Text type="h2" className="text-center text-white">
 				{title}
 			</Text>
@@ -28,7 +30,11 @@ export default async function CallToAction({
 				<Text className="mt-5 text-center text-white">{subtitle}</Text>
 			)}
 			<div className="flex justify-center">
-				<Button variant="secondary" asChild className="mt-8">
+				<Button
+					variant="secondary"
+					asChild
+					className={cn('mt-8', !subtitle && 'mt-9')}
+				>
 					<Link href={href ?? '/blog'}>{buttonText}</Link>
 				</Button>
 			</div>

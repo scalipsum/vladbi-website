@@ -120,6 +120,8 @@ export default async function PostPage({ params }: PostPageProps) {
 					title={post.title}
 					ctaTitle="Let's work together"
 					ctaSubtitle="Turn your vision into reality"
+					ctaButtonText="View Case Studies"
+					ctaHref="/products"
 					headerBackgroundUrl={post.coverImage}
 					headerTextColor="white"
 					layoutClassName="relative overflow-visible mt-0 mb-0 pb-0"
