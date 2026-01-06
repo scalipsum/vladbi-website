@@ -2,6 +2,7 @@
 
 import Text from '@/components/ui/text';
 import { motion, useInView } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
 import TimelineItem from '../elements/TimelineItem';
@@ -82,7 +83,13 @@ export default function GetStarted() {
 									looks like.
 								</Text>
 							</div>
-							<div className="h-48 w-72 rounded-md bg-gray-300 md:flex-1" />
+							<Image
+								src="https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi/website/landing/OG%202%20copy.webp"
+								alt="Discovery call illustration"
+								width={288}
+								height={192}
+								className="h-52 w-72 rounded-md object-cover object-bottom md:flex-1"
+							/>
 						</TimelineItem>
 					</AnimatedStep>
 
