@@ -10,7 +10,7 @@ export default async function SaasProducts() {
 			subTitle="The process of building one."
 			layoutClassName="max-w-2xl pb-0"
 			ctaTitle="See what's possible!"
-			ctaSubtitle="Ideas like yours turned into Real Products"
+			ctaSubtitle="Ideas like yours are turned into Real Products"
 			ctaButtonText="View Products"
 			ctaHref="/products"
 		>
