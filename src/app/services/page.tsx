@@ -7,24 +7,24 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
 
 export const metadata: Metadata = {
 	title: 'Services',
-	description: 'Case Studies of my work.',
+	description: 'Expert in building SaaS Products & AI Automation.',
 	openGraph: {
 		title: 'Services | VladBi',
-		description: 'Experts in building SaaS Products & AI Automation',
+		description: 'Expert in building SaaS Products & AI Automation.',
 		type: 'website',
 		url: `${siteUrl}/products`,
 	},
 	twitter: {
 		card: 'summary_large_image',
 		title: 'Services | VladBi',
-		description: 'Experts in building SaaS Products & AI Automation',
+		description: 'Expert in building SaaS Products & AI Automation.',
 	},
 };
 
 export default async function Services() {
 	return (
 		<div>
-			<Header title="Services" subTitle="Experts in building" />
+			<Header title="Services" subTitle="Expert in building products." />
 			<ContentLayout>
 				<AutomationPreviewCard
 					title="SaaS Products"

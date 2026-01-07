@@ -9,17 +9,17 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
 
 export const metadata: Metadata = {
 	title: 'Blog',
-	description: 'Real thoughts. No AI.',
+	description: 'My real thoughts. No AI.',
 	openGraph: {
 		title: 'Blog | VladBi',
-		description: 'Real thoughts. No AI.',
+		description: 'My real thoughts. No AI.',
 		type: 'website',
 		url: `${siteUrl}/blog`,
 	},
 	twitter: {
 		card: 'summary_large_image',
 		title: 'Blog | VladBi',
-		description: 'Real thoughts. No AI.',
+		description: 'My real thoughts. No AI.',
 	},
 };
 
@@ -28,7 +28,7 @@ export default async function Home() {
 
 	return (
 		<div>
-			<Header title="Blog" subTitle="Real thoughts. No AI." />
+			<Header title="Blog" subTitle="My real thoughts. No AI." />
 			<ContentLayout>
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 lg:mt-8">
 					{posts.map((post) => (

@@ -44,14 +44,14 @@ export default function SecondaryHeader({
 						<Text type="h2" className={`text-${textColor}`}>
 							{title}
 						</Text>
+						<div
+							className={`h-1.5 bg-${textColor} rounded-full w-full self-center mt-2.5`}
+						/>
 						{subTitle && (
 							<Text className={`mt-4 text-${textColor}`}>
 								{subTitle}
 							</Text>
 						)}
-						<div
-							className={`h-1.5 bg-${textColor} rounded-full w-full self-center mt-2.5`}
-						/>
 						{additionalContent}
 					</div>
 				</ContentLayout>
