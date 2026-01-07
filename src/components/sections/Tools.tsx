@@ -85,7 +85,7 @@ export default function Tools() {
 			<Text type="h2" className="text-center">
 				Prototyping fast using modern tools
 			</Text>
-			<div className="grid md:grid-cols-5 w-fit mx-auto gap-5 md:gap-6 mt-8 md:mt-12 grid-cols-3">
+			<div className="grid sm:grid-cols-5 w-fit mx-auto gap-5 md:gap-6 mt-8 md:mt-12 grid-cols-3">
 				{tools.map((tool, index) => (
 					<motion.div
 						key={tool.name}
@@ -101,8 +101,8 @@ export default function Tools() {
 							ease: [0.22, 1, 0.36, 1],
 						}}
 						className={cn(
-							'size-24 md:size-32 flex flex-col items-center justify-center rounded-2xl bg-brand-100/50 dark:bg-brand-600 shadow-md transition-all duration-400 hover:scale-113 cursor-default',
-							highlightedIndex === index && 'scale-113',
+							'size-24 md:size-32 flex flex-col items-center justify-center rounded-2xl bg-brand-100/50 dark:bg-brand-600 shadow-md transition-all duration-400 hover:scale-115 cursor-default',
+							highlightedIndex === index && 'scale-115',
 						)}
 					>
 						<img

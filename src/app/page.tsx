@@ -121,22 +121,13 @@ export default async function Home() {
 
 				{/* <Youtube />  */}
 
-				{/* <Quote
-					quote="Vlad is an extremely creative and motivated individual. He is very reliable and ensures that all his work is completed to high standards."
-					name="Skip Barden"
-					profession="Professional Creative"
-					avatar="https://media.licdn.com/dms/image/v2/C4D03AQHfuIFWaarDlA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1540464185282?e=1768435200&v=beta&t=diC3g_5NfFZ_GJrYvU-SaafXKYOkF_bmGihcdmZM8BU"
-					hiddenTitle
-					className="mb-24 !mt-16"
-				/> */}
-
 				<ContentLayout>
 					<GetStarted />
 				</ContentLayout>
 				<CallToAction
 					title="Find out more"
 					subtitle="See how we build products for clients."
-					className="mt-20 md:mt-0"
+					className="mt-2 md:mt-0"
 					buttonText="View Services"
 					href="/services"
 				/>
