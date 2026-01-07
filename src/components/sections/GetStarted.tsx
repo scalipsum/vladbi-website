@@ -58,13 +58,11 @@ export default function GetStarted() {
 					<AnimatedStep>
 						<TimelineItem className="md:mt-20 mt-12" active>
 							<div className="flex-1">
-								<Text type="h3">
-									1. Complete the product quiz
-								</Text>
+								<Text type="h3">1. Your product quiz</Text>
 								<Text className="mt-4">
-									A 3-min quiz about your project and vision
-									to have basic understanding of what you're
-									trying to build.
+									Simple questions around your project and
+									vision to have basic understanding of what
+									you're trying to build. Takes 3 minutes.
 								</Text>
 								<Button asChild className="mt-6">
 									<Link
@@ -74,14 +72,14 @@ export default function GetStarted() {
 												'quiz_cta_clicked',
 												{
 													button_text:
-														'Take the quiz',
+														'Complete the quiz',
 													source: 'get_started_timeline',
 													step: 1,
 												},
 											)
 										}
 									>
-										Take the quiz
+										Complete the quiz
 									</Link>
 								</Button>
 							</div>
