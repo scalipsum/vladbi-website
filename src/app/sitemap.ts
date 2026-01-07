@@ -1,4 +1,9 @@
-import { BlogPost, Product, getBlogPostsFromCache, getProductsFromCache } from '@/lib/notion';
+import {
+	BlogPost,
+	Product,
+	getBlogPostsFromCache,
+	getProductsFromCache,
+} from '@/lib/notion';
 import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -33,9 +38,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			priority: 1,
 		},
 		{
-			url: `${siteUrl}/blog`,
+			url: `${siteUrl}/services`,
 			lastModified: new Date(),
-			changeFrequency: 'daily' as const,
+			changeFrequency: 'monthly' as const,
 			priority: 0.9,
 		},
 		{
@@ -45,9 +50,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			priority: 0.9,
 		},
 		{
-			url: `${siteUrl}/services`,
+			url: `${siteUrl}/quiz`,
 			lastModified: new Date(),
 			changeFrequency: 'monthly' as const,
+			priority: 0.6,
+		},
+		{
+			url: `${siteUrl}/blog`,
+			lastModified: new Date(),
+			changeFrequency: 'daily' as const,
 			priority: 0.9,
 		},
 		{
@@ -62,23 +73,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			changeFrequency: 'monthly' as const,
 			priority: 0.7,
 		},
-		{
-			url: `${siteUrl}/quiz`,
-			lastModified: new Date(),
-			changeFrequency: 'monthly' as const,
-			priority: 0.6,
-		},
-		{
-			url: `${siteUrl}/content-update`,
-			lastModified: new Date(),
-			changeFrequency: 'monthly' as const,
-			priority: 0.5,
-		},
 	];
 
-	return [
-		...staticRoutes,
-		...postUrls,
-		...productUrls,
-	];
+	return [...staticRoutes, ...postUrls, ...productUrls];
 }
