@@ -31,16 +31,16 @@ export default function Header({ title, subTitle, className }: HeaderProps) {
 	return (
 		<div
 			className={cn(
-				'relative mt-10 md:mt-0 h-82 w-full flex flex-col items-center justify-center max-w-[2100px] mx-auto',
+				'relative mt-10 md:mt-0 h-82 w-full flex flex-col items-center justify-center max-w-[2100px] mx-auto overflow-hidden',
 				className,
 			)}
 		>
 			<RotatingGlobe
-				className="absolute -left-36 -top-44 sm:-top-44 md:!-top-44 lg:!-top-54 opacity-100 z-0"
+				className="absolute -left-30 -top-44 sm:-top-44 md:!-top-44 lg:!-top-54 opacity-100 z-0"
 				size={globeSize}
 				rotate="0deg"
 			/>
-			<BrandStripes className="absolute z-0 -right-8 -top-20 lg:-top-36" />
+			<BrandStripes className="absolute z-0 -right-4 -top-10 lg:-top-36" />
 			<div className="bg-background mt-26 flex flex-col items-center z-20 w-8/9 md:w-auto rounded-t-3xl border border-t-4 md:border-0 border-brand-100 dark:border-brand-600 border-b-0 pt-6">
 				<div className="inline-block">
 					<Text type="h2" className="text-center">
