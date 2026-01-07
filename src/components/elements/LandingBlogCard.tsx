@@ -23,7 +23,7 @@ export default function LandingBlogCard({
 	return (
 		<Card
 			className={cn(
-				'md:pt-16 pt-34 pb-8 md:pr-6 md:min-w-[700px] md:max-w-[900px] w-full md:w-auto md:ml-20',
+				'md:pt-16 pt-34 pb-8 md:pr-6 md:min-w-[700px] md:max-w-[900px] w-full md:w-auto md:ml-20 border-slate-300',
 				className,
 			)}
 		>

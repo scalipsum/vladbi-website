@@ -106,7 +106,7 @@ export default async function Home() {
 					className="mt-16 md:mt-40"
 				/>
 				<Tools />
-				<ContentLayout className="pb-0 md:pb-12">
+				<ContentLayout className="pb-4 md:pb-12">
 					<MyStory />
 				</ContentLayout>
 
