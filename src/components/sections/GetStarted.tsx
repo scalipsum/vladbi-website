@@ -62,7 +62,7 @@ export default function GetStarted() {
 								<Text className="mt-4">
 									Simple questions around your project and
 									vision to have basic understanding of what
-									you're trying to build. Takes 3 minutes.
+									you're trying to build (3 minutes).
 								</Text>
 								<Button asChild className="mt-6">
 									<Link
