@@ -42,9 +42,9 @@ export default async function SaasProducts() {
 
 				<Card className="w-full p-8 text-left" noHover>
 					<Text type="h3" className="mb-2">
-						3. Development
+						3. Fast Development
 					</Text>
-					<Text>The chunck of work. You can expect to see :</Text>
+					<Text>You can expect to see :</Text>
 					<ul className="mt-2">
 						<Text type="li">Working functionality</Text>
 						<Text type="li">Live Demos</Text>
@@ -64,15 +64,9 @@ export default async function SaasProducts() {
 							Install the product on your device
 						</Text>
 						<Text type="li">Report findings</Text>
-						<Text type="li">Launch it to the world</Text>
+						<Text type="li">Launch it live</Text>
 					</ul>
 				</Card>
-				{/* <Button asChild className="mt-10 mb-0 mx-auto !px-6">
-					<Link href="/services/ai-automation">
-						Looking for AI Automation?
-						<FaChevronRight />
-					</Link>
-				</Button> */}
 			</div>
 		</ServicePageLayout>
 	);

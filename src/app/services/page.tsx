@@ -52,6 +52,7 @@ export default async function Services() {
 					profession="Professional Creative"
 					avatar="https://media.licdn.com/dms/image/v2/C4D03AQHfuIFWaarDlA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1540464185282?e=1768435200&v=beta&t=diC3g_5NfFZ_GJrYvU-SaafXKYOkF_bmGihcdmZM8BU"
 					hiddenTitle
+					noAnimation
 					className="mb-12 !mt-4"
 				/>
 			</TightContentLayout>

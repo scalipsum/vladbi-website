@@ -8,7 +8,7 @@ interface MainLayoutProps {
 
 export default function MainLayout({ children }: MainLayoutProps) {
 	return (
-		<div className="h-screen bg-background min-h-screen flex flex-col overflow-x-hidden">
+		<div className="h-screen bg-background min-h-screen flex flex-col">
 			<Navbar />
 			<main className="flex-1">{children}</main>
 			<Footer />

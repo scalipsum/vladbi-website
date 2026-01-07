@@ -51,19 +51,21 @@ export default function Footer() {
 							VladBi
 						</Text>
 					</Link>
-					<Link
-						href="youtube.com/@vladbi"
-						className="transition duration-150 ease-in-out text-slate-400 hover:text-white"
+					<a
+						className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
+						target="_blank"
+						href="https://youtube.com/@vladbi/"
+						rel="noopener noreferrer"
 						onClick={handleYoutubeClick}
 					>
-						<Text className="flex items-center gap-1.5 mt-4 font-sans !text-sm">
+						<Text className="flex items-center gap-1.5 font-sans !text-sm">
 							As seen on
 							<span className="flex gap-1 items-center">
 								<FaYoutube />
 								YouTube
 							</span>
 						</Text>
-					</Link>
+					</a>
 
 					<Text className="!text-sm mt-20 font-sans text-slate-400 hidden md:block">
 						© {new Date().getFullYear()} Vlad Bibire
@@ -76,11 +78,9 @@ export default function Footer() {
 							{Object.entries(column1Links).map(
 								([label, href]) => (
 									<li key={href} className="leading-[0px]">
-										<a
+										<Link
+											href={href}
 											className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
-											target="_blank"
-											href="https://youtube.com/@vladbi/"
-											rel="noopener noreferrer"
 											onClick={() =>
 												handleFooterLinkClick(
 													label,
@@ -92,7 +92,7 @@ export default function Footer() {
 											<Text className="!text-sm">
 												{label}
 											</Text>
-										</a>
+										</Link>
 									</li>
 								),
 							)}

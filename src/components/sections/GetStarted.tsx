@@ -58,11 +58,13 @@ export default function GetStarted() {
 					<AnimatedStep>
 						<TimelineItem className="md:mt-20 mt-12" active>
 							<div className="flex-1">
-								<Text type="h3">1. Take the product quiz</Text>
+								<Text type="h3">
+									1. Complete the product quiz
+								</Text>
 								<Text className="mt-4">
-									Simple questions around your project to have
-									basic understanding about what you're trying
-									to build.
+									A 3-min quiz about your project and vision
+									to have basic understanding of what you're
+									trying to build.
 								</Text>
 								<Button asChild className="mt-6">
 									<Link
@@ -100,12 +102,12 @@ export default function GetStarted() {
 									type="h3"
 									className="text-gray-600 dark:text-gray-200"
 								>
-									2. We have a Discovery Call
+									2. Join a Discovery Call
 								</Text>
 								<Text className="mt-6">
-									To clarify in a more meaningful way what the
-									project is about. Then we define what
-									success looks like in our collaboration.
+									We clarify the project in a more meaningful
+									way, guide you on the best technical
+									approach, give rough estimates & timeline.
 								</Text>
 							</div>
 							<Image
@@ -125,12 +127,13 @@ export default function GetStarted() {
 									type="h3"
 									className="text-gray-600 dark:text-gray-200"
 								>
-									3. We agree & Start working
+									3. Sign & Start
 								</Text>
 								<Text className="mt-8">
-									After the call, we'll send you a proposal
-									which outlines the project, time estimates
-									and cost. Once signed, we begin.
+									You will receive a proposal which outlines
+									what we've discussed, project details, ways
+									of working, deadline and cost. Once signed,
+									our collaboration officially starts.
 								</Text>
 							</div>
 							<Image

@@ -33,9 +33,9 @@ export default async function AiAutomationProducts() {
 
 				<Card className="w-full p-8 text-left" noHover>
 					<Text type="h3" className="mb-2">
-						{`2. Development`}
+						2. Fast Development
 					</Text>
-					<Text>The chunck of work where we:</Text>
+					<Text>The part where we:</Text>
 					<ul className="mt-2">
 						<Text type="li">Build the automation</Text>
 						<Text type="li">Live Demo it to you</Text>
@@ -51,18 +51,10 @@ export default async function AiAutomationProducts() {
 					</Text>
 					<Text>Final phase where you can:</Text>
 					<ul className="mt-2">
-						<Text type="li">Test the automation yourself</Text>
-						<Text type="li">
-							Watch the work be done automatically
-						</Text>
+						<Text type="li">Use the automation yourself</Text>
+						<Text type="li">Launch it live</Text>
 					</ul>
 				</Card>
-				{/* <Button asChild className="mt-10 mb-0 mx-auto !px-6">
-					<Link href="/services/saas-products">
-						Looking for SaaS Products?
-						<FaChevronRight />
-					</Link>
-				</Button> */}
 			</div>
 		</ServicePageLayout>
 	);
