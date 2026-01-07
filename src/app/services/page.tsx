@@ -34,7 +34,7 @@ export default async function Services() {
 					description="Products built to produce revenue."
 					ctaText="View the process"
 					href="/services/saas-products"
-					className="mt-4 dark:border-brand-600 border-slate-300 border-b-0"
+					className="mt-4 dark:border-brand-500 border-slate-300 border-b-0"
 				/>
 				<AutomationPreviewCard
 					title="AI Automation"
@@ -42,7 +42,7 @@ export default async function Services() {
 					description="Repetitive work, fully automated."
 					ctaText="View the process"
 					href="/services/ai-automation"
-					className="md:mt-12 mt-16 dark:border-brand-600 border-slate-300 border-b-0"
+					className="md:mt-12 mt-16 dark:border-brand-500 border-slate-300 border-b-0"
 				/>
 			</ContentLayout>
 			<TightContentLayout>
