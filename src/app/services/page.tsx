@@ -34,15 +34,15 @@ export default async function Services() {
 					description="Products built to produce revenue."
 					ctaText="View the process"
 					href="/services/saas-products"
-					className="mt-4 dark:border-brand-600"
+					className="mt-4 dark:border-brand-600 border-slate-300 border-b-0"
 				/>
 				<AutomationPreviewCard
 					title="AI Automation"
 					subtitle="Workflows and Tools"
 					description="Repetitive work, fully automated."
 					ctaText="View the process"
-					className="mt-12 dark:border-brand-600"
 					href="/services/ai-automation"
+					className="md:mt-12 mt-16 dark:border-brand-600 border-slate-300 border-b-0"
 				/>
 			</ContentLayout>
 			<TightContentLayout>
@@ -53,7 +53,7 @@ export default async function Services() {
 					avatar="https://media.licdn.com/dms/image/v2/C4D03AQHfuIFWaarDlA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1540464185282?e=1768435200&v=beta&t=diC3g_5NfFZ_GJrYvU-SaafXKYOkF_bmGihcdmZM8BU"
 					hiddenTitle
 					noAnimation
-					className="mb-12 !mt-4"
+					className="mb-12 !mt-6"
 				/>
 			</TightContentLayout>
 			{/* <CallToAction
