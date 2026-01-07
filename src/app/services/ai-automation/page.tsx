@@ -9,9 +9,9 @@ export default async function AiAutomationProducts() {
 			title="AI Automation"
 			subTitle="The process of building one."
 			layoutClassName="max-w-2xl pb-0"
-			ctaTitle="See what's possible!"
+			ctaTitle="View My Work"
 			ctaSubtitle="Ideas like yours are turned into Real Products"
-			ctaButtonText="View Products"
+			ctaButtonText="View Case Studies"
 			ctaHref="/products"
 		>
 			<div className="flex flex-col items-center gap-8">

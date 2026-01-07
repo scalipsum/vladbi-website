@@ -38,7 +38,7 @@ export default async function Home() {
 			</ContentLayout>
 			<CallToAction
 				title="View My Work"
-				subtitle="See ideas turned to Real Products"
+				subtitle="Great ideas turned into Real Products"
 				buttonText="View Case Studies"
 				href="/products"
 				className="mt-24"
