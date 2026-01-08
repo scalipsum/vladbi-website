@@ -205,8 +205,8 @@ export default async function PostPage({ params }: PostPageProps) {
 								className="!mt-0 mb-6"
 							/> */}
 								<Text
-									type="h2"
-									className="mt-14 !md:text-3xl text-2xl text-center md:text-left"
+									type="h3"
+									className="mt-16 md:mt-24 !text-3xl text-center md:text-left"
 								>
 									Some of my work
 								</Text>
