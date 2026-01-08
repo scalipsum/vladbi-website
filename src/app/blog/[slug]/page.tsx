@@ -210,7 +210,7 @@ export default async function PostPage({ params }: PostPageProps) {
 								>
 									Some of my work
 								</Text>
-								<AllProducts className="md:mt-14 mt-2 md:gap-32 gap-10 flex-col-reverse" />
+								<AllProducts className="md:mt-14 mt-2 md:gap-32 gap-10" />
 							</>
 						)}
 					</TightContentLayout>
