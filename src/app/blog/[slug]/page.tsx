@@ -120,10 +120,22 @@ export default async function PostPage({ params }: PostPageProps) {
 			<article>
 				<ServicePageLayout
 					title={post.title}
-					ctaTitle="View My Work"
-					ctaSubtitle="Great ideas turned into Real Products"
-					ctaButtonText="View Case Studies"
-					ctaHref="/products"
+					ctaTitle={
+						post.slug === 'my-story'
+							? 'Tell me about your project'
+							: 'View My Work'
+					}
+					ctaSubtitle={
+						post.slug === 'my-story'
+							? "And let's start building your vision."
+							: 'Great ideas turned into Real Products'
+					}
+					ctaButtonText={
+						post.slug === 'my-story'
+							? 'Take the product quiz'
+							: 'View Case Studies'
+					}
+					ctaHref={post.slug === 'my-story' ? '/quiz' : '/products'}
 					headerBackgroundUrl={post.coverImage}
 					headerTextColor="white"
 					layoutClassName="relative overflow-visible mt-0 mb-0 pb-0"
@@ -181,8 +193,9 @@ export default async function PostPage({ params }: PostPageProps) {
 							/>
 						)}
 
-						{/* {post.slug === 'my-story' && (
-							<Quote
+						{post.slug === 'my-story' && (
+							<>
+								{/* <Quote
 								quote="It"
 								name="Duncan Cook"
 								profession="Founder & CEO of 3 Sided Cube"
@@ -190,16 +203,16 @@ export default async function PostPage({ params }: PostPageProps) {
 								noAnimation
 								hiddenTitle
 								className="!mt-0 mb-6"
-							/>
-						)} */}
-
-						<Text
-							type="h2"
-							className="mt-14 !md:text-3xl text-2xl text-center md:text-left"
-						>
-							Some of my work
-						</Text>
-						<AllProducts className="md:mt-14 mt-2 md:gap-32 gap-10" />
+							/> */}
+								<Text
+									type="h2"
+									className="mt-14 !md:text-3xl text-2xl text-center md:text-left"
+								>
+									Some of my work
+								</Text>
+								<AllProducts className="md:mt-14 mt-2 md:gap-32 gap-10 flex-col-reverse" />
+							</>
+						)}
 					</TightContentLayout>
 				</ServicePageLayout>
 			</article>

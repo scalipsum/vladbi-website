@@ -38,8 +38,6 @@ export default async function SaasProducts() {
 					</Text>
 				</Card>
 
-				<WaveLine height={70} width={70} className="text-brand" />
-
 				<Card className="w-full p-8 text-left" noHover>
 					<Text type="h3" className="mb-2">
 						3. Fast Development
@@ -51,8 +49,6 @@ export default async function SaasProducts() {
 						<Text type="li">Decision making</Text>
 					</ul>
 				</Card>
-
-				<WaveLine height={70} width={70} className="text-brand" />
 
 				<Card className="w-full p-8 text-left" noHover>
 					<Text type="h3" className="mb-2">

@@ -43,8 +43,6 @@ export default async function AiAutomationProducts() {
 					</ul>
 				</Card>
 
-				<WaveLine height={70} width={70} className="text-brand" />
-
 				<Card className="w-full p-8 text-left" noHover>
 					<Text type="h3" className="mb-2">
 						3. Testing & Going Live
