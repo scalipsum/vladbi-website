@@ -15,11 +15,15 @@ export default function Footer() {
 		'My story': '/blog/my-story',
 	};
 	const column2Links = {
-		'How I build Web and Mobile Apps': '/services/saas-products',
+		'How I build Mobile / Web Apps': '/services/saas-products',
 		'How I build AI Automation': '/services/ai-automation',
 	};
 	const column3Links = {
 		'Take the project quiz': '/quiz',
+	};
+	const column4Links = {
+		IQMeals: '/products/iqmeals',
+		Gaston: '/products/gaston',
 	};
 
 	const handleFooterLinkClick = (
@@ -43,7 +47,7 @@ export default function Footer() {
 
 	return (
 		<footer className="bg-brand-600 text-white flex-0.5">
-			<ContentLayout className="pb-0 pt-0 pt-16 md:pb-24 pb-12 flex md:flex-row flex-col items-start justify-between">
+			<ContentLayout className="pb-0 pt-0 pt-16 md:pb-24 pb-24 flex md:flex-row flex-col items-start justify-between">
 				<div>
 					<Link href="/" className="flex items-center space-x-2">
 						<Logo width={25} height={29} className="text-white" />
@@ -67,7 +71,7 @@ export default function Footer() {
 						</Text>
 					</a>
 
-					<Text className="!text-sm mt-20 font-sans text-slate-400 hidden md:block">
+					<Text className="!text-sm mt-12 font-sans text-slate-400 hidden md:block">
 						© {new Date().getFullYear()} Vlad Bibire
 					</Text>
 				</div>
@@ -98,6 +102,33 @@ export default function Footer() {
 							)}
 						</ul>
 					</div>
+					<div>
+						<Text className="!text-sm ml-0.25 mb-4">My work</Text>
+						<ul className="flex flex-col gap-4">
+							{Object.entries(column4Links).map(
+								([label, href]) => (
+									<li key={href} className="leading-[0px]">
+										<Link
+											href={href}
+											className="transition duration-150 ease-in-out text-slate-400 hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
+											onClick={() =>
+												handleFooterLinkClick(
+													label,
+													href,
+													'my_projects',
+												)
+											}
+										>
+											<Text className="!text-sm">
+												{label}
+											</Text>
+										</Link>
+									</li>
+								),
+							)}
+						</ul>
+					</div>
+
 					<div>
 						<Text className="!text-sm ml-0.25 mb-4">
 							My Process
