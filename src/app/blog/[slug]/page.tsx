@@ -1,6 +1,8 @@
 import { BlockRender } from '@/components/elements/BlockRender';
 import ServicePageLayout from '@/components/layout/ServicePageLayout';
 import TightContentLayout from '@/components/layout/TightContentLayout';
+import AllProducts from '@/components/sections/AllProducts';
+import Text from '@/components/ui/text';
 import { getBlogPostsFromCache, getWordCount } from '@/lib/notion';
 import { calculateReadingTime } from '@/lib/utils';
 import { format } from 'date-fns';
@@ -160,7 +162,7 @@ export default async function PostPage({ params }: PostPageProps) {
 						</div>
 					}
 				>
-					<TightContentLayout className="relative !overflow-visible bg-background px-1 lg:px-8 py-12 pb-20 rounded-md">
+					<TightContentLayout className="relative !overflow-visible bg-background px-1 lg:px-8 pt-12 pb-20 rounded-md">
 						{post.blocks && post.blocks.length > 0 && (
 							<BlockRender
 								blocks={post.blocks}
@@ -178,6 +180,26 @@ export default async function PostPage({ params }: PostPageProps) {
 								}}
 							/>
 						)}
+
+						{/* {post.slug === 'my-story' && (
+							<Quote
+								quote="It"
+								name="Duncan Cook"
+								profession="Founder & CEO of 3 Sided Cube"
+								avatar="https://media.licdn.com/dms/image/v2/C4D03AQF6ystn7ykm8g/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1611665635503?e=1769644800&v=beta&t=2ttN1_5SgJvxBLWKDTR_0LT0lAfkx-lkyals-jAu910"
+								noAnimation
+								hiddenTitle
+								className="!mt-0 mb-6"
+							/>
+						)} */}
+
+						<Text
+							type="h2"
+							className="mt-14 !md:text-3xl text-2xl text-center md:text-left"
+						>
+							Some of my work
+						</Text>
+						<AllProducts className="md:mt-14 mt-2 md:gap-32 gap-10" />
 					</TightContentLayout>
 				</ServicePageLayout>
 			</article>
