@@ -102,7 +102,7 @@ export default async function Home() {
 					quote="Vlad was quick, professional and well-priced. I'm extremely happy with the website updates he made. Thanks, Vlad :) Look forward to working with you again soon."
 					name="Barnaby Davies"
 					profession="Business Owner of EastGuidesWest Tourism Consultancy"
-					avatar="https://media.licdn.com/dms/image/v2/C4D03AQF1RDe565sjaQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1517043188756?e=1767830400&v=beta&t=rVV7MDrr2G9D42JmfwUQXpCOsQ_lJIBrCongLCl-6O8"
+					avatar="https://media.licdn.com/dms/image/v2/C4D03AQF1RDe565sjaQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1517043188756?e=1769644800&v=beta&t=7IexaYriruGOOKykkHUST9sA1BYk3DjLEHKbKZthKnk"
 					className="mt-16 md:mt-40"
 				/>
 				<Tools />
