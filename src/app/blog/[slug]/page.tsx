@@ -127,7 +127,7 @@ export default async function PostPage({ params }: PostPageProps) {
 					}
 					ctaSubtitle={
 						post.slug === 'my-story'
-							? "And let's start building your vision."
+							? "And let's build your vision."
 							: 'Great ideas turned into Real Products'
 					}
 					ctaButtonText={
