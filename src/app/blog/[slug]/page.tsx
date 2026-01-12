@@ -2,6 +2,7 @@ import { BlockRender } from '@/components/elements/BlockRender';
 import ServicePageLayout from '@/components/layout/ServicePageLayout';
 import TightContentLayout from '@/components/layout/TightContentLayout';
 import AllProducts from '@/components/sections/AllProducts';
+import Quote from '@/components/sections/Quote';
 import Text from '@/components/ui/text';
 import { getBlogPostsFromCache, getWordCount } from '@/lib/notion';
 import { calculateReadingTime } from '@/lib/utils';
@@ -195,15 +196,26 @@ export default async function PostPage({ params }: PostPageProps) {
 
 						{post.slug === 'my-story' && (
 							<>
-								{/* <Quote
-								quote="It"
-								name="Duncan Cook"
-								profession="Founder & CEO of 3 Sided Cube"
-								avatar="https://media.licdn.com/dms/image/v2/C4D03AQF6ystn7ykm8g/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1611665635503?e=1769644800&v=beta&t=2ttN1_5SgJvxBLWKDTR_0LT0lAfkx-lkyals-jAu910"
-								noAnimation
-								hiddenTitle
-								className="!mt-0 mb-6"
-							/> */}
+								<Quote
+									quote="Vlad is an incredible problem solver, with a great eye for detail and the ability to find beautiful and joyful solutions to complex problems. His ability to deliver is second to none. Highly recommend."
+									name="Duncan Cook"
+									profession="CEO of 3 Sided Cube"
+									avatar="https://media.licdn.com/dms/image/v2/C4D03AQF6ystn7ykm8g/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1611665635503?e=1769644800&v=beta&t=2ttN1_5SgJvxBLWKDTR_0LT0lAfkx-lkyals-jAu910"
+									noAnimation
+									hiddenTitle
+									className="!mt-0 mb-24"
+								/>
+								<Text type="h2" className="text-center mb-12">
+									Building for My Clients
+								</Text>
+								<Text className="mt-4 text-lg leading-relaxed mb-3.5 text-foreground font-sans text-center">
+									Today, I’m building products for clients.
+									Same passion, same dedication, just focused
+									on private work. I work with founders and
+									companies who want to build projects that
+									push the envelope further. Weather that’s on
+									Mobile, Web or AI.
+								</Text>
 								<Text
 									type="h3"
 									className="mt-16 md:mt-24 !text-3xl text-center md:text-left"
