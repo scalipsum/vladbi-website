@@ -54,7 +54,7 @@ export default function SaasPreviewCard({
 			)}
 			style={{ backgroundImage: `url(${backgroundImageUrl})` }}
 		>
-			<div className="absolute z-0 inset-0 bg-slate-800 opacity-70 rounded-lg" />
+			<div className="absolute z-0 inset-0 bg-slate-800 opacity-75 rounded-lg" />
 			<Link
 				href={href}
 				className="absolute inset-0 z-20"
@@ -115,13 +115,13 @@ export default function SaasPreviewCard({
 				</div>
 
 				{/* Mobile image */}
-				<Image
+				{/* <Image
 					src={previewImageUrl}
 					alt={`${title} preview`}
 					width={imageWidth}
 					height={imageHeight}
 					className="md:hidden hidden block mx-auto rounded-lg object-cover"
-				/>
+				/> */}
 
 				{/* Desktop image */}
 				<Image
