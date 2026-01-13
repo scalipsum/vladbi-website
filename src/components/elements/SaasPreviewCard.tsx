@@ -2,13 +2,19 @@
 
 import Text from '@/components/ui/text';
 import { cn } from '@/lib/utils';
+import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import posthog from 'posthog-js';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 
-interface AutomationPreviewCardProps {
+interface Stat {
+	value: string;
+	label: string;
+}
+
+interface SaasPreviewCardProps {
 	title: string;
 	subtitle: string;
 	description: string;
@@ -16,6 +22,7 @@ interface AutomationPreviewCardProps {
 	previewImageUrl: string;
 	href: string;
 	className?: string;
+	stats?: Stat[];
 }
 
 export default function SaasPreviewCard({
@@ -26,9 +33,10 @@ export default function SaasPreviewCard({
 	previewImageUrl,
 	href,
 	className,
-}: AutomationPreviewCardProps) {
-	const gastonWidth = 360;
-	const gastonHeight = 470;
+	stats,
+}: SaasPreviewCardProps) {
+	const imageWidth = 220;
+	const imageHeight = 280;
 
 	const handleCardClick = () => {
 		posthog.capture('product_card_clicked', {
@@ -41,63 +49,87 @@ export default function SaasPreviewCard({
 	return (
 		<Card
 			className={cn(
-				'px-12 py-12 mt-8 bg-cover bg-center bg-no-repeat w-full overflow-visible min-h-[350px]',
+				'px-8 md:px-12 py-10 md:py-12 mt-8 bg-cover bg-center bg-no-repeat w-full overflow-visible min-h-[400px]',
 				className,
 			)}
 			style={{ backgroundImage: `url(${backgroundImageUrl})` }}
 		>
-			<div className="absolute z-0 inset-0 bg-slate-800 opacity-60 rounded-lg" />
+			<div className="absolute z-0 inset-0 bg-slate-800 opacity-70 rounded-lg" />
 			<Link
 				href={href}
 				className="absolute inset-0 z-20"
 				aria-label={title}
 				onClick={handleCardClick}
 			/>
-			<div className="relative z-10">
-				<div className="md:text-left text-center">
-					<Text type="h3" className="text-white">
-						{title}
-					</Text>
-					<Text className="mt-1 text-white">{subtitle}</Text>
-					<Image
-						src={previewImageUrl}
-						alt={`${title} preview`}
-						width={
-							title === 'Gaston' ? gastonWidth : gastonWidth / 1.5
-						}
-						height={
-							title === 'Gaston'
-								? gastonHeight
-								: gastonHeight / 1.5
-						}
-						className={cn(
-							'md:hidden block mx-auto mt-5',
-							title === 'Gaston' ? '' : '',
-						)}
-					/>
 
-					<Text className="mt-6 md:w-1/3 w-full text-white">
+			<div className="relative z-10 flex flex-col md:flex-row md:justify-between md:items-start gap-6">
+				<div className="md:text-left text-center md:max-w-[50%]">
+					<Text
+						type="h3"
+						className="text-white text-2xl md:text-3xl font-semibold leading-tight"
+					>
 						{description}
 					</Text>
+
+					<Text className="mt-4 text-white/80 text-base">
+						{subtitle}
+					</Text>
+
+					{stats && stats.length > 0 && (
+						<div className="flex items-center gap-4 mt-6 justify-center md:justify-start">
+							{stats.map((stat, index) => (
+								<div
+									key={stat.label}
+									className="flex items-center"
+								>
+									<div className="text-center px-4 first:pl-0">
+										<Text className="font-main !text-lg text-white font-extrabold">
+											{stat.value}
+										</Text>
+										<Text className="text-white/60 !text-base">
+											{stat.label}
+										</Text>
+									</div>
+									{index < stats.length - 1 && (
+										<div className="w-px h-10 bg-white/30" />
+									)}
+								</div>
+							))}
+						</div>
+					)}
+
 					<Button
 						asChild
-						className="self-end mt-10"
+						className="mt-8 bg-white text-slate-900 hover:bg-white/90"
 						variant="secondary"
 					>
-						<Link href={href} onClick={handleCardClick}>
-							View case study
+						<Link
+							href={href}
+							onClick={handleCardClick}
+							className="flex items-center gap-1"
+						>
+							See how I built it
+							<ChevronRight className="w-4 h-4" />
 						</Link>
 					</Button>
 				</div>
+
+				{/* Mobile image */}
 				<Image
 					src={previewImageUrl}
 					alt={`${title} preview`}
-					width={gastonWidth / 1.7}
-					height={gastonHeight / 1.7}
-					className={cn(
-						'absolute rounded-lg object-fill hidden md:block',
-						'right-20 -bottom-10',
-					)}
+					width={imageWidth}
+					height={imageHeight}
+					className="md:hidden hidden block mx-auto rounded-lg object-cover"
+				/>
+
+				{/* Desktop image */}
+				<Image
+					src={previewImageUrl}
+					alt={`${title} preview`}
+					width={imageWidth}
+					height={imageHeight}
+					className="absolute rounded-lg object-cover hidden md:block right-32 -bottom-18 shadow-xl"
 				/>
 			</div>
 		</Card>
