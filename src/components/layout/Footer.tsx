@@ -22,8 +22,8 @@ export default function Footer() {
 		'Take the project quiz': '/quiz',
 	};
 	const column4Links = {
-		IQMeals: '/products/iqmeals',
-		Gaston: '/products/gaston',
+		'AI Meal Planner': '/products/iqmeals',
+		'Restaurant Ordering App': '/products/gaston',
 	};
 
 	const handleFooterLinkClick = (
