@@ -210,11 +210,11 @@ export default async function PostPage({ params }: PostPageProps) {
 								</Text>
 								<Text className="mt-4 text-lg leading-relaxed mb-3.5 text-foreground font-sans text-center">
 									Today, I’m building products independetly
-									for founders. Same passion, same dedication,
-									but focused on private work. I work with
-									companies who want to build projects that
-									push the envelope further. Weather that’s on
-									AI, Web or Mobile.
+									for leaders with a big vision. Same passion,
+									same dedication, focused on private work. I
+									work with companies who want to build
+									projects that push the envelope further.
+									Weather that’s on AI, Web or Mobile.
 								</Text>
 								<Text
 									type="h3"
