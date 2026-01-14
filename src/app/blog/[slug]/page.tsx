@@ -206,15 +206,15 @@ export default async function PostPage({ params }: PostPageProps) {
 									className="!mt-0 mb-24"
 								/>
 								<Text type="h2" className="text-center mb-12">
-									Building for My Clients
+									Building for Founders
 								</Text>
 								<Text className="mt-4 text-lg leading-relaxed mb-3.5 text-foreground font-sans text-center">
-									Today, I’m building products for clients.
-									Same passion, same dedication, just focused
-									on private work. I work with founders and
-									companies who want to build projects that
+									Today, I’m building products independetly
+									for founders. Same passion, same dedication,
+									just focused on private work. I work with
+									companies that want to build projects that
 									push the envelope further. Weather that’s on
-									Mobile, Web or AI.
+									AI, Web or Mobile.
 								</Text>
 								<Text
 									type="h3"
