@@ -129,7 +129,7 @@ export default function SaasPreviewCard({
 					alt={`${title} preview`}
 					width={imageWidth}
 					height={imageHeight}
-					className="absolute rounded-lg object-cover hidden md:block right-32 -bottom-18 shadow-xl"
+					className="absolute rounded-lg object-cover hidden md:block right-18 -bottom-18 shadow-xl"
 				/>
 			</div>
 		</Card>
