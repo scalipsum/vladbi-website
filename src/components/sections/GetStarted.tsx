@@ -100,7 +100,7 @@ export default function GetStarted() {
 									type="h3"
 									className="text-gray-600 dark:text-gray-200"
 								>
-									2. Join a Discovery Call
+									2. Discovery Call
 								</Text>
 								<Text className="mt-6">
 									We clarify the project in a more meaningful
@@ -125,7 +125,7 @@ export default function GetStarted() {
 									type="h3"
 									className="text-gray-600 dark:text-gray-200"
 								>
-									3. Sign & Start
+									3. Launch in 3-6 weeks
 								</Text>
 								<Text className="mt-8">
 									You will receive a proposal which outlines
