@@ -115,7 +115,7 @@ export default function Quote({
 							{profession}
 							{professionLink && (
 								<a
-									className="transition underline underline-offset-4 duration-150 ease-in-out hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
+									className="transition underline underline-offset-4 duration-150 ease-in-out hover:text-black dark:hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
 									target="_blank"
 									href={professionLink.url}
 									rel="noopener noreferrer"
