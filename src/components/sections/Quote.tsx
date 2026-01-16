@@ -4,12 +4,17 @@ import TightContentLayout from '@/components/layout/TightContentLayout';
 import Text from '@/components/ui/text';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
+import posthog from 'posthog-js';
 import { useEffect, useRef, useState } from 'react';
 
 interface QuoteProps {
 	quote: string;
 	name: string;
 	profession: string;
+	professionLink?: {
+		label: string;
+		url: string;
+	};
 	avatar: string;
 	hiddenTitle?: boolean;
 	noAnimation?: boolean;
@@ -20,6 +25,7 @@ export default function Quote({
 	quote,
 	name,
 	profession,
+	professionLink,
 	avatar,
 	hiddenTitle,
 	noAnimation,
@@ -105,7 +111,27 @@ export default function Quote({
 						<p className="font-main font-bold text-lg text-foreground">
 							{name}
 						</p>
-						<p className="text-muted-foreground">{profession}</p>
+						<p className="text-muted-foreground">
+							{profession}
+							{professionLink && (
+								<a
+									className="transition underline underline-offset-4 duration-150 ease-in-out hover:text-white focus-visible:text-white rounded-md px-1 py-0.5"
+									target="_blank"
+									href={professionLink.url}
+									rel="noopener noreferrer"
+									onClick={() => {
+										posthog.capture('3sc_link_clicked', {
+											source: 'duncan_quote',
+											destination: '3sidedcube.com',
+										});
+									}}
+								>
+									<Text type="span">
+										{professionLink.label}
+									</Text>
+								</a>
+							)}
+						</p>
 					</div>
 				</div>
 				{/* </Card> */}

@@ -199,7 +199,11 @@ export default async function PostPage({ params }: PostPageProps) {
 								<Quote
 									quote="Vlad is an incredible problem solver, with a great eye for detail and the ability to find beautiful and joyful solutions to complex problems. His ability to deliver is second to none. Highly recommend."
 									name="Duncan Cook"
-									profession="CEO of 3 Sided Cube"
+									profession="CEO of"
+									professionLink={{
+										label: '3 Sided Cube',
+										url: 'https://3sidedcube.com/',
+									}}
 									avatar={`${BUCKET_URL}/website/testimonials/duncan.jpeg`}
 									noAnimation
 									hiddenTitle
