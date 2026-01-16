@@ -5,7 +5,7 @@ import AllProducts from '@/components/sections/AllProducts';
 import Quote from '@/components/sections/Quote';
 import Text from '@/components/ui/text';
 import { getBlogPostsFromCache, getWordCount } from '@/lib/notion';
-import { calculateReadingTime } from '@/lib/utils';
+import { BUCKET_URL, calculateReadingTime } from '@/lib/utils';
 import { format } from 'date-fns';
 import { Calendar, Clock } from 'lucide-react';
 import { Metadata } from 'next';
@@ -200,7 +200,7 @@ export default async function PostPage({ params }: PostPageProps) {
 									quote="Vlad is an incredible problem solver, with a great eye for detail and the ability to find beautiful and joyful solutions to complex problems. His ability to deliver is second to none. Highly recommend."
 									name="Duncan Cook"
 									profession="CEO of 3 Sided Cube"
-									avatar="https://media.licdn.com/dms/image/v2/C4D03AQF6ystn7ykm8g/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1611665635503?e=1769644800&v=beta&t=2ttN1_5SgJvxBLWKDTR_0LT0lAfkx-lkyals-jAu910"
+									avatar={`${BUCKET_URL}/website/testimonials/duncan.jpeg`}
 									noAnimation
 									hiddenTitle
 									className="!mt-0 mb-24"

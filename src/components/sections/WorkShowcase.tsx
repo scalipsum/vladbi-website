@@ -1,13 +1,11 @@
 'use client';
 
+import { BUCKET_URL } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import posthog from 'posthog-js';
 import { useEffect, useRef, useState } from 'react';
-
-export const BUCKET_URL =
-	'https://bgefmqefmboheirzxqvu.supabase.co/storage/v1/object/public/vladbi';
 
 interface WorkItem {
 	id: number;

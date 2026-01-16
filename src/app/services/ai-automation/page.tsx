@@ -53,6 +53,20 @@ export default async function AiAutomationProducts() {
 						<Text type="li">Launch it live</Text>
 					</ul>
 				</Card>
+
+				<WaveLine height={70} width={70} className="text-brand" />
+				<Card className="w-full p-8 text-left" noHover>
+					<Text type="h3" className="mb-2">
+						4. Support & Improvement
+					</Text>
+					<Text>After launch phase where we:</Text>
+					<ul className="mt-2">
+						<Text type="li">
+							Jump on any issues that may appear
+						</Text>
+						<Text type="li">Develop the automation further</Text>
+					</ul>
+				</Card>
 			</div>
 		</ServicePageLayout>
 	);

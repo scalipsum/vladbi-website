@@ -63,6 +63,22 @@ export default async function SaasProducts() {
 						<Text type="li">Launch it live</Text>
 					</ul>
 				</Card>
+				<WaveLine height={70} width={70} className="text-brand" />
+				<Card className="w-full p-8 text-left" noHover>
+					<Text type="h3" className="mb-2">
+						5. Support & Improvement
+					</Text>
+					<Text>After launch phase where we:</Text>
+					<ul className="mt-2">
+						<Text type="li">
+							Keep your product updated & secured
+						</Text>
+						<Text type="li">
+							Jump on any issues that may appear
+						</Text>
+						<Text type="li">Develop new features</Text>
+					</ul>
+				</Card>
 			</div>
 		</ServicePageLayout>
 	);

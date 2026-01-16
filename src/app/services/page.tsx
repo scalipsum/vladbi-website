@@ -3,6 +3,7 @@ import ContentLayout from '@/components/layout/ContentLayout';
 import Header from '@/components/layout/Header';
 import TightContentLayout from '@/components/layout/TightContentLayout';
 import Quote from '@/components/sections/Quote';
+import { BUCKET_URL } from '@/lib/utils';
 import { Metadata } from 'next';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
@@ -50,7 +51,7 @@ export default async function Services() {
 					quote="Vlad is an extremely creative and motivated individual. He is very reliable and ensures that all his work is completed to high standards."
 					name="Skip Barden"
 					profession="Professional Creative"
-					avatar="https://media.licdn.com/dms/image/v2/C4D03AQHfuIFWaarDlA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1540464185282?e=1768435200&v=beta&t=diC3g_5NfFZ_GJrYvU-SaafXKYOkF_bmGihcdmZM8BU"
+					avatar={`${BUCKET_URL}/website/testimonials/skip.jpeg`}
 					hiddenTitle
 					noAnimation
 					className="mb-12 !mt-6"

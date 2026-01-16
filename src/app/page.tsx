@@ -8,6 +8,7 @@ import PatternSection from '@/components/sections/PatternSection';
 import Quote from '@/components/sections/Quote';
 import Tools from '@/components/sections/Tools';
 import WorkShowcase from '@/components/sections/WorkShowcase';
+import { BUCKET_URL } from '@/lib/utils';
 
 export default async function Home() {
 	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
@@ -102,7 +103,7 @@ export default async function Home() {
 					quote="Vlad was quick, professional and well-priced. I'm extremely happy with the website updates he made. Thanks, Vlad :) Look forward to working with you again soon."
 					name="Barnaby Davies"
 					profession="Business Owner of EastGuidesWest Tourism Consultancy"
-					avatar="https://media.licdn.com/dms/image/v2/C4D03AQF1RDe565sjaQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1517043188756?e=1769644800&v=beta&t=7IexaYriruGOOKykkHUST9sA1BYk3DjLEHKbKZthKnk"
+					avatar={`${BUCKET_URL}/website/testimonials/barnaby.jpeg`}
 					className="mt-16 md:mt-40"
 				/>
 				<Tools />
