@@ -49,7 +49,7 @@ export default function FloatingBookButton() {
 	return (
 		<Link
 			href="/book-a-call"
-			className={`fixed md:bottom-6 md:right-6 bottom-2 right-3 z-50 flex items-center gap-2.5 rounded-full md:pr-5 md:pl-4 pl-3 pr-4 md:py-3 py-2 shadow-md md:shadow-xl shadow-gray-900/10 dark:shadow-gray-900/40 backdrop-blur-md bg-background/70 dark:bg-gray-900/80 border border-gray-200 dark:border-gray-700/20 border-slate-200 transition-all duration-300 hover:scale-105 active:scale-95 ${visible ? 'animate-toast-in' : 'animate-toast-out'}`}
+			className={`fixed md:bottom-6 md:right-6 bottom-2 right-3 z-50 flex items-center gap-2.5 rounded-full md:pr-5 md:pl-4 pl-3 pr-4 md:py-3 py-2 shadow-md md:shadow-xl shadow-gray-900/10 dark:shadow-gray-900/40 backdrop-blur-md bg-background/70 dark:bg-gray-900/80 border border-gray-300 dark:border-gray-700/20 border-slate-200 transition-all duration-300 hover:scale-105 active:scale-95 ${visible ? 'animate-toast-in' : 'animate-toast-out'}`}
 		>
 			<Image
 				src={AVATAR_URL}
