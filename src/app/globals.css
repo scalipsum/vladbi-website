@@ -169,4 +169,9 @@
 	.animate-marquee-right {
 		animation: marquee-right 60s linear infinite;
 	}
+
+	/* Hide Cal.com floating button on desktop */
+	[data-cal-namespace='project-discovery'] {
+		display: none !important;
+	}
 }

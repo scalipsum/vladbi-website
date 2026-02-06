@@ -6,8 +6,8 @@ export default function Quiz() {
 	return (
 		<div className="pb-24">
 			<Header
-				title="Your Product Quiz"
-				subTitle="Let's begin our partnership."
+				title="Tell us about your vision"
+				subTitle="And let's build it together."
 			/>
 			<TightContentLayout className="px-4 md:px-0">
 				<QuizIframeCard

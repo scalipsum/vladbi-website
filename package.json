@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@hookform/resolvers": "^5.0.1",
     "@notion-render/client": "^0.0.2",
     "@notionhq/client": "^3.1.3",

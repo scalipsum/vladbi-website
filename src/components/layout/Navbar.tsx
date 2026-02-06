@@ -79,25 +79,27 @@ export default function Navbar() {
 
 					{/* Right side - Product Quiz Button and Theme Toggle */}
 					<div className="flex items-center space-x-4">
-						<Button
-							asChild
-							className="-mt-1 pt-2 h-9 hidden sm:block"
-							size="sm"
-						>
-							<Link
-								href="/quiz"
-								onClick={() =>
-									posthog.capture('navbar_quiz_clicked', {
-										button_text: 'Book a call',
-										source: 'navbar_desktop',
-									})
-								}
-								className="!flex !flex-row items-center gap-1 !pr-4"
+						<div className="hidden md:flex">
+							<Button
+								asChild
+								className="-mt-1 pt-2 h-9"
+								size="sm"
 							>
-								<ChevronRight className="w-4 h-4 -mt-1" />
-								<span className="-mt-1">Book a call</span>
-							</Link>
-						</Button>
+								<Link
+									href="/quiz"
+									onClick={() =>
+										posthog.capture('navbar_quiz_clicked', {
+											button_text: 'Book a call',
+											source: 'navbar_desktop',
+										})
+									}
+									className="!flex !flex-row items-center gap-1 !pr-4"
+								>
+									<ChevronRight className="w-4 h-4 -mt-1" />
+									<span className="-mt-1">Book a call</span>
+								</Link>
+							</Button>
+						</div>
 						<ThemeToggle />
 
 						{/* Mobile Menu */}
