@@ -43,6 +43,15 @@ const nextConfig: NextConfig = {
 			},
 		];
 	},
+	async redirects() {
+		return [
+			{
+				source: '/quiz',
+				destination: '/book-a-call',
+				permanent: true,
+			},
+		];
+	},
 	// Required to support PostHog trailing slash API requests
 	skipTrailingSlashRedirect: true,
 };

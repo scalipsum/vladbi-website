@@ -27,7 +27,7 @@ export default function ServicePageLayout({
 	ctaTitle = "Let's get started",
 	ctaSubtitle,
 	ctaButtonText = '> Book a call',
-	ctaHref = '/quiz',
+	ctaHref = '/book-a-call',
 	hiddenPattern,
 	hiddenCta,
 	layoutClassName,

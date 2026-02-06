@@ -10,11 +10,11 @@ const AVATAR_URL =
 export default function FloatingBookButton() {
 	const pathname = usePathname();
 
-	if (pathname === '/quiz') return null;
+	if (pathname === '/book-a-call') return null;
 
 	return (
 		<Link
-			href="/quiz"
+			href="/book-a-call"
 			className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 rounded-full bg-brand-500 pr-5 pl-4 py-4 text-white shadow-lg transition-transform hover:scale-105 active:scale-95"
 		>
 			<Image

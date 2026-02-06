@@ -67,7 +67,7 @@ export default function GetStarted() {
 								</Text>
 								<Button asChild className="mt-6">
 									<Link
-										href="/quiz"
+										href="/book-a-call"
 										onClick={() =>
 											posthog.capture(
 												'quiz_cta_clicked',

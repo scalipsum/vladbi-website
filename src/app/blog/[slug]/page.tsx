@@ -136,7 +136,7 @@ export default async function PostPage({ params }: PostPageProps) {
 							? `> Book a call`
 							: 'View Case Studies'
 					}
-					ctaHref={post.slug === 'my-story' ? '/quiz' : '/products'}
+					ctaHref={post.slug === 'my-story' ? '/book-a-call' : '/products'}
 					headerBackgroundUrl={post.coverImage}
 					headerTextColor="white"
 					layoutClassName="relative overflow-visible mt-0 mb-0 pb-0"

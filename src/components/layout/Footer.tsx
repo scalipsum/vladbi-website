@@ -19,7 +19,7 @@ export default function Footer() {
 		'How I build AI Automation': '/services/ai-automation',
 	};
 	const column3Links = {
-		'Take the project quiz': '/quiz',
+		'Take the project quiz': '/book-a-call',
 	};
 	const column4Links = {
 		'AI Meal Planner': '/products/iqmeals',

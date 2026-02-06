@@ -86,7 +86,7 @@ export default function Navbar() {
 								size="sm"
 							>
 								<Link
-									href="/quiz"
+									href="/book-a-call"
 									onClick={() =>
 										posthog.capture('navbar_quiz_clicked', {
 											button_text: 'Book a call',
@@ -153,7 +153,7 @@ export default function Navbar() {
 
 									<Button asChild>
 										<Link
-											href="/quiz"
+											href="/book-a-call"
 											onClick={() => {
 												setIsSheetOpen(false);
 												posthog.capture(
