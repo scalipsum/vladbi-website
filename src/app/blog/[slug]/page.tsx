@@ -123,12 +123,12 @@ export default async function PostPage({ params }: PostPageProps) {
 					title={post.title}
 					ctaTitle={
 						post.slug === 'my-story'
-							? 'Book a call'
+							? 'Tell us about your idea'
 							: 'View My Work'
 					}
 					ctaSubtitle={
 						post.slug === 'my-story'
-							? "Let's talk about your vision and your project."
+							? 'Eager to build your vision with you.'
 							: 'Great ideas turned into Real Products'
 					}
 					ctaButtonText={

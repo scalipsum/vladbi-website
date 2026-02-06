@@ -13,8 +13,8 @@ export default function Quiz() {
 	return (
 		<div className="pb-24">
 			<Header
-				title="Tell us about your idea"
-				subTitle="Let's build it together."
+				title="Book a call"
+				subTitle="Have an idea? Let's build it together."
 			/>
 			<TightContentLayout className="px-4 md:px-0">
 				{/* <QuizIframeCard

@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import FloatingBookButton from '../elements/FloatingBookButton';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
@@ -12,6 +13,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
 			<Navbar />
 			<main className="flex-1">{children}</main>
 			<Footer />
+			<FloatingBookButton />
 		</div>
 	);
 }
