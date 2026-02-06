@@ -170,3 +170,33 @@
 		animation: marquee-right 60s linear infinite;
 	}
 }
+
+@keyframes toast-in {
+	0% {
+		opacity: 0;
+		transform: translateY(100%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes toast-out {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(100%);
+	}
+}
+
+.animate-toast-in {
+	animation: toast-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-toast-out {
+	animation: toast-out 0.3s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+}
