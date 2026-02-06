@@ -2,6 +2,7 @@
 
 import Text from '@/components/ui/text';
 import { motion, useInView } from 'framer-motion';
+import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import posthog from 'posthog-js';
@@ -48,7 +49,7 @@ export default function GetStarted() {
 				{/* Section title */}
 				<div className="flex justify-center">
 					<div className="inline-block">
-						<Text type="h2">How we work</Text>
+						<Text type="h2">How we start</Text>
 						<div className="h-1.5 bg-brand rounded-full w-full self-center mt-2.5" />
 					</div>
 				</div>
@@ -58,11 +59,11 @@ export default function GetStarted() {
 					<AnimatedStep>
 						<TimelineItem className="md:mt-20 mt-12" active>
 							<div className="flex-1">
-								<Text type="h3">1. Your product quiz</Text>
+								<Text type="h3">1. Book an intro call</Text>
 								<Text className="mt-4">
-									Simple questions around your project and
-									vision to have basic understanding of what
-									you're trying to build (3 minutes).
+									Simple questions around your project,
+									guidance on the best technical approach,
+									first-look estimates & timeline.
 								</Text>
 								<Button asChild className="mt-6">
 									<Link
@@ -71,15 +72,16 @@ export default function GetStarted() {
 											posthog.capture(
 												'quiz_cta_clicked',
 												{
-													button_text:
-														'Complete the quiz',
-													source: 'get_started_timeline',
+													button_text: 'Book a call',
+													source: 'book_a_call_timeline',
 													step: 1,
 												},
 											)
 										}
+										className="!pr-4"
 									>
-										Complete the quiz
+										<ChevronRight className="w-4 h-4" />
+										Book a call
 									</Link>
 								</Button>
 							</div>
@@ -100,20 +102,20 @@ export default function GetStarted() {
 									type="h3"
 									className="text-gray-600 dark:text-gray-200"
 								>
-									2. Discovery Call
+									2. Receive a Proposal
 								</Text>
 								<Text className="mt-6">
-									We clarify the project in a more meaningful
-									way, guide you on the best technical
-									approach, give rough estimates & timeline.
+									Written details about the project, solutions
+									for the challanges that we'll face,
+									timeline, cost, terms & conditions.
 								</Text>
 							</div>
 							<Image
-								src={`${BUCKET_URL}/OG%202%20copy.webp`}
-								alt="Discovery call illustration"
+								src={`${BUCKET_URL}/646%20(3).png`}
+								alt="Sign and start working illustration"
 								width={288}
 								height={192}
-								className="h-52 w-72 rounded-md object-cover object-bottom md:flex-1"
+								className="h-52 w-72 rounded-md object-cover object-middle md:flex-1 border border-slate-200 bg-white"
 							/>
 						</TimelineItem>
 					</AnimatedStep>
@@ -125,21 +127,21 @@ export default function GetStarted() {
 									type="h3"
 									className="text-gray-600 dark:text-gray-200"
 								>
-									3. Launch in 3-6 weeks
+									3. Get started
 								</Text>
 								<Text className="mt-8">
-									You will receive a proposal which outlines
-									what we've discussed, project details, ways
-									of working, deadline and cost. Once signed,
-									our collaboration officially starts.
+									A typical MVP build takes between 4-6 weeks,
+									depending on complexity. My intention is to
+									always launch a product fast, but to never
+									compromise the quality of it.
 								</Text>
 							</div>
 							<Image
-								src={`${BUCKET_URL}/646%20(3).png`}
-								alt="Sign and start working illustration"
+								src={`${BUCKET_URL}/OG%202%20copy.webp`}
+								alt="Discovery call illustration"
 								width={288}
 								height={192}
-								className="h-52 w-72 rounded-md object-cover object-middle md:flex-1 border border-slate-200 bg-white"
+								className="h-52 w-72 rounded-md object-cover object-bottom md:flex-1"
 							/>
 						</TimelineItem>
 					</AnimatedStep>

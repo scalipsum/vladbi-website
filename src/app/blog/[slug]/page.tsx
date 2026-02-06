@@ -123,17 +123,17 @@ export default async function PostPage({ params }: PostPageProps) {
 					title={post.title}
 					ctaTitle={
 						post.slug === 'my-story'
-							? 'Tell me about your project'
+							? 'Book a call'
 							: 'View My Work'
 					}
 					ctaSubtitle={
 						post.slug === 'my-story'
-							? "And let's build your vision."
+							? "Let's talk about your vision and your project."
 							: 'Great ideas turned into Real Products'
 					}
 					ctaButtonText={
 						post.slug === 'my-story'
-							? 'Take the product quiz'
+							? `> Book a call`
 							: 'View Case Studies'
 					}
 					ctaHref={post.slug === 'my-story' ? '/quiz' : '/products'}
@@ -210,23 +210,23 @@ export default async function PostPage({ params }: PostPageProps) {
 									className="!mt-0 mb-24"
 								/>
 								<Text type="h2" className="text-center mb-12">
-									Building for Founders
+									Building MVPs for founders
 								</Text>
 								<Text className="mt-4 text-lg leading-relaxed mb-3.5 text-foreground font-sans text-center">
-									Today, I’m building products independetly
-									for leaders with a big vision. Same passion,
+									Today, I’m building products as a partner
+									for founders with a vision. Same passion,
 									same dedication, focused on private work. I
-									work with companies who want to build
-									projects that push the envelope further.
-									Weather that’s on AI, Web or Mobile.
+									work with people who want to build projects
+									that push the envelope further. Weather
+									that’s on AI, Web or Mobile.
 								</Text>
 								<Text
 									type="h3"
 									className="mt-16 md:mt-24 !text-3xl text-center md:text-left"
 								>
-									Some of my work
+									My work
 								</Text>
-								<AllProducts className="md:mt-14 mt-2 md:gap-32 gap-10" />
+								<AllProducts className="md:mt-8 mt-2 md:gap-32 gap-10" />
 							</>
 						)}
 					</TightContentLayout>

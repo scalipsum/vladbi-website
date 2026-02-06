@@ -19,7 +19,7 @@ export default function CallToAction({
 	title = 'Hello',
 	subtitle,
 	className,
-	buttonText = 'Take the product quiz',
+	buttonText = '> Book a call',
 	href,
 }: CallToActionProps) {
 	const handleCtaClick = () => {

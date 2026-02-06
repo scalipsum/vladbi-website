@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Menu } from 'lucide-react';
+import { ChevronRight, Menu } from 'lucide-react';
 import Link from 'next/link';
 import posthog from 'posthog-js';
 import { useEffect, useState } from 'react';
@@ -88,12 +88,14 @@ export default function Navbar() {
 								href="/quiz"
 								onClick={() =>
 									posthog.capture('navbar_quiz_clicked', {
-										button_text: 'Your Product Quiz',
+										button_text: 'Book a call',
 										source: 'navbar_desktop',
 									})
 								}
+								className="!flex !flex-row items-center gap-1 !pr-4"
 							>
-								Your Product Quiz
+								<ChevronRight className="w-4 h-4 -mt-1" />
+								<span className="-mt-1">Book a call</span>
 							</Link>
 						</Button>
 						<ThemeToggle />
@@ -162,7 +164,7 @@ export default function Navbar() {
 												);
 											}}
 										>
-											Your Product Quiz
+											{'> Book a call'}
 										</Link>
 									</Button>
 								</div>

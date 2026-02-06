@@ -6,7 +6,7 @@ export const contentType = 'image/png';
 
 export default async function Image() {
 	return generateOGImage({
-		title: 'Your Product Quiz',
+		title: 'Book a call',
 		subtitle: 'Get Started',
 		description: 'The beginning of a long-term partnership.',
 	});

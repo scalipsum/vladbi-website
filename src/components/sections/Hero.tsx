@@ -50,22 +50,24 @@ export default function Hero() {
 					Building MVPs <br /> for mission-driven founders
 				</Text>
 				<Text className="text-center md:text-left mt-8">
-					Your technical partner to build and launch{' '}
+					Technical partner to design, build and launch{' '}
 					<br className="hidden md:block" />
 					products that scale globally.
 				</Text>
-				<Button
-					className="mt-8"
-					onClick={async () => {
-						scrolltoHash('showcase');
-						await posthog.capture('hero_cta_clicked', {
-							button_text: 'Learn more',
-							destination: '#showcase',
-						});
-					}}
-				>
-					Learn More
-				</Button>
+				<div className="flex flex-row gap-2">
+					<Button
+						className="mt-8"
+						onClick={async () => {
+							scrolltoHash('showcase');
+							await posthog.capture('hero_cta_clicked', {
+								button_text: 'Learn more',
+								destination: '#showcase',
+							});
+						}}
+					>
+						Learn more
+					</Button>
+				</div>
 			</motion.div>
 
 			<div className="relative">

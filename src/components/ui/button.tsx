@@ -16,7 +16,7 @@ const buttonVariants = cva(
 				outline:
 					'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',
 				secondary:
-					'bg-white text-brand-600 rounded-lg shadow-[0_6px_0_0_#809BAF] dark:shadow-[0_6px_0_0_#33729A] hover:shadow-[0_8px_0_0_#809BAF] dark:hover:shadow-[0_8px_0_0_#33729A] hover:translate-y-[-2px] active:shadow-[0_0px_0_0_#809BAF] dark:active:shadow-[0_0px_0_0_#33729A] dark:hover:translate-y-[-2px]  active:translate-y-[6px] dark:active:translate-y-[6px] transition-all duration-150',
+					'bg-white text-brand-600 border border-[#809BAF] rounded-lg shadow-[0_6px_0_0_#809BAF] dark:shadow-[0_6px_0_0_#809BAF] hover:shadow-[0_8px_0_0_#809BAF] dark:hover:shadow-[0_8px_0_0_#33729A] hover:translate-y-[-2px] active:shadow-[0_0px_0_0_#809BAF] dark:active:shadow-[0_0px_0_0_#33729A] dark:hover:translate-y-[-2px]  active:translate-y-[6px] dark:active:translate-y-[6px] transition-all duration-150',
 				ghost: 'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
 				link: 'text-primary underline-offset-4 hover:underline',
 			},
