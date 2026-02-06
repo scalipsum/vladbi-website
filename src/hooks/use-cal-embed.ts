@@ -1,9 +1,12 @@
 'use client';
 
 import { getCalApi } from '@calcom/embed-react';
+import { useTheme } from 'next-themes';
 import { useEffect } from 'react';
 
 export function useCalEmbed({ enabled = true }: { enabled?: boolean } = {}) {
+	const { resolvedTheme } = useTheme();
+
 	useEffect(() => {
 		if (!enabled) return;
 		(async function () {
@@ -18,13 +21,14 @@ export function useCalEmbed({ enabled = true }: { enabled?: boolean } = {}) {
 				buttonColor: '#043e6d',
 			});
 			cal('ui', {
+				theme: resolvedTheme === 'dark' ? 'dark' : 'light',
 				cssVarsPerTheme: {
-					light: { 'cal-brand': '#292929' },
+					light: { 'cal-brand': '#043E6D' },
 					dark: { 'cal-brand': '#3da9fc' },
 				},
 				hideEventTypeDetails: false,
 				layout: 'month_view',
 			});
 		})();
-	}, []);
+	}, [enabled, resolvedTheme]);
 }
