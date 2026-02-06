@@ -48,10 +48,8 @@ export default function FloatingBookButton() {
 		<Link
 			ref={buttonRef}
 			href="/book-a-call"
-			className={`fixed bottom-6 right-6 z-50 flex items-center gap-2.5 rounded-full pr-5 pl-4 py-4 shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 ${
-				overCta
-					? 'bg-white text-black'
-					: 'bg-brand-500 text-white'
+			className={`fixed bottom-6 right-6 z-50 flex items-center gap-2.5 rounded-full pr-5 pl-4 py-3 shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 ${
+				overCta ? 'bg-black text-white' : 'bg-brand-500 text-white'
 			}`}
 		>
 			<Image
@@ -61,7 +59,7 @@ export default function FloatingBookButton() {
 				height={36}
 				className="rounded-full"
 			/>
-			<span className="font-main text-[15px]">Book a call</span>
+			<span className="font-sans text-[15px]">Schedule a free call</span>
 		</Link>
 	);
 }
