@@ -63,7 +63,7 @@ export default function GetStarted() {
 								<Text className="mt-4">
 									Simple questions around your project,
 									guidance on the best technical approach,
-									first-look estimates & timeline.
+									first-look estimates & timeline (30 mins).
 								</Text>
 								<Button asChild className="mt-6">
 									<Link
