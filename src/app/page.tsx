@@ -21,7 +21,7 @@ export default async function Home() {
 		url: siteUrl,
 		logo: `${siteUrl}/opengraph-image.png`,
 		description:
-			'Your technical partner to design, build and launch products that scale globally.',
+			'Your technical partner to build and launch products that scale globally.',
 		sameAs: ['https://youtube.com/@vladbi'],
 	};
 
@@ -31,7 +31,7 @@ export default async function Home() {
 		name: 'VladBi',
 		url: siteUrl,
 		description:
-			'Your technical partner to design, build and launch products that scale globally.',
+			'Your technical partner to build and launch products that scale globally.',
 		potentialAction: {
 			'@type': 'SearchAction',
 			target: {

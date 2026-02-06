@@ -47,10 +47,10 @@ export default function Hero() {
 				className="w-full md:max-w-1/2 z-10 pt-10 md:pt-0 flex flex-col items-center md:items-start"
 			>
 				<Text type="h1" className="text-center md:text-left">
-					Building SaaS <br /> for mission-driven startups
+					Building MVPs <br /> for mission-driven founders
 				</Text>
 				<Text className="text-center md:text-left mt-8">
-					Your technical partner to design, build and launch{' '}
+					Your technical partner to build and launch{' '}
 					<br className="hidden md:block" />
 					products that scale globally.
 				</Text>
@@ -59,7 +59,7 @@ export default function Hero() {
 					onClick={async () => {
 						scrolltoHash('showcase');
 						await posthog.capture('hero_cta_clicked', {
-							button_text: 'Get Started',
+							button_text: 'Learn more',
 							destination: '#showcase',
 						});
 					}}

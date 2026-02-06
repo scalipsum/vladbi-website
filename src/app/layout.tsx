@@ -26,15 +26,15 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vladbi.com';
 export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
 	title: {
-		default: 'VladBi - Building SaaS for mission-driven startups',
+		default: 'VladBi - Building MVPs for mission-driven founders',
 		template: `%s | VladBi`,
 	},
 	description:
-		'Your technical partner to design, build and launch products that scale globally.',
+		'Your technical partner to build and launch products that scale globally.',
 	openGraph: {
-		title: 'VladBi - Building SaaS for mission-driven startups',
+		title: 'VladBi - Building MVPs for mission-driven founders',
 		description:
-			'Your technical partner to design, build and launch products that scale globally.',
+			'Your technical partner to build and launch products that scale globally.',
 		url: siteUrl,
 		siteName: 'VladBi',
 		images: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 				url: `${siteUrl}/opengraph-image.png`,
 				width: 1200,
 				height: 630,
-				alt: 'VladBi - Building SaaS for mission-driven startups',
+				alt: 'VladBi - Building MVPs for mission-driven founders',
 			},
 		],
 		locale: 'en_US',
