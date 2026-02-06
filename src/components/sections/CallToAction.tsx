@@ -32,6 +32,7 @@ export default function CallToAction({
 
 	return (
 		<PatternSection
+			data-cta-section
 			className={cn('bg-brand-500', !subtitle && 'py-18', className)}
 		>
 			<Text type="h2" className="text-center text-white">
