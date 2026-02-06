@@ -2,6 +2,13 @@ import ServicePageLayout from '@/components/layout/ServicePageLayout';
 import { Card } from '@/components/ui/card';
 import Text from '@/components/ui/text';
 import WaveLine from '@/components/ui/wave-line';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: 'AI Automation',
+	description:
+		'AI automation process. Repetitive work, fully automated.',
+};
 
 export default async function AiAutomationProducts() {
 	return (

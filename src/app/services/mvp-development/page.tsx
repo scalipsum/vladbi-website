@@ -2,8 +2,15 @@ import ServicePageLayout from '@/components/layout/ServicePageLayout';
 import { Card } from '@/components/ui/card';
 import Text from '@/components/ui/text';
 import WaveLine from '@/components/ui/wave-line';
+import { Metadata } from 'next';
 
-export default async function SaasProducts() {
+export const metadata: Metadata = {
+	title: 'MVP Development',
+	description:
+		'Web and mobile app development process. From discovery to launch.',
+};
+
+export default async function MvpDevelopment() {
 	return (
 		<ServicePageLayout
 			title="SaaS Products"

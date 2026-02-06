@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 		title: 'Services | VladBi',
 		description: 'Expert in building MVPs & AI Automation.',
 		type: 'website',
-		url: `${siteUrl}/products`,
+		url: `${siteUrl}/services`,
 	},
 	twitter: {
 		card: 'summary_large_image',
@@ -34,7 +34,7 @@ export default async function Services() {
 					subtitle="Web and Mobile Apps"
 					description="Products built to produce revenue."
 					ctaText="View the process"
-					href="/services/saas-products"
+					href="/services/mvp-development"
 					className="mt-4 dark:border-brand-500 border-slate-300 border-b-0"
 				/>
 				<AutomationPreviewCard

@@ -50,6 +50,11 @@ const nextConfig: NextConfig = {
 				destination: '/book-a-call',
 				permanent: true,
 			},
+			{
+				source: '/services/saas-products',
+				destination: '/services/mvp-development',
+				permanent: true,
+			},
 		];
 	},
 	// Required to support PostHog trailing slash API requests

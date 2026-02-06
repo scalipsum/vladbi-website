@@ -15,7 +15,7 @@ export default function Footer() {
 		'My story': '/blog/my-story',
 	};
 	const column2Links = {
-		'How I build Mobile / Web Apps': '/services/saas-products',
+		'How I build Mobile / Web Apps': '/services/mvp-development',
 		'How I build AI Automation': '/services/ai-automation',
 	};
 	const column3Links = {
