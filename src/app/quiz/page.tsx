@@ -1,29 +1,13 @@
 'use client';
 
-import Cal, { getCalApi } from '@calcom/embed-react';
-import { useTheme } from 'next-themes';
-import { useEffect } from 'react';
+import Cal from '@calcom/embed-react';
 // import QuizIframeCard from '@/components/elements/QuizIframeCard';
+import { useCalEmbed } from '@/hooks/use-cal-embed';
 import Header from '@/components/layout/Header';
 import TightContentLayout from '@/components/layout/TightContentLayout';
 
 export default function Quiz() {
-	const { resolvedTheme } = useTheme();
-
-	useEffect(() => {
-		(async function () {
-			const cal = await getCalApi({ namespace: 'project-discovery' });
-			cal('ui', {
-				theme: resolvedTheme === 'dark' ? 'dark' : 'light',
-				cssVarsPerTheme: {
-					light: { 'cal-brand': '#043E6D' },
-					dark: { 'cal-brand': '#3da9fc' },
-				},
-				hideEventTypeDetails: false,
-				layout: 'month_view',
-			});
-		})();
-	}, [resolvedTheme]);
+	useCalEmbed();
 
 	return (
 		<div className="pb-24">

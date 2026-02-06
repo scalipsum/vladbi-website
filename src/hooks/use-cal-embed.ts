@@ -4,22 +4,12 @@ import { getCalApi } from '@calcom/embed-react';
 import { useTheme } from 'next-themes';
 import { useEffect } from 'react';
 
-export function useCalEmbed({ enabled = true }: { enabled?: boolean } = {}) {
+export function useCalEmbed() {
 	const { resolvedTheme } = useTheme();
 
 	useEffect(() => {
-		if (!enabled) return;
 		(async function () {
 			const cal = await getCalApi({ namespace: 'project-discovery' });
-			cal('floatingButton', {
-				calLink: 'vladbi/project-discovery',
-				config: {
-					layout: 'month_view',
-					useSlotsViewOnSmallScreen: 'true',
-				},
-				buttonText: 'Book a call',
-				buttonColor: '#043e6d',
-			});
 			cal('ui', {
 				theme: resolvedTheme === 'dark' ? 'dark' : 'light',
 				cssVarsPerTheme: {
@@ -30,5 +20,5 @@ export function useCalEmbed({ enabled = true }: { enabled?: boolean } = {}) {
 				layout: 'month_view',
 			});
 		})();
-	}, [enabled, resolvedTheme]);
+	}, [resolvedTheme]);
 }
