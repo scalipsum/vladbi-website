@@ -2,9 +2,10 @@
 
 import Cal from '@calcom/embed-react';
 // import QuizIframeCard from '@/components/elements/QuizIframeCard';
-import { useCalEmbed } from '@/hooks/use-cal-embed';
 import Header from '@/components/layout/Header';
 import TightContentLayout from '@/components/layout/TightContentLayout';
+import { Card } from '@/components/ui/card';
+import { useCalEmbed } from '@/hooks/use-cal-embed';
 
 export default function Quiz() {
 	useCalEmbed();
@@ -20,19 +21,25 @@ export default function Quiz() {
 					src="https://app.youform.com/forms/rqkp9ydg"
 					className="md:h-[670px] h-[600px]"
 				/> */}
-				<Cal
-					namespace="project-discovery"
-					calLink="vladbi/project-discovery"
-					style={{
-						width: '100%',
-						height: '100%',
-						overflow: 'scroll',
-					}}
-					config={{
-						layout: 'month_view',
-						useSlotsViewOnSmallScreen: 'true',
-					}}
-				/>
+				<Card
+					className="w-full overflow-y-hidden mb-24 !shadow-none"
+					noHover
+				>
+					<Cal
+						namespace="project-discovery"
+						calLink="vladbi/project-discovery"
+						className="-mb-24"
+						style={{
+							width: '100%',
+							height: '100%',
+							overflow: 'scroll',
+						}}
+						config={{
+							layout: 'month_view',
+							useSlotsViewOnSmallScreen: 'true',
+						}}
+					/>
+				</Card>
 			</TightContentLayout>
 		</div>
 	);
