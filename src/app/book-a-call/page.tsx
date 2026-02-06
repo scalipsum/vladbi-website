@@ -28,7 +28,7 @@ export default function Quiz() {
 					<Cal
 						namespace="project-discovery"
 						calLink="vladbi/project-discovery"
-						className="-mb-24"
+						className="md:-mb-24 -mb-6"
 						style={{
 							width: '100%',
 							height: '100%',
