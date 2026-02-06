@@ -60,7 +60,7 @@ export default function FloatingBookButton() {
 		<Link
 			ref={buttonRef}
 			href="/book-a-call"
-			className={`fixed bottom-6 right-6 z-50 flex items-center gap-2.5 rounded-full pr-5 pl-4 py-3 shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 ${
+			className={`fixed md:bottom-6 md:right-6 bottom-3 right-3 z-50 flex items-center gap-2.5 rounded-full pr-5 pl-4 py-3 shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 ${
 				overCta ? 'bg-black text-white' : 'bg-brand-500 text-white'
 			} ${visible ? 'animate-toast-in' : 'animate-toast-out'}`}
 		>
