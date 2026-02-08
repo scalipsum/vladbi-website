@@ -59,7 +59,7 @@ export default function FloatingBookButton() {
 				className="rounded-full"
 			/>
 			<span className="font-sans text-sm md:text-[15px] text-black dark:text-brand font-extrabold">
-				Book a free call
+				Book a call
 			</span>
 		</Link>
 	);
